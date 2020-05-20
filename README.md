@@ -6,7 +6,7 @@ Record my learning path in leetcode, including my submissions and others
 
 ## Leetcode Problem
 
-### Easy (By Frequency)
+#### Easy (By Frequency)
 
 | # | Title | Solution | Basic idea (One line) |
 |---| ----- | -------- | --------------------- |
