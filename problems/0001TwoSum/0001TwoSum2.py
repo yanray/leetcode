@@ -1,6 +1,5 @@
 """
 leetcode 0002 TwoSum
-My submission
 
 Version: 1.1 
 Author:  Yanrui 
