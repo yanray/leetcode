@@ -1,10 +1,12 @@
 ## TwoSum
 
-### Web Link
+### Problem Link
+https://leetcode.com/problems/two-sum/
 
-### Problem Description
+### Problem Description 
 
-### How to solve 
+
+### 解题思路
 
 ### Code (python)
 
