@@ -20,7 +20,7 @@ return [0, 1].
 ```
 
 ### How to solve 
-
+根据target的值求差，寻找差值是否在array里
 
 
 ### Code (python)
