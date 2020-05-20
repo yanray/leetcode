@@ -1,11 +1,11 @@
-# TwoSum
+## TwoSum
 
-## Web Link
+### Web Link
 
-## Description
+### Problem Description
 
-## How to solve 
+### How to solve 
 
-## Code (python)
+### Code (python)
 
 
