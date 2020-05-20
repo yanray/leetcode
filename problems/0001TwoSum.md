@@ -25,9 +25,7 @@ return [0, 1].
 
 ### Code (python)
 
-```diff
-+ My Submission
-```
+My Submission
 
 ```python
 for i in range(len(nums)):
@@ -37,9 +35,7 @@ for i in range(len(nums)):
             return [i, nums.index(diff)]
 ```
 
-```diff
-- Good Solution 1
-```
+Good Solution 1
 
 ```python
 h = {}
@@ -51,9 +47,7 @@ for i, num in enumerate(nums):
         return [h[n], i]
 ```
 
-```diff
-- Good Solution 2
-```
+Good Solution 2
 
 ```python
 hashtable = {};
