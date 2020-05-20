@@ -8,8 +8,8 @@ Record my learning path in leetcode, including my submissions and others
 
 #### Easy (By Frequency)
 
-| # | Title | Tag | Solution | 
-|---| ----- | --- | -------- | 
+| # | Title | Tag | Solution1 | 
+|---| ----- | --- | --------- | 
 | 0001 | [TwoSum](https://leetcode.com/problems/two-sum/) | Array, Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum.md) | 
 
 
