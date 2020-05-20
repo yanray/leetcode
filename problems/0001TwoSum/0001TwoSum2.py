@@ -1,5 +1,5 @@
 """
-leetcode 0001 TwoSum
+leetcode 0002 TwoSum
 My submission
 
 Version: 1.1 
@@ -12,11 +12,16 @@ class Solution:
     def twoSum(self, nums, target):
         hashtable = {}
         for i, num in enumerate(nums):
+            # print('i', i)
+            # print('num', num)
             diff = target - num;
             if diff not in hashtable:
-                hashtable[num] = i
-            else
-                return [hashtable[num], i]
+                hashtable[num] = i          # save as dictionary
+            else:
+                # print('hashtable', hashtable)
+                # print('diff', diff)
+                # print('hashtable[diff]', hashtable[diff])
+                return [hashtable[diff], i]
 
 
 if __name__ == '__main__':
