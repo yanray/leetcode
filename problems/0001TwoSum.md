@@ -25,24 +25,41 @@ return [0, 1].
 
 ### Code (python)
 
-<div class="text-white bg-blue mb-2">
-    My Submission
-</div>
+```diff
++ My Submission
+```
 
 ```python
-    for 
-
+for i in range(len(nums)):
+    diff = target - nums[i]
+    if diff in nums:
+        if i != nums.index(diff):
+            return [i, nums.index(diff)]
 ```
-
 
 ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
+- Good Solution 1
 ```
 
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `#f03c15`
-- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `#c5f015`
-- ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) `#1589F0`
+```python
+h = {}
+for i, num in enumerate(nums):
+    n = target - num
+    if n not in h:
+        h[num] = i
+    else:
+        return [h[n], i]
+```
 
+```diff
+- Good Solution 2
+```
+
+```python
+hashtable = {};
+for i in range(len(nums)):
+    if nums[i] not in hashtable:
+        hashtable[target-(nums[i])] = i;
+    else:
+        return [hashtable[nums[i]], i];
+```
