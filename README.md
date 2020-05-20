@@ -1,10 +1,10 @@
-# leetcode
- record my leetcode learning 
+# Leetcode
 
 ## Introduction 
 
-Record my learning path in leetcode.
+Record my learning path in leetcode, including my submissions and others
 
 ## Leetcode Problem
 
-1. TwoSum
+### Easy (By Frequency)
+[0001. TwoSum] 
