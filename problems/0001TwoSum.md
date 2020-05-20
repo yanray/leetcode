@@ -28,8 +28,9 @@ return [0, 1].
 <div class="text-white bg-blue mb-2">
     My Submission
 </div>
-```python
 
+```python
+    for 
 
 ```
 
