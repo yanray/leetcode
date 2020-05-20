@@ -9,19 +9,9 @@ date: 	 5/20/2020
 
 class Solution:
     def isValid(self, s):
-      left = ['(', '{', '[']
-      right = [')', '}', ']']
-      Stack = []
-      for letter in s:
-        if letter in left:
-          Stack.append(letter)
-        elif letter in right:
-          if len(Stack) <= 0:
-            return False
-          if left.index(Stack.pop()) != right.index(letter):
-              return False
-      return len(Stack) == 0
-
+        while '()'in s or '{}' in s or '[]' in s:
+          s = s.replace('()', '').replace('{}', '').replace('[]', '')
+        return s == ''
 
 
 if __name__ == '__main__':
