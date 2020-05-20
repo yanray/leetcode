@@ -10,11 +10,13 @@ date: 	 5/20/2020
 
 class Solution:
     def twoSum(self, nums, target):
-        for i in range(len(nums)):
-            diff = target - nums[i]
-            if diff in nums:
-                if i != nums.index(diff):
-                    return [i, nums.index(diff)]
+        hashtable = {}
+        for i, num in enumerate(nums):
+            diff = target - num;
+            if diff not in hashtable:
+                hashtable[num] = i
+            else
+                return [hashtable[num], i]
 
 
 if __name__ == '__main__':
