@@ -1,26 +1,62 @@
-## TwoSum
+## Valid Parentheses
 
 ### Problem Link
-https://leetcode.com/problems/two-sum/
+https://leetcode.com/problems/valid-parentheses/
 
 ### Problem Description 
 
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Note that an empty string is also considered valid.
 
 ```
-Example:
+Example1:
 
-Given nums = [2, 7, 11, 15], target = 9,
+Input: "()"
+Output: true
 
-Because nums[0] + nums[1] = 2 + 7 = 9,
-return [0, 1].
+```
+
+```
+Example2:
+
+Input: "()[]{}"
+Output: true
+
+```
+
+```
+Example3:
+
+Input: "(]"
+Output: false
+
+```
+
+```
+Example4:
+
+Input: "([)]"
+Output: false
+
+```
+
+```
+Example5:
+
+Input: "{[]}"
+Output: true
 
 ```
 
 ### How to solve 
-根据target的值求差，寻找差值是否在array里
+创建一个Stack, 遍历输入的string, 如果是左括号就push到Stack, 如果是右括号就在Stack里pop一个值出来，看是否有相应的左括号，直到结束
+
+Better Solution: 不停的查询 '()', '[]', '{}', 并替换成'', 如果最终输入的string成为了empty string, 就是true, else false. 
 
 
 ### Code (python)
