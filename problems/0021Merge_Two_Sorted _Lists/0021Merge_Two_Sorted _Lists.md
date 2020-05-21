@@ -11,8 +11,8 @@ Merge two sorted linked lists and return it as a new list. The new list should b
 ```
 Example1:
 
-**Input**: 1->2->4, 1->3->4
-**Output**:  1->1->2->3->4->4
+Input: 1->2->4, 1->3->4
+Output:  1->1->2->3->4->4
 
 ```
 
@@ -20,7 +20,7 @@ Example1:
 ### How to solve 
 创建一个新的Linked list, 每次判断l1和l2第一个node的值的大小，不断的插入最小的值，直到l1和l2有一个为空，再把剩下的值都加到新的linekd list
 
-**Dynamic Programing: **
+**Dynamic Programing:**
 list1[0]+merge(list1[1:],list2)  if list1[0]<list2[0]
 list2[0]+merge(list1,list2[1:])  otherwise
 
@@ -51,7 +51,7 @@ else:
 return dummy.next
 ```
 
-[DP](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
+[Dynamic Programing](https://github.com/yanray/leetcode/blob/master/problems/0021Merge_Two_Sorted%20_Lists/0021Merge_Two_Sorted%20_Lists2.py)
 
 ```python
 if l1 is None:
