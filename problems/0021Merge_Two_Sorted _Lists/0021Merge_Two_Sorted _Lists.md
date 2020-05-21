@@ -5,26 +5,21 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 
 ### Problem Description 
 
-Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 
 
 ```
 Example1:
 
-Input: 1->2->4, 1->3->4
-Output:  1->1->2->3->4->4
+Input: [-2,1,-3,4,-1,2,1,-5,4],
+Output: 6
+Explanation: [4,-1,2,1] has the largest sum = 6.
 
 ```
 
 
 ### How to solve 
-创建一个新的Linked list, 每次判断l1和l2第一个node的值的大小，不断的插入最小的值，直到l1和l2有一个为空，再把剩下的值都加到新的linekd list
 
-**Dynamic Programing:**
-
-list1[0]+merge(list1[1:],list2)  if list1[0]<list2[0]
-
-list2[0]+merge(list1,list2[1:])  otherwise
 
 ​
 
