@@ -30,7 +30,7 @@ list2[0]+merge(list1,list2[1:])  otherwise
 
 ### Code (python)
 
-[My Submission](https://github.com/yanray/leetcode/blob/master/problems/0021Merge_Two_Sorted%20_Lists/0021Merge_Two_Sorted%20_Lists.py)
+[My Submission](https://github.com/yanray/leetcode/blob/master/problems/0021Merge_Two_Sorted%20_Lists/0021Merge_Two_Sorted%20_Lists1.py)
 
 ```python
 dummy = ListNode(None)
