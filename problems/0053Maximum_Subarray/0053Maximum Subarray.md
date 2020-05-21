@@ -19,13 +19,9 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
 
 
 ### How to solve 
-创建一个新的Linked list, 每次判断l1和l2第一个node的值的大小，不断的插入最小的值，直到l1和l2有一个为空，再把剩下的值都加到新的linekd list
 
-**Dynamic Programing:**
+Divide and Conquer: https://leetcode.com/explore/learn/card/recursion-ii/470/divide-and-conquer/2944/
 
-list1[0]+merge(list1[1:],list2)  if list1[0]<list2[0]
-
-list2[0]+merge(list1,list2[1:])  otherwise
 
 ​
 
