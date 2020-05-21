@@ -1,95 +1,67 @@
 ## Valid Parentheses
 
 ### Problem Link
-https://leetcode.com/problems/valid-parentheses/
+https://leetcode.com/problems/merge-two-sorted-lists/
 
 ### Problem Description 
 
-Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
 
-An input string is valid if:
-
-Open brackets must be closed by the same type of brackets.
-Open brackets must be closed in the correct order.
-Note that an empty string is also considered valid.
 
 ```
 Example1:
 
-Input: "()"
-Output: true
+**Input**: 1->2->4, 1->3->4
+**Output**:  1->1->2->3->4->4
 
 ```
 
-```
-Example2:
-
-Input: "()[]{}"
-Output: true
-
-```
-
-```
-Example3:
-
-Input: "(]"
-Output: false
-
-```
-
-```
-Example4:
-
-Input: "([)]"
-Output: false
-
-```
-
-```
-Example5:
-
-Input: "{[]}"
-Output: true
-
-```
 
 ### How to solve 
-创建一个Stack, 遍历输入的string, 如果是左括号就push到Stack, 如果是右括号就在Stack里pop一个值出来，看是否有相应的左括号，直到结束
+创建一个新的Linked list, 每次判断l1和l2第一个node的值的大小，不断的插入最小的值，直到l1和l2有一个为空，再把剩下的值都加到新的linekd list
 
-Better Solution: 不停的查询 '()', '[]', '{}', 并替换成'', 如果最终输入的string成为了empty string, 就是true, else false. 
+**Dynamic Programing: **
+list1[0]+merge(list1[1:],list2)  if list1[0]<list2[0]
+list2[0]+merge(list1,list2[1:])  otherwise
 
+​
 
 ### Code (python)
 
-[My Submission](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum1.py)
+[My Submission](https://github.com/yanray/leetcode/blob/master/problems/0021Merge_Two_Sorted%20_Lists/0021Merge_Two_Sorted%20_Lists.py)
 
 ```python
-for i in range(len(nums)):
-    diff = target - nums[i]
-    if diff in nums:
-        if i != nums.index(diff):
-            return [i, nums.index(diff)]
+dummy = ListNode(None)
+node = dummy
+
+while l1 and l2: 
+    if l1.val < l2.val:
+        node.next = l1
+        l1= l1.next
+    else: 
+        node.next = l2
+        l2 = l2.next
+    node = node.next
+        
+if l1:
+    node.next = l1
+else:
+    node.next = l2
+    
+return dummy.next
 ```
 
-[Good Solution 1](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
+[DP](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
 
 ```python
-h = {}
-for i, num in enumerate(nums):
-    n = target - num
-    if n not in h:
-        h[num] = i
-    else:
-        return [h[n], i]
-```
-
-[Good Solution 2](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum3.py)
-
-```python
-hashtable = {};
-for i in range(len(nums)):
-    if nums[i] not in hashtable:
-        hashtable[target-(nums[i])] = i;
-    else:
-        return [hashtable[nums[i]], i];
+if l1 is None:
+    return l2
+elif l2 is None:
+    return l1
+elif l1.val < l2.val:
+    l1.next = self.mergeTwoLists(l1.next, l2)
+    return l1
+else:
+    l2.next = self.mergeTwoLists(l1, l2.next)
+    return l2
 ```
