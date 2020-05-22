@@ -1,7 +1,7 @@
-## Reverse Linked List
+## Happy Number
 
 ### Problem Link
-https://leetcode.com/problems/reverse-linked-list/
+https://leetcode.com/problems/happy-number/
 
 ### Problem Description 
 
