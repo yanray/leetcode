@@ -30,6 +30,8 @@ array自左向右, 不断的找极大值, 并记录最大值, 最终返回最大
 **Method 3:**
 array自左向右不, 断更新array的值, 如果nums[i - 1] >= 0, 表示前面的数组的sum值会使当前的nums[i]的值变大，则更新nums[i], 如果nums[i - 1] < 0, 反之。以此方法最终求得更新后的nums[i]的最大值, 也是最大的subarray.
 
+**Method 4:**
+nums[i] = max(nums[i], nums[i] + num[i - 1])
 ​
 
 ### Code (python)
