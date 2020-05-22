@@ -94,5 +94,11 @@ return prev
 [Method 3](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List4.py)
 
 ```python
+if not head or not head.next:
+    return head
+n = self.reverseList(head.next)
+head.next.next = head
+head.next = None
 
+return n
 ```
