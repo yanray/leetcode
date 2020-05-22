@@ -1,39 +1,43 @@
-## Maximum Subarray
+## Reorder Data in Log Files
 
 ### Problem Link
-https://leetcode.com/problems/maximum-subarray/
+https://leetcode.com/problems/reorder-data-in-log-files/
 
 ### Problem Description 
 
-Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+You have an array of logs.  Each log is a space delimited string of words.
+
+For each log, the first word in each log is an alphanumeric identifier.  Then, either:
+
+Each word after the identifier will consist only of lowercase letters, or;
+Each word after the identifier will consist only of digits.
+We will call these two varieties of logs letter-logs and digit-logs.  It is guaranteed that each log has at least one word after its identifier.
+
+Reorder the logs so that all of the letter-logs come before any digit-log.  The letter-logs are ordered lexicographically ignoring identifier, with the identifier used in case of ties.  The digit-logs should be put in their original order.
+
+Return the final order of the logs.
 
 
 ```
 Example:
 
-Input: [-2,1,-3,4,-1,2,1,-5,4],
-Output: 6
-Explanation: [4,-1,2,1] has the largest sum = 6.
+Input: logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
+Output: ["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 3 6"]
 
 ```
 
 
 ### How to solve 
 
-**Divide and Conquer:** https://leetcode.com/explore/learn/card/recursion-ii/470/divide-and-conquer/2944/
+**Method 1:** 
 
-把array细分，不短的求left sum, max cross sum, right sum, 最大值即所有可能性的最大值，max(left sum, cross sum, right sum). 
+先分离digit-logs, 排序好放在一个新的list, 对剩下的letters-log排序, 然后提取出第一个' '以后的内容进行排序, 再根据dictionary对应的value排序好letters-log.
+
+**Method 2:**
 
 
-**Method 2:(Greedy)** 
-
-array自左向右, 不断的找极大值, 并记录最大值, 最终返回最大值
 
 **Method 3:**
-
-array自左向右不, 断更新array的值, 如果nums[i - 1] >= 0, 表示前面的数组的sum值会使当前的nums[i]的值变大，则更新nums[i], 如果nums[i - 1] < 0, 反之。以此方法最终求得更新后的nums[i]的最大值, 也是最大的subarray.
-
-**Method 4:**
 
 nums[i] = max(nums[i], nums[i] + num[i - 1])
 ​
