@@ -1,28 +1,33 @@
-## Reorder Data in Log Files
+## Best Time to Buy and Sell Stock
 
 ### Problem Link
-https://leetcode.com/problems/reorder-data-in-log-files/
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 ### Problem Description 
 
-You have an array of logs.  Each log is a space delimited string of words.
+Say you have an array for which the ith element is the price of a given stock on day i.
 
-For each log, the first word in each log is an alphanumeric identifier.  Then, either:
+If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
 
-Each word after the identifier will consist only of lowercase letters, or;
-Each word after the identifier will consist only of digits.
-We will call these two varieties of logs letter-logs and digit-logs.  It is guaranteed that each log has at least one word after its identifier.
-
-Reorder the logs so that all of the letter-logs come before any digit-log.  The letter-logs are ordered lexicographically ignoring identifier, with the identifier used in case of ties.  The digit-logs should be put in their original order.
-
-Return the final order of the logs.
+Note that you cannot sell a stock before you buy one.
 
 
 ```
-Example:
+Example1:
 
-Input: logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
-Output: ["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 3 6"]
+Input: [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+             Not 7-1 = 6, as selling price needs to be larger than buying price.
+
+```
+
+```
+Example2:
+
+Input: [7,6,4,3,1]
+Output: 0
+Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 ```
 
@@ -31,15 +36,7 @@ Output: ["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 
 
 **Method 1:** 
 
-先分离digit-logs, 排序好放在一个新的list, 对剩下的letters-log排序, 然后提取出第一个' '以后的内容进行排序, 再根据dictionary对应的value排序好letters-log.
 
-**Method 2:**
-
-先分离digit-logs 和 letters-logs, 对letters-logs进行两次排序, 第一次根据第一个' '后的内容排序，第二次根据第一个' '前的内容排序
-
-**Method 3:**
-
-Define 一个排序的function, 根据第一个' '把logs里的string分成两部分, identifier and rest, 如果rest[0]是字母, 先根据rest排序, 再根据identifier排序, 再排序digit-logs. 
 
 
 ### Code (python)
