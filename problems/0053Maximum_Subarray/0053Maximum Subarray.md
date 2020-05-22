@@ -23,31 +23,21 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
 Divide and Conquer: https://leetcode.com/explore/learn/card/recursion-ii/470/divide-and-conquer/2944/
 
 
+
 ​
 
 ### Code (python)
 
-[My Submission](https://github.com/yanray/leetcode/blob/master/problems/0021Merge_Two_Sorted%20_Lists/0021Merge_Two_Sorted%20_Lists1.py)
+[Method 1](https://github.com/yanray/leetcode/blob/master/problems/0021Merge_Two_Sorted%20_Lists/0021Merge_Two_Sorted%20_Lists1.py)
 
 ```python
-dummy = ListNode(None)
-node = dummy
-
-while l1 and l2: 
-    if l1.val < l2.val:
-        node.next = l1
-        l1= l1.next
-    else: 
-        node.next = l2
-        l2 = l2.next
-    node = node.next
-        
-if l1:
-    node.next = l1
-else:
-    node.next = l2
+max_sum = nums[0]
+local_max_sum = nums[0]
+for i in range(1, len(nums)):
+    local_max_sum = max(nums[i], local_max_sum + nums[i])
+    max_sum = max(max_sum, local_max_sum)
     
-return dummy.next
+return max_sum
 ```
 
 [Dynamic Programing](https://github.com/yanray/leetcode/blob/master/problems/0021Merge_Two_Sorted%20_Lists/0021Merge_Two_Sorted%20_Lists2.py)
