@@ -42,7 +42,13 @@ class SingleLinkedList:
 
 class Solution:
     def reverseList(self, head):
-        
+        pre, cur = None, head
+        while cur: 
+            tmp = cur
+            cur  = cur.next
+            tmp.next = pre
+            pre = tmp
+        return pre
             
 
 
