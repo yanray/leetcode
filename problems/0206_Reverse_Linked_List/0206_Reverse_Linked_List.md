@@ -21,7 +21,7 @@ Output: 5->4->3->2->1->NULL
 创建一个ListNode, 和一个Temp node, 倒着指一遍
 
 
-**Method3:** 
+**Method2:** 
 
 创建一个ListNode, 和一个Temp node, 倒着指一遍
 
