@@ -61,35 +61,56 @@ Better Solution: 不停的查询 '()', '[]', '{}', 并替换成'', 如果最终�
 
 ### Code (python)
 
-[My Submission](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum1.py)
+[My Submission](https://github.com/yanray/leetcode/blob/master/problems/0020Valid_Parentheses/0020Valid_Parentheses1.py)
 
 ```python
-for i in range(len(nums)):
-    diff = target - nums[i]
-    if diff in nums:
-        if i != nums.index(diff):
-            return [i, nums.index(diff)]
+if len(s):
+    parenthese_left = ['(', '{', '[']
+    parenthese_right = [')', '}', ']']
+    num_record = []
+    for i in range(len(s)):
+        if s[i] in parenthese_left:
+            num_record.append(parenthese_left.index(s[i]))
+        else:
+            # print('position 2')
+            if not len(num_record):
+                return False
+            elif(parenthese_right.index(s[i]) == num_record[len(num_record) - 1]):
+                num_record.pop()
+            else:
+                return False
+    if not len(num_record):
+        return True
+    else:
+        return False
+else:
+    return True
+
+
 ```
 
-[Good Solution 1](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
+[Good Solution 1](https://github.com/yanray/leetcode/blob/master/problems/0020Valid_Parentheses/0020Valid_Parentheses2.py)
 
 ```python
-h = {}
-for i, num in enumerate(nums):
-    n = target - num
-    if n not in h:
-        h[num] = i
-    else:
-        return [h[n], i]
+left = ['(', '{', '[']
+right = [')', '}', ']']
+Stack = []
+for letter in s:
+if letter in left:
+    Stack.append(letter)
+elif letter in right:
+    if len(Stack) <= 0:
+    return False
+    if left.index(Stack.pop()) != right.index(letter):
+        return False
+return len(Stack) == 0
+
 ```
 
-[Good Solution 2](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum3.py)
+[Good Solution 2](https://github.com/yanray/leetcode/blob/master/problems/0020Valid_Parentheses/0020Valid_Parentheses3.py)
 
 ```python
-hashtable = {};
-for i in range(len(nums)):
-    if nums[i] not in hashtable:
-        hashtable[target-(nums[i])] = i;
-    else:
-        return [hashtable[nums[i]], i];
+while '()'in s or '{}' in s or '[]' in s:
+    s = s.replace('()', '').replace('{}', '').replace('[]', '')
+return s == ''
 ```
