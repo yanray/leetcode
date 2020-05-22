@@ -42,40 +42,7 @@ class SingleLinkedList:
 
 class Solution:
     def reverseList(self, head):
-#         if head is None:
-#             return head
-#         else: 
-#             tail = ListNode(None)
-                        
-#             # while head:
-#             tail.val = head.val
-#             head = head.next
-#             temp = tail
-#             # tail = temp = ListNode(None)
-
-#             while head:
-#                 tail = ListNode(None)
-#                 tail.val = head.val
-#                 head = head.next
-#                 tail.next = temp
-#                 temp = tail
         
-#         return tail
-
-        if head is None:
-            return head
-        else: 
-            tail = temp = ListNode(head.val)
-            head = head.next
-
-            while head:
-                tail = ListNode(None)
-                tail.val = head.val
-                head = head.next
-                tail.next = temp
-                temp = tail
-        
-        return tail
             
 
 
