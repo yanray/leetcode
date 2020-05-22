@@ -42,7 +42,7 @@ nums[i] = max(nums[i], nums[i] + num[i - 1])
 
 ```
 
-[Method 2]()
+[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0053Maximum_Subarray/0053Maximum%20Subarray2.py)
 
 ```python
 max_sum = nums[0]
@@ -54,7 +54,7 @@ for i in range(1, len(nums)):
 return max_sum
 ```
 
-[Method 2]()
+[Method 3](https://github.com/yanray/leetcode/blob/master/problems/0053Maximum_Subarray/0053Maximum%20Subarray3.py)
 
 ```python
 max_sum = nums[0]
@@ -66,6 +66,7 @@ for i in range(1, len(nums)):
 return max_sum
 ```
 
+[Method 4](https://github.com/yanray/leetcode/blob/master/problems/0053Maximum_Subarray/0053Maximum%20Subarray4.py)
 ```python
 for i in range(1, len(nums)):
     nums[i] = max(nums[i], nums[i-1]+nums[i])
