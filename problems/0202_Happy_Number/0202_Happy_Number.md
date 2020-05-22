@@ -18,10 +18,14 @@ Input: 19
 Output: true
 ```
 Explanation: 
-1<sup>2</sup> + 9<sup>2</sup = 82
-8<sup>2</sup + 2<sup>2</sup = 68
-6<sup>2</sup + 8<sup>2</sup = 100
-1<sup>2</sup + 0<sup>2</sup + 0<sup>2</sup = 1
+
+1<sup>2</sup> + 9<sup>2</sup> = 82
+
+8<sup>2</sup> + 2<sup>2</sup> = 68
+
+6<sup>2</sup> + 8<sup>2</sup> = 100
+
+1<sup>2</sup> + 0<sup>2</sup> + 0<sup>2</sup> = 1
 
 ### How to solve 
 
