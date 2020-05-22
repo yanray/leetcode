@@ -14,15 +14,16 @@ Input: 1->2->3->4->5->NULL
 Output: 5->4->3->2->1->NULL
 ```
 
-
-
 ### How to solve 
 
-**Method:** 
+**Method1:** 
 
-Dynamic Programming: 
+创建一个ListNode, 和一个Temp node, 倒着指一遍
 
-最大收益 = max(前i - 1天的最大收益, 第i天的股票价格 - 前i - 1天的最小股票价格)
+
+**Method3:** 
+
+创建一个ListNode, 和一个Temp node, 倒着指一遍
 
 
 
@@ -31,14 +32,18 @@ Dynamic Programming:
 [Method](https://github.com/yanray/leetcode/blob/master/problems/0121Best_Time_to_Buy_and_Sell_Stock/0121Best_Time_to_Buy_and_Sell_Stock.py)
 
 ```python
-max_profit = 0
-if len(prices) > 1:
-    min_price = prices[0]
+if head is None:
+    return head
+else: 
+    tail = temp = ListNode(head.val)
+    head = head.next
 
-    for i in range(1, len(prices)):
-        if prices[i] < min_price:
-            min_price = prices[i]
-        max_profit = max(max_profit, prices[i] - min_price)
+    while head:
+        tail = ListNode(None)
+        tail.val = head.val
+        head = head.next
+        tail.next = temp
+        temp = tail
 
-return max_profit
+return tail
 ```
