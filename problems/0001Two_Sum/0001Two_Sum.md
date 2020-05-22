@@ -50,10 +50,10 @@ for i, num in enumerate(nums):
 [Good Solution 2](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum3.py)
 
 ```python
-hashtable = {};
+hashtable = {}
 for i in range(len(nums)):
     if nums[i] not in hashtable:
-        hashtable[target-(nums[i])] = i;
+        hashtable[target-(nums[i])] = i
     else:
-        return [hashtable[nums[i]], i];
+        return [hashtable[nums[i]], i]
 ```
