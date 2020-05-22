@@ -20,15 +20,27 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
 
 ### How to solve 
 
-Divide and Conquer: https://leetcode.com/explore/learn/card/recursion-ii/470/divide-and-conquer/2944/
+**Divide and Conquer:** https://leetcode.com/explore/learn/card/recursion-ii/470/divide-and-conquer/2944/
+把array细分，不短的求left sum, max cross sum, right sum, 最大值即所有可能性的最大值，max(left sum, cross sum, right sum). 
 
 
+**Method 2:(Greedy)** 
+array自左向右, 不断的找极大值, 并记录最大值, 最终返回最大值
+
+**Method 3:**
+array自左向右不, 断更新array的值, 如果nums[i - 1] >= 0, 表示前面的数组的sum值会使当前的nums[i]的值变大，则更新nums[i], 如果nums[i - 1] < 0, 反之。以此方法最终求得更新后的nums[i]的最大值, 也是最大的subarray.
 
 ​
 
 ### Code (python)
 
-[Method 1](https://github.com/yanray/leetcode/blob/master/problems/0021Merge_Two_Sorted%20_Lists/0021Merge_Two_Sorted%20_Lists1.py)
+[Method 1]
+
+```python
+
+```
+
+[Method 2]()
 
 ```python
 max_sum = nums[0]
@@ -40,17 +52,21 @@ for i in range(1, len(nums)):
 return max_sum
 ```
 
-[Dynamic Programing](https://github.com/yanray/leetcode/blob/master/problems/0021Merge_Two_Sorted%20_Lists/0021Merge_Two_Sorted%20_Lists2.py)
+[Method 2]()
 
 ```python
-if l1 is None:
-    return l2
-elif l2 is None:
-    return l1
-elif l1.val < l2.val:
-    l1.next = self.mergeTwoLists(l1.next, l2)
-    return l1
-else:
-    l2.next = self.mergeTwoLists(l1, l2.next)
-    return l2
+max_sum = nums[0]
+for i in range(1, len(nums)):
+    if(nums[i - 1] >= 0):
+        nums[i] += nums[i - 1]
+    max_sum = max(nums[i], max_sum)
+    
+return max_sum
+```
+
+```python
+for i in range(1, len(nums)):
+    nums[i] = max(nums[i], nums[i-1]+nums[i])
+    
+return max(nums)
 ```
