@@ -27,7 +27,7 @@ Output: 5->4->3->2->1->NULL
 
 **Method3: (Recursive)** 
 
-Testing <sub>subscript <sub>subscript level 2</sub></sub>
+Testing <sub>subscript aaaa
 
 The recursive version is slightly trickier and the key is to work backwards. Assume that the rest of the list had already been reversed, now how do I reverse the front part? Let's assume the list is: n<sub>1 → … → n <sub>k - 1 → n <sub>k → n<sub>k+1 → … → n<sub>m → Ø
 
