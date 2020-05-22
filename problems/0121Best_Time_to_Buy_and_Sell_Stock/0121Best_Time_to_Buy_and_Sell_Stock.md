@@ -43,7 +43,7 @@ Dynamic Programming:
 
 ### Code (python)
 
-[Method](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files1.py)
+[Method](https://github.com/yanray/leetcode/blob/master/problems/0121Best_Time_to_Buy_and_Sell_Stock/0121Best_Time_to_Buy_and_Sell_Stock.py)
 
 ```python
 max_profit = 0
