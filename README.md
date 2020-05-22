@@ -17,6 +17,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0937 | [Reorder Data in Log Files](https://leetcode.com/problems/reorder-data-in-log-files/)| String, Sort | [Python](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files.md) | 
 | 0121 | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)| Array, Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/problems/0121Best_Time_to_Buy_and_Sell_Stock/0121Best_Time_to_Buy_and_Sell_Stock.md) | 
 | 0206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)| Linekd List | [Python](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List.md) | 
+| 0206 | [Happy Number](https://leetcode.com/problems/happy-number/)| Hash Table Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number.md) | 
 
 
 
