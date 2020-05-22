@@ -35,12 +35,12 @@ Output: ["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 
 
 **Method 2:**
 
-
+先分离digit-logs 和 letters-logs, 对letters-logs进行两次排序, 第一次根据第一个' '后的内容排序，第二次根据第一个' '前的内容排序
 
 **Method 3:**
 
-nums[i] = max(nums[i], nums[i] + num[i - 1])
-​
+Define 一个排序的function, 根据第一个' '把logs里的string分成两部分, identifier and rest, 如果rest[0]是字母, 先根据rest排序, 再根据identifier排序, 再排序digit-logs. 
+
 
 ### Code (python)
 
@@ -79,7 +79,7 @@ new_log.extend(digit_log)
 return new_log
 ```
 
-[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0053Maximum_Subarray/0053Maximum%20Subarray3.py)
+[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files2.py)
 
 ```python
 digit_log = []
@@ -96,10 +96,12 @@ letters_log.sort(key = lambda x: (x[x.index(' ') + 1: ], x[: x.index(' ') ]))
 return letters_log + digit_log
 ```
 
-[Method 3](https://github.com/yanray/leetcode/blob/master/problems/0053Maximum_Subarray/0053Maximum%20Subarray4.py)
+[Method 3](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files3.py)
 ```python
-for i in range(1, len(nums)):
-    nums[i] = max(nums[i], nums[i-1]+nums[i])
+def sortfunc(x):
+    identifier, rest = x.split(' ', 1)
+    return(0, rest, identifier) if rest[0].isalpha() else (1, )
     
-return max(nums)
+logs.sort(key = sortfunc)
+return logs
 ```
