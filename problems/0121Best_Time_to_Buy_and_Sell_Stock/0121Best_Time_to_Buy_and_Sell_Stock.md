@@ -35,6 +35,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 ### How to solve 
 
 **Method:** 
+
 Dynamic Programming: 
 
 最大收益 = max(前i - 1天的最大收益, 第i天的股票价格 - 前i - 1天的最小股票价格)
