@@ -9,7 +9,13 @@ date:      5/22/2020
 
 class Solution:
     def reorderLogFiles(self, logs):
-
+        def sortfunc(x):
+            identifier, rest = x.split(' ', 1)
+            return(0, rest, identifier) if rest[0].isalpha() else (1, )
+            
+        logs.sort(key = sortfunc)
+        
+        return logs
 
 
 if __name__ == '__main__':
