@@ -3,6 +3,14 @@
 ### Problem Link
 https://leetcode.com/problems/reorder-data-in-log-files/
 
+**Good Links:**
+
+https://leetcode.com/problems/reorder-data-in-log-files/discuss/454259/937-reorder-data-in-log-files-py-all-in-one-by-talse
+
+https://docs.python.org/3/howto/sorting.html
+
+https://wiki.python.org/moin/HowTo/Sorting
+
 ### Problem Description 
 
 You have an array of logs.  Each log is a space delimited string of words.
