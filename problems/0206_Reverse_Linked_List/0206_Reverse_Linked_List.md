@@ -29,7 +29,7 @@ Output: 5->4->3->2->1->NULL
 
 ### Code (python)
 
-[Method](https://github.com/yanray/leetcode/blob/master/problems/0121Best_Time_to_Buy_and_Sell_Stock/0121Best_Time_to_Buy_and_Sell_Stock.py)
+[Method](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List1.py)
 
 ```python
 if head is None:
