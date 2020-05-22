@@ -44,13 +44,7 @@ nums[i] = max(nums[i], nums[i] + num[i - 1])
 
 ### Code (python)
 
-[Method 1]
-
-```python
-
-```
-
-[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files1.py)
+[Method 1](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files1.py)
 
 ```python
 new_log = []
@@ -85,19 +79,24 @@ new_log.extend(digit_log)
 return new_log
 ```
 
-[Method 3](https://github.com/yanray/leetcode/blob/master/problems/0053Maximum_Subarray/0053Maximum%20Subarray3.py)
+[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0053Maximum_Subarray/0053Maximum%20Subarray3.py)
 
 ```python
-max_sum = nums[0]
-for i in range(1, len(nums)):
-    if(nums[i - 1] >= 0):
-        nums[i] += nums[i - 1]
-    max_sum = max(nums[i], max_sum)
-    
-return max_sum
+digit_log = []
+letters_log = []
+
+for ll in logs:
+    if ll[-1].isdigit():
+        digit_log.append(ll)
+    else:
+        letters_log.append(ll)
+
+letters_log.sort(key = lambda x: (x[x.index(' ') + 1: ], x[: x.index(' ') ]))
+
+return letters_log + digit_log
 ```
 
-[Method 4](https://github.com/yanray/leetcode/blob/master/problems/0053Maximum_Subarray/0053Maximum%20Subarray4.py)
+[Method 3](https://github.com/yanray/leetcode/blob/master/problems/0053Maximum_Subarray/0053Maximum%20Subarray4.py)
 ```python
 for i in range(1, len(nums)):
     nums[i] = max(nums[i], nums[i-1]+nums[i])
