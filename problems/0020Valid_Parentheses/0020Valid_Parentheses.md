@@ -64,11 +64,13 @@ Better Solution: 不停的查询 '()', '[]', '{}', 并替换成'', 如果最终�
 [My Submission](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum1.py)
 
 ```python
-for i in range(len(nums)):
-    diff = target - nums[i]
-    if diff in nums:
-        if i != nums.index(diff):
-            return [i, nums.index(diff)]
+    max_sum = nums[0]
+    local_max_sum = nums[0]
+    for i in range(1, len(nums)):
+        local_max_sum = max(nums[i], local_max_sum + nums[i])
+        max_sum = max(max_sum, local_max_sum)
+        
+    return max_sum
 ```
 
 [Good Solution 1](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
