@@ -35,7 +35,7 @@ for i in range(len(nums)):
             return [i, nums.index(diff)]
 ```
 
-[Good Solution 1](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
 
 ```python
 h = {}
@@ -47,7 +47,7 @@ for i, num in enumerate(nums):
         return [h[n], i]
 ```
 
-[Good Solution 2](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum3.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum3.py)
 
 ```python
 hashtable = {}
