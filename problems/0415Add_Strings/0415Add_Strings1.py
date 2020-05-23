@@ -8,7 +8,7 @@ date:      5/23/2020
 
 
 class Solution:
-    def isAlienSorted(self, words, order):
+    def addStrings(self, num1, num2):
         right_order = 'abcdefghijklmnopqrstuvwxyz'
         
         trans = str.maketrans(order, right_order)
@@ -23,10 +23,6 @@ class Solution:
 
 if __name__ == '__main__':
     a = Solution()
-
-    words = ["hello","leetcode"]
-
-    order = "hlabcdefgijkmnopqrstuvwxyz"
 
     print(a.isAlienSorted(words, order))
 
