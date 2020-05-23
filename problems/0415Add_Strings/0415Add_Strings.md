@@ -24,7 +24,7 @@ Note:
 
 **Approach 2:** 
 
-
+Using a dictionary to map "0": 0, "1": 1 and so on. (slow)
 
 ### Code (python)
 
@@ -54,6 +54,24 @@ for i in range(len(num1)):
 int_num2 = 0
 for i in range(len(num2)):
     int_num2 = int_num2 * 10 + ord(num2[i]) - ord('0')
+    
+return str(int_num1 + int_num2)
+```
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0415Add_Strings/0415Add_Strings3.py)
+
+```python
+str_to_int_dict = {"0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9}
+
+int_num1 = 0
+len_num1 = len(num1)
+for i in range(len_num1):
+    int_num1 += 10 ** (len_num1 -1 - i) * str_to_int_dict[num1[i]]
+    
+int_num2 = 0
+len_num2 = len(num2)
+for i in range(len_num2):
+    int_num2 += 10 ** (len_num2 -1 - i) * str_to_int_dict[num2[i]]
     
 return str(int_num1 + int_num2)
 ```
