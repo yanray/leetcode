@@ -7,6 +7,8 @@ https://leetcode.com/problems/reverse-integer/
 
 https://docs.python.org/2.3/whatsnew/section-slices.html
 
+https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html
+
 ### Problem Description 
 
 Given a 32-bit signed integer, reverse digits of an integer.
