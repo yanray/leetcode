@@ -15,12 +15,13 @@ class Solution:
                 n_sum += mod ** 2
             return n_sum
         
-        seen = set()
-        while n != 1 and n not in seen:
-            seen.add(n)
-            n = get_next_num(n)
+        slow_runner = n
+        fast_runner = get_next_num(n)
+        while fast_runner != 1 and fast_runner != slow_runner:
+            slow_runner = get_next_num(slow_runner)
+            fast_runner = get_next_num(get_next_num(fast_runner))
             
-        return n == 1
+        return fast_runner == 1
 
 
 if __name__ == '__main__':
