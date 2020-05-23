@@ -19,7 +19,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)| Linekd List | [Python](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List.md) | 
 | 0202 | [Happy Number](https://leetcode.com/problems/happy-number/)| Hash Table, Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number.md) | 
 | 0953 | [Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/)| Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary.md) | 
-| 0007 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary.md) | 
+| 0007 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0007Reverse_Integer/0007Reverse_Integer.md) | 
 
 
 <!-- ```diff
