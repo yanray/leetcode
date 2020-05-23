@@ -41,39 +41,38 @@ Explanation: The first three characters "app" match, and the second string is sh
 
 **Approach 1:** 
 
+把words里的字母按照order里面的顺序替换成正常顺序 所对应的new words, 然后比较大小判断顺序
 
+**Approach 2:** 
+
+根据order创建一个hashmap，根据hashmap对应的顺序对words进行重新排序，看words是否等于排序后的words
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary1.py)
 
 ```python
+right_order = 'abcdefghijklmnopqrstuvwxyz'
 
+trans = str.maketrans(order, right_order)
+new_words = [w.translate(trans) for w in words]
+
+for i in range(len(new_words) - 1): 
+    if new_words[i] > new_words[i + 1]:
+        return False
+
+return True    
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary2.py)
 
 ```python
-digit_log = []
-letters_log = []
-
-for ll in logs:
-    if ll[-1].isdigit():
-        digit_log.append(ll)
-    else:
-        letters_log.append(ll)
-
-letters_log.sort(key = lambda x: (x[x.index(' ') + 1: ], x[: x.index(' ') ]))
-
-return letters_log + digit_log
+hashmap = {c:i for i, c in enumerate(order)}
+return words == sorted(words, key = lambda w: [hashmap[x] for x in w])
 ```
 
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files3.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary3.py)
+
 ```python
-def sortfunc(x):
-    identifier, rest = x.split(' ', 1)
-    return(0, rest, identifier) if rest[0].isalpha() else (1, )
-    
-logs.sort(key = sortfunc)
-return logs
+return words == sorted(words, key = lambda w: [order.index(x) for x in w])
 ```
