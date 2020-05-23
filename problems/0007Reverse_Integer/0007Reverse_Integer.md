@@ -47,11 +47,22 @@ Output: 21
 [My Submission](https://github.com/yanray/leetcode/blob/master/problems/0007Reverse_Integer/0007Reverse_Integer1.py)
 
 ```python
-for i in range(len(nums)):
-    diff = target - nums[i]
-    if diff in nums:
-        if i != nums.index(diff):
-            return [i, nums.index(diff)]
+lower_limit = -pow(2, 31)
+upper_limit = pow(2, 31) - 1
+
+rev_x = 0
+if x < 0:
+    sign = -1
+    x = -x
+else: 
+    sign = 1
+
+while x != 0:
+    x, temp = divmod(x, 10)
+    rev_x = rev_x * 10 + temp
+rev_x = rev_x * sign
+    
+return rev_x if rev_x < upper_limit and rev_x > lower_limit else 0 
 ```
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
