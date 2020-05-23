@@ -89,7 +89,7 @@ else:
 
 ```
 
-[Good Solution 1](https://github.com/yanray/leetcode/blob/master/problems/0020Valid_Parentheses/0020Valid_Parentheses2.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0020Valid_Parentheses/0020Valid_Parentheses2.py)
 
 ```python
 left = ['(', '{', '[']
@@ -107,7 +107,7 @@ return len(Stack) == 0
 
 ```
 
-[Good Solution 2](https://github.com/yanray/leetcode/blob/master/problems/0020Valid_Parentheses/0020Valid_Parentheses3.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0020Valid_Parentheses/0020Valid_Parentheses3.py)
 
 ```python
 while '()'in s or '{}' in s or '[]' in s:
