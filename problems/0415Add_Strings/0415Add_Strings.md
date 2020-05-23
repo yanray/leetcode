@@ -1,78 +1,59 @@
-## Verifying an Alien Dictionary
+## Add Strings
 
 ### Problem Link
-https://leetcode.com/problems/verifying-an-alien-dictionary/
+https://leetcode.com/problems/add-strings/
 
 ### Problem Description 
 
-In an alien language, surprisingly they also use english lowercase letters, but possibly in a different order. The order of the alphabet is some permutation of lowercase letters.
-
-Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words are sorted lexicographicaly in this alien language.
-
+Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
 
 ```
-Example1:
+Note:
 
-Input: words = ["hello","leetcode"], order = "hlabcdefgijkmnopqrstuvwxyz"
-Output: true
-Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
-
-```
-
-
-```
-Example2:
-
-Input: words = ["word","world","row"], order = "worldabcefghijkmnpqstuvxyz"
-Output: false
-Explanation: As 'd' comes after 'l' in this language, then words[0] > words[1], hence the sequence is unsorted.
-```
-
-```
-Example3:
-
-Input: words = ["apple","app"], order = "abcdefghijklmnopqrstuvwxyz"
-Output: false
-Explanation: The first three characters "app" match, and the second string is shorter (in size.) According to lexicographical rules "apple" > "app", because 'l' > '∅', where '∅' is defined as the blank character which is less than any other character.
-
+1. The length of both num1 and num2 is < 5100.
+2. Both num1 and num2 contains only digits 0-9.
+3. Both num1 and num2 does not contain any leading zero.
+4. You must not use any built-in BigInteger library or convert the inputs to integer directly.
 ```
 
 ### How to solve 
 
 **Approach 1:** 
 
-把words里的字母按照order里面的顺序替换成正常顺序 所对应的new words, 然后比较大小判断顺序
+转成ascii, 转int, 相加
 
 **Approach 2:** 
 
-根据order创建一个hashmap，根据hashmap对应的顺序对words进行重新排序，看words是否等于排序后的words
+
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0415Add_Strings/0415Add_Strings1.py)
 
 ```python
-right_order = 'abcdefghijklmnopqrstuvwxyz'
+int_num1 = 0
+for i in range(len(num1)):
+    temp = ord(num1[i]) - 48
+    int_num1 = int_num1 * 10 + temp
 
-trans = str.maketrans(order, right_order)
-new_words = [w.translate(trans) for w in words]
-
-for i in range(len(new_words) - 1): 
-    if new_words[i] > new_words[i + 1]:
-        return False
-
-return True    
+int_num2 = 0
+for i in range(len(num2)):
+    temp = ord(num2[i]) - 48
+    int_num2 = int_num2 * 10 + temp
+    
+return str(int_num1 + int_num2)
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0415Add_Strings/0415Add_Strings2.py)
 
 ```python
-hashmap = {c:i for i, c in enumerate(order)}
-return words == sorted(words, key = lambda w: [hashmap[x] for x in w])
-```
-
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary3.py)
-
-```python
-return words == sorted(words, key = lambda w: [order.index(x) for x in w])
+int_num1 = 0
+for i in range(len(num1)):
+    int_num1 = int_num1 * 10 + ord(num1[i]) - ord('0')
+    
+int_num2 = 0
+for i in range(len(num2)):
+    int_num2 = int_num2 * 10 + ord(num2[i]) - ord('0')
+    
+return str(int_num1 + int_num2)
 ```
