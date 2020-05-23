@@ -20,7 +20,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0202 | [Happy Number](https://leetcode.com/problems/happy-number/)| Hash Table, Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number.md) | 
 | 0953 | [Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/)| Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary.md) | 
 | 0007 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0007Reverse_Integer/0007Reverse_Integer.md) | 
-
+| 0415 | [Add Strings](https://leetcode.com/problems/add-strings/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0415Add_Strings/0415Add_Strings.md) | 
 
 <!-- ```diff
 - text in red
