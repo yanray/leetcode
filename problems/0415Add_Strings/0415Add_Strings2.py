@@ -8,7 +8,7 @@ date:      5/23/2020
 
 
 class Solution:
-    def isAlienSorted(self, words, order):
+    def addStrings(self, num1, num2):
         int_num1 = 0
         for i in range(len(num1)):
             int_num1 = int_num1 * 10 + ord(num1[i]) - ord('0')
@@ -23,10 +23,11 @@ class Solution:
 if __name__ == '__main__':
     a = Solution()
 
-    words = ["hello","leetcode"]
+    num1 = '1325'
+    num2 = '25219'
 
-    order = "hlabcdefgijkmnopqrstuvwxyz"
-
-    print(a.isAlienSorted(words, order))
+    print('num1: ', num1)
+    print('num2: ', num2)
+    print('num1 + num2:', a.addStrings(num1, num2))
 
 
