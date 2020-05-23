@@ -50,7 +50,7 @@ Output: 21
 
 ### Code (python)
 
-[My Submission](https://github.com/yanray/leetcode/blob/master/problems/0007Reverse_Integer/0007Reverse_Integer1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0007Reverse_Integer/0007Reverse_Integer1.py)
 
 ```python
 lower_limit = -pow(2, 31)
@@ -71,14 +71,17 @@ rev_x = rev_x * sign
 return rev_x if rev_x < upper_limit and rev_x > lower_limit else 0 
 ```
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0007Reverse_Integer/0007Reverse_Integer1.py)
 
 ```python
-h = {}
-for i, num in enumerate(nums):
-    n = target - num
-    if n not in h:
-        h[num] = i
-    else:
-        return [h[n], i]
+upper_limit = 2 ** 31 - 1
+lower_limit = -2 ** 31
+
+str_x = str(x)
+if x >= 0:
+    rev_x = int(str_x[::-1])
+else:
+    rev_x = int("-" + str_x[1:][::-1])
+    
+return rev_x if rev_x < upper_limit and rev_x > lower_limit else 0 
 ```
