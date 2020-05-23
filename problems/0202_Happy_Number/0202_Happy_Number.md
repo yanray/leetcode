@@ -3,6 +3,9 @@
 ### Problem Link
 https://leetcode.com/problems/happy-number/
 
+**Python Set**
+https://docs.python.org/2/library/sets.html
+
 ### Problem Description 
 
 Write an algorithm to determine if a number n is "happy".
