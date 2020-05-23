@@ -16,16 +16,16 @@ Output: 5->4->3->2->1->NULL
 
 ### How to solve 
 
-**Approach1:** 
+**Approach 1:** 
 
 创建一个ListNode, 和一个Temp node, 倒着指一遍
 
 
-**Approach2: (Iterative)** 
+**Approach 2: (Iterative)** 
 
 反指
 
-**Approach3: (Recursive)** 
+**Approach 3: (Recursive)** 
 
 
 The recursive version is slightly trickier and the key is to work backwards. Assume that the rest of the list had already been reversed, now how do I reverse the front part? Let's assume the list is: n <sub>1</sub> → … → n <sub>k - 1</sub> → n <sub>k</sub> → n <sub>k+1</sub> → … → n <sub>m</sub> → Ø
