@@ -32,7 +32,7 @@ Explanation:
 
 ### How to solve 
 
-**Method1:** 
+**Method1:(HashSet)** 
 
 不断的查找Next Value, 直到最终结果为1 或者进入一个cycle
 
@@ -40,7 +40,7 @@ HashSet takes O(1) time
 
 The divmod() method in python takes two numbers and returns a pair of numbers consisting of their quotient and remainder.
 
-**Method3: (Recursive)** 
+**Method2: (Recursive)** 
 
 
 
@@ -68,20 +68,26 @@ return True
 ```
 
 
-[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List2.py)
+[Method 1](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number2.py)
 
 ```python
-pre, cur = None, head
-while cur: 
-    tmp = cur
-    cur  = cur.next
-    tmp.next = pre
-    pre = tmp
-return pre
+def get_next_num(n):
+    n_sum = 0
+    while n != 0:
+        n, mod = divmod(n, 10)
+        n_sum += mod ** 2
+    return n_sum
+
+seen = set()
+while n != 1 and n not in seen:
+    seen.add(n)
+    n = get_next_num(n)
+    
+return n == 1
 ```
 
 
-[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List3.py)
+[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number3.py)
 
 ```python
 prev, curr = None, head
@@ -89,17 +95,4 @@ prev, curr = None, head
 while curr:
     curr.next, curr, prev,  = prev, curr.next, curr
 return prev
-```
-
-
-[Method 3](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List4.py)
-
-```python
-if not head or not head.next:
-    return head
-n = self.reverseList(head.next)
-head.next.next = head
-head.next = None
-
-return n
 ```
