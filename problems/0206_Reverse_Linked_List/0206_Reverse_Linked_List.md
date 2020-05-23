@@ -16,16 +16,16 @@ Output: 5->4->3->2->1->NULL
 
 ### How to solve 
 
-**Method1:** 
+**Approach1:** 
 
 创建一个ListNode, 和一个Temp node, 倒着指一遍
 
 
-**Method2: (Iterative)** 
+**Approach2: (Iterative)** 
 
 反指
 
-**Method3: (Recursive)** 
+**Approach3: (Recursive)** 
 
 
 The recursive version is slightly trickier and the key is to work backwards. Assume that the rest of the list had already been reversed, now how do I reverse the front part? Let's assume the list is: n <sub>1</sub> → … → n <sub>k - 1</sub> → n <sub>k</sub> → n <sub>k+1</sub> → … → n <sub>m</sub> → Ø
@@ -66,7 +66,7 @@ return tail
 ```
 
 
-[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List2.py)
 
 ```python
 pre, cur = None, head
@@ -79,7 +79,7 @@ return pre
 ```
 
 
-[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List3.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List3.py)
 
 ```python
 prev, curr = None, head
@@ -90,7 +90,7 @@ return prev
 ```
 
 
-[Method 3](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List4.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0206_Reverse_Linked_List/0206_Reverse_Linked_List4.py)
 
 ```python
 if not head or not head.next:
