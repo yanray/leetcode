@@ -42,6 +42,8 @@ The divmod() method in python takes two numbers and returns a pair of numbers co
 
 **Approach2: (Floyd's Cycle-Finding Algorithm)** 
 
+一个slow_runner(tortoise), 一个fast_runner(hare), fast_runner每次走2步, slow_runner每次走一步, 如果进入了cycle, fast_runner == slow_runnner eventually, else fast_runner 会先为1
+
 
 
 ### Code (python)
@@ -90,9 +92,18 @@ return n == 1
 [Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number3.py)
 
 ```python
-prev, curr = None, head
+def get_next_num(n):
+    n_sum = 0
+    while n != 0:
+        n, mod = divmod(n, 10)
+        n_sum += mod ** 2
+    return n_sum
 
-while curr:
-    curr.next, curr, prev,  = prev, curr.next, curr
-return prev
+slow_runner = n
+fast_runner = get_next_num(n)
+while fast_runner != 1 and fast_runner != slow_runner:
+    slow_runner = get_next_num(slow_runner)
+    fast_runner = get_next_num(get_next_num(fast_runner))
+    
+return fast_runner == 1
 ```
