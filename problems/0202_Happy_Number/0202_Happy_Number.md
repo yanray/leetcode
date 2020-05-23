@@ -32,7 +32,7 @@ Explanation:
 
 ### How to solve 
 
-**Method1:(HashSet)** 
+**Approach1:(HashSet)** 
 
 不断的查找Next Value, 直到最终结果为1 或者进入一个cycle
 
@@ -40,7 +40,7 @@ HashSet takes O(1) time
 
 The divmod() method in python takes two numbers and returns a pair of numbers consisting of their quotient and remainder.
 
-**Method2: (Recursive)** 
+**Approach2: (Floyd's Cycle-Finding Algorithm)** 
 
 
 
@@ -68,7 +68,7 @@ return True
 ```
 
 
-[Method 1](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number2.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number2.py)
 
 ```python
 def get_next_num(n):
@@ -87,7 +87,7 @@ return n == 1
 ```
 
 
-[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number3.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number3.py)
 
 ```python
 prev, curr = None, head
