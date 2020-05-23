@@ -44,7 +44,7 @@ Output: 21
 
 ### Code (python)
 
-[My Submission](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum1.py)
+[My Submission](https://github.com/yanray/leetcode/blob/master/problems/0007Reverse_Integer/0007Reverse_Integer1.py)
 
 ```python
 for i in range(len(nums)):
