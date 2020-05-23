@@ -3,6 +3,10 @@
 ### Problem Link
 https://leetcode.com/problems/reverse-integer/
 
+**Extended Slices**
+
+https://docs.python.org/2.3/whatsnew/section-slices.html
+
 ### Problem Description 
 
 Given a 32-bit signed integer, reverse digits of an integer.
