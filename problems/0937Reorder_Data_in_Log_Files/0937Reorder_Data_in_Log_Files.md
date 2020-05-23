@@ -37,22 +37,22 @@ Output: ["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 
 
 ### How to solve 
 
-**Method 1:** 
+**Approach 1:** 
 
 先分离digit-logs, 排序好放在一个新的list, 对剩下的letters-log排序, 然后提取出第一个' '以后的内容进行排序, 再根据dictionary对应的value排序好letters-log.
 
-**Method 2:**
+**Approach 2:**
 
 先分离digit-logs 和 letters-logs, 对letters-logs进行两次排序, 第一次根据第一个' '后的内容排序，第二次根据第一个' '前的内容排序
 
-**Method 3:**
+**Approach 3:**
 
 Define 一个排序的function, 根据第一个' '把logs里的string分成两部分, identifier and rest, 如果rest[0]是字母, 先根据rest排序, 再根据identifier排序, 再排序digit-logs. 
 
 
 ### Code (python)
 
-[Method 1](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files1.py)
 
 ```python
 new_log = []
@@ -87,7 +87,7 @@ new_log.extend(digit_log)
 return new_log
 ```
 
-[Method 2](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files2.py)
 
 ```python
 digit_log = []
@@ -104,7 +104,7 @@ letters_log.sort(key = lambda x: (x[x.index(' ') + 1: ], x[: x.index(' ') ]))
 return letters_log + digit_log
 ```
 
-[Method 3](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files3.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0937Reorder_Data_in_Log_Files/0937Reorder_Data_in_Log_Files3.py)
 ```python
 def sortfunc(x):
     identifier, rest = x.split(' ', 1)
