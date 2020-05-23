@@ -34,7 +34,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 ### How to solve 
 
-**Method:** 
+**Approach:** 
 
 Dynamic Programming: 
 
@@ -44,7 +44,7 @@ Dynamic Programming:
 
 ### Code (python)
 
-[Method](https://github.com/yanray/leetcode/blob/master/problems/0121Best_Time_to_Buy_and_Sell_Stock/0121Best_Time_to_Buy_and_Sell_Stock.py)
+[Approach](https://github.com/yanray/leetcode/blob/master/problems/0121Best_Time_to_Buy_and_Sell_Stock/0121Best_Time_to_Buy_and_Sell_Stock.py)
 
 ```python
 max_profit = 0
