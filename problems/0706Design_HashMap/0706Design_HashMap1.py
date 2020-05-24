@@ -1,33 +1,61 @@
 """
-if else 
 
 Version: 1.1 
 Author:  Yanrui 
-date:      5/23/2020
+date:    5/24/2020
 """
 
 
-class Solution:
-    def isAlienSorted(self, words, order):
-        right_order = 'abcdefghijklmnopqrstuvwxyz'
-        
-        trans = str.maketrans(order, right_order)
-        new_words = [w.translate(trans) for w in words]
-        
-        for i in range(len(new_words) - 1): 
-            if new_words[i] > new_words[i + 1]:
-                return False
-        
-        return True
+class MyHashMap:
 
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.dict = {}
+
+    def put(self, key: int, value: int) -> None:
+        """
+        value will always be non-negative.
+        """
+        
+        if key in self.dict:
+            self.dict[key] = value
+        else:
+            self.dict[key] = value
+
+    def get(self, key: int) -> int:
+        """
+        Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
+        """
+        
+        if key in self.dict:
+            return self.dict[key]
+        else:
+            return -1
+        
+
+    def remove(self, key: int) -> None:
+        """
+        Removes the mapping of the specified value key if this map contains a mapping for the key
+        """
+        
+        if key in self.dict:
+            del self.dict[key]
+        
 
 if __name__ == '__main__':
-    a = Solution()
+    bb = MyHashMap()
 
-    words = ["hello","leetcode"]
+    bb.put(1, 1)
+    print('put (1, 1)')
+    print('get: ', bb.get(1))
 
-    order = "hlabcdefgijkmnopqrstuvwxyz"
+    bb.put(1, 10)
+    print('put (1, 10)')
+    print('get: ', bb.get(1))
 
-    print(a.isAlienSorted(words, order))
-
+    bb.put(12345, 111)
+    print('put (12345, 111)')
+    print('get: ', bb.get(12345))
 
