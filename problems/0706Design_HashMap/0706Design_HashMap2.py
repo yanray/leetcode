@@ -16,13 +16,9 @@ class Bucket:
             if key_value[0] == key:
                 self.bucket[i] = (key, value)
                 found = True
-                # print('i', i)
-                # print('key_value', key_value)
 
         if not found: 
             self.bucket.append((key, value))
-
-        # print(self.bucket)
 
     def get(self, key):
         for (k, v) in self.bucket:
