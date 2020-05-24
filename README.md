@@ -21,6 +21,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0953 | [Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/)| Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary.md) | 
 | 0007 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0007Reverse_Integer/0007Reverse_Integer.md) | 
 | 0415 | [Add Strings](https://leetcode.com/problems/add-strings/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0415Add_Strings/0415Add_Strings.md) | 
+| 0088 | [Add Strings](https://leetcode.com/problems/merge-sorted-array/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0415Add_Strings/0415Add_Strings.md) | 
 
 <!-- ```diff
 - text in red
