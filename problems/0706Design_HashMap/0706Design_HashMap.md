@@ -1,67 +1,87 @@
-## Verifying an Alien Dictionary
+## Design HashMap
 
 ### Problem Link
-https://leetcode.com/problems/verifying-an-alien-dictionary/
+https://leetcode.com/problems/design-hashmap/
 
 ### Problem Description 
 
-In an alien language, surprisingly they also use english lowercase letters, but possibly in a different order. The order of the alphabet is some permutation of lowercase letters.
+Design a HashMap without using any built-in hash table libraries.
 
-Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words are sorted lexicographicaly in this alien language.
+To be specific, your design should include these functions:
 
+* put(key, value) : Insert a (key, value) pair into the HashMap. If the value already &* exists in the HashMap, update the value.
+* get(key): Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key.
+* remove(key) : Remove the mapping for the value key if this map contains the mapping for the key.
 
-```
-Example1:
-
-Input: words = ["hello","leetcode"], order = "hlabcdefgijkmnopqrstuvwxyz"
-Output: true
-Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
-
-```
 
 
 ```
-Example2:
+Example:
 
-Input: words = ["word","world","row"], order = "worldabcefghijkmnpqstuvxyz"
-Output: false
-Explanation: As 'd' comes after 'l' in this language, then words[0] > words[1], hence the sequence is unsorted.
-```
-
-```
-Example3:
-
-Input: words = ["apple","app"], order = "abcdefghijklmnopqrstuvwxyz"
-Output: false
-Explanation: The first three characters "app" match, and the second string is shorter (in size.) According to lexicographical rules "apple" > "app", because 'l' > '∅', where '∅' is defined as the blank character which is less than any other character.
+MyHashMap hashMap = new MyHashMap();
+hashMap.put(1, 1);          
+hashMap.put(2, 2);         
+hashMap.get(1);            // returns 1
+hashMap.get(3);            // returns -1 (not found)
+hashMap.put(2, 1);          // update the existing value
+hashMap.get(2);            // returns 1 
+hashMap.remove(2);          // remove the mapping for 2
+hashMap.get(2);            // returns -1 (not found) 
 
 ```
+
 
 ### How to solve 
 
 **Approach 1:** 
 
-把words里的字母按照order里面的顺序替换成正常顺序 所对应的new words, 然后比较大小判断顺序
+Use Dictionary, however, this is wrong in this question 
 
 **Approach 2:** 
 
-根据order创建一个hashmap，根据hashmap对应的顺序对words进行重新排序，看words是否等于排序后的words
+Build a bucket to store (key, value), use prime number 2069 to map hash key number, corresponding to different buckets. 
 
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary1.py)
 
 ```python
-right_order = 'abcdefghijklmnopqrstuvwxyz'
+class MyHashMap:
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.dict = {}
 
-trans = str.maketrans(order, right_order)
-new_words = [w.translate(trans) for w in words]
+    def put(self, key: int, value: int) -> None:
+        """
+        value will always be non-negative.
+        """
+        
+        if key in self.dict:
+            self.dict[key] = value
+        else:
+            self.dict[key] = value
 
-for i in range(len(new_words) - 1): 
-    if new_words[i] > new_words[i + 1]:
-        return False
+    def get(self, key: int) -> int:
+        """
+        Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
+        """
+        
+        if key in self.dict:
+            return self.dict[key]
+        else:
+            return -1
+        
 
-return True    
+    def remove(self, key: int) -> None:
+        """
+        Removes the mapping of the specified value key if this map contains a mapping for the key
+        """
+        
+        if key in self.dict:
+            del self.dict[key]
+        
 ```
 
 [Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary2.py)
