@@ -22,6 +22,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0007 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0007Reverse_Integer/0007Reverse_Integer.md) | 
 | 0415 | [Add Strings](https://leetcode.com/problems/add-strings/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0415Add_Strings/0415Add_Strings.md) | 
 | 0088 | [Add Strings](https://leetcode.com/problems/merge-sorted-array/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0088_Merge_Sorted_Array/0088_Merge_Sorted_Array.md) | 
+| 0706 | [Design HashMap](https://leetcode.com/problems/design-hashmap/)| Hash Map | [Python](https://github.com/yanray/leetcode/blob/master/problems/0706Design_HashMap/0706Design_HashMap.md) | 
 
 <!-- ```diff
 - text in red
