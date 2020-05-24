@@ -1,33 +1,32 @@
 """
-if else 
 
 Version: 1.1 
 Author:  Yanrui 
-date:      5/23/2020
+date:    5/24/2020
 """
 
 
 class Solution:
-    def isAlienSorted(self, words, order):
-        right_order = 'abcdefghijklmnopqrstuvwxyz'
-        
-        trans = str.maketrans(order, right_order)
-        new_words = [w.translate(trans) for w in words]
-        
-        for i in range(len(new_words) - 1): 
-            if new_words[i] > new_words[i + 1]:
-                return False
-        
-        return True
+    def merge(self, nums1, m, nums2, n):
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+
+        nums1[:] = sorted(nums1[:m] + nums2)        
 
 
 if __name__ == '__main__':
     a = Solution()
 
-    words = ["hello","leetcode"]
+    nums1 = [1, 2, 3, 0, 0, 0]
+    nums2 = [2, 5, 6]
+    m = 3
+    n = 3
 
-    order = "hlabcdefgijkmnopqrstuvwxyz"
+    print("nums1 = ",nums1)
+    print("nums2 = ", nums2)
+    a.merge(nums1, m, nums2, n)
+    print("after merge, nums1 = ",nums1)
 
-    print(a.isAlienSorted(words, order))
 
 
