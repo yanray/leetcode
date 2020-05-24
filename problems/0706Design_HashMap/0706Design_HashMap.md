@@ -43,7 +43,7 @@ Build a bucket to store (key, value), use prime number 2069 to map hash key numb
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0706Design_HashMap/0706Design_HashMap1.py)
 
 ```python
 class MyHashMap:
@@ -84,15 +84,68 @@ class MyHashMap:
         
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0706Design_HashMap/0706Design_HashMap2.py)
 
 ```python
-hashmap = {c:i for i, c in enumerate(order)}
-return words == sorted(words, key = lambda w: [hashmap[x] for x in w])
-```
+class Bucket: 
+    def __init__(self):
+        self.bucket = []
 
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary3.py)
+    def update(self, key, value):
+    	found = False
+    	for i, key_value in enumerate(self.bucket):
+    		if key_value[0] == key:
+    			self.bucket[i] = (key, value)
+    			found = True
+    			# print('i', i)
+    			# print('key_value', key_value)
 
-```python
-return words == sorted(words, key = lambda w: [order.index(x) for x in w])
+    	if not found: 
+    		self.bucket.append((key, value))
+
+    	# print(self.bucket)
+
+    def get(self, key):
+    	for (k, v) in self.bucket:
+    		if k == key:
+    			return v
+
+    	return -1
+
+    def remove(self, key):
+    	for i, key_value in enumerate(self.bucket):
+    		if key_value[0] == key:
+    			del self.bucket[i]
+
+
+class MyHashMap:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.key_space_num = 2069
+        self.hashtable = [Bucket() for i in range(self.key_space_num)]
+
+    def put(self, key: int, value: int) -> None:
+        """
+        value will always be non-negative.
+        """
+
+        hash_key = key % self.key_space_num
+        self.hashtable[hash_key].update(key, value)
+
+    def get(self, key: int) -> int:
+        """
+        Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
+        """
+        hash_key = key % self.key_space_num
+        return self.hashtable[hash_key].get(key)
+
+    def remove(self, key: int) -> None:
+        """
+        Removes the mapping of the specified value key if this map contains a mapping for the key
+        """
+        hash_key = key % self.key_space_num
+        self.hashtable[hash_key].remove(key)
 ```
