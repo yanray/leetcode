@@ -1,39 +1,25 @@
-## Verifying an Alien Dictionary
+## Merge Sorted Array
 
 ### Problem Link
 https://leetcode.com/problems/verifying-an-alien-dictionary/
 
 ### Problem Description 
 
-In an alien language, surprisingly they also use english lowercase letters, but possibly in a different order. The order of the alphabet is some permutation of lowercase letters.
+Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
 
-Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words are sorted lexicographicaly in this alien language.
+**Note:**
 
-
-```
-Example1:
-
-Input: words = ["hello","leetcode"], order = "hlabcdefgijkmnopqrstuvwxyz"
-Output: true
-Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
+The number of elements initialized in nums1 and nums2 are m and n respectively.
+You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.
 
 ```
+Example:
 
+Input:
+nums1 = [1,2,3,0,0,0], m = 3
+nums2 = [2,5,6],       n = 3
 
-```
-Example2:
-
-Input: words = ["word","world","row"], order = "worldabcefghijkmnpqstuvxyz"
-Output: false
-Explanation: As 'd' comes after 'l' in this language, then words[0] > words[1], hence the sequence is unsorted.
-```
-
-```
-Example3:
-
-Input: words = ["apple","app"], order = "abcdefghijklmnopqrstuvwxyz"
-Output: false
-Explanation: The first three characters "app" match, and the second string is shorter (in size.) According to lexicographical rules "apple" > "app", because 'l' > '∅', where '∅' is defined as the blank character which is less than any other character.
+Output: [1,2,2,3,5,6]
 
 ```
 
@@ -41,38 +27,59 @@ Explanation: The first three characters "app" match, and the second string is sh
 
 **Approach 1:** 
 
-把words里的字母按照order里面的顺序替换成正常顺序 所对应的new words, 然后比较大小判断顺序
+Two pointers, one to nums1, the other to nums2, 
+
+循环比较大小 (from start to end)
 
 **Approach 2:** 
 
-根据order创建一个hashmap，根据hashmap对应的顺序对words进行重新排序，看words是否等于排序后的words
+Two pointers, (from end to start)
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0088_Merge_Sorted_Array/0088_Merge_Sorted_Array1.py)
 
 ```python
-right_order = 'abcdefghijklmnopqrstuvwxyz'
+nums1[:] = sorted(nums1[:m] + nums2)
+```
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0088_Merge_Sorted_Array/0088_Merge_Sorted_Array2.py)
 
-trans = str.maketrans(order, right_order)
-new_words = [w.translate(trans) for w in words]
+```python
+nums1_cp = nums1[:m]
+nums1[:] = []
 
-for i in range(len(new_words) - 1): 
-    if new_words[i] > new_words[i + 1]:
-        return False
-
-return True    
+p1 = 0
+p2 = 0
+while p1 < m and p2 < n:
+    if nums1_cp[p1] < nums2[p2]:
+        nums1.append(nums1_cp[p1])
+        p1 += 1
+    else:
+        nums1.append(nums2[p2])
+        p2 += 1
+        
+if p1 < m:
+    nums1[p1 + p2 :] = nums1_cp[p1 :]
+else:
+    nums1[p1 + p2 :] = nums2[p2 :]
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary2.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0088_Merge_Sorted_Array/0088_Merge_Sorted_Array3.py)
 
 ```python
-hashmap = {c:i for i, c in enumerate(order)}
-return words == sorted(words, key = lambda w: [hashmap[x] for x in w])
-```
+p1 = m - 1
+p2 = n - 1
+p = m + n -1
 
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary3.py)
-
-```python
-return words == sorted(words, key = lambda w: [order.index(x) for x in w])
+while p1 >= 0 and p2 >= 0:
+    if nums1[p1] > nums2[p2]:
+        nums1[p] = nums1[p1]
+        p1 -= 1
+    else:
+        nums1[p] = nums2[p2]
+        p2 -= 1
+    p -= 1
+    
+if p2 >= 0:
+    nums1[: p2 + 1] = nums2[: p2 + 1]
 ```
