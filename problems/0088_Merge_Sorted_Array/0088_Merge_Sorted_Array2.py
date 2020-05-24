@@ -28,7 +28,7 @@ class Solution:
         if p1 < m:
             nums1[p1 + p2 :] = nums1_cp[p1 :]
         else:
-#             nums1[p1 + p2 :] = nums2[p2 :]  
+            nums1[p1 + p2 :] = nums2[p2 :]  
 
 
 if __name__ == '__main__':
