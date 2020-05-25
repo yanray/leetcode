@@ -80,19 +80,39 @@ return [ str(str(v) + ' ' + k) for k, v in sub_domain.items() ]
 sub_domain = {}
 for i, cp_d in enumerate(cpdomains): 
     times_count, domain = cp_d.split(' ', 1)
-    sub_d = domain.split('.')
-    
-    sub_d_length = len(sub_d)
-    for j in range(sub_d_length - 1, -1, -1):
-        temp = sub_d[sub_d_length - 1]
-        for k in range(0, sub_d_length - 1 - j):
-            temp = sub_d[sub_d_length - 2 - k] + '.' + temp
-            
+
+    temp = ""
+    for subs_d in domain.split('.')[::-1]:
+        temp = subs_d + temp
         if temp in sub_domain:
             sub_domain[temp] += int(times_count)
         else:
             sub_domain[temp] = int(times_count)
+        temp = '.' + temp
+
         
 return [ str(str(v) + ' ' + k) for k, v in sub_domain.items() ]
+
+```
+
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0811Subdomain_Visit_Count/0811Subdomain_Visit_Count3.py)
+
+```python
+sub_domain = {}
+for i, cp_d in enumerate(cpdomains): 
+    times_count, domain = cp_d.split(' ', 1)
+
+    temp = ""
+    for subs_d in domain.split('.')[::-1]:
+        temp = subs_d + temp
+        if temp in sub_domain:
+            sub_domain[temp] += int(times_count)
+        else:
+            sub_domain[temp] = int(times_count)
+        temp = '.' + temp
+
         
+return [ str(str(v) + ' ' + k) for k, v in sub_domain.items() ]
+
 ```
