@@ -8,26 +8,26 @@ date:      5/23/2020
 
 
 class Solution:
-    def isAlienSorted(self, words, order):
-        right_order = 'abcdefghijklmnopqrstuvwxyz'
+    def fizzBuzz(self, n):
         
-        trans = str.maketrans(order, right_order)
-        new_words = [w.translate(trans) for w in words]
-        
-        for i in range(len(new_words) - 1): 
-            if new_words[i] > new_words[i + 1]:
-                return False
-        
-        return True
+        output_str = []
+        for i in range(1, n + 1):
+            if i % 3 == 0 and i % 5 == 0:
+                output_str.append("FizzBuzz")
+            elif i % 3 == 0:
+                output_str.append("Fizz")
+            elif i % 5 == 0:
+                output_str.append("Buzz")
+            else:
+                output_str.append(str(i))
+                
+        return output_str
 
 
 if __name__ == '__main__':
     a = Solution()
 
-    words = ["hello","leetcode"]
-
-    order = "hlabcdefgijkmnopqrstuvwxyz"
-
-    print(a.isAlienSorted(words, order))
+    n = 15
+    print(a.fizzBuzz(n))
 
 
