@@ -104,5 +104,21 @@ return output_str
 [Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0412Fizz_Buzz/0412Fizz_Buzz3.py)
 
 ```python
-return words == sorted(words, key = lambda w: [order.index(x) for x in w])
+output_str = []
+
+mapping_dict = {3: "Fizz", 5: "Buzz"}
+
+for i in range(1, n + 1):
+    temp = ""
+
+    for key in mapping_dict.keys():
+        if i % key == 0:
+            temp += mapping_dict[key]
+
+    if not temp:
+        temp = str(i)
+
+    output_str.append(temp)
+        
+return output_str
 ```
