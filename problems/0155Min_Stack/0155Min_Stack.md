@@ -1,39 +1,36 @@
-## Verifying an Alien Dictionary
+## Min Stack
 
 ### Problem Link
 https://leetcode.com/problems/verifying-an-alien-dictionary/
 
 ### Problem Description 
 
-In an alien language, surprisingly they also use english lowercase letters, but possibly in a different order. The order of the alphabet is some permutation of lowercase letters.
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
 
-Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words are sorted lexicographicaly in this alien language.
-
-
-```
-Example1:
-
-Input: words = ["hello","leetcode"], order = "hlabcdefgijkmnopqrstuvwxyz"
-Output: true
-Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
+* push(x) -- Push element x onto stack.
+* pop() -- Removes the element on top of the stack.
+* top() -- Get the top element.
+* getMin() -- Retrieve the minimum element in the stack.
 
 ```
+Example 1:
 
+Input
+["MinStack","push","push","push","getMin","pop","top","getMin"]
+[[],[-2],[0],[-3],[],[],[],[]]
 
-```
-Example2:
+Output
+[null,null,null,null,-3,null,0,-2]
 
-Input: words = ["word","world","row"], order = "worldabcefghijkmnpqstuvxyz"
-Output: false
-Explanation: As 'd' comes after 'l' in this language, then words[0] > words[1], hence the sequence is unsorted.
-```
-
-```
-Example3:
-
-Input: words = ["apple","app"], order = "abcdefghijklmnopqrstuvwxyz"
-Output: false
-Explanation: The first three characters "app" match, and the second string is shorter (in size.) According to lexicographical rules "apple" > "app", because 'l' > '∅', where '∅' is defined as the blank character which is less than any other character.
+Explanation
+MinStack minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+minStack.getMin(); // return -3
+minStack.pop();
+minStack.top();    // return 0
+minStack.getMin(); // return -2
 
 ```
 
@@ -41,37 +38,83 @@ Explanation: The first three characters "app" match, and the second string is sh
 
 **Approach 1:** 
 
-把words里的字母按照order里面的顺序替换成正常顺序 所对应的new words, 然后比较大小判断顺序
+Use one list to represent Stack, get minimum values by sorting, but this is pretty slow
 
 **Approach 2:** 
 
-根据order创建一个hashmap，根据hashmap对应的顺序对words进行重新排序，看words是否等于排序后的words
+Use one stack to store pairs (x, min_value)
+
+**Approach 3:** 
+
+Use two Stacks, one for x, one for min_value
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0155Min_Stack/0155Min_Stack1.py)
 
 ```python
-right_order = 'abcdefghijklmnopqrstuvwxyz'
+class MinStack:
 
-trans = str.maketrans(order, right_order)
-new_words = [w.translate(trans) for w in words]
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.Stack = []
 
-for i in range(len(new_words) - 1): 
-    if new_words[i] > new_words[i + 1]:
-        return False
+    def push(self, x: int) -> None:
+        self.Stack.append(x)
 
-return True    
+    def pop(self) -> None:
+        if self.Stack:
+            self.Stack.pop()
+
+    def top(self) -> int:
+        if self.Stack:
+            return self.Stack[-1]
+
+    def getMin(self) -> int:
+        temp = self.Stack
+        
+        if self.Stack:
+            return sorted(temp)[0]
+        else:
+            return None
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0155Min_Stack/0155Min_Stack2.py)
 
 ```python
-hashmap = {c:i for i, c in enumerate(order)}
-return words == sorted(words, key = lambda w: [hashmap[x] for x in w])
+class MinStack:
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.Stack = []
+
+    def push(self, x: int) -> None:
+        if not self.Stack:
+            self.Stack.append((x, x))
+
+        current_min = self.Stack[-1][1]
+        self.Stack.append((x, min(x, current_min)))
+
+
+    def pop(self) -> None:
+        if self.Stack:
+            self.Stack.pop()
+
+    def top(self) -> int:
+        if self.Stack:
+            return self.Stack[-1][0]
+
+    def getMin(self) -> int:
+        if self.Stack:
+            return self.Stack[-1][1]
+
 ```
 
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary3.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0155Min_Stack/0155Min_Stack3.py)
 
 ```python
 return words == sorted(words, key = lambda w: [order.index(x) for x in w])
