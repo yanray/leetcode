@@ -48,7 +48,7 @@ The divmod() method in python takes two numbers and returns a pair of numbers co
 
 ### Code (python)
 
-[My submission](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number1.py)
+[My submission](https://github.com/yanray/leetcode/blob/master/problems/0202Happy_Number/0202Happy_Number1.py)
 
 ```python
 before_nums = []
@@ -70,7 +70,7 @@ return True
 ```
 
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number2.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0202Happy_Number/0202Happy_Number2.py)
 
 ```python
 def get_next_num(n):
@@ -89,7 +89,7 @@ return n == 1
 ```
 
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0202_Happy_Number/0202_Happy_Number3.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0202Happy_Number/0202Happy_Number3.py)
 
 ```python
 def get_next_num(n):
