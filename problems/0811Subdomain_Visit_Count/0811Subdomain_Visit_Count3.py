@@ -20,7 +20,7 @@ class Solution:
                 sub_domain['.'.join(frags[i:])] += int(times_count)
 
                 
-        return [ str(str(v) + ' ' + k) for k, v in sub_domain.items() ]
+        return [ "{0} {1}".format(v, k) for k, v in sub_domain.items() ]
             
 
 
