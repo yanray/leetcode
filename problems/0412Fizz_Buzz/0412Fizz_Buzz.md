@@ -40,37 +40,68 @@ Return:
 
 **Approach 1:** 
 
-把words里的字母按照order里面的顺序替换成正常顺序 所对应的new words, 然后比较大小判断顺序
+Naive
 
 **Approach 2:** 
 
-根据order创建一个hashmap，根据hashmap对应的顺序对words进行重新排序，看words是否等于排序后的words
+String Concatenation
+
+**Approach 3:** 
+
+Hash it!
+
+1. Put all the mappings in a hash table. The hash table fizzBuzzHash would look something like { 3: 'Fizz', 5: 'Buzz' }
+
+2. Iterate on the numbers from 1 ... N1...N.
+
+3. For every number, iterate over the fizzBuzzHash keys and check for divisibility.
+
+4. If the number is divisible by the key, concatenate the corresponding hash value to the answer string for current number. We do this for every entry in the hash table.
+
+5. Add the answer string to the answer list.
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0412Fizz_Buzz/0412Fizz_Buzz1.py)
 
 ```python
-right_order = 'abcdefghijklmnopqrstuvwxyz'
-
-trans = str.maketrans(order, right_order)
-new_words = [w.translate(trans) for w in words]
-
-for i in range(len(new_words) - 1): 
-    if new_words[i] > new_words[i + 1]:
-        return False
-
-return True    
+output_str = []
+for i in range(1, n + 1):
+    if i % 3 == 0 and i % 5 == 0:
+        output_str.append("FizzBuzz")
+    elif i % 3 == 0:
+        output_str.append("Fizz")
+    elif i % 5 == 0:
+        output_str.append("Buzz")
+    else:
+        output_str.append(str(i))
+        
+return output_str
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0412Fizz_Buzz/0412Fizz_Buzz2.py)
 
 ```python
-hashmap = {c:i for i, c in enumerate(order)}
-return words == sorted(words, key = lambda w: [hashmap[x] for x in w])
+output_str = []
+for i in range(1, n + 1):
+
+    divisable_by_3 = (i % 3 == 0)
+    divisable_by_5 = (i % 5 == 0)
+
+    temp = ""
+    if divisable_by_3:
+        temp += "Fizz"
+    if divisable_by_5:
+        temp += "Buzz"
+    if not temp:
+        temp = str(i)
+
+    output_str.append(temp)
+        
+return output_str
 ```
 
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary3.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0412Fizz_Buzz/0412Fizz_Buzz3.py)
 
 ```python
 return words == sorted(words, key = lambda w: [order.index(x) for x in w])
