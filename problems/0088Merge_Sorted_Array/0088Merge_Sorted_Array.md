@@ -37,12 +37,12 @@ Two pointers, (from end to start)
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0088_Merge_Sorted_Array/0088_Merge_Sorted_Array1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0088Merge_Sorted_Array/0088Merge_Sorted_Array1.py)
 
 ```python
 nums1[:] = sorted(nums1[:m] + nums2)
 ```
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0088_Merge_Sorted_Array/0088_Merge_Sorted_Array2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0088Merge_Sorted_Array/0088Merge_Sorted_Array2.py)
 
 ```python
 nums1_cp = nums1[:m]
@@ -64,7 +64,7 @@ else:
     nums1[p1 + p2 :] = nums2[p2 :]
 ```
 
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0088_Merge_Sorted_Array/0088_Merge_Sorted_Array3.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0088Merge_Sorted_Array/0088Merge_Sorted_Array3.py)
 
 ```python
 p1 = m - 1
