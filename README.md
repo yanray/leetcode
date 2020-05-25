@@ -25,6 +25,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0706 | [Design HashMap](https://leetcode.com/problems/design-hashmap/)| Hash Map | [Python](https://github.com/yanray/leetcode/blob/master/problems/0706Design_HashMap/0706Design_HashMap.md) | 
 | 0811 | [Subdomain Visit Count](https://leetcode.com/problems/subdomain-visit-count/)| Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0811Subdomain_Visit_Count/0811Subdomain_Visit_Count.md) | 
 | 0412 | [Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0412Fizz_Buzz/0412Fizz_Buzz.md) | 
+| 0155 | [Min Stack](https://leetcode.com/problems/min-stack/)| Stack | [Python](https://github.com/yanray/leetcode/blob/master/problems/0412Fizz_Buzz/0412Fizz_Buzz.md) | 
 
 <!-- ```diff
 - text in red
