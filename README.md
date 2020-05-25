@@ -24,6 +24,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0088 | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0088Merge_Sorted_Array/0088Merge_Sorted_Array.md) | 
 | 0706 | [Design HashMap](https://leetcode.com/problems/design-hashmap/)| Hash Map | [Python](https://github.com/yanray/leetcode/blob/master/problems/0706Design_HashMap/0706Design_HashMap.md) | 
 | 0811 | [Subdomain Visit Count](https://leetcode.com/problems/subdomain-visit-count/)| Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0811Subdomain_Visit_Count/0811Subdomain_Visit_Count.md) | 
+| 0412 | [Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)|  | [Python](https://github.com/yanray/leetcode/blob/master/problems/0811Subdomain_Visit_Count/0811Subdomain_Visit_Count.md) | 
 
 <!-- ```diff
 - text in red
