@@ -42,117 +42,57 @@ We will visit "google.mail.com" 900 times, "yahoo.com" 50 times, "intel.mail.com
 
 **Approach 1:** 
 
-Use Dictionary, however, this is wrong in this question 
+Use dictionary, split visit times and domain, extract all subdomain
 
 **Approach 2:** 
 
-Build a bucket to store (key, value), use prime number 2069 to map hash key number, corresponding to different buckets. 
+
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0706Design_HashMap/0706Design_HashMap1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0811Subdomain_Visit_Count/0811Subdomain_Visit_Count1.py)
 
 ```python
-class MyHashMap:
-    def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.dict = {}
-
-    def put(self, key: int, value: int) -> None:
-        """
-        value will always be non-negative.
-        """
-        
-        if key in self.dict:
-            self.dict[key] = value
+sub_domain = {}
+for i, cp_d in enumerate(cpdomains): 
+    times_count, domain = cp_d.split(' ', 1)
+    sub_d = domain.split('.')
+    
+    sub_d_length = len(sub_d)
+    for j in range(sub_d_length - 1, -1, -1):
+        temp = sub_d[sub_d_length - 1]
+        for k in range(0, sub_d_length - 1 - j):
+            temp = sub_d[sub_d_length - 2 - k] + '.' + temp
+            
+        if temp in sub_domain:
+            sub_domain[temp] += int(times_count)
         else:
-            self.dict[key] = value
-
-    def get(self, key: int) -> int:
-        """
-        Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
-        """
+            sub_domain[temp] = int(times_count)
         
-        if key in self.dict:
-            return self.dict[key]
-        else:
-            return -1
-        
-
-    def remove(self, key: int) -> None:
-        """
-        Removes the mapping of the specified value key if this map contains a mapping for the key
-        """
-        
-        if key in self.dict:
-            del self.dict[key]
+return [ str(str(v) + ' ' + k) for k, v in sub_domain.items() ]
         
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0706Design_HashMap/0706Design_HashMap2.py)
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0811Subdomain_Visit_Count/0811Subdomain_Visit_Count2.py)
 
 ```python
-class Bucket: 
-    def __init__(self):
-        self.bucket = []
-
-    def update(self, key, value):
-    	found = False
-    	for i, key_value in enumerate(self.bucket):
-    		if key_value[0] == key:
-    			self.bucket[i] = (key, value)
-    			found = True
-    			# print('i', i)
-    			# print('key_value', key_value)
-
-    	if not found: 
-    		self.bucket.append((key, value))
-
-    	# print(self.bucket)
-
-    def get(self, key):
-    	for (k, v) in self.bucket:
-    		if k == key:
-    			return v
-
-    	return -1
-
-    def remove(self, key):
-    	for i, key_value in enumerate(self.bucket):
-    		if key_value[0] == key:
-    			del self.bucket[i]
-
-
-class MyHashMap:
-
-    def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.key_space_num = 2069
-        self.hashtable = [Bucket() for i in range(self.key_space_num)]
-
-    def put(self, key: int, value: int) -> None:
-        """
-        value will always be non-negative.
-        """
-
-        hash_key = key % self.key_space_num
-        self.hashtable[hash_key].update(key, value)
-
-    def get(self, key: int) -> int:
-        """
-        Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
-        """
-        hash_key = key % self.key_space_num
-        return self.hashtable[hash_key].get(key)
-
-    def remove(self, key: int) -> None:
-        """
-        Removes the mapping of the specified value key if this map contains a mapping for the key
-        """
-        hash_key = key % self.key_space_num
-        self.hashtable[hash_key].remove(key)
+sub_domain = {}
+for i, cp_d in enumerate(cpdomains): 
+    times_count, domain = cp_d.split(' ', 1)
+    sub_d = domain.split('.')
+    
+    sub_d_length = len(sub_d)
+    for j in range(sub_d_length - 1, -1, -1):
+        temp = sub_d[sub_d_length - 1]
+        for k in range(0, sub_d_length - 1 - j):
+            temp = sub_d[sub_d_length - 2 - k] + '.' + temp
+            
+        if temp in sub_domain:
+            sub_domain[temp] += int(times_count)
+        else:
+            sub_domain[temp] = int(times_count)
+        
+return [ str(str(v) + ' ' + k) for k, v in sub_domain.items() ]
+        
 ```
