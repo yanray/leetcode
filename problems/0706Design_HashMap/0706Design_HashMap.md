@@ -53,6 +53,7 @@ We will visit "google.mail.com" 900 times, "yahoo.com" 50 times, "intel.mail.com
 Use dictionary, split visit times and domain, extract all subdomain
 
 **Approach 2:** 
+Use collections.Counter()
 
 
 
