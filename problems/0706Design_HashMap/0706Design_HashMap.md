@@ -107,20 +107,15 @@ return [ str(str(v) + ' ' + k) for k, v in sub_domain.items() ]
 [Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0811Subdomain_Visit_Count/0811Subdomain_Visit_Count3.py)
 
 ```python
-sub_domain = {}
+sub_domain = collections.Counter()
 for i, cp_d in enumerate(cpdomains): 
     times_count, domain = cp_d.split(' ', 1)
+    frags = domain.split('.')
 
-    temp = ""
-    for subs_d in domain.split('.')[::-1]:
-        temp = subs_d + temp
-        if temp in sub_domain:
-            sub_domain[temp] += int(times_count)
-        else:
-            sub_domain[temp] = int(times_count)
-        temp = '.' + temp
+    for i in range(len(frags)):
+        sub_domain['.'.join(frags[i:])] += int(times_count)
 
         
-return [ str(str(v) + ' ' + k) for k, v in sub_domain.items() ]
+return [ "{0} {1}".format(v, k) for k, v in sub_domain.items() ]
 
 ```
