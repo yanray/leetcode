@@ -1,41 +1,40 @@
-## Verifying an Alien Dictionary
+## Fizz Buzz
 
 ### Problem Link
-https://leetcode.com/problems/verifying-an-alien-dictionary/
+https://leetcode.com/problems/fizz-buzz/
 
 ### Problem Description 
 
-In an alien language, surprisingly they also use english lowercase letters, but possibly in a different order. The order of the alphabet is some permutation of lowercase letters.
+Write a program that outputs the string representation of numbers from 1 to n.
 
-Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words are sorted lexicographicaly in this alien language.
-
+But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
 
 ```
 Example1:
 
-Input: words = ["hello","leetcode"], order = "hlabcdefgijkmnopqrstuvwxyz"
-Output: true
-Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
+n = 15,
+
+Return:
+[
+    "1",
+    "2",
+    "Fizz",
+    "4",
+    "Buzz",
+    "Fizz",
+    "7",
+    "8",
+    "Fizz",
+    "Buzz",
+    "11",
+    "Fizz",
+    "13",
+    "14",
+    "FizzBuzz"
+]
 
 ```
 
-
-```
-Example2:
-
-Input: words = ["word","world","row"], order = "worldabcefghijkmnpqstuvxyz"
-Output: false
-Explanation: As 'd' comes after 'l' in this language, then words[0] > words[1], hence the sequence is unsorted.
-```
-
-```
-Example3:
-
-Input: words = ["apple","app"], order = "abcdefghijklmnopqrstuvwxyz"
-Output: false
-Explanation: The first three characters "app" match, and the second string is shorter (in size.) According to lexicographical rules "apple" > "app", because 'l' > '∅', where '∅' is defined as the blank character which is less than any other character.
-
-```
 
 ### How to solve 
 
