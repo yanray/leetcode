@@ -1,7 +1,12 @@
 ## Subdomain Visit Count
 
 ### Problem Link
+
 https://leetcode.com/problems/subdomain-visit-count/
+
+**Python Counter()**
+
+https://blog.csdn.net/qwe1257/article/details/83272340
 
 ### Problem Description 
 
