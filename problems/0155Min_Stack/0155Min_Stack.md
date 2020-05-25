@@ -117,5 +117,41 @@ class MinStack:
 [Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0155Min_Stack/0155Min_Stack3.py)
 
 ```python
-return words == sorted(words, key = lambda w: [order.index(x) for x in w])
+class MinStack:
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.Stack = []
+        self.min_value = []
+
+    def push(self, x: int) -> None:
+        self.Stack.append(x)
+
+        if not self.min_value or x <= self.min_value[-1]:
+            self.min_value.append(x)
+
+
+    def pop(self) -> None:
+        if self.Stack:
+            if self.Stack[-1] == self.min_value[-1]:
+                self.min_value.pop()
+
+        self.Stack.pop()
+
+    def top(self) -> int:
+        if self.Stack:
+            return self.Stack[-1]
+
+    def getMin(self) -> int:
+        if self.Stack:
+            return self.min_value[-1]
+```
+
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0155Min_Stack/0155Min_Stack4.py)
+
+```python
+
 ```
