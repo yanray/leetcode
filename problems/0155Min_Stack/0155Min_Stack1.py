@@ -36,12 +36,14 @@ class MinStack:
 
 
 if __name__ == '__main__':
-    a = Solution()
+    a = MinStack()
 
-    words = ["hello","leetcode"]
-
-    order = "hlabcdefgijkmnopqrstuvwxyz"
-
-    print(a.isAlienSorted(words, order))
+    a.push(-2)
+    a.push(0)
+    a.push(-3)
+    print(a.getMin())
+    a.pop()
+    a.top()
+    print(a.getMin())
 
 
