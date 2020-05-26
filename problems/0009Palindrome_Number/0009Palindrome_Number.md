@@ -52,14 +52,14 @@ to string
 
 ### Code (python)
 
-[Approach 1]()
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0009Palindrome_Number/0009Palindrome_Number1.py)
 
 ```python
 return x >= 0 and x == int(str(x)[::-1])
 # return x >= 0 and x == int(f"{x}"[::-1])
 ```
 
-[Approach 2]
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0009Palindrome_Number/0009Palindrome_Number2.py)
 
 ```python
 def reverse_num(x):
