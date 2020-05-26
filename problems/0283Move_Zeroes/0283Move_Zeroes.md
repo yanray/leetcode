@@ -1,40 +1,18 @@
-## Verifying an Alien Dictionary
+## Move Zeroes
 
 ### Problem Link
-https://leetcode.com/problems/verifying-an-alien-dictionary/
+https://leetcode.com/problems/move-zeroes/
 
 ### Problem Description 
 
-In an alien language, surprisingly they also use english lowercase letters, but possibly in a different order. The order of the alphabet is some permutation of lowercase letters.
-
-Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words are sorted lexicographicaly in this alien language.
+Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
 
 ```
-Example1:
+Example 1:
 
-Input: words = ["hello","leetcode"], order = "hlabcdefgijkmnopqrstuvwxyz"
-Output: true
-Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
-
-```
-
-
-```
-Example2:
-
-Input: words = ["word","world","row"], order = "worldabcefghijkmnpqstuvxyz"
-Output: false
-Explanation: As 'd' comes after 'l' in this language, then words[0] > words[1], hence the sequence is unsorted.
-```
-
-```
-Example3:
-
-Input: words = ["apple","app"], order = "abcdefghijklmnopqrstuvwxyz"
-Output: false
-Explanation: The first three characters "app" match, and the second string is shorter (in size.) According to lexicographical rules "apple" > "app", because 'l' > '∅', where '∅' is defined as the blank character which is less than any other character.
-
+Input: [0,1,0,3,12]
+Output: [1,3,12,0,0]
 ```
 
 ### How to solve 
