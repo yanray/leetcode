@@ -41,38 +41,35 @@ Explanation: The first three characters "app" match, and the second string is sh
 
 **Approach 1:** 
 
-把words里的字母按照order里面的顺序替换成正常顺序 所对应的new words, 然后比较大小判断顺序
+找0, remove, del or pop, then append(0)
 
 **Approach 2:** 
 
-根据order创建一个hashmap，根据hashmap对应的顺序对words进行重新排序，看words是否等于排序后的words
+找两个pointer, slow and fast, slow pointer 不是0 就替换
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0283Move_Zeroes/0283Move_Zeroes1.py)
 
 ```python
-right_order = 'abcdefghijklmnopqrstuvwxyz'
-
-trans = str.maketrans(order, right_order)
-new_words = [w.translate(trans) for w in words]
-
-for i in range(len(new_words) - 1): 
-    if new_words[i] > new_words[i + 1]:
-        return False
-
-return True    
+i = 0
+length = len(nums)
+while i < length:
+    if nums[i] == 0:
+        del nums[i]
+        nums.append(0)
+        length -= 1
+    else:
+        i += 1
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0283Move_Zeroes/0283Move_Zeroes2.py)
 
 ```python
-hashmap = {c:i for i, c in enumerate(order)}
-return words == sorted(words, key = lambda w: [hashmap[x] for x in w])
-```
-
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary3.py)
-
-```python
-return words == sorted(words, key = lambda w: [order.index(x) for x in w])
+slow, fast = 0, 0
+length = len(nums)
+for fast in range(length): 
+    if nums[fast] != 0:
+        nums[slow], nums[fast] = nums[fast], nums[slow]
+        slow += 1
 ```
