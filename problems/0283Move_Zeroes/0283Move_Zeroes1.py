@@ -8,26 +8,28 @@ date:      5/23/2020
 
 
 class Solution:
-    def isAlienSorted(self, words, order):
-        right_order = 'abcdefghijklmnopqrstuvwxyz'
+    def moveZeroes(self, nums):
+        """
+        Do not return anything, modify nums in-place instead.
+        """
         
-        trans = str.maketrans(order, right_order)
-        new_words = [w.translate(trans) for w in words]
-        
-        for i in range(len(new_words) - 1): 
-            if new_words[i] > new_words[i + 1]:
-                return False
-        
-        return True
+        i = 0
+        length = len(nums)
+        while i < length:
+            if nums[i] == 0:
+                del nums[i]
+                nums.append(0)
+                length -= 1
+            else:
+                i += 1
 
 
 if __name__ == '__main__':
     a = Solution()
 
-    words = ["hello","leetcode"]
+    nums = [0,1,0,3,12] 
 
-    order = "hlabcdefgijkmnopqrstuvwxyz"
+    print("Input: ", nums)
 
-    print(a.isAlienSorted(words, order))
-
-
+    a.moveZeroes(nums)
+    print("Output: ", nums)
