@@ -1,39 +1,37 @@
-## Palindrome Number
+## Add Binary
 
 ### Problem Link
-https://leetcode.com/problems/palindrome-number/
+https://leetcode.com/problems/add-binary/
 
 ### Problem Description 
 
-Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+Given two binary strings, return their sum (also a binary string).
+
+The input strings are both non-empty and contains only characters 1 or 0.
 
 
 ```
 Example 1:
 
-Input: 121
-Output: true
+Input: a = "11", b = "1"
+Output: "100"
 
 ```
 
 ```
 Example 2:
 
-Input: -121
-Output: false
-Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+Input: a = "1010", b = "1011"
+Output: "10101"
 
 ```
 
+**Constraints:**
 
-```
-Example 3:
+* Each string consists only of '0' or '1' characters.
+* 1 <= a.length, b.length <= 10^4
+* Each string is either "0" or doesn't contain any leading zero.
 
-Input: 10
-Output: false
-Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
-
-```
 
 **Follow up:**
 
