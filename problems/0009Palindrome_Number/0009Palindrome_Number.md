@@ -1,73 +1,76 @@
-## Diameter of Binary Tree
+## Palindrome Number
 
 ### Problem Link
-https://leetcode.com/problems/diameter-of-binary-tree/
+https://leetcode.com/problems/palindrome-number/
 
 ### Problem Description 
 
-Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
 
 
 ```
 Example 1:
 
-Given a binary tree
-          1
-         / \
-        2   3
-       / \     
-      4   5    
+Input: 121
+Output: true
 
-Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
 ```
-**Note:** The length of path between two nodes is represented by the number of edges between them.
+
+```
+Example 2:
+
+Input: -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+
+```
+
+
+```
+Example 3:
+
+Input: 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+
+```
+
+**Follow up:**
+
+Coud you solve it without converting the integer to a string?
+
 
 ### How to solve 
 
 **Approach 1:** 
 
-counting edges(left, right) to find the longest path
+to string 
 
 **Approach 2:** 
-counting nodes to find the longest path, (number of nodes - 1)
+
 
 
 ### Code (python)
 
-[Approach 1]
+[Approach 1]()
 
 ```python
-self.max_diameter = 0
-
-def depth(tree):
-    if not tree:
-        return 0
-    
-    L_dep = depth(tree.left)
-    R_dep = depth(tree.right)
-    self.max_diameter = max(self.max_diameter, L_dep + R_dep)
-    return max(L_dep, R_dep) + 1
-
-depth(root)
-
-return self.max_diameter
+return x >= 0 and x == int(str(x)[::-1])
+# return x >= 0 and x == int(f"{x}"[::-1])
 ```
 
 [Approach 2]
 
 ```python
-self.max_diameter = 1
+def reverse_num(x):
+    rev_x = 0
+    while x > 0:
+        rev_x, x = rev_x * 10 + x % 10, x // 10
+        
+    return rev_x
 
-def depth(tree):
-    if not tree:
-        return 0
-    
-    L_dep = depth(tree.left)
-    R_dep = depth(tree.right)
-    self.max_diameter = max(self.max_diameter, L_dep + R_dep + 1)
-    return max(L_dep, R_dep) + 1
+if x < 0:
+    return False
 
-depth(root)
-
-return self.max_diameter - 1
+return x == reverse_num(x)
 ```
