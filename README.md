@@ -28,7 +28,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0155 | [Min Stack](https://leetcode.com/problems/min-stack/)| Stack | [Python](https://github.com/yanray/leetcode/blob/master/problems/0155Min_Stack/0155Min_Stack.md) | 
 | 0283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0283Move_Zeroes/0283Move_Zeroes.md) | 
 | 0543 | [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)| Tree | [Python](https://github.com/yanray/leetcode/blob/master/problems/0543Diameter_of_Binary_Tree/0543Diameter_of_Binary_Tree.md) | 
-| 0009 | [Palindrome Number](https://leetcode.com/problems/palindrome-number/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0543Diameter_of_Binary_Tree/0543Diameter_of_Binary_Tree.md) | 
+| 0009 | [Palindrome Number](https://leetcode.com/problems/palindrome-number/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0009Palindrome_Number/0009Palindrome_Number.md) | 
 
 
 
