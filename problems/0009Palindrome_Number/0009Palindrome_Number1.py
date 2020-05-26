@@ -1,38 +1,44 @@
 """
-leetcode 0001 TwoSum
+Valid Parentheses
 
 Version: 1.1 
 Author:  Yanrui 
-date: 	 5/26/2020
+date: 	 5/20/2020
 """
 
 
 class Solution:
-    def reverse(self, x):
-        
-        lower_limit = -pow(2, 31)
-        upper_limit = pow(2, 31) - 1
-        
-        rev_x = 0
-        if x < 0:
-            sign = -1
-            x = -x
-        else: 
-            sign = 1
-
-        while x != 0:
-            x, temp = divmod(x, 10)
-            rev_x = rev_x * 10 + temp
-        rev_x = rev_x * sign
-            
-        return rev_x if rev_x < upper_limit and rev_x > lower_limit else 0 
+    def isValid(self, s):
+      if len(s):
+          parenthese_left = ['(', '{', '[']
+          parenthese_right = [')', '}', ']']
+          num_record = []
+          for i in range(len(s)):
+              if s[i] in parenthese_left:
+                  # print('position 1')
+                  # print(parenthese_left.index(s[i]))
+                  num_record.append(parenthese_left.index(s[i]))
+              else:
+                  # print('position 2')
+                  if not len(num_record):
+                      return False
+                  elif(parenthese_right.index(s[i]) == num_record[len(num_record) - 1]):
+                      # print('ready to pop')
+                      # print('num_record:', num_record)
+                      num_record.pop()
+                      # print('after pop')
+                      # print('num_record:', num_record)
+                  else:
+                      return False
+          if not len(num_record):
+              return True
+          else:
+              return False
+      else:
+          return True
 
 
 if __name__ == '__main__':
     a = Solution()
-
-    num = 123
-    print('Input: ', num)
-    print('Output:', a.reverse(num))
-
-
+    input_string = "({[]})"
+    print(a.isValid(input_string))
