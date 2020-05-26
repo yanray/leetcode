@@ -34,27 +34,40 @@ counting nodes to find the longest path, (number of nodes - 1)
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0283Move_Zeroes/0283Move_Zeroes1.py)
+[Approach 1]
 
 ```python
-i = 0
-length = len(nums)
-while i < length:
-    if nums[i] == 0:
-        del nums[i]
-        nums.append(0)
-        length -= 1
-    else:
-        i += 1
+self.max_diameter = 0
+
+def depth(tree):
+    if not tree:
+        return 0
+    
+    L_dep = depth(tree.left)
+    R_dep = depth(tree.right)
+    self.max_diameter = max(self.max_diameter, L_dep + R_dep)
+    return max(L_dep, R_dep) + 1
+
+depth(root)
+
+return self.max_diameter
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0283Move_Zeroes/0283Move_Zeroes2.py)
+[Approach 2]
 
 ```python
-slow, fast = 0, 0
-length = len(nums)
-for fast in range(length): 
-    if nums[fast] != 0:
-        nums[slow], nums[fast] = nums[fast], nums[slow]
-        slow += 1
+self.max_diameter = 1
+
+def depth(tree):
+    if not tree:
+        return 0
+    
+    L_dep = depth(tree.left)
+    R_dep = depth(tree.right)
+    self.max_diameter = max(self.max_diameter, L_dep + R_dep + 1)
+    return max(L_dep, R_dep) + 1
+
+depth(root)
+
+return self.max_diameter - 1
 ```
