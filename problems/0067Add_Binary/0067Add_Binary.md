@@ -50,12 +50,28 @@ improved of Approach 2
 
 **Approach 3:** 
 
+Use Bit to compute directly
 
+**Approach 4:** 
+
+Bit Manipulation:
+
+* Convert a and b into integers x and y, x will be used to keep an answer, and y for the carry.
+
+* While carry is nonzero: y != 0:
+
+    Current answer without carry is XOR of x and y: answer = x^y.
+
+    Current carry is left-shifted AND of x and y: carry = (x & y) << 1.
+
+    Job is done, prepare the next loop: x = answer, y = carry.
+
+* Return x in the binary form.
 
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0009Palindrome_Number/0009Palindrome_Number1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0067Add_Binary/0067Add_Binary1.py)
 
 ```python
 int_a = 0
@@ -73,15 +89,65 @@ for bit in b[::-1]:
 return str(bin(int_a + int_b))[2:]
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0009Palindrome_Number/0009Palindrome_Number2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0067Add_Binary/0067Add_Binary2.py)
 
 ```python
 return "{0:b}".format(int(a, 2) + int(b, 2))
 ```
 
 
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0009Palindrome_Number/0009Palindrome_Number2.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0067Add_Binary/0067Add_Binary3.py)
 
 ```python
-return "{0:b}".format(int(a, 2) + int(b, 2))
+str_sum = ""
+length = max(len(a), len(b))
+a, b = a.zfill(length), b.zfill(length)
+
+carry = 0
+for i in range(length - 1, -1, -1):
+    if a[i] == "1":
+        carry += 1
+    if b[i] == "1":
+        carry += 1
+        
+    if carry % 2 == 0:
+        str_sum += "0"
+    else:
+        str_sum += "1"
+        
+    carry //= 2
+    
+if carry == 1:
+    str_sum += "1"
+    
+return str_sum[::-1]
 ```
+
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0067Add_Binary/0067Add_Binary3.py)
+
+```python
+str_sum = ""
+length = max(len(a), len(b))
+a, b = a.zfill(length), b.zfill(length)
+
+carry = 0
+for i in range(length - 1, -1, -1):
+    if a[i] == "1":
+        carry += 1
+    if b[i] == "1":
+        carry += 1
+        
+    if carry % 2 == 0:
+        str_sum += "0"
+    else:
+        str_sum += "1"
+        
+    carry //= 2
+    
+if carry == 1:
+    str_sum += "1"
+    
+return str_sum[::-1]
+```
+
