@@ -78,3 +78,10 @@ return str(bin(int_a + int_b))[2:]
 ```python
 return "{0:b}".format(int(a, 2) + int(b, 2))
 ```
+
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0009Palindrome_Number/0009Palindrome_Number2.py)
+
+```python
+return "{0:b}".format(int(a, 2) + int(b, 2))
+```
