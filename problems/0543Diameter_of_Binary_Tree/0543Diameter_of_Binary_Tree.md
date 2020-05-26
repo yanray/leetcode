@@ -1,29 +1,36 @@
-## Move Zeroes
+## Diameter of Binary Tree
 
 ### Problem Link
-https://leetcode.com/problems/move-zeroes/
+https://leetcode.com/problems/diameter-of-binary-tree/
 
 ### Problem Description 
 
-Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
 
 
 ```
 Example 1:
 
-Input: [0,1,0,3,12]
-Output: [1,3,12,0,0]
+Given a binary tree
+          1
+         / \
+        2   3
+       / \     
+      4   5    
+
+Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
 ```
+**Note:** The length of path between two nodes is represented by the number of edges between them.
 
 ### How to solve 
 
 **Approach 1:** 
 
-找0, remove, del or pop, then append(0)
+
 
 **Approach 2:** 
 
-找两个pointer, slow and fast, slow pointer 不是0 就替换
+
 
 ### Code (python)
 
