@@ -165,14 +165,12 @@ while y:
 return bin(x)[2:]
 ```
 
-[Approach 5](https://github.com/yanray/leetcode/blob/master/problems/0067Add_Binary/0067Add_Binary4.py)
+[Approach 5](https://github.com/yanray/leetcode/blob/master/problems/0067Add_Binary/0067Add_Binary5.py)
 
 ```python
 x, y = int(a, 2), int(b, 2)
 
 while y:
-    answer = x ^ y
-    carry = (x & y) << 1
-    x, y = answer, carry
+    x, y = x ^ y, (x & y) << 1
 return bin(x)[2:]
 ```
