@@ -27,6 +27,8 @@ Record my learning path in leetcode, including my submissions and others
 | 0412 | [Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0412Fizz_Buzz/0412Fizz_Buzz.md) | 
 | 0155 | [Min Stack](https://leetcode.com/problems/min-stack/)| Stack | [Python](https://github.com/yanray/leetcode/blob/master/problems/0155Min_Stack/0155Min_Stack.md) | 
 | 0283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0283Move_Zeroes/0283Move_Zeroes.md) | 
+| 0543 | [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)| Tree | [Python](https://github.com/yanray/leetcode/blob/master/problems/0283Move_Zeroes/0283Move_Zeroes.md) | 
+
 
 
 <!-- ```diff
