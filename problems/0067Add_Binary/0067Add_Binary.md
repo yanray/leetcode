@@ -42,9 +42,14 @@ Coud you solve it without converting the integer to a string?
 
 **Approach 1:** 
 
-to string 
+Change to int, add sum, change back binary
 
 **Approach 2:** 
+
+improved of Approach 2
+
+**Approach 3:** 
+
 
 
 
@@ -53,22 +58,23 @@ to string
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0009Palindrome_Number/0009Palindrome_Number1.py)
 
 ```python
-return x >= 0 and x == int(str(x)[::-1])
-# return x >= 0 and x == int(f"{x}"[::-1])
+int_a = 0
+int_b = 0
+
+digit = 0
+for bit in a[::-1]:
+    int_a += 2 ** digit * int(bit)
+    digit += 1
+digit = 0
+for bit in b[::-1]:
+    int_b += 2 ** digit * int(bit)
+    digit += 1
+
+return str(bin(int_a + int_b))[2:]
 ```
 
 [Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0009Palindrome_Number/0009Palindrome_Number2.py)
 
 ```python
-def reverse_num(x):
-    rev_x = 0
-    while x > 0:
-        rev_x, x = rev_x * 10 + x % 10, x // 10
-        
-    return rev_x
-
-if x < 0:
-    return False
-
-return x == reverse_num(x)
+return "{0:b}".format(int(a, 2) + int(b, 2))
 ```
