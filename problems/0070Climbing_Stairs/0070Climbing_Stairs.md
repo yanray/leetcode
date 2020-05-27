@@ -40,6 +40,15 @@ Explanation: There are three ways to climb to the top.
 
 Dynamic Porgramming, dp[i] = dp[i - 1] + dp[i - 2], dp[1] = 1, dp[2] = 2
 
+**Approach 2:** 
+
+Fibonacci Number, Fibonacci Formula
+
+\begin{equation}
+    \sum_{\forall i}{x_i^{2}}
+\end{equation}
+
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0070Climbing_Stairs/0070Climbing_Stairs1.py)
