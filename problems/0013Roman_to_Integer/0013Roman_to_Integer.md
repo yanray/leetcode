@@ -114,13 +114,14 @@ return sum_int
 [Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0013Roman_to_Integer/0013Roman_to_Integer2.py)
 
 ```python
-roman_dict = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
+roman_dict = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000, 
+                "IV":4, "IX":9, "XL":40, "XC":90, "CD":400, "CM":900}
 
 sum_int = 0
 i = 0
 while i < (len(s) - 1):
-    if roman_dict[s[i]] < roman_dict[s[i + 1]]:
-        sum_int += roman_dict[s[i + 1]] - roman_dict[s[i]]
+    if s[i : i + 2] in roman_dict:
+        sum_int += roman_dict[s[i : i + 2]]
         i += 2
     else:
         sum_int += roman_dict[s[i]]
