@@ -46,11 +46,9 @@ Fibonacci Number, Fibonacci Formula
 
 <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 
-```latex
 \begin{equation}
     \sum_{\forall i}{x_i^{2}}
 \end{equation}
-```
 
 
 ### Code (python)
