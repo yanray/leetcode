@@ -34,20 +34,46 @@ Given a roman numeral, convert it to an integer. Input is guaranteed to be withi
 ```
 Example 1:
 
-Input: "aba"
-Output: True
+Input: "III"
+Output: 3
 
 ```
-
 
 ```
 Example 2: 
 
-Input: "abca"
-Output: True
-Explanation: You could delete the character 'c'.
+Input: "IV"
+Output: 4
 
 ```
+
+```
+Example 3: 
+
+Input: "IX"
+Output: 9
+
+```
+
+
+```
+Example 4: 
+
+Input: "LVIII"
+Output: 58
+Explanation: L = 50, V= 5, III = 3.
+
+```
+
+```
+Example 5: 
+
+Input: "MCMXCIV"
+Output: 1994
+Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+
+```
+
 
 **Note:**
 
