@@ -6,27 +6,13 @@ date:    5/27/2020
 """
 
 class Solution:
-    def climbStairs(self, n: int) -> int:
+    def singleNumber(self, nums) -> int:
 
-        ways = 0
-        first = 1
-        second = 2
-        
-        if n == 1:
-            return first
-        elif n == 2:
-            return second
-        else:
-            for i in range(2, n):
-                ways = first + second
-                first = second
-                second = ways
-
-        return ways
+        return sum(set(nums)) * 2 - sum(nums)
 
 if __name__ == '__main__':
     a = Solution()
 
-    n = 10
-    print(a.climbStairs(n))
+    nums = [4,1,2,1,2]
+    print(a.singleNumber(nums))
 
