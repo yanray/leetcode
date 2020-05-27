@@ -87,7 +87,7 @@ The string will only contain lowercase characters a-z. The maximum length of the
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0680Valid_Palindrome_II/0680Valid_Palindrome_II1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0013Roman_to_Integer/0013Roman_to_Integer1.py)
 
 ```python
 def isPalindrome(s):
