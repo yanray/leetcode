@@ -37,17 +37,22 @@ The string will only contain lowercase characters a-z. The maximum length of the
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0953Verifying_an_Alien_Dictionary/0953Verifying_an_Alien_Dictionary1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0680Valid_Palindrome_II/0680Valid_Palindrome_II1.py)
 
 ```python
-right_order = 'abcdefghijklmnopqrstuvwxyz'
+def isPalindrome(s):
+    return s == s[::-1]
 
-trans = str.maketrans(order, right_order)
-new_words = [w.translate(trans) for w in words]
+if s == s[::-1]:
+    return True
 
-for i in range(len(new_words) - 1): 
-    if new_words[i] > new_words[i + 1]:
-        return False
+first, last = 0, len(s) - 1
 
-return True    
+while first < last:
+    if s[first] != s[last]:
+        return isPalindrome(s[first + 1 : last + 1]) or isPalindrome(s[first : last])
+    first += 1
+    last -= 1
+    
+return True
 ```
