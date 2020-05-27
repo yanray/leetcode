@@ -50,6 +50,10 @@ Fibonacci Number, Fibonacci Formula
 
 Use Binets Method to compute matrix multiplication to get the answer
 
+**Approach 4:** 
+
+Recursion with Memoization
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0070Climbing_Stairs/0070Climbing_Stairs1.py)
