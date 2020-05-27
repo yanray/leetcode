@@ -1,83 +1,38 @@
-## Roman to Integer
+## Climbing Stairs
 
 ### Problem Link
-https://leetcode.com/problems/roman-to-integer/
+https://leetcode.com/problems/climbing-stairs/
 
 ### Problem Description 
 
-Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+You are climbing a stair case. It takes n steps to reach to the top.
 
-```
-Symbol       Value
-I             1
-V             5
-X             10
-L             50
-C             100
-D             500
-M             1000
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
 
-```
-
-For example, two is written as II in Roman numeral, just two one's added together. Twelve is written as, XII, which is simply X + II. The number twenty seven is written as XXVII, which is XX + V + II.
-
-Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
-
-* I can be placed before V (5) and X (10) to make 4 and 9. 
-* X can be placed before L (50) and C (100) to make 40 and 90. 
-* C can be placed before D (500) and M (1000) to make 400 and 900.
-
-Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.
-
-
+**Note:** Given n will be a positive integer.
 
 ```
 Example 1:
 
-Input: "III"
-Output: 3
+Input: 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
 
 ```
 
 ```
 Example 2: 
 
-Input: "IV"
-Output: 4
+Input: 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
 
 ```
-
-```
-Example 3: 
-
-Input: "IX"
-Output: 9
-
-```
-
-
-```
-Example 4: 
-
-Input: "LVIII"
-Output: 58
-Explanation: L = 50, V= 5, III = 3.
-
-```
-
-```
-Example 5: 
-
-Input: "MCMXCIV"
-Output: 1994
-Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
-
-```
-
-
-**Note:**
-
-The string will only contain lowercase characters a-z. The maximum length of the string is 50000.
 
 ### How to solve 
 
