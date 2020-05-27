@@ -10,12 +10,12 @@ import math
 class Solution:
     def climbStairs(self, n: int) -> int:
 
-        def fib(n):
-            sqrt5 = math.sqrt(5)
-            Fn = (1 / sqrt5) * (((1 + sqrt5) / 2) ** n - ((1 - sqrt5) / 2) ** n)
+    	def dfs(n):
+    		if n not in memo: memo[n] = dfs(n-1)+dfs(n-2)
+    		return memo[n]   
 
-            return int(Fn)
-        return fib(n + 1)
+    	memo = {1:1, 2:2}
+    	return dfs(n)
 
 
 if __name__ == '__main__':
