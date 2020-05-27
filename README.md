@@ -33,7 +33,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0680 | [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0680Valid_Palindrome_II/0680Valid_Palindrome_II.md) | 
 | 0013 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0013Roman_to_Integer/0013Roman_to_Integer.md) | 
 | 0070 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/problems/0070Climbing_Stairs/0070Climbing_Stairs.md) | 
-| 0136 | [Single Number](https://leetcode.com/problems/single-number/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/problems/0070Climbing_Stairs/0070Climbing_Stairs.md) | 
+| 0136 | [Single Number](https://leetcode.com/problems/single-number/)| Hash Table, Bit Manipulation | [Python](https://github.com/yanray/leetcode/blob/master/problems/0136Single_Number/0136Single_Number.md) | 
 
 
 
