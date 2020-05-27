@@ -31,7 +31,7 @@ Explanation: There is no common prefix among the input strings.
 
 **Approach 1:** 
 
-Use math, 2 * (a + b + c) - 2 * (a + b) = c
+Horizontal scanning, util the end of the List[string] or prefix == ""
 
 **Approach 2:** 
 
@@ -54,7 +54,26 @@ List Operation
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0136Single_Number/0136Single_Number1.py)
 
 ```python
-return sum(set(nums)) * 2 - sum(nums)
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        
+        if not strs:
+            return ""
+        else:
+            prefix = strs[0]
+            for s in strs:
+                temp = prefix
+                if temp == "":
+                    return prefix
+                else:
+                    prefix = ""
+                    for i in range(min(len(temp), len(s))):
+                        if temp[i] == s[i]:
+                            prefix += s[i]
+                        else:
+                            break
+
+            return prefix
 ```
 
 [Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0136Single_Number/0136Single_Number2.py)
