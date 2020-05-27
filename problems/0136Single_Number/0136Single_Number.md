@@ -1,36 +1,28 @@
-## Climbing Stairs
+## Single Number
 
 ### Problem Link
-https://leetcode.com/problems/climbing-stairs/
+https://leetcode.com/problems/single-number/
 
 ### Problem Description 
 
-You are climbing a stair case. It takes n steps to reach to the top.
+Given a non-empty array of integers, every element appears twice except for one. Find that single one.
 
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+**Note:**
 
-**Note:** Given n will be a positive integer.
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 
 ```
 Example 1:
 
-Input: 2
-Output: 2
-Explanation: There are two ways to climb to the top.
-1. 1 step + 1 step
-2. 2 steps
-
+Input: [2,2,1]
+Output: 1
 ```
 
 ```
 Example 2: 
 
-Input: 3
-Output: 3
-Explanation: There are three ways to climb to the top.
-1. 1 step + 1 step + 1 step
-2. 1 step + 2 steps
-3. 2 steps + 1 step
+Input: [4,1,2,1,2]
+Output: 4
 
 ```
 
