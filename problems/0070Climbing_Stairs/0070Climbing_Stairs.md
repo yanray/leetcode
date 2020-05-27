@@ -44,7 +44,7 @@ Dynamic Porgramming, dp[i] = dp[i - 1] + dp[i - 2], dp[1] = 1, dp[2] = 2
 
 Fibonacci Number, Fibonacci Formula
 
-<img src="https://render.githubusercontent.com/render/math?math=\sum_{\forall i}{x_i^{2}}">
+![first equation](http://latex.codecogs.com/gif.latex?%5Cfrac%7Ba%7D%7Bb%7D)
 
 
 ### Code (python)
