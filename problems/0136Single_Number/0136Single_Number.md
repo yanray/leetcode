@@ -46,51 +46,41 @@ Bit Manipulation
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0070Climbing_Stairs/0070Climbing_Stairs1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0136Single_Number/0136Single_Number1.py)
 
 ```python
-ways = 0
-first = 1
-second = 2
-
-if n == 1:
-    return first
-elif n == 2:
-    return second
-else:
-    for i in range(2, n):
-        ways = first + second
-        first = second
-        second = ways
-
-return ways
+return sum(set(nums)) * 2 - sum(nums)
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0070Climbing_Stairs/0070Climbing_Stairs2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0136Single_Number/0136Single_Number2.py)
 
 ```python
-def fib(n):
-    sqrt5 = math.sqrt(5)
-    Fn = (1 / sqrt5) * (((1 + sqrt5) / 2) ** n - ((1 - sqrt5) / 2) ** n)
+hashmap = collections.Counter(nums)
 
-    return int(Fn)
-return fib(n + 1)
-```
-
-
-[Approach 3]
-
-
-[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0070Climbing_Stairs/0070Climbing_Stairs4.py)
-
-```python
-def helper(n: int) -> int:
-    if n < 3:
+for n in nums:
+    if hashmap[n] == 1:
         return n
-    elif n not in memo:
-        memo[n] = helper(n-1) + helper(n-2)
-    return memo[n]
+```
 
-memo = {}
-return helper(n)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0136Single_Number/0136Single_Number3.py)
+
+```python
+hash_table = collections.defaultdict(int)
+for i in nums:
+    hash_table[i] += 1
+
+for i in hash_table:
+    if hash_table[i] == 1:
+        return i
+```
+
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0136Single_Number/0136Single_Number4.py)
+
+```python
+a = 0
+for n in nums:
+    a ^= n
+    
+return a
 ```
