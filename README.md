@@ -32,6 +32,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0067 | [Add Binary](https://leetcode.com/problems/add-binary/)| Math, String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0067Add_Binary/0067Add_Binary.md) | 
 | 0680 | [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0680Valid_Palindrome_II/0680Valid_Palindrome_II.md) | 
 | 0013 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0013Roman_to_Integer/0013Roman_to_Integer.md) | 
+| 0070 | [Roman to Integer](https://leetcode.com/problems/climbing-stairs/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0013Roman_to_Integer/0013Roman_to_Integer.md) | 
 
 
 <!-- ```diff
