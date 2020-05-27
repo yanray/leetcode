@@ -30,21 +30,19 @@ Output: 4
 
 **Approach 1:** 
 
-Dynamic Porgramming, dp[i] = dp[i - 1] + dp[i - 2], dp[1] = 1, dp[2] = 2
+Use math, 2 * (a + b + c) - 2 * (a + b) = c
 
 **Approach 2:** 
 
-Fibonacci Number, Fibonacci Formula
-
-![Fibonacci Formula](https://latex.codecogs.com/gif.latex?F_n%20%3D%20%5Cfrac%7B1%7D%7B%5Csqrt5%7D%5B%28%5Cfrac%7B1%20&plus;%20%5Csqrt5%7D%7B2%7D%29%5E2%20-%20%28%5Cfrac%7B1%20-%20%5Csqrt5%7D%7B2%7D%29%5E2%5D)
+Use hashmap, collections.Counter()
 
 **Approach 3:** 
 
-Use Binets Method to compute matrix multiplication to get the answer
+Use hashmap, collections.defaultdict(int)
 
 **Approach 4:** 
 
-Recursion with Memoization
+Bit Manipulation
 
 ### Code (python)
 
