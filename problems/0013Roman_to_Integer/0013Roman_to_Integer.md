@@ -83,26 +83,50 @@ The string will only contain lowercase characters a-z. The maximum length of the
 
 **Approach 1:** 
 
-判断此数是不是回文数，如果不是，依次比较头尾的字符，当字符不相等的时候，传子字符判断是不是回文数从而判定结果
+Use dictionary to map every roman character to int number, and checking the size of current number with the next one 
+
+**Approach 2:** 
+
+Use dictionary to map every roman character to int number. 
 
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0013Roman_to_Integer/0013Roman_to_Integer1.py)
 
 ```python
-def isPalindrome(s):
-    return s == s[::-1]
+roman_dict = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
 
-if s == s[::-1]:
-    return True
+sum_int = 0
+i = 0
+while i < (len(s) - 1):
+    if roman_dict[s[i]] < roman_dict[s[i + 1]]:
+        sum_int += roman_dict[s[i + 1]] - roman_dict[s[i]]
+        i += 2
+    else:
+        sum_int += roman_dict[s[i]]
+        i += 1
+if i != len(s):
+    sum_int += roman_dict[s[-1]]
 
-first, last = 0, len(s) - 1
+return sum_int
+```
 
-while first < last:
-    if s[first] != s[last]:
-        return isPalindrome(s[first + 1 : last + 1]) or isPalindrome(s[first : last])
-    first += 1
-    last -= 1
-    
-return True
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0013Roman_to_Integer/0013Roman_to_Integer2.py)
+
+```python
+roman_dict = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
+
+sum_int = 0
+i = 0
+while i < (len(s) - 1):
+    if roman_dict[s[i]] < roman_dict[s[i + 1]]:
+        sum_int += roman_dict[s[i + 1]] - roman_dict[s[i]]
+        i += 2
+    else:
+        sum_int += roman_dict[s[i]]
+        i += 1
+if i != len(s):
+    sum_int += roman_dict[s[-1]]
+
+return sum_int
 ```
