@@ -69,4 +69,15 @@ else:
 return ways
 ```
 
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0070Climbing_Stairs/0070Climbing_Stairs2.py)
+
+```python
+def fib(n):
+    sqrt5 = math.sqrt(5)
+    Fn = (1 / sqrt5) * (((1 + sqrt5) / 2) ** n - ((1 - sqrt5) / 2) ** n)
+
+    return int(Fn)
+return fib(n + 1)
+```
+
 
