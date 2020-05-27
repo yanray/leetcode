@@ -27,6 +27,6 @@ class Solution:
 if __name__ == '__main__':
     a = Solution()
 
-    n = 5
+    n = 10
     print(a.climbStairs(n))
 
