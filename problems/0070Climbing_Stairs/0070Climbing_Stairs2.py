@@ -10,7 +10,13 @@ import math
 class Solution:
     def climbStairs(self, n: int) -> int:
 
-        return int((1 / math.sqrt(5)) * (((1 + math.sqrt(5)) / 2) ** n - ((1 - math.sqrt(5)) / 2) ** n))
+        def fib(n):
+            sqrt5 = math.sqrt(5)
+            Fn = (1 / sqrt5) * (((1 + sqrt5) / 2) ** n - ((1 - sqrt5) / 2) ** n)
+
+            return int(Fn)
+        return fib(n + 1)
+
 
 if __name__ == '__main__':
     a = Solution()
