@@ -44,6 +44,10 @@ Use hashmap, collections.defaultdict(int)
 
 Bit Manipulation
 
+**Approach 5:** 
+
+List Operation
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0136Single_Number/0136Single_Number1.py)
@@ -84,3 +88,17 @@ for n in nums:
     
 return a
 ```
+
+
+[Approach 5](https://github.com/yanray/leetcode/blob/master/problems/0136Single_Number/0136Single_Number5.py)
+
+```python
+no_duplicate_list = []
+for i in nums:
+    if i not in no_duplicate_list:
+        no_duplicate_list.append(i)
+    else:
+        no_duplicate_list.remove(i)
+return no_duplicate_list.pop()
+```
+
