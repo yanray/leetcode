@@ -89,6 +89,10 @@ Use dictionary to map every roman character to int number, and checking the size
 
 Use dictionary to map every roman character to int number. 
 
+**Approach 3:** 
+
+根据当前值与下一个值的大小，做加法或减法
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0013Roman_to_Integer/0013Roman_to_Integer1.py)
@@ -128,6 +132,24 @@ while i < (len(s) - 1):
         i += 1
 if i != len(s):
     sum_int += roman_dict[s[-1]]
+
+return sum_int
+```
+
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0013Roman_to_Integer/0013Roman_to_Integer3.py)
+
+```python
+roman_dict = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
+
+sum_int = 0
+i = 0
+for i in range(len(s) - 1):
+    if roman_dict[s[i]] < roman_dict[s[i + 1]]:
+        sum_int -= roman_dict[s[i]]
+    else:
+        sum_int += roman_dict[s[i]]
+sum_int += roman_dict[s[-1]]
 
 return sum_int
 ```
