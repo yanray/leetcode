@@ -90,10 +90,13 @@ return fib(n + 1)
 [Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0070Climbing_Stairs/0070Climbing_Stairs4.py)
 
 ```python
-def dfs(n):
-    if n not in memo: memo[n] = dfs(n-1)+dfs(n-2)
-    return memo[n]   
+def helper(n: int) -> int:
+    if n < 3:
+        return n
+    elif n not in memo:
+        memo[n] = helper(n-1) + helper(n-2)
+    return memo[n]
 
-memo = {1:1, 2:2}
-return dfs(n)
+memo = {}
+return helper(n)
 ```
