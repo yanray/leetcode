@@ -85,3 +85,15 @@ return fib(n + 1)
 
 
 [Approach 3]
+
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0070Climbing_Stairs/0070Climbing_Stairs4.py)
+
+```python
+def dfs(n):
+    if n not in memo: memo[n] = dfs(n-1)+dfs(n-2)
+    return memo[n]   
+
+memo = {1:1, 2:2}
+return dfs(n)
+```
