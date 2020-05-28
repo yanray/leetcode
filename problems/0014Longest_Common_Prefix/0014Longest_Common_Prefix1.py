@@ -6,7 +6,7 @@ date:    5/27/2020
 """
 
 class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
+    def longestCommonPrefix(self, strs) -> str:
         
         if not strs:
             return ""
@@ -30,8 +30,8 @@ class Solution:
 if __name__ == '__main__':
     a = Solution()
 
-    # strs = ["flower","flow","flight"]
+    strs = ["flower","flow","flight"]
     # strs = ["dog","racecar","car"]
-    strs = []
+    # strs = []
     print(a.longestCommonPrefix(strs))
 
