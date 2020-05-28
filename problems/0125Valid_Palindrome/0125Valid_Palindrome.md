@@ -59,6 +59,18 @@ return num_al == num_al[::-1]
 [Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome2.py)
 
 ```python
+filtered_chars = filter(lambda ch: ch.isalnum(), s)
+lowercase_filtered_chars = map(lambda ch: ch.lower(), filtered_chars)
+
+filtered_chars_list = list(lowercase_filtered_chars)
+
+return filtered_chars_list == filtered_chars_list[::-1]
+```
+
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome3.py)
+
+```python
 i, j = 0, len(s) - 1
 
 while i < j:
@@ -74,4 +86,13 @@ while i < j:
     j -= 1
 
 return True
+```
+
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome4.py)
+
+```python
+s = s.lower()
+s = [char for char in s if char.isalnum()]
+return s == s[::-1]
 ```
