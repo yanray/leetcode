@@ -99,9 +99,13 @@ Use zip fucntion, zip function
 print(list(zip(*strs)))
 ```
 
-**Approach 4:** 
+**Approach 5:** 
 
 return os.path.commonprefix(strs)
+
+**Approach 6:** 
+
+vertical scanning
 
 
 ### Code (python)
@@ -227,4 +231,24 @@ return s1
 
 ```python
 return os.path.commonprefix(strs)
+```
+
+
+
+[Approach 6](https://github.com/yanray/leetcode/blob/master/problems/0014Longest_Common_Prefix/0014Longest_Common_Prefix6.py)
+
+```python
+res, i, j = '', 0, 0
+try:
+    while True:
+        if i == len(strs) - 1:
+            res += strs[0][j]
+            i = 0
+            j += 1
+        if strs[i][j] == strs[i+1][j]:
+            i += 1
+        else:
+            return res
+except:
+    return res
 ```
