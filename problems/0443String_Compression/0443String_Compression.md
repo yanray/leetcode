@@ -1,27 +1,62 @@
-## Valid Palindrome
+## String Compression
 
 ### Problem Link
-https://leetcode.com/problems/valid-palindrome/
+https://leetcode.com/problems/string-compression/
 
 ### Problem Description 
 
-Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+Given an array of characters, compress it in-place.
 
-**Note:** For the purpose of this problem, we define empty string as valid palindrome.
+The length after compression must always be smaller than or equal to the original array.
+
+Every element of the array should be a character (not int) of length 1.
+
+After you are done modifying the input array in-place, return the new length of the array.
+
+ 
+**Follow up:**
+Could you solve it using only O(1) extra space?
 
 ```
 Example 1: 
 
-Input: "A man, a plan, a canal: Panama"
-Output: true
+Input:
+["a","a","b","b","c","c","c"]
+
+Output:
+Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]
+
+Explanation:
+"aa" is replaced by "a2". "bb" is replaced by "b2". "ccc" is replaced by "c3".
 
 ```
 
 ```
 Example 2: 
 
-Input: "race a car"
-Output: false
+Input:
+["a"]
+
+Output:
+Return 1, and the first 1 characters of the input array should be: ["a"]
+
+Explanation:
+Nothing is replaced.
+
+```
+
+```
+Example 3: 
+
+Input:
+["a","b","b","b","b","b","b","b","b","b","b","b","b"]
+
+Output:
+Return 4, and the first 4 characters of the input array should be: ["a","b","1","2"].
+
+Explanation:
+Since the character "a" does not repeat, it is not compressed. "bbbbbbbbbbbb" is replaced by "b12".
+Notice each digit has it's own entry in the array.
 
 ```
 
@@ -29,29 +64,6 @@ Output: false
 
 **Approach 1:** 
 
-判断数字, 判断小写字母, 判断大写字母, 判断Palindrome
-
-**Approach 2:** 
-
-Use filter and map function 
-
-**Approach 3:** 
-
-Two pointers, 头尾相比较
-
-**Approach 4:** 
-
-same as approach 1
-
-**Approach 5:** 
-
-use re.sub() 替换
-
-
-
-**Approach 6:** 
-
-use filter and join
 
 
 ### Code (python)
@@ -74,59 +86,3 @@ for ch in s:
 return num_al == num_al[::-1]
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome2.py)
-
-```python
-filtered_chars = filter(lambda ch: ch.isalnum(), s)
-lowercase_filtered_chars = map(lambda ch: ch.lower(), filtered_chars)
-
-filtered_chars_list = list(lowercase_filtered_chars)
-
-return filtered_chars_list == filtered_chars_list[::-1]
-```
-
-
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome3.py)
-
-```python
-i, j = 0, len(s) - 1
-
-while i < j:
-    while i < j and not s[i].isalnum():
-        i += 1
-    while i < j and not s[j].isalnum():
-        j -= 1
-
-    if i < j and s[i].lower() != s[j].lower():
-        return False
-
-    i += 1
-    j -= 1
-
-return True
-```
-
-
-[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome4.py)
-
-```python
-s = s.lower()
-s = [char for char in s if char.isalnum()]
-return s == s[::-1]
-```
-
-
-[Approach 5](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome5.py)
-
-```python
-s2 = re.sub(r'[^a-zA-Z0-9]', '', s).lower()
-return s2 == s2[::-1]
-```
-
-
-[Approach 6](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome6.py)
-
-```python
-s = ''.join(filter(str.isalnum,s)).lower()
-return s==s[::-1]
-```
