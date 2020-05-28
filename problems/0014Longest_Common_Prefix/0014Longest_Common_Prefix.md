@@ -33,21 +33,50 @@ Explanation: There is no common prefix among the input strings.
 
 Horizontal scanning, util the end of the List[string] or prefix == ""
 
-**Approach 2:** 
+**Approach n:** 
 
-Use hashmap, collections.Counter()
+https://leetcode.com/problems/longest-common-prefix/solution/
 
-**Approach 3:** 
+* **Veritical scanning:** 从第一个字符开始依次比较
 
-Use hashmap, collections.defaultdict(int)
+* **Divide and Conquer:** 分成左右子集, 找到common prefix in left and right, 再common
 
-**Approach 4:** 
+* **Binary Search:** 寻找strs里最短的字符串, 先比较left是不是都是prefix, 如果是, 往右判断, 如果不是, 往左判断
 
-Bit Manipulation
+```java
+public String longestCommonPrefix(String[] strs) {
+    if (strs == null || strs.length == 0)
+        return "";
+    int minLen = Integer.MAX_VALUE;
+    for (String str : strs)
+        minLen = Math.min(minLen, str.length());
+    int low = 1;
+    int high = minLen;
+    while (low <= high) {
+        int middle = (low + high) / 2;
+        if (isCommonPrefix(strs, middle))
+            low = middle + 1;
+        else
+            high = middle - 1;
+    }
+    return strs[0].substring(0, (low + high) / 2);
+}
 
-**Approach 5:** 
+private boolean isCommonPrefix(String[] strs, int len){
+    String str1 = strs[0].substring(0,len);
+    for (int i = 1; i < strs.length; i++)
+        if (!strs[i].startsWith(str1))
+            return false;
+    return true;
+}
+```
 
-List Operation
+查找最短字符串
+```python
+strings = ["some", "example", "words", "that", "i", "am", "fond", "of"]
+print min(strings, key=len) # prints "i"
+
+```
 
 ### Code (python)
 
