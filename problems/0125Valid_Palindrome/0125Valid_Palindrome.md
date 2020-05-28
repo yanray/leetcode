@@ -117,3 +117,11 @@ return s == s[::-1]
 s2 = re.sub(r'[^a-zA-Z0-9]', '', s).lower()
 return s2 == s2[::-1]
 ```
+
+
+[Approach 6](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome6.py)
+
+```python
+s = ''.join(filter(str.isalnum,s)).lower()
+return s==s[::-1]
+```
