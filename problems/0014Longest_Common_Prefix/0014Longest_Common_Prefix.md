@@ -78,6 +78,15 @@ print min(strings, key=len) # prints "i"
 
 ```
 
+**Approach 2:** 
+
+* **Use Trie:** 
+
+Reference: https://leetcode.com/problems/longest-common-prefix/discuss/642674/Python-solution-with-Trie-(with-explanation)
+
+https://leetcode.com/articles/implement-trie-prefix-tree/
+
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0014Longest_Common_Prefix/0014Longest_Common_Prefix1.py)
