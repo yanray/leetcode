@@ -36,6 +36,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0136 | [Single Number](https://leetcode.com/problems/single-number/)| Hash Table, Bit Manipulation | [Python](https://github.com/yanray/leetcode/blob/master/problems/0136Single_Number/0136Single_Number.md) | 
 | 0014 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0014Longest_Common_Prefix/0014Longest_Common_Prefix.md) | 
 | 0125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)| Two Pointers, String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome.md) | 
+| 0443 | [String Compression](https://leetcode.com/problems/string-compression/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome.md) | 
 
 
 <!-- ```diff
