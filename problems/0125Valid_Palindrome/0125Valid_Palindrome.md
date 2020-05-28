@@ -33,7 +33,20 @@ Output: false
 
 **Approach 2:** 
 
+Use filter and map function 
+
+**Approach 3:** 
+
 Two pointers, 头尾相比较
+
+**Approach 4:** 
+
+same as approach 1
+
+**Approach 5:** 
+
+use re.sub() 替换
+
 
 
 ### Code (python)
@@ -95,4 +108,12 @@ return True
 s = s.lower()
 s = [char for char in s if char.isalnum()]
 return s == s[::-1]
+```
+
+
+[Approach 5](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome5.py)
+
+```python
+s2 = re.sub(r'[^a-zA-Z0-9]', '', s).lower()
+return s2 == s2[::-1]
 ```
