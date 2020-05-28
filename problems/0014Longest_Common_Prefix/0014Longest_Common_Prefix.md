@@ -87,6 +87,23 @@ Reference: https://leetcode.com/problems/longest-common-prefix/discuss/642674/Py
 https://leetcode.com/articles/implement-trie-prefix-tree/
 
 
+**Approach 3:** 
+
+Use min and max to compare find common prefix
+
+**Approach 4:** 
+
+Use zip fucntion, zip function 
+
+```python
+print(list(zip(*strs)))
+```
+
+**Approach 4:** 
+
+return os.path.commonprefix(strs)
+
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0014Longest_Common_Prefix/0014Longest_Common_Prefix1.py)
@@ -181,24 +198,33 @@ class Solution:
 [Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0014Longest_Common_Prefix/0014Longest_Common_Prefix3.py)
 
 ```python
-class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
-        
-        if not strs:
-            return ""
-        else:
-            prefix = strs[0]
-            for s in strs:
-                temp = prefix
-                if temp == "":
-                    return prefix
-                else:
-                    prefix = ""
-                    for i in range(min(len(temp), len(s))):
-                        if temp[i] == s[i]:
-                            prefix += s[i]
-                        else:
-                            break
+if not strs: 
+    return ""
+s1 = min(strs)
+s2 = max(strs)
+for i,x in enumerate(s1):
+    if x != s2[i]:
+        return s2[:i]
+return s1
+```
 
-            return prefix
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0014Longest_Common_Prefix/0014Longest_Common_Prefix4.py)
+
+```python
+if not strs: 
+    return ""
+s1 = min(strs)
+s2 = max(strs)
+for i,x in enumerate(s1):
+    if x != s2[i]:
+        return s2[:i]
+return s1
+```
+
+
+[Approach 5](https://github.com/yanray/leetcode/blob/master/problems/0014Longest_Common_Prefix/0014Longest_Common_Prefix5.py)
+
+```python
+return os.path.commonprefix(strs)
 ```
