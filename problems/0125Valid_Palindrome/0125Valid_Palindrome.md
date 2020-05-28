@@ -49,6 +49,11 @@ use re.sub() 替换
 
 
 
+**Approach 6:** 
+
+use filter and join
+
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome1.py)
