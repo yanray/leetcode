@@ -47,8 +47,6 @@ same as approach 1
 
 use re.sub() 替换
 
-
-
 **Approach 6:** 
 
 use filter and join
