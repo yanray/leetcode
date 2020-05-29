@@ -47,6 +47,11 @@ Explanation: For n = 3 the term was "21" in which we have two groups "2" and "1"
 
 **Approach 1:** 
 
+Sliding Window: 
+
+* Within the function, we scan the sequence with two contextual variables: prevDigit and digitCnt which refers to respectively the digit that we are expecting in the sub-sequence and the number of occurrence of the digit in the sub-sequence.
+* At the end of each sub-sequence, we append the summary to the result and then we reset the above two contextual variables for the next sub-sequence.
+* Note that, we use an artificial delimiter in the sequence to facilitate the iteration.
 
 
 ### Code (python)
