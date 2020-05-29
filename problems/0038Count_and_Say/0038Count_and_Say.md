@@ -47,6 +47,10 @@ Explanation: For n = 3 the term was "21" in which we have two groups "2" and "1"
 
 **Approach 1:** 
 
+遍历挨着查
+
+**Approach 2:** 
+
 Sliding Window: 
 
 * Within the function, we scan the sequence with two contextual variables: prevDigit and digitCnt which refers to respectively the digit that we are expecting in the sub-sequence and the number of occurrence of the digit in the sub-sequence.
@@ -57,6 +61,28 @@ Sliding Window:
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0038Count_and_Say/0038Count_and_Say1.py)
+
+```python
+cs_sequence = ["0", "1"]
+
+for i in range(1, n):
+    prev_cs_str = cs_sequence[i]
+    
+    cs_str = ""
+    num_count = 0
+    for j, ch in enumerate(prev_cs_str):
+        if (j + 1) == len(prev_cs_str) or prev_cs_str[j + 1] != ch:
+            cs_str += str(num_count + 1) + ch
+            num_count = 0
+        elif prev_cs_str[j + 1] == ch:
+            num_count += 1
+
+    cs_sequence.append(cs_str)
+    
+return cs_sequence[n]
+```
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0038Count_and_Say/0038Count_and_Say2.py)
 
 ```python
 
