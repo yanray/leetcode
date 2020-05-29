@@ -93,3 +93,13 @@ class Solution:
             
 ```
 
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0204Count_Primes/0204Count_Primes3.py)
+
+```python
+if n < 3: return 0
+dp = [0, 0] + [1] * (n - 2)
+for i in range(2, int(n ** 0.5) + 1):
+    if dp[i]: dp[i ** 2:n:i] = [0] * len(dp[i ** 2:n:i])
+return sum(dp)
+```
