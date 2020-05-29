@@ -47,7 +47,6 @@ Explanation: For n = 3 the term was "21" in which we have two groups "2" and "1"
 
 **Approach 1:** 
 
-埃氏筛选法: 对于筛选整数n以内的素数，算法是这么描述的：先把素数2的倍数全部删除，剩下的数第一个为3，再把素数3的倍数全部删除，剩下的第一个数为5，再把素数5的倍数全部删除······直到把n以内最后一个素数的倍数删除完毕，得到n以内的所有素数。
 
 
 ### Code (python)
