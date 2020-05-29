@@ -86,3 +86,23 @@ for ch in s:
 return num_al == num_al[::-1]
 ```
 
+
+
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome2.py)
+
+```python
+if not s:
+    return True
+
+num_al = []
+for ch in s:
+    if ch.isdigit():
+        num_al.append(ch)
+    elif ch.islower():
+        num_al.append(ch)
+    elif ch.isupper():
+        num_al.append(ch.lower())
+        
+return num_al == num_al[::-1]
+```
