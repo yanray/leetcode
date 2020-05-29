@@ -4,29 +4,30 @@ Version: 1.1
 Author:  Yanrui 
 date:    5/28/2020
 """
-from typing import List
 
 class Solution:
-    def compress(self, chars: List[str]) -> int:
+    def countPrimes(self, n: int) -> int:
 
-        anchor = write = 0
-        for read, c in enumerate(chars):
-            if read + 1 == len(chars) or chars[read + 1] != c:
-                chars[write] = chars[anchor]
-                write += 1
-                if read > anchor:
-                    for digit in str(read - anchor + 1):
-                        chars[write] = digit
-                        write += 1
-                anchor = read + 1
-        return write
+        num_list = [1] * n
+        num_list[0] = 0
+        num_list[1] = 0
+        num_list[2] = 1
 
+        for i in range(1, int(n ** 0.5) + 1):
+            if num_list[i] == 0:
+                continue
+            else:
+                num_list[i] = 1
+                for j in range(i * i, n, i):
+                    num_list[j] = 0
+
+        print(num_list)
+        return sum(num_list)
 
 if __name__ == '__main__':
     a = Solution()
 
-    chars = ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
 
-    # chars = ["a", "a", "b", "b", "c", "c", "d"]
-    print(a.compress(chars))
+    n = 10
+    print(a.countPrimes(n))
 
