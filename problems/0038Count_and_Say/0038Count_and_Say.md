@@ -85,6 +85,39 @@ return cs_sequence[n]
 [Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0038Count_and_Say/0038Count_and_Say2.py)
 
 ```python
+class Solution(object):
+    def countAndSay(self, n):
+        """
+        :type n: int
+        :rtype: str
+        """
+        return ''.join(self.nextSequence(n, ['1', 'E']))
 
+    def nextSequence(self, n, prevSeq):
+        if n == 1:
+            return prevSeq[:-1]
+
+        nextSeq = []
+        prevDigit = prevSeq[0]
+        digitCnt = 1
+        for digit in prevSeq[1:]:
+            if digit == prevDigit:
+                digitCnt += 1
+            else:
+                # the end of a sub-sequence
+                nextSeq.extend([str(digitCnt), prevDigit])
+                prevDigit = digit
+                digitCnt = 1
+
+        # add a delimiter for the next sequence
+        nextSeq.append('E')
+
+        return self.nextSequence(n-1, nextSeq)
 ```
 
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0038Count_and_Say/0038Count_and_Say3.py)
+
+```python
+
+```
