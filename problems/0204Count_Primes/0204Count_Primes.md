@@ -3,6 +3,8 @@
 ### Problem Link
 https://leetcode.com/problems/count-primes/
 
+Link: https://blog.csdn.net/Snow_Me/article/details/52588819
+
 ### Problem Description 
 
 Count the number of prime numbers less than a non-negative number, n.
