@@ -52,86 +52,9 @@ Explanation: For n = 3 the term was "21" in which we have two groups "2" and "1"
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0204Count_Primes/0204Count_Primes1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0038Count_and_Say/0038Count_and_Say1.py)
 
 ```python
-if n <= 2:
-    return 0
 
-num_list = [1] * n
-num_list[0] = 0
-num_list[1] = 0
-num_list[2] = 1
-
-for i in range(1, int(n ** 0.5) + 1):
-    if num_list[i] == 0:
-        continue
-    else:
-        num_list[i] = 1
-        for j in range(i * i, n, i):
-            num_list[j] = 0
-
-return sum(num_list)
 ```
 
-
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0204Count_Primes/0204Count_Primes2.py)
-
-```python
-class Solution:
-    
-    def sieve_algorithm(self, n: int)-> bool:
-        
-        if n <= 2:
-			# Corner case handle
-            return 0
-        
-        
-        is_prime = [ True for _ in range(n) ]
-        
-        # Base case initialization
-        is_prime[0] = False
-        is_prime[1] = False
-        
-        upper_bound = int(n ** 0.5)
-        for i in range( 2, upper_bound+1 ):
-            
-            if not is_prime[i]:
-                # only run on prime number
-                continue
-            
-            
-            for j in range( i*i, n, i):
-                # mark all multiples of i as "not prime"
-                is_prime[j] = False
-                
-        return sum(is_prime)
-    
-    
-    
-    def countPrimes(self, n: int) -> int:
-        
-        return self.sieve_algorithm(n)
-            
-```
-
-
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0204Count_Primes/0204Count_Primes3.py)
-
-```python
-if n < 3: return 0
-dp = [0, 0] + [1] * (n - 2)
-for i in range(2, int(n ** 0.5) + 1):
-    if dp[i]: dp[i ** 2:n:i] = [0] * len(dp[i ** 2:n:i])
-return sum(dp)
-```
-
-[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0204Count_Primes/0204Count_Primes4.py)
-
-```python
-if n < 3: return 0
-dp = [0, 0] + [1] * (n - 2)
-for i in range(2, int(n ** 0.5) + 1):
-    if dp[i]: dp[i ** 2:n:i] = [0] * len(dp[i ** 2:n:i])
-return sum(dp)
-```
