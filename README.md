@@ -37,7 +37,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0014 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0014Longest_Common_Prefix/0014Longest_Common_Prefix.md) | 
 | 0125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)| Two Pointers, String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0125Valid_Palindrome/0125Valid_Palindrome.md) | 
 | 0443 | [String Compression](https://leetcode.com/problems/string-compression/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0443String_Compression/0443String_Compression.md) | 
-| 0204 | [Count Primes](https://leetcode.com/problems/count-primes/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0443String_Compression/0443String_Compression.md) | 
+| 0204 | [Count Primes](https://leetcode.com/problems/count-primes/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0204Count_Primes/0204Count_Primes.md) | 
 
 <!-- ```diff
 - text in red
