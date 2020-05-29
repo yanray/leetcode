@@ -34,7 +34,7 @@ Could you do it in O(n) time and O(1) space?
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0038Count_and_Say/0038Count_and_Say1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0234Palindrome_Linked_List/0234Palindrome_Linked_List1.py)
 
 ```python
 cs_sequence = ["0", "1"]
