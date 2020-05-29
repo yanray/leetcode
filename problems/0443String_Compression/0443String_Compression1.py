@@ -5,7 +5,6 @@ Author:  Yanrui
 date:    5/28/2020
 """
 from typing import List
-import collections
 
 class Solution:
     def compress(self, chars: List[str]) -> int:
@@ -27,5 +26,7 @@ if __name__ == '__main__':
     a = Solution()
 
     chars = ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
+
+    # chars = ["a", "a", "b", "b", "c", "c", "d"]
     print(a.compress(chars))
 
