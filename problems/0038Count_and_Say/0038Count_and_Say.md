@@ -57,6 +57,19 @@ Sliding Window:
 * At the end of each sub-sequence, we append the summary to the result and then we reset the above two contextual variables for the next sub-sequence.
 * Note that, we use an artificial delimiter in the sequence to facilitate the iteration.
 
+**Approach 2:**
+
+Regular Expression: https://blog.csdn.net/weixin_38256474/article/details/83278333
+
+```python
+regex = "((.)*)"
+```
+
+* "(.)": again, this is a group that contains a single character that could be of anything.
+
+* "": this part refers to the second group (i.e. (.)) that we define.
+
+* "((.)*)": the outer bracket defines the scope of the first group, which contains the repetitive appearance of the second group above.
 
 ### Code (python)
 
