@@ -1,7 +1,7 @@
-## String Compression
+## Count Primes
 
 ### Problem Link
-https://leetcode.com/problems/string-compression/
+https://leetcode.com/problems/count-primes/
 
 ### Problem Description 
 
