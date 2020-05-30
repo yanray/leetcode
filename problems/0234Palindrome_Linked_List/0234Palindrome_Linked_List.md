@@ -37,21 +37,21 @@ Could you do it in O(n) time and O(1) space?
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0234Palindrome_Linked_List/0234Palindrome_Linked_List1.py)
 
 ```python
-cs_sequence = ["0", "1"]
+s = []
+while head:
+    s.append(str(head.val))
+    head = head.next
 
-for i in range(1, n):
-    prev_cs_str = cs_sequence[i]
-    
-    cs_str = ""
-    num_count = 0
-    for j, ch in enumerate(prev_cs_str):
-        if (j + 1) == len(prev_cs_str) or prev_cs_str[j + 1] != ch:
-            cs_str += str(num_count + 1) + ch
-            num_count = 0
-        elif prev_cs_str[j + 1] == ch:
-            num_count += 1
+return s == s[::-1]
+```
 
-    cs_sequence.append(cs_str)
-    
-return cs_sequence[n]
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0234Palindrome_Linked_List/0234Palindrome_Linked_List2.py)
+
+```python
+s = []
+while head:
+    s.append(str(head.val))
+    head = head.next
+
+return s == s[::-1]
 ```
