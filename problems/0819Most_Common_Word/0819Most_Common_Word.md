@@ -40,6 +40,12 @@ Note:
 
 **Approach 1:** 
 
+use translate, split, collection.counter()
+
+**Approach 2:** 
+
+almost the same as approach 1
+
 
 ### Code (python)
 
