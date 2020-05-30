@@ -41,6 +41,7 @@ Record my learning path in leetcode, including my submissions and others
 | 0038 | [Count and Say](https://leetcode.com/problems/count-and-say/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0038Count_and_Say/0038Count_and_Say.md) | 
 | 0234 | [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)| Linked List, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0234Palindrome_Linked_List/0234Palindrome_Linked_List.md) | 
 | 0819 | [Most Common Word](https://leetcode.com/problems/most-common-word/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0819Most_Common_Word/0819Most_Common_Word.md) | 
+| 0387 | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0819Most_Common_Word/0819Most_Common_Word.md) | 
 
 <!-- ```diff
 - text in red
