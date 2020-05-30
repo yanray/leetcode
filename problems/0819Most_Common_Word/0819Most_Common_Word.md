@@ -88,12 +88,22 @@ return ans
 [Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0819Most_Common_Word/0819Most_Common_Word3.py)
 
 ```python
-        # convert to lower case and split string into words by spaces and punctuation
-        a = re.split(r'\W+', paragraph.lower())
-        
-        # make new list consisitng of words not in banned list (remove banned words)
-        b = [w for w in a if w not in banned]
-        
-        # return value that counted max times in the new list
-        return max(b, key = b.count)
+# convert to lower case and split string into words by spaces and punctuation
+a = re.split(r'\W+', paragraph.lower())
+
+# make new list consisitng of words not in banned list (remove banned words)
+b = [w for w in a if w not in banned]
+
+# return value that counted max times in the new list
+return max(b, key = b.count)
 ```
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0819Most_Common_Word/0819Most_Common_Word4.py)
+
+```python
+translator = str.maketrans(string.punctuation, ' '*32)
+a = paragraph.lower().translate(translator).split()
+b = [w for w in a if w not in banned]
+return max(b, key = b.count)
+```
+
