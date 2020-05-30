@@ -3,7 +3,7 @@ Reverse Linked List
 
 Version: 1.1 
 Author:  Yanrui 
-date:    5/22/2020
+date:    5/29/2020
 """
 
 # Definition for singly-linked list.
