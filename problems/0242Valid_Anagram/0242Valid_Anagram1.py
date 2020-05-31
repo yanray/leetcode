@@ -5,26 +5,22 @@ Author:  Yanrui
 date:    5/31/2020
 """
 
-from typing import List
+import collections
 
 class Solution:
-    def rob(self, nums: List[int]) -> int:
-        
-        nums = [0, 0, 0, 0] + nums
-            
-        for i in range(3, len(nums)):
-            nums[i] += max(nums[i - 2], nums[i - 3])
-            
-        return max(nums)
-
+    def isAnagram(self, s: str, t: str) -> bool:
+    	return collections.Counter(s) == collections.Counter(t)
 
 
 if __name__ == '__main__':
     a = Solution()
 
-    nums = [2,7,9,3,1]
+    s = "anagram"
+    t = "nagaram"
 
-    print(a.rob(nums))
+    print(s)
+    print(t)
+    print(a.isAnagram(s, t))
 
 
     
