@@ -35,7 +35,7 @@ Linear time solution, 遍历, 记录次数, 查次数, 找对应的index
 
 OrderDict
 
-**Approach 1:** 
+**Approach 4:** 
 
 Dict.get()
 
