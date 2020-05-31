@@ -69,4 +69,17 @@ for idx, ch in enumerate(s):
 return -1
 ```
 
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0387First_Unique_Character_in_a_String/0387First_Unique_Character_in_a_String3.py)
+
+```python
+# Explaination: Ordered Dict will save the characters it encounters in
+# same sequence as the original string. Hence it becomes easy to catch hold of the first
+#unique character. Then according to the counter variable, whenever the first 1 is encountered
+# the corresponding dict.key's index is returned from the original String.
+for i,j in OrderedDict(Counter(s)).items():
+    if j == 1:
+        return s.index(i)
+return -1
+```
+
 
