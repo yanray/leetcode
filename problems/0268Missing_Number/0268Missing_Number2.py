@@ -9,10 +9,13 @@ from typing import List
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        whole_num_set = set(range(len(nums) + 1))
-        miss_num_set = set(nums)
-        
-        return whole_num_set.difference(miss_num_set).pop()
+    	nums.sort()
+
+    	for i in range(len(nums)):
+    		if i != nums[i]:
+    			return i
+
+    	return len(nums)
 
 
 if __name__ == '__main__':
