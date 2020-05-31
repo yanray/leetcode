@@ -45,4 +45,14 @@ miss_num_set = set(nums)
 return whole_num_set.difference(miss_num_set).pop()
 ```
 
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number1.py)
 
+```python
+nums.sort()
+
+for i in range(len(nums)):
+    if i != nums[i]:
+        return i
+
+return len(nums)
+```
