@@ -45,20 +45,9 @@ logger.shouldPrintMessage(11,"foo"); returns true;
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0387First_Unique_Character_in_a_String/0387First_Unique_Character_in_a_String1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0359Logger_Rate_Limiter/0359Logger_Rate_Limiter1.py)
 
 ```python
-see_once = {}
-for i, ch in enumerate(s):
-    if ch in see_once:
-        see_once[ch] = -1
-    else:
-        see_once[ch] = i
 
-for v in see_once.values():
-    if v != -1:
-        return v
-        
-return -1
 ```
 
