@@ -68,3 +68,22 @@ for char in t:
 return False not in [char_count[char] == 0 for char in char_count]
 ```
 
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0242Valid_Anagram/0242Valid_Anagram4.py)
+
+```python
+firstWord = {}
+
+for c in s:
+    firstWord[c] = firstWord[c] + 1 if c in firstWord else 1
+
+for c in t:
+    if c not in firstWord:
+        return False
+    
+    firstWord[c] = firstWord[c] - 1
+    
+    if firstWord[c] <= 0:
+        del firstWord[c]
+    
+return len(firstWord) == 0
+```
