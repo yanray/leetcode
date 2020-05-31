@@ -42,6 +42,10 @@ if len(nums) > 4, dp[i] += max(dp[i - 2], dp[i - 3])
 
 dp[k] = max{ dp[k-1], dp[k-2] + i }
 
+**Approach 3:** 
+
+Another way of approach 1
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0198House_Robber/0198House_Robber1.py)
@@ -70,4 +74,14 @@ for i in nums:
 return curr
 ```
 
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0198House_Robber/0198House_Robber3.py)
+
+```python
+if not nums: return 0
+nums = [0]+nums
+for i in range(3,len(nums)):
+    nums[i]+=max(nums[i-3],nums[i-2])
+return max(nums[-1],nums[-2])
+```
 
