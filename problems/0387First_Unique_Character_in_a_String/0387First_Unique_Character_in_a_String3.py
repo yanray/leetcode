@@ -14,6 +14,8 @@ class Solution:
     # same sequence as the original string. Hence it becomes easy to catch hold of the first
     #unique character. Then according to the counter variable, whenever the first 1 is encountered
     # the corresponding dict.key's index is returned from the original String.
+
+        print(collections.Counter(s))
         for i,j in collections.OrderedDict(collections.Counter(s)).items():
             if j == 1:
                 return s.index(i)
