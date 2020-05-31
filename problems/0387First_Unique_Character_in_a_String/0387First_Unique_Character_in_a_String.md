@@ -52,3 +52,21 @@ return -1
 ```
 
 
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0387First_Unique_Character_in_a_String/0387First_Unique_Character_in_a_String2.py)
+
+```python
+"""
+:type s: str
+:rtype: int
+"""
+# build hash map : character and how often it appears
+count = collections.Counter(s)
+
+# find the index
+for idx, ch in enumerate(s):
+    if count[ch] == 1:
+        return idx     
+return -1
+```
+
+
