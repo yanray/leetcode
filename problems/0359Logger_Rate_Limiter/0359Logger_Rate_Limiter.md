@@ -42,6 +42,11 @@ logger.shouldPrintMessage(11,"foo"); returns true;
 
 **Approach 1:** 
 
+Hashtable / Dictionary
+
+**Approach 1:** 
+
+Queue + Set
 
 ### Code (python)
 
