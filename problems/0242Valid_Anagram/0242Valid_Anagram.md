@@ -38,9 +38,10 @@ What if the inputs contain unicode characters? How would you adapt your solution
 
 Use collections.Counter() to check if equal 
 
-**Approach 1:** 
+**Approach 2:** 
 
 Sort
+
 
 ### Code (python)
 
