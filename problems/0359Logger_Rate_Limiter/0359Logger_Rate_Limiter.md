@@ -42,7 +42,7 @@ logger.shouldPrintMessage(11,"foo"); returns true;
 
 Hashtable / Dictionary
 
-**Approach 1:** 
+**Approach 2:** 
 
 Queue + Set
 
