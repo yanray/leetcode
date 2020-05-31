@@ -4,6 +4,20 @@
 
 Record my learning path in leetcode, including my submissions and others
 
+## Python Link
+
+Python Lib: https://docs.python.org/3.8/library/index.html
+
+Regular Expression: https://blog.csdn.net/weixin_38256474/article/details/83278333
+
+Prime Count: https://blog.csdn.net/Snow_Me/article/details/52588819
+
+Binary Tree: 
+
+https://www.geeksforgeeks.org/bfs-vs-dfs-binary-tree/
+
+https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.htm
+
 ## Leetcode Problem
 
 #### Easy (By Frequency)
