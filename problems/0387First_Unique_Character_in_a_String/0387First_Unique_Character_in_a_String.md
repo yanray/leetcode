@@ -27,9 +27,17 @@ return 2.
 
 遍历, 如果出现一次, 就在dictionary 里标记 index, 如果more than once, mark as -1
 
-**Approach 1:** 
+**Approach 2:** 
 
 Linear time solution, 遍历, 记录次数, 查次数, 找对应的index
+
+**Approach 3:** 
+
+OrderDict
+
+**Approach 1:** 
+
+Dict.get()
 
 
 ### Code (python)
@@ -82,4 +90,19 @@ return -1
     return -1
 ```
 
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0387First_Unique_Character_in_a_String/0387First_Unique_Character_in_a_String4.py)
+
+```python
+counts = dict()
+
+for char in s:
+counts[char] = counts.get(char, 0) + 1
+
+for i in range(0, len(s)):        
+if counts[s[i]] == 1:
+    return i
+
+return -1
+```
 
