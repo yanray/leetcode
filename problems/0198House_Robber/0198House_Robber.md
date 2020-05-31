@@ -35,14 +35,39 @@ Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (m
 
 **Approach 1:** 
 
+if len(nums) > 4, dp[i] += max(dp[i - 2], dp[i - 3])
+给nums前边补4个0即可满足all conditions
 
+**Approach 2:** 
+
+dp[k] = max{ dp[k-1], dp[k-2] + i }
 
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0198House_Robber/0198House_Robber1.py)
 
 ```python
+nums = [0, 0, 0, 0] + nums
+    
+for i in range(3, len(nums)):
+    nums[i] += max(nums[i - 2], nums[i - 3])
+    
+return max(nums)
+```
 
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0198House_Robber/0198House_Robber2.py)
+
+```python
+prev = 0
+curr = 0
+# every loop, calculate the maximum cumulative amount of money until current house
+for i in nums:
+    # as the loop begins，curr represents dp[k-1]，prev represents dp[k-2]
+    # dp[k] = max{ dp[k-1], dp[k-2] + i }
+    prev, curr = curr, max(curr, prev + i)
+    # as the loop ends，curr represents dp[k]，prev represents dp[k-1]
+
+return curr
 ```
 
 
