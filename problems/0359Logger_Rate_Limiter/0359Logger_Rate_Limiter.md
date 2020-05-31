@@ -36,8 +36,6 @@ logger.shouldPrintMessage(10,"foo"); returns false;
 logger.shouldPrintMessage(11,"foo"); returns true;
 ```
 
-**Note:** You may assume the string contain only lowercase letters.
-
 ### How to solve 
 
 **Approach 1:** 
