@@ -59,7 +59,7 @@ https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.ht
 | 0359 | [Logger Rate Limiter](https://leetcode.com/problems/logger-rate-limiter/)| Hash Table, Design | [Python](https://github.com/yanray/leetcode/blob/master/problems/0359Logger_Rate_Limiter/0359Logger_Rate_Limiter.md) | 
 | 0268 | [Missing Number](https://leetcode.com/problems/missing-number/)| Array, Math, Bit Manipulation | [Python](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number.md) | 
 | 0198 | [House Robber](https://leetcode.com/problems/house-robber/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/problems/0198House_Robber/0198House_Robber.md) | 
-| 0242 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/)| Hash Table, Sort | [Python](https://github.com/yanray/leetcode/blob/master/problems/0198House_Robber/0198House_Robber.md) | 
+| 0242 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/)| Hash Table, Sort | [Python](https://github.com/yanray/leetcode/blob/master/problems/0242Valid_Anagram/0242Valid_Anagram.md) | 
 
 <!-- ```diff
 - text in red
