@@ -28,110 +28,60 @@ Output: 8
 
 **Approach 1:** 
 
-Hashtable / Dictionary
+Use set(), then make difference to find the missing element
 
-**Approach 1:** 
+**Approach 2:** 
 
-Queue + Set
+Sorting
 
-https://blog.csdn.net/hellojoy/article/details/81281367
+**Approach 3:** 
+
+Bit Manipulation
+
+**Approach 4:** 
+
+Gauss' Formula
+
+![Gauss' Formula](https://latex.codecogs.com/gif.latex?%5Csum_%7Bi%3D0%7D%5E%7Bn%7D%20i%20%3D%20%5Cfrac%7Bn%20%28n%20&plus;%201%29%7D%7B2%7D)
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0359Logger_Rate_Limiter/0359Logger_Rate_Limiter1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number1.py)
 
 ```python
-class Logger:
+whole_num_set = set(range(len(nums) + 1))
+miss_num_set = set(nums)
 
-    def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.log_dict = {}
-
-    def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
-        """
-        Returns true if the message should be printed in the given timestamp, otherwise returns false.
-        If this method returns false, the message will not be printed.
-        The timestamp is in seconds granularity.
-        """
-        if message not in self.log_dict:
-            self.log_dict[message] = timestamp
-            return True
-        else:
-            if timestamp - self.log_dict[message] >= 10:
-                self.log_dict[message] = timestamp
-                return True
-            else:
-                return False
+return whole_num_set.difference(miss_num_set).pop()
 ```
 
-
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0359Logger_Rate_Limiter/0359Logger_Rate_Limiter2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number2.py)
 
 ```python
-from collections import deque
+nums.sort()
 
-class Logger(object):
+for i in range(len(nums)):
+    if i != nums[i]:
+        return i
 
-    def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self._msg_set = set()
-        self._msg_queue = deque()
-    
-    def shouldPrintMessage(self, timestamp, message):
-        """
-        Returns true if the message should be printed in the given timestamp, otherwise returns false.
-        """
-        while self._msg_queue:
-            msg, ts = self._msg_queue[0]
-            if timestamp - ts >= 10:
-                self._msg_queue.popleft()
-                self._msg_set.remove(msg)
-            else:
-                break
-        
-        if message not in self._msg_set:
-            self._msg_set.add(message)
-            self._msg_queue.append((message, timestamp))
-            return True
-        else:
-            return False
+return len(nums)
 ```
 
-
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0359Logger_Rate_Limiter/0359Logger_Rate_Limiter3.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number3.py)
 
 ```python
-class Logger(object):
+missing_num = len(nums)
 
-    def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.log_times = dict()
-    
-    def shouldPrintMessage(self, timestamp, message):
-        """
-        Returns true if the message should be printed in the given timestamp, otherwise returns false.
-        """
-        # logging timeout in seconds
-        TIMEOUT = 10
-        # the following three cases are possible
-        # 1) the message has not been printed before -> true
-        if message not in self.log_times:
-            # create a log in the hashmap
-            self.log_times.update({message: timestamp})
-            return True
-        
-        else:
-            # 2) the message has been printed before and the timer has expired -> true
-            if timestamp - self.log_times[message] >= TIMEOUT:
-                self.log_times.update({message: timestamp})
-                return True
-            # 3) the message has been printed before and timer has not expired -> false
-            else:
-                return False
+for i, num in enumerate(nums):
+    missing_num ^= i ^ num
+
+return missing_num
+```
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number4.py)
+
+```python
+expected_sum = len(nums)*(len(nums)+1)//2
+actual_sum = sum(nums)
+return expected_sum - actual_sum
 ```
