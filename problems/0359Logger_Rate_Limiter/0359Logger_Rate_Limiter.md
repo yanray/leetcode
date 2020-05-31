@@ -48,6 +48,8 @@ Hashtable / Dictionary
 
 Queue + Set
 
+https://blog.csdn.net/hellojoy/article/details/81281367
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0359Logger_Rate_Limiter/0359Logger_Rate_Limiter1.py)
