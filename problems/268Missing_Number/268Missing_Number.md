@@ -38,7 +38,7 @@ Sorting
 
 Bit Manipulation
 
-**Approach 3:** 
+**Approach 4:** 
 
 Gauss' Formula
 
@@ -78,3 +78,10 @@ for i, num in enumerate(nums):
 return missing_num
 ```
 
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number4.py)
+
+```python
+expected_sum = len(nums)*(len(nums)+1)//2
+actual_sum = sum(nums)
+return expected_sum - actual_sum
+```
