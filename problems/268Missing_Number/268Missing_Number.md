@@ -28,13 +28,21 @@ Output: 8
 
 **Approach 1:** 
 
+Use set(), then make difference to find the missing element
+
+**Approach 2:** 
+
+Sorting
 
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number1.py)
 
 ```python
+whole_num_set = set(range(len(nums) + 1))
+miss_num_set = set(nums)
 
+return whole_num_set.difference(miss_num_set).pop()
 ```
 
 
