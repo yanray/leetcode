@@ -39,7 +39,7 @@ Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (m
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0359Logger_Rate_Limiter/0359Logger_Rate_Limiter1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0198House_Robber/0198House_Robber1.py)
 
 ```python
 
