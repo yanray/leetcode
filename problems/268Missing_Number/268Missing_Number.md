@@ -1,42 +1,28 @@
-## Logger Rate Limiter
+## Missing Number
 
 ### Problem Link
 
-https://leetcode.com/problems/logger-rate-limiter/
+https://leetcode.com/problems/missing-number/
 
 ### Problem Description 
 
-Design a logger system that receive stream of messages along with its timestamps, each message should be printed if and only if it is not printed in the last 10 seconds.
-
-Given a message and a timestamp (in seconds granularity), return true if the message should be printed in the given timestamp, otherwise returns false.
-
-It is possible that several messages arrive roughly at the same time.
+Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
 
 ```
 Example 1: 
 
-Logger logger = new Logger();
+Input: [3,0,1]
+Output: 2
 
-// logging string "foo" at timestamp 1
-logger.shouldPrintMessage(1, "foo"); returns true; 
-
-// logging string "bar" at timestamp 2
-logger.shouldPrintMessage(2,"bar"); returns true;
-
-// logging string "foo" at timestamp 3
-logger.shouldPrintMessage(3,"foo"); returns false;
-
-// logging string "bar" at timestamp 8
-logger.shouldPrintMessage(8,"bar"); returns false;
-
-// logging string "foo" at timestamp 10
-logger.shouldPrintMessage(10,"foo"); returns false;
-
-// logging string "foo" at timestamp 11
-logger.shouldPrintMessage(11,"foo"); returns true;
 ```
 
-**Note:** You may assume the string contain only lowercase letters.
+```
+Example 2: 
+
+Input: [9,6,4,2,3,5,7,0,1]
+Output: 8
+
+```
 
 ### How to solve 
 
