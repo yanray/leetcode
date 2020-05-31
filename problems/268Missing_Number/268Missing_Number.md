@@ -64,6 +64,11 @@ return len(nums)
 [Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number3.py)
 
 ```python
+missing_num = len(nums)
 
+for i, num in enumerate(nums):
+    missing_num ^= i ^ num
+
+return missing_num
 ```
 
