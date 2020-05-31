@@ -34,6 +34,10 @@ Use set(), then make difference to find the missing element
 
 Sorting
 
+**Approach 3:** 
+
+Bit Manipulation
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number1.py)
@@ -45,7 +49,7 @@ miss_num_set = set(nums)
 return whole_num_set.difference(miss_num_set).pop()
 ```
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number1.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number2.py)
 
 ```python
 nums.sort()
@@ -56,3 +60,10 @@ for i in range(len(nums)):
 
 return len(nums)
 ```
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number3.py)
+
+```python
+
+```
+
