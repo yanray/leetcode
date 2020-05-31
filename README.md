@@ -57,7 +57,8 @@ https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.ht
 | 0819 | [Most Common Word](https://leetcode.com/problems/most-common-word/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0819Most_Common_Word/0819Most_Common_Word.md) | 
 | 0387 | [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)| Hash Table, String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0387First_Unique_Character_in_a_String/0387First_Unique_Character_in_a_String.md) | 
 | 0359 | [Logger Rate Limiter](https://leetcode.com/problems/logger-rate-limiter/)| Hash Table, Design | [Python](https://github.com/yanray/leetcode/blob/master/problems/0359Logger_Rate_Limiter/0359Logger_Rate_Limiter.md) | 
-| 268 | [Missing Number](https://leetcode.com/problems/missing-number/)| Array, Math, Bit Manipulation | [Python](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number.md) | 
+| 0268 | [Missing Number](https://leetcode.com/problems/missing-number/)| Array, Math, Bit Manipulation | [Python](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number.md) | 
+| 0198 | [House Robber](https://leetcode.com/problems/house-robber/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number.md) | 
 
 <!-- ```diff
 - text in red
