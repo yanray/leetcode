@@ -38,6 +38,12 @@ Sorting
 
 Bit Manipulation
 
+**Approach 3:** 
+
+Gauss' Formula
+
+![Gauss' Formula](https://latex.codecogs.com/gif.latex?%5Csum_%7Bi%3D0%7D%5E%7Bn%7D%20i%20%3D%20%5Cfrac%7Bn%20%28n%20&plus;%201%29%7D%7B2%7D)
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number1.py)
