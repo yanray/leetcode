@@ -1,10 +1,11 @@
 """
-Reverse Linked List
 
 Version: 1.1 
 Author:  Yanrui 
 date:    5/30/2020
 """
+
+import collections
 
 class Solution:
     def firstUniqChar(self, s: str) -> int:
