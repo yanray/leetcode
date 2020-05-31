@@ -81,7 +81,7 @@ class Logger:
 ```
 
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0359Logger_Rate_Limiter/0359Logger_Rate_Limiter2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0359Logger_Rate_Limiter/0359Logger_Rate_Limiter2.py)
 
 ```python
 from collections import deque
@@ -115,3 +115,37 @@ class Logger(object):
             return False
 ```
 
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0359Logger_Rate_Limiter/0359Logger_Rate_Limiter3.py)
+
+```python
+class Logger(object):
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.log_times = dict()
+    
+    def shouldPrintMessage(self, timestamp, message):
+        """
+        Returns true if the message should be printed in the given timestamp, otherwise returns false.
+        """
+        # logging timeout in seconds
+        TIMEOUT = 10
+        # the following three cases are possible
+        # 1) the message has not been printed before -> true
+        if message not in self.log_times:
+            # create a log in the hashmap
+            self.log_times.update({message: timestamp})
+            return True
+        
+        else:
+            # 2) the message has been printed before and the timer has expired -> true
+            if timestamp - self.log_times[message] >= TIMEOUT:
+                self.log_times.update({message: timestamp})
+                return True
+            # 3) the message has been printed before and timer has not expired -> false
+            else:
+                return False
+```
