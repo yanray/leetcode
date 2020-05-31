@@ -8,20 +8,23 @@ date:    5/31/2020
 from typing import List
 
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        whole_num_set = set(range(len(nums) + 1))
-        miss_num_set = set(nums)
+    def rob(self, nums: List[int]) -> int:
         
-        return whole_num_set.difference(miss_num_set).pop()
+        nums = [0, 0, 0, 0] + nums
+            
+        for i in range(3, len(nums)):
+            nums[i] += max(nums[i - 2], nums[i - 3])
+            
+        return max(nums)
+
 
 
 if __name__ == '__main__':
     a = Solution()
 
-    nums = [9,6,4,2,3,5,7,0,1]
+    nums = [2,7,9,3,1]
 
-    print(nums)
-    print(a.missingNumber(nums))
+    print(a.rob(nums))
 
 
     
