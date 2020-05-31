@@ -1,5 +1,4 @@
 """
-Reverse Linked List
 
 Version: 1.1 
 Author:  Yanrui 
