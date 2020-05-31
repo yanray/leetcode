@@ -41,7 +41,7 @@ But the following [1,2,2,null,3,null,3] is not:
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0242Valid_Anagram/0242Valid_Anagram1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0101Symmetric_Tree/0101Symmetric_Tree1.py)
 
 ```python
 
