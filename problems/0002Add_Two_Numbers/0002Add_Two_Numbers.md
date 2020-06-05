@@ -29,7 +29,7 @@ Explanation: 342 + 465 = 807.
 
 ### Code (python)
 
-[Approach 1]()
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0002Add_Two_Numbers/0002Add_Two_Numbers1.py)
 
 ```python
 dummy = ListNode(None)
