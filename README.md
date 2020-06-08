@@ -60,10 +60,13 @@ https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.ht
 | 0268 | [Missing Number](https://leetcode.com/problems/missing-number/)| Array, Math, Bit Manipulation | [Python](https://github.com/yanray/leetcode/blob/master/problems/0268Missing_Number/0268Missing_Number.md) | 
 | 0198 | [House Robber](https://leetcode.com/problems/house-robber/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/problems/0198House_Robber/0198House_Robber.md) | 
 | 0242 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/)| Hash Table, Sort | [Python](https://github.com/yanray/leetcode/blob/master/problems/0242Valid_Anagram/0242Valid_Anagram.md) | 
-
 | 0101 | [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)| Tree, Depth-first Search, Breadth-first Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0101Symmetric_Tree/0101Symmetric_Tree.md) | 
 
 
+#### Easy + Medium + Hard (Random + Frequency)
+
+| # | Title | Tag | Solution1 | 
+|---| ----- | --- | --------- | 
 | 0002 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)| Linked List, Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0002Add_Two_Numbers/0002Add_Two_Numbers.md) | 
 | 0003 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)| Hash Table, Two Pointers, String, Sliding Window | [Python](https://github.com/yanray/leetcode/blob/master/problems/0003Longest_Substring_Without_Repeating_Characters/0003Longest_Substring_Without_Repeating_Characters.md) | 
 
