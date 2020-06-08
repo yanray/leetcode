@@ -25,6 +25,9 @@ Explanation: 342 + 465 = 807.
 
 循环遍历l1, l2, l1.val + l2.val 再加上一个进位为当前新的相加值, 如果l1或者l2为空, 将其值设置为0即可, 最后记得加进位
 
+**Approach 2:** 
+
+
 
 
 ### Code (python)
@@ -57,4 +60,24 @@ if carry != 0:
     sum_node.next = ListNode(carry)
     
 return dummy.next
+```
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0002Add_Two_Numbers/0002Add_Two_Numbers2.py)
+
+```python
+result = head = ListNode("inf")
+carry = 0
+while l1 and l2:
+    carry, cur = divmod(l1.val + l2.val + carry, 10)
+    node = ListNode(cur)
+    head.next = node
+    head, l1, l2 = head.next, l1.next, l2.next
+head.next = l1 if l1 else l2
+while carry and head.next:
+    carry, cur = divmod(head.next.val + carry, 10)
+    head.next.val = cur
+    head = head.next
+if carry:
+    head.next = ListNode(carry)
+return result.next
 ```
