@@ -44,6 +44,14 @@ recursive: 判断root 是否相等, 如果相等, 判断子数是否对称
 
 iterative, almost same as approach 1
 
+**Approach 3 - 4:** 
+
+BFS, 逐行判断
+
+**Approach 5:** 
+
+DFS
+
 ### Code (python)
 
 [Approach 1] (24ms)
@@ -58,6 +66,7 @@ def isMirror(t1, t2):
 
 return isMirror(root, root)
 ```
+
 
 [Approach 2]
 
@@ -84,6 +93,7 @@ while tree_queue:
 return True
 ```
 
+
 [Approach 3]
 
 ```python
@@ -107,4 +117,45 @@ for node, depth in queue:
             curr_depth = depth
 else:
     return True
+```
+
+
+[Approach 4]
+
+```python
+queue = [root]
+
+while(queue):
+    next_queue = list()
+    layer = list()
+    for node in queue:
+        if not node:
+            layer.append(None)
+            continue
+        next_queue.append(node.left)
+        next_queue.append(node.right)
+        
+        layer.append(node.val)
+        
+    if layer != layer[::-1]:
+        return False
+    queue = next_queue
+    
+return True
+```
+
+
+[Approach 5]
+
+```python
+path = []
+def euler(node):
+    if not node: path.append(None); return
+    path.append(node.val)
+    euler(node.left)
+    # path.append(node.val)
+    euler(node.right)
+    path.append(node.val)
+euler(root)
+return path == path[::-1]
 ```
