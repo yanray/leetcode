@@ -44,7 +44,7 @@ Explanation: The answer is "wke", with the length of 3.
 
 ### Code (python)
 
-[Approach 1]https://github.com/yanray/leetcode/blob/master/problems/0003Longest_Substring_Without_Repeating_Characters/0003Longest_Substring_Without_Repeating_Characters1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/medium_hard/0003Longest_Substring_Without_Repeating_Characters/0003Longest_Substring_Without_Repeating_Characters1.py)
 
 ```python
 
