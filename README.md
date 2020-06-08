@@ -63,7 +63,7 @@ https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.ht
 | 0101 | [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)| Tree, Depth-first Search, Breadth-first Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0101Symmetric_Tree/0101Symmetric_Tree.md) | 
 
 
-#### Medium + Hard (Frequency + Random)
+#### Medium (Frequency + Random)
 
 | # | Title | Tag | Solution1 | 
 |---| ----- | --- | --------- | 
