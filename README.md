@@ -73,7 +73,7 @@ https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.ht
 
 
 
-| 0003 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)| Hash Table, Two Pointers, String, Sliding Window | [Python](https://github.com/yanray/leetcode/blob/master/problems/0003Longest_Substring_Without_Repeating_Characters/0003Longest_Substring_Without_Repeating_Characters.md) | 
+| 0003 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)| Hash Table, Two Pointers, String, Sliding Window | [Python](https://github.com/yanray/leetcode/blob/master/medium_hard/0003Longest_Substring_Without_Repeating_Characters/0003Longest_Substring_Without_Repeating_Characters.md) | 
 
 <!-- ```diff
 - text in red
