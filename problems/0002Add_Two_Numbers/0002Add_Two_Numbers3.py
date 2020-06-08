@@ -46,8 +46,7 @@ class Solution:
                 return ListNode(1) if carry == 1 else None
             
             if l1 is None:
-                l1 = l2
-                l2 = None
+                l1 = ListNode()
                 
             if l2 is None:
                 l2 = ListNode()         
