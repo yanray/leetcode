@@ -27,7 +27,9 @@ Explanation: 342 + 465 = 807.
 
 **Approach 2:** 
 
+**Approach 3 - 4:** 
 
+Recursive
 
 
 ### Code (python)
@@ -107,4 +109,18 @@ def recurse(l1, l2, carry=0):
     )
 
 return recurse(l1, l2)
+```
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0002Add_Two_Numbers/0002Add_Two_Numbers4.py)
+
+```python
+val1 = l1 and l1.val or 0
+val2 = l2 and l2.val or 0
+carry, val3 = divmod(val1 + val2 + carry, 10)
+node = ListNode(val3)
+l1 = l1 and l1.next
+l2 = l2 and l2.next
+if l1 or l2 or carry:
+    node.next = self.addTwoNumbers(l1, l2, carry)
+return node
 ```
