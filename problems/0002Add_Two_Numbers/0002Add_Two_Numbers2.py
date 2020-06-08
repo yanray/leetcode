@@ -41,31 +41,21 @@ class SingleLinkedList:
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         
-        dummy = ListNode(None)
-        sum_node = dummy
-            
+        result = head = ListNode("inf")
         carry = 0
-        while l1 or l2:
-            if not l1:
-                n1 = 0
-            else:
-                n1 = l1.val
-                l1 = l1.next
-            if not l2:
-                n2 = 0
-            else:
-                n2 = l2.val
-                l2 = l2.next
-                
-            sum_node.next = ListNode(None)
-            sum_node = sum_node.next
-            sum_node.val = (n1 + n2 + carry) % 10
-            carry = (n1 + n2 + carry) // 10
-        
-        if carry != 0:
-            sum_node.next = ListNode(carry)
-            
-        return dummy.next
+        while l1 and l2:
+            carry, cur = divmod(l1.val + l2.val + carry, 10)
+            node = ListNode(cur)
+            head.next = node
+            head, l1, l2 = head.next, l1.next, l2.next
+        head.next = l1 if l1 else l2
+        while carry and head.next:
+            carry, cur = divmod(head.next.val + carry, 10)
+            head.next.val = cur
+            head = head.next
+        if carry:
+            head.next = ListNode(carry)
+        return result.next
 
 
 if __name__ == '__main__':
