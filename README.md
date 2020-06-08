@@ -68,6 +68,10 @@ https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.ht
 | # | Title | Tag | Solution1 | 
 |---| ----- | --- | --------- | 
 | 0002 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)| Linked List, Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0002Add_Two_Numbers/0002Add_Two_Numbers.md) | 
+
+
+
+
 | 0003 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)| Hash Table, Two Pointers, String, Sliding Window | [Python](https://github.com/yanray/leetcode/blob/master/problems/0003Longest_Substring_Without_Repeating_Characters/0003Longest_Substring_Without_Repeating_Characters.md) | 
 
 <!-- ```diff
