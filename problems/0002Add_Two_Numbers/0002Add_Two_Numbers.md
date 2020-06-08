@@ -81,3 +81,30 @@ if carry:
     head.next = ListNode(carry)
 return result.next
 ```
+
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0002Add_Two_Numbers/0002Add_Two_Numbers3.py)
+
+```python
+def recurse(l1, l2, carry=0):
+    if l1 is None and l2 is None:
+        return ListNode(1) if carry == 1 else None
+    
+    if l1 is None:
+        l1 = l2
+        l2 = None
+        
+    if l2 is None:
+        l2 = ListNode()         
+
+    val = l1.val + l2.val + carry
+    carry = val//10
+    val %= 10
+
+    return ListNode(
+        val=val,
+        next=recurse(l1.next, l2.next, carry)
+    )
+
+return recurse(l1, l2)
+```
