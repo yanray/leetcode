@@ -34,7 +34,7 @@ Recursive
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium_hard/0002Add_Two_Numbers/0002Add_Two_Numbers1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0002Add_Two_Numbers/0002Add_Two_Numbers1.py)
 
 ```python
 dummy = ListNode(None)
@@ -64,7 +64,7 @@ if carry != 0:
 return dummy.next
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/medium_hard/0002Add_Two_Numbers/0002Add_Two_Numbers2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0002Add_Two_Numbers/0002Add_Two_Numbers2.py)
 
 ```python
 result = head = ListNode("inf")
@@ -85,7 +85,7 @@ return result.next
 ```
 
 
-[Approach 3](https://github.com/yanray/leetcode/blob/master/medium_hard/0002Add_Two_Numbers/0002Add_Two_Numbers3.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/medium/0002Add_Two_Numbers/0002Add_Two_Numbers3.py)
 
 ```python
 def recurse(l1, l2, carry=0):
@@ -111,7 +111,7 @@ def recurse(l1, l2, carry=0):
 return recurse(l1, l2)
 ```
 
-[Approach 4](https://github.com/yanray/leetcode/blob/master/medium_hard/0002Add_Two_Numbers/0002Add_Two_Numbers4.py)
+[Approach 4](https://github.com/yanray/leetcode/blob/master/medium/0002Add_Two_Numbers/0002Add_Two_Numbers4.py)
 
 ```python
 class Solution:
