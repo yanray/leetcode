@@ -53,7 +53,6 @@ while l1 or l2:
     sum_node.val = (n1 + n2 + carry) % 10
     carry = (n1 + n2 + carry) // 10
 
-print("here", carry)
 if carry != 0:
     sum_node.next = ListNode(carry)
     
