@@ -61,6 +61,11 @@ Visit by Row:
 * Characters in inner row ii are located at indexes k \; (2 \cdot \text{numRows}-2)+ik(2⋅numRows−2)+i and (k+1)(2 \cdot \text{numRows}-2)- i(k+1)(2⋅numRows−2)−i.
 
 
+**Approach 3:** 
+
+先对每行排序, 最终结合
+
+
 
 ### Code (python)
 
