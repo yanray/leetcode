@@ -113,3 +113,21 @@ for i in range(numRows):
 newstr = ''.join(strlist)
 return newstr
 ```
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/medium/0006ZigZag_Conversion/0006ZigZag_Conversion3.py)
+
+```python
+curr_row = 0
+direction = 1
+outp = [""] * numRows
+for i in range(len(s)):
+    outp[curr_row] += s[i]
+    if numRows > 1:
+        curr_row += direction
+        if curr_row == 0 or curr_row == numRows -1:
+            direction *= -1
+outputStr = ""
+for j in range(numRows):
+    outputStr += outp[j]
+return outputStr
+```
