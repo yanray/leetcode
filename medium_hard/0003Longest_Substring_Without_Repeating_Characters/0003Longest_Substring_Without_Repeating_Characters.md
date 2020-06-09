@@ -103,5 +103,12 @@ return m
 [Approach 4](https://github.com/yanray/leetcode/blob/master/medium/0003Longest_Substring_Without_Repeating_Characters/0003Longest_Substring_Without_Repeating_Characters4.py)
 
 ```python
-
+str_dict = {}
+start, max_len = 0, 0
+for i in range(len(s)):
+    if s[i] in str_dict:
+        start = max(str_dict[s[i]], start)
+    max_len = max(max_len, i - start + 1)
+    str_dict[s[i]] = i + 1
+return max_len
 ```
