@@ -123,7 +123,31 @@ else:
 [Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)2.py)
 
 ```python
+str = str.lstrip()
 
+if not str:
+    return 0
+
+INT_MIN = -2 ** 31
+INT_MAX = 2 ** 31 - 1
+
+if str[0] == "+" or str[0] == "-":
+    new_str = re.match("^\d+", str[1:])
+    if new_str == None:
+        return 0
+    else:
+        num = int(str[0] + new_str.group())
+        if num >= 0:
+            return num if num <= INT_MAX else INT_MAX
+        else:
+            return num if num >= INT_MIN else INT_MIN
+
+if str[0].isdigit():
+    new_str = re.match("^\d+", str)
+    return int(new_str.group()) if int(new_str.group()) <= INT_MAX else INT_MAX
+
+else:
+    return 0
 ```
 
 
