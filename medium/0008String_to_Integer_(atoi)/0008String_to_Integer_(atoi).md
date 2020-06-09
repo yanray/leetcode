@@ -210,12 +210,8 @@ elif s[0].isdigit(): return min(2**31-1,helper(s))
 else: return 0
 ```
 
-
-
-
-
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)1.py)
+[Approach 6](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)6.py)
 
 ```python
-
+return max(min(int(*re.findall('^[\+\-]?\d+', str.lstrip())), 2**31 - 1), -2**31)
 ```
