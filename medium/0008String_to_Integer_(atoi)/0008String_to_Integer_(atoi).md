@@ -71,8 +71,13 @@ Explanation: The number "-91283472332" is out of the range of a 32-bit signed in
 
 **Approach 1:** 
 
-去除开头的
+去除开头的所有空格, 判断str的第一个字符, 如果是"-", 且下标不越界, 且下一个位置是数字, 把剩下的数字都提取出来, 把最终的结果转int; 如果是"+", 方法类似, 如果是数字, 则直接提取数字; else 则False
 
+**Approach 2:** 
+
+去除开头的所有空格, 判断str的第一个字符, 如果是"-"或者"+", 用正则表达式查找紧跟的数字,如果为None, 则没有匹配的数字返回False, 如果有匹配结果, 把符号和数字加在一起转int, 如果只是数字, 方法类似ws
+
+**Approach 3:** 
 
 ### Code (python)
 
