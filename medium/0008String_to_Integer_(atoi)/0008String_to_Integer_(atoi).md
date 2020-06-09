@@ -117,3 +117,35 @@ elif str[index].isdigit():
 else:
     return 0
 ```
+
+
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)2.py)
+
+```python
+
+```
+
+
+
+
+
+[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)1.py)
+
+```python
+
+```
+
+
+[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)1.py)
+
+```python
+
+```
+
+
+[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)1.py)
+
+```python
+
+```
