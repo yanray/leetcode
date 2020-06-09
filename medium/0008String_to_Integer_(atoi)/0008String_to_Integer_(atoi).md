@@ -180,8 +180,18 @@ if not s[0].isnumeric():
 return min(max(int(potential_nums[0]), -(2 ** 31)), 2 ** 31 - 1)
 ```
 
-
 [Approach 4](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)4.py)
+
+```python
+match = re.match('[ ]*([+-]?\d+)', str)
+if match:
+    i = int(match.group(1))            
+    return min(i, 2**31-1) if i >=0 else max(i, -2**31) 
+else:
+    return 0
+```
+
+[Approach 5](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)5.py)
 
 ```python
 def helper(x):
@@ -201,11 +211,7 @@ else: return 0
 ```
 
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)1.py)
 
-```python
-
-```
 
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)1.py)
