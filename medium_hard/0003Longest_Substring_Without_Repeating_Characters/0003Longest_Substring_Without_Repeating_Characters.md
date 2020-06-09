@@ -67,3 +67,20 @@ for i in range(1, len(s)):
 
 return max(sub_len)
 ```
+
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0003Longest_Substring_Without_Repeating_Characters/0003Longest_Substring_Without_Repeating_Characters2.py)
+
+```python
+str_list = []
+max_length = 0
+
+for x in s:
+    if x in str_list:
+        str_list = str_list[str_list.index(x)+1:]
+        
+    str_list.append(x)    
+    max_length = max(max_length, len(str_list))
+    
+return max_length
+```
