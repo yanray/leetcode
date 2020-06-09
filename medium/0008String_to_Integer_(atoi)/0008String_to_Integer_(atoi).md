@@ -79,6 +79,12 @@ Explanation: The number "-91283472332" is out of the range of a 32-bit signed in
 
 **Approach 3:** 
 
+regex
+
+**Approach 4:** 
+
+
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)1.py)
@@ -159,10 +165,19 @@ else:
 
 
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)1.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)3.py)
 
 ```python
+s = str.lstrip()        
+potential_nums = re.findall("[\+\-]{0,1}[0-9]+", s)
 
+if len(potential_nums) == 0:
+    return 0
+if not s[0].isnumeric():
+    if s[0] not in ['+', '-'] or not s[1].isnumeric():
+        return 0
+
+return min(max(int(potential_nums[0]), -(2 ** 31)), 2 ** 31 - 1)
 ```
 
 
