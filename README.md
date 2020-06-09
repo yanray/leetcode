@@ -18,6 +18,8 @@ https://www.geeksforgeeks.org/bfs-vs-dfs-binary-tree/
 
 https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.htm
 
+Regex: https://www.runoob.com/python/python-reg-expressions.html
+
 ## Leetcode Problem
 
 #### Easy (By Frequency)
