@@ -181,6 +181,26 @@ return min(max(int(potential_nums[0]), -(2 ** 31)), 2 ** 31 - 1)
 ```
 
 
+[Approach 4](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)4.py)
+
+```python
+def helper(x):
+    if not x: return 0
+    ret = 0
+    for i in x:
+        if not i.isdigit(): return ret
+        ret = ret *10 + int(i)
+    return ret
+
+s = str.strip()
+if not s: return 0
+elif s[0] == '+': return min(2**31-1,helper(s[1:]))
+elif s[0] == '-': return max(-2**31,-helper(s[1:]))
+elif s[0].isdigit(): return min(2**31-1,helper(s))
+else: return 0
+```
+
+
 [Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi)1.py)
 
 ```python
