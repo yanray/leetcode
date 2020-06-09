@@ -1,40 +1,39 @@
-## Longest Substring Without Repeating Characters
+## Number of Islands
 
 ### Problem Link
 
-https://leetcode.com/problems/longest-substring-without-repeating-characters/
+https://leetcode.com/problems/number-of-islands/
 
 ### Problem Description 
 
-Given a string, find the length of the longest substring without repeating characters.
+Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
 
 ```
 Example 1: 
 
-Input: "abcabcbb"
-Output: 3 
-Explanation: The answer is "abc", with the length of 3. 
+Input:
+11110
+11010
+11000
+00000
+
+Output: 1
 
 ```
 
 ```
 Example 2: 
 
-Input: "bbbbb"
-Output: 1
-Explanation: The answer is "b", with the length of 1.
+Input:
+11000
+11000
+00100
+00011
 
-```
-
-```
-Example 3: 
-
-Input: "pwwkew"
 Output: 3
-Explanation: The answer is "wke", with the length of 3. 
-             Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
 ```
+
 ### How to solve 
 
 **Approach 1:** 
