@@ -140,14 +140,14 @@ return outputStr
 [Approach 4](fast)(https://github.com/yanray/leetcode/blob/master/medium/0006ZigZag_Conversion/0006ZigZag_Conversion4.py)
 
 ```python
-if R == 1 or R > len(S):  # corner case
-    return S
-res, i, step = ['' for r in range(R)], 0, 0  # a string for each line
-for s in S:
-    res[i] += s
+if numRows == 1 or numRows > len(s):  # corner case
+    return s
+res, i, step = ['' for r in range(numRows)], 0, 0  # a string for each line
+for ch in s:
+    res[i] += ch
     if i == 0:  # first row
         step = 1  # down
-    if i == R - 1:  # last row
+    if i == numRows - 1:  # last row
         step = -1  # up
     i += step
 return "".join(res)
