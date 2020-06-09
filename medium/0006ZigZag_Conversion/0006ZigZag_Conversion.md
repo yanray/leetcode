@@ -119,7 +119,7 @@ newstr = ''.join(strlist)
 return newstr
 ```
 
-[Approach 3](fast)(https://github.com/yanray/leetcode/blob/master/medium/0006ZigZag_Conversion/0006ZigZag_Conversion3.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/medium/0006ZigZag_Conversion/0006ZigZag_Conversion3.py)(fast)
 
 ```python
 curr_row = 0
@@ -137,7 +137,7 @@ for j in range(numRows):
 return outputStr
 ```
 
-[Approach 4](fast)(https://github.com/yanray/leetcode/blob/master/medium/0006ZigZag_Conversion/0006ZigZag_Conversion4.py)
+[Approach 4](https://github.com/yanray/leetcode/blob/master/medium/0006ZigZag_Conversion/0006ZigZag_Conversion4.py)(fast)
 
 ```python
 if numRows == 1 or numRows > len(s):  # corner case
