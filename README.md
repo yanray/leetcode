@@ -69,7 +69,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 
 | # | Title | Tag | Solution1 | 
 |---| ----- | --- | --------- | 
-| 0002 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)| Linked List, Math | [Python](https://github.com/yanray/leetcode/tree/master/medium/0002Add_Two_Numbers) | 
+| 0002 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)| Linked List, Math | [Python](https://github.com/yanray/leetcode/blob/master/medium/0002Add_Two_Numbers/0002Add_Two_Numbers.md) | 
 | 0006 | [ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)| String | [Python](https://github.com/yanray/leetcode/blob/master/medium/0006ZigZag_Conversion/0006ZigZag_Conversion.md) | 
 | 0008 | [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)| Math String | [Python](https://github.com/yanray/leetcode/blob/master/medium/0008String_to_Integer_(atoi)/0008String_to_Integer_(atoi).md) | 
 
