@@ -61,7 +61,7 @@ Visit by Row:
 * Characters in inner row ii are located at indexes k \; (2 \cdot \text{numRows}-2)+ik(2⋅numRows−2)+i and (k+1)(2 \cdot \text{numRows}-2)- i(k+1)(2⋅numRows−2)−i.
 
 
-**Approach 3:** 
+**Approach 3 - 4:** 
 
 先对每行排序, 最终结合
 
@@ -119,7 +119,7 @@ newstr = ''.join(strlist)
 return newstr
 ```
 
-[Approach 3](https://github.com/yanray/leetcode/blob/master/medium/0006ZigZag_Conversion/0006ZigZag_Conversion3.py)
+[Approach 3](fast)(https://github.com/yanray/leetcode/blob/master/medium/0006ZigZag_Conversion/0006ZigZag_Conversion3.py)
 
 ```python
 curr_row = 0
@@ -135,4 +135,20 @@ outputStr = ""
 for j in range(numRows):
     outputStr += outp[j]
 return outputStr
+```
+
+[Approach 4](fast)(https://github.com/yanray/leetcode/blob/master/medium/0006ZigZag_Conversion/0006ZigZag_Conversion4.py)
+
+```python
+if R == 1 or R > len(S):  # corner case
+    return S
+res, i, step = ['' for r in range(R)], 0, 0  # a string for each line
+for s in S:
+    res[i] += s
+    if i == 0:  # first row
+        step = 1  # down
+    if i == R - 1:  # last row
+        step = -1  # up
+    i += step
+return "".join(res)
 ```
