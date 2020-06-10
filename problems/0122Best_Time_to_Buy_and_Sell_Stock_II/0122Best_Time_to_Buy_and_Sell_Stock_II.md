@@ -54,7 +54,7 @@ Constraints:
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0994Rotting_Oranges/0994Rotting_Oranges1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0122Best_Time_to_Buy_and_Sell_Stock_II/0122Best_Time_to_Buy_and_Sell_Stock_II1.py)
 
 ```python
 
