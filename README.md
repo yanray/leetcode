@@ -75,6 +75,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0003 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)| Hash Table, Two Pointers, String, Sliding Window | [Python](https://github.com/yanray/leetcode/blob/master/medium/0003Longest_Substring_Without_Repeating_Characters/0003Longest_Substring_Without_Repeating_Characters.md) | 
 | 0200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/)| Depth-first Search, Breadth-first Search, Union Find | [Python](https://github.com/yanray/leetcode/blob/master/medium/0200Number_of_Islands/0200Number_of_Islands.md) | 
 | 0146 | [LRU Cache](https://leetcode.com/problems/lru-cache/)| Design | [Python](https://github.com/yanray/leetcode/blob/master/medium/0146LRU_Cache/0146LRU_Cache.md) | 
+| 0005 | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)| String, Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0146LRU_Cache/0146LRU_Cache.md) | 
 
 <!-- ```diff
 - text in red
