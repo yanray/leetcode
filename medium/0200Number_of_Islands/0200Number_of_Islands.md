@@ -38,6 +38,11 @@ Output: 3
 
 **Approach 1:** 
 
+DFS: 访问过的Mark 为 "X", 每次访问到1即把周围的全Mark 为 "X"
+
+**Approach 2:** 
+
+
 
 
 
