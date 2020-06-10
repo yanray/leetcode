@@ -58,7 +58,31 @@ return s[i+1:j]
 [Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0005Longest_Palindromic_Substring/0005Longest_Palindromic_Substring2.py)
 
 ```python
+       res, max_len, n= '', 0, len(s)
+        dp = [[0]*n for _ in range(n)]
 
+        print(dp)
+        for i in range(n):
+            dp[i][i] = 1
+            res = s[i]
+            max_len = 1
+
+        print(dp)
+        for i in range(n-1):
+            if s[i] == s[i+1]:
+                dp[i][i+1] = 1
+                res = s[i:i+2]
+                max_len = 2
+
+        print(dp)
+        for i in range(n):
+            for j in range(i-1):
+                if s[i] == s[j] and dp[j+1][i-1]:
+                    dp[j][i] = 1
+                    if i-j+1>max_len:
+                        max_len = i-j+1
+                        res = s[j:i+1]
+        return res
 ```
 
 
