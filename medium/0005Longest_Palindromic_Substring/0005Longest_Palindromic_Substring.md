@@ -29,12 +29,42 @@ Output: "bb"
 
 **Approach 1:** 
 
+Expand Around Center
+
+**Approach 2:** 
+
 
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0005Longest_Palindromic_Substring/0005Longest_Palindromic_Substring.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0005Longest_Palindromic_Substring/0005Longest_Palindromic_Substring1.py)
+
+```python
+maxPal = ''
+for i in range(len(s)):
+    maxPal = max(maxPal, self.largestPalindrome(s, i-1, i), self.largestPalindrome(s,i-1,i+1), key=len)
+return maxPal
+
+def largestPalindrome(self, s, i, j):
+while i >= 0 and j < len(s):
+    if s[i] != s[j]:
+        break
+    i -= 1
+    j += 1
+return s[i+1:j]
+```
+
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0005Longest_Palindromic_Substring/0005Longest_Palindromic_Substring2.py)
 
 ```python
 
 ```
+
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0005Longest_Palindromic_Substring/0005Longest_Palindromic_Substring2.py)
+
+```python
+
+```
+
