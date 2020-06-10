@@ -48,6 +48,11 @@ DFS
 
 BFS
 
+**Approach 4:** 
+
+Union Found
+
+
 
 ### Code (python)
 
