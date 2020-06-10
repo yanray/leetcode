@@ -203,3 +203,75 @@ class LRUCache:
             self.cache_dict.pop(key)
             self.cache_dict[key] = value
 ```
+
+[Approach 4]
+
+```python
+class ListNode:
+    def __init__(self, x):
+        self.value = x
+        self.next = None
+
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.cap = capacity
+        self.dum = ListNode((-1,-1))
+        self.tail = None
+        self.mapp = {}
+        self.size = 0
+
+    def get(self, key: int) -> int:
+        if key not in self.mapp:
+            return -1
+        else:
+            (x,y) = self.mapp[key].next.value
+            self.remove(x)
+            self.insertHead(x, y)
+            return y
+        
+    def put(self, key: int, val: int) -> None:
+        if self.get(key) == -1:
+            self.insertHead(key, val)
+            if self.size > self.cap:
+                #should only remove tail!
+                self.remove(self.tail)
+        else:
+            self.remove(key)
+            self.insertHead(key, val)
+            
+    def insertHead(self, key, value):
+        if self.size == 0:
+            self.tail = key
+
+        # insert to linked list head 
+        newNode =  ListNode((key,value))
+        temp = self.dum.next
+        self.dum.next = newNode
+        newNode.next = temp
+        
+        # insert to map:
+        self.mapp[key] = self.dum
+        
+        # update mapp[temp] to the previous node of temp
+        if temp != None:
+            self.mapp[temp.value[0]] = newNode
+    
+        self.size += 1 
+        
+        
+    def remove(self, key):
+        prev = self.mapp[key]
+        prev.next = prev.next.next
+        
+        #update nextnode's pointing
+        if prev.next:
+            nextNode = prev.next.value[0]
+            self.mapp[nextNode] = prev
+        
+        if key == self.tail:
+            #update the tail
+            self.tail = prev.value[0]
+            
+        del self.mapp[key]
+        self.size -= 1
+```
