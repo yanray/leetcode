@@ -54,7 +54,7 @@ Explanation:  Since there are already no fresh oranges at minute 0, the answer i
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0005Longest_Palindromic_Substring/0005Longest_Palindromic_Substring1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0994Rotting_Oranges/0994Rotting_Oranges1.py)
 
 ```python
 
