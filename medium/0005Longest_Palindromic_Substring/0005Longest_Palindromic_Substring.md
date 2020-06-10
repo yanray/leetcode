@@ -33,7 +33,7 @@ Output: "bb"
 
 ### Code (python)
 
-[Approach 1]
+[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0005Longest_Palindromic_Substring/0005Longest_Palindromic_Substring.py)
 
 ```python
 
