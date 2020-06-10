@@ -42,7 +42,7 @@ DFS: 访问过的Mark 为 "X", 每次访问到1即把周围的全Mark 为 "X"
 
 **Approach 2:** 
 
-
+DFS
 
 
 
@@ -81,3 +81,35 @@ for i in range(len(grid)):
 return islands
 ```
 
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0200Number_of_Islands/0200Number_of_Islands2.py)
+
+```python
+#check if no input
+numOfIslands = 0
+if not grid or len(grid) == 0:
+    return numOfIslands
+
+for row in range(len(grid)):
+    for column in range(len(grid[row])):
+        if grid[row][column] == '1':
+            numOfIslands += 1 #found land. Increment the count by 1
+            self.callDFS(grid, row, column) #call dfs to find the adjacent land. 
+return numOfIslands
+
+def callDFS(self, grid: List[List[str]], row, column):
+nr = len(grid)
+nc = len(grid[0])
+
+# check for boundary conditions and the visited node.
+if row < 0 or row >= nr or column < 0 or column >= nc or grid[row][column] == '0':
+    return
+
+grid[row][column] = '0' # mark the node as visited
+
+# expand the search in adjacent directions.
+self.callDFS(grid, row+1, column)
+self.callDFS(grid, row-1, column)
+self.callDFS(grid, row, column+1)
+self.callDFS(grid, row, column-1)
+```
