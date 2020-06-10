@@ -42,7 +42,7 @@ Ordered dictionary
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0146LRU_Cache/0146LRU_Cache1.py)
+[Approach 1]()
 
 ```python
 class LRUCache:
