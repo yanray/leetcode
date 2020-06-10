@@ -51,11 +51,53 @@ Explanation:  Since there are already no fresh oranges at minute 0, the answer i
 
 **Approach 1:** 
 
+Breadth-First Search (BFS)
+
+**Approach 2:** 
+
+In-place BFS https://en.wikipedia.org/wiki/In-place_algorithm
 
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0994Rotting_Oranges/0994Rotting_Oranges1.py)
 
 ```python
+rotten_pos = []
+num_fresh = 0
+rotten_minutes = 0
 
+num_r = len(grid)
+num_c = len(grid[0])
+for row in range(num_r):
+    for col in range(num_c):
+        if grid[row][col] == 2:
+            rotten_pos.append((row, col))
+        if grid[row][col] == 1:
+            num_fresh += 1
+if num_fresh == 0:
+    return 0
+
+while rotten_pos and num_fresh != 0:
+    rotten_minutes += 1
+    copy = rotten_pos
+    rotten_pos = []
+    for (i, j) in copy:
+        if i - 1 >= 0 and grid[i - 1][j] == 1:
+            rotten_pos.append((i - 1, j))
+            grid[i - 1][j] = 2
+            num_fresh -= 1
+        if i + 1 < num_r and grid[i + 1][j] == 1:
+            rotten_pos.append((i + 1, j))
+            grid[i + 1][j] = 2
+            num_fresh -= 1
+        if j - 1 >= 0 and grid[i][j - 1] == 1:
+            rotten_pos.append((i, j - 1))
+            grid[i][j - 1] = 2
+            num_fresh -= 1
+        if j + 1 < num_c and grid[i][j + 1] == 1:
+            rotten_pos.append((i, j + 1))
+            grid[i][j + 1] = 2
+            num_fresh -= 1
+        
+return rotten_minutes if num_fresh == 0 else -1
 ```
