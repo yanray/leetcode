@@ -42,6 +42,10 @@ Use set()
 ```python
 return list(set(nums1) & set(nums2))
 ```
+```python
+return set(nums1).intersection(set(nums2))
+```
+
 
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0349Intersection_of_Two_Arrays/0349Intersection_of_Two_Arrays2.py)
