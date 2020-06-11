@@ -49,11 +49,5 @@ for i in range(len(numbers)):
 [Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0167Two_Sum_II/0167Two_Sum_II2.py)
 
 ```python
-map_dict = {}
-for i in range(len(numbers)):
-    val = target - numbers[i]
-    if val not in map_dict:
-        map_dict[numbers[i]] = i
-    else:
-        return [map_dict[val] + 1, i + 1]
+
 ```
