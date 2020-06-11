@@ -64,9 +64,3 @@ while curr:
 
 return sentinel.next
 ```
-
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0203Remove_Linked_List_Elements/0203Remove_Linked_List_Elements3.py)
-
-```python
-
-```
