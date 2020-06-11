@@ -8,22 +8,18 @@ date:    06/11/2020
 from typing import List
 
 class Solution:
-    def set_intersection(self, set1, set2):
-        return [x for x in set1 if x in set2]
-        
-    def intersection(self, nums1, nums2):
-        """
-        :type nums1: List[int]
-        :type nums2: List[int]
-        :rtype: List[int]
-        """  
-        set1 = set(nums1)
-        set2 = set(nums2)
-        
-        if len(set1) < len(set2):
-            return self.set_intersection(set1, set2)
-        else:
-            return self.set_intersection(set2, set1)
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        d = {}
+        res = []
+        for n in nums1:
+          d[n] = 1
+          
+        for n in nums2:
+          # Check if n is in dictionary and not in the result
+          if n in d and d[n]:
+            res.append(n)
+            d[n] -= 1 # It will set the value of d[n] = 0 which will indicate we already added n in result
+        return res
 
 
 if __name__ == '__main__':
