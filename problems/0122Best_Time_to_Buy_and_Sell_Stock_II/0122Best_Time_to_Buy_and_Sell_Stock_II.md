@@ -52,6 +52,7 @@ Constraints:
 **Approach 1:** 
 
 Peal Vally Approach: 
+
 ![Peal Vally Approach](https://latex.codecogs.com/gif.latex?TotalProfit%20%3D%20%5Csum_i%28height%28peak_i%29%20-%20height%28valley_i%29%29)
 
 **Approach 2 - 3:** 
