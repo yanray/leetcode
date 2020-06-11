@@ -21,7 +21,7 @@ Output: 1->2->3->4->5
 
 **Approach 1 - 2:** 
 
-
+一个prev, 一个current, 遇到val就删除
 
 ### Code (python)
 
@@ -65,7 +65,7 @@ while curr:
 return sentinel.next
 ```
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0203Remove_Linked_List_Elements/0203Remove_Linked_List_Elements1.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0203Remove_Linked_List_Elements/0203Remove_Linked_List_Elements3.py)
 
 ```python
 
