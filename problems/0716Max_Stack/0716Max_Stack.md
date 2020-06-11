@@ -200,46 +200,6 @@ class MaxStack:
 [Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0716Max_Stack/0716Max_Stack3.py)
 
 ```python
-# class MaxStack:
-
-#     def __init__(self):
-#         """
-#         initialize your data structure here.
-#         """
-#         self.stack = []
-
-#     def push(self, x: int) -> None:
-#         self.stack.append(x)
-
-#     def pop(self) -> int:
-#         if len(self.stack) > 0:
-#             return self.stack.pop()
-
-#     def top(self) -> int:
-#         if len(self.stack) > 0:
-#             return self.stack[-1]
-
-#     def peekMax(self) -> int:
-#         if len(self.stack) > 0:
-#             return max(self.stack)
-
-#     def popMax(self) -> int:
-#         if len(self.stack) > 0:
-#             max_val = max(self.stack)
-#             for i in range(len(self.stack) - 1, -1, -1):
-#                 if self.stack[i] == max_val:
-#                     return self.stack.pop(i)
-        
-
-
-# Your MaxStack object will be instantiated and called as such:
-# obj = MaxStack()
-# obj.push(x)
-# param_2 = obj.pop()
-# param_3 = obj.top()
-# param_4 = obj.peekMax()
-# param_5 = obj.popMax()
-
 class MaxStack:
 
     def __init__(self):
@@ -283,4 +243,65 @@ class MaxStack:
             self.push(e)
         
         return top[0]
+```
+
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0716Max_Stack/0716Max_Stack4.py)
+
+```python
+class MaxStack:
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.maxvalue = None
+        self.maxstack = []
+        
+    def check_empty(self):
+        if self.maxstack:
+            return 1
+        else:
+            return 0
+    
+    def push(self, x: int) -> None:
+        self.maxstack.append(x)
+        if self.maxvalue == None or x > self.maxvalue:
+            self.maxvalue = x
+        
+
+    def pop(self) -> int:
+        if not self.maxstack:
+            return
+        tmp = self.maxstack.pop()
+        if self.check_empty():
+            maxvalue = None
+        if not self.check_empty():
+            self.maxvalue = None
+        if tmp == self.maxvalue and self.check_empty():
+            self.maxvalue = max(self.maxstack)
+        return tmp
+
+    def top(self) -> int:
+        if not self.check_empty():
+            return
+        return self.maxstack[-1]
+        
+
+    def peekMax(self) -> int:
+        return self.maxvalue
+
+    def popMax(self) -> int:
+        if not self.check_empty():
+            return
+        tmp = self.maxvalue
+        for i in range(len(self.maxstack)-1,-1,-1):
+            if self.maxstack[i] == tmp:
+                self.maxstack.pop(i)
+                break
+        if self.check_empty():
+            self.maxvalue = max(self.maxstack)
+        else:
+            self.maxvalue = None
+        return tmp
 ```
