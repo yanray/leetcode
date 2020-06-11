@@ -17,7 +17,7 @@ Output: [2]
 ```
 
 ```
-Example 1: 
+Example 2: 
 
 Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
 Output: [9,4]
