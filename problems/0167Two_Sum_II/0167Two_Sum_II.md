@@ -33,7 +33,7 @@ Use dictionary
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0167Two_Sum_II/0167Two_Sum_II1.py)
 
 ```python
 map_dict = {}
@@ -46,7 +46,7 @@ for i in range(len(numbers)):
 ```
 
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0167Two_Sum_II/0167Two_Sum_II2.py)
 
 ```python
 map_dict = {}
