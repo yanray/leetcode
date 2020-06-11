@@ -32,7 +32,12 @@ Output: [9,4]
 ### How to solve 
 
 **Approach 1 - 2:** 
+
 Use set()
+
+**Approach 3:** 
+
+Use dictionary 
 
 
 ### Code (python)
@@ -48,7 +53,7 @@ return set(nums1).intersection(set(nums2))
 
 
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0349Intersection_of_Two_Arrays/0349Intersection_of_Two_Arrays2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0349Intersection_of_Two_Arrays/0349Intersection_of_Two_Arrays2.py)
 
 ```python
 class Solution:
@@ -71,10 +76,22 @@ class Solution:
 ```
 
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0349Intersection_of_Two_Arrays/0349Intersection_of_Two_Arrays1.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0349Intersection_of_Two_Arrays/0349Intersection_of_Two_Arrays3.py)
 
 ```python
-
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        d = {}
+        res = []
+        for n in nums1:
+          d[n] = 1
+          
+        for n in nums2:
+		  # Check if n is in dictionary and not in the result
+          if n in d and d[n]:
+            res.append(n)
+            d[n] -= 1 # It will set the value of d[n] = 0 which will indicate we already added n in result
+        return res
 ```
 
 
