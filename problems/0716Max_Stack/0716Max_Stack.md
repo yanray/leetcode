@@ -43,7 +43,7 @@ stack.top(); -> 5
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0122Best_Time_to_Buy_and_Sell_Stock_II/0122Best_Time_to_Buy_and_Sell_Stock_II1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0716Max_Stack/0716Max_Stack1.py)
 
 ```python
 class MaxStack:
