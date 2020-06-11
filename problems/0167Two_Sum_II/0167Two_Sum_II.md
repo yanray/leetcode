@@ -29,11 +29,31 @@ Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
 
 **Approach 1:** 
 
+Use dictionary
 
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum.py)
 
 ```python
+map_dict = {}
+for i in range(len(numbers)):
+    val = target - numbers[i]
+    if val not in map_dict:
+        map_dict[numbers[i]] = i
+    else:
+        return [map_dict[val] + 1, i + 1]
+```
 
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum.py)
+
+```python
+map_dict = {}
+for i in range(len(numbers)):
+    val = target - numbers[i]
+    if val not in map_dict:
+        map_dict[numbers[i]] = i
+    else:
+        return [map_dict[val] + 1, i + 1]
 ```
