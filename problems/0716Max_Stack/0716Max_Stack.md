@@ -46,39 +46,5 @@ stack.top(); -> 5
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0122Best_Time_to_Buy_and_Sell_Stock_II/0122Best_Time_to_Buy_and_Sell_Stock_II1.py)
 
 ```python
-# if prices == sorted(prices, reverse = True):
-#     return 0
 
-valley = peak = 0
-len_price = len(prices)
-max_profit = 0
-i = 0
-while i < len_price - 1:
-    while i < len_price - 1 and prices[i] >= prices[i + 1]:
-        i += 1
-    valley = prices[i]
-
-    while i < len_price - 1 and prices[i] <= prices[i + 1]:
-        i += 1
-    peak = prices[i]
-    max_profit += peak - valley
-    
-return max_profit
-```
-
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0122Best_Time_to_Buy_and_Sell_Stock_II/0122Best_Time_to_Buy_and_Sell_Stock_II2.py)
-
-```python
-max_profit = 0 
-for i in range(1, len(prices)):
-    if prices[i] > prices[i - 1]:
-        max_profit += prices[i] - prices[i - 1]
-        
-return max_profit 
-```
-
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0122Best_Time_to_Buy_and_Sell_Stock_II/0122Best_Time_to_Buy_and_Sell_Stock_II3.py)
-
-```python
-return sum(max(0, prices[i]-prices[i-1]) for i in range(1, len(prices)))
 ```
