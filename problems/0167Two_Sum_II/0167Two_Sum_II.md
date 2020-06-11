@@ -49,5 +49,17 @@ for i in range(len(numbers)):
 [Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0167Two_Sum_II/0167Two_Sum_II2.py)
 
 ```python
+low = 0
+high = len(numbers) - 1
 
+while low < high:
+    sum = numbers[low] + numbers[high]
+    if sum == target:
+        return [low + 1, high + 1]
+    if sum < target:
+        low += 1
+    else:
+        high -= 1
+        
+return []
 ```
