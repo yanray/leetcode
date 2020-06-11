@@ -2,7 +2,7 @@
 
 Version: 1.1 
 Author:  Yanrui 
-date:    06/10/2020
+date:    06/11/2020
 """
 
 class MaxStack:
