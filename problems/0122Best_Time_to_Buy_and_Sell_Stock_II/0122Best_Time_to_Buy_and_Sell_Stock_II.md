@@ -54,6 +54,10 @@ Constraints:
 Peal Vally Approach: 
 ![Peal Vally Approach](https://latex.codecogs.com/gif.latex?TotalProfit%20%3D%20%5Csum_i%28height%28peak_i%29%20-%20height%28valley_i%29%29)
 
+**Approach 2:** 
+
+Simple One Pass
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0122Best_Time_to_Buy_and_Sell_Stock_II/0122Best_Time_to_Buy_and_Sell_Stock_II1.py)
@@ -77,4 +81,15 @@ while i < len_price - 1:
     max_profit += peak - valley
     
 return max_profit
+```
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0122Best_Time_to_Buy_and_Sell_Stock_II/0122Best_Time_to_Buy_and_Sell_Stock_II2.py)
+
+```python
+max_profit = 0 
+for i in range(1, len(prices)):
+    if prices[i] > prices[i - 1]:
+        max_profit += prices[i] - prices[i - 1]
+        
+return max_profit 
 ```
