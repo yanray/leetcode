@@ -93,10 +93,3 @@ class Solution:
             d[n] -= 1 # It will set the value of d[n] = 0 which will indicate we already added n in result
         return res
 ```
-
-
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0349Intersection_of_Two_Arrays/0349Intersection_of_Two_Arrays1.py)
-
-```python
-
-```
