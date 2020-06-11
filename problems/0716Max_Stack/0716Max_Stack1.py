@@ -5,33 +5,47 @@ Author:  Yanrui
 date:    06/10/2020
 """
 
-from typing import List
+class MaxStack:
 
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        # if prices == sorted(prices, reverse = True):
-        #     return 0
-        
-        valley = peak = 0
-        len_price = len(prices)
-        max_profit = 0
-        i = 0
-        while i < len_price - 1:
-            while i < len_price - 1 and prices[i] >= prices[i + 1]:
-                i += 1
-            valley = prices[i]
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.stack = []
 
-            while i < len_price - 1 and prices[i] <= prices[i + 1]:
-                i += 1
-            peak = prices[i]
-            max_profit += peak - valley
-            
-        return max_profit
+    def push(self, x: int) -> None:
+        self.stack.append(x)
+
+    def pop(self) -> int:
+        if len(self.stack) > 0:
+            return self.stack.pop()
+
+    def top(self) -> int:
+        if len(self.stack) > 0:
+            return self.stack[-1]
+
+    def peekMax(self) -> int:
+        if len(self.stack) > 0:
+            return max(self.stack)
+
+    def popMax(self) -> int:
+        if len(self.stack) > 0:
+            max_val = max(self.stack)
+            for i in range(len(self.stack) - 1, -1, -1):
+                if self.stack[i] == max_val:
+                    return self.stack.pop(i)
 
 
 if __name__ == '__main__':
-    a = Solution()
 
-    prices = [7,1,5,3,6,4]
-    print("max profit: ", a.maxProfit(prices))
+    stack = MaxStack()
+    stack.push(5)
+    stack.push(1)
+    stack.push(5)
+    stack.top()
+    stack.popMax()
+    stack.top()
+    stack.peekMax()
+    stack.pop()
+    stack.top()
     
