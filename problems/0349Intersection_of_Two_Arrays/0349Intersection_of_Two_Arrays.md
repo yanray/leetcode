@@ -31,7 +31,8 @@ Output: [9,4]
 
 ### How to solve 
 
-**Approach 1:** 
+**Approach 1 - 2:** 
+Use set()
 
 
 ### Code (python)
