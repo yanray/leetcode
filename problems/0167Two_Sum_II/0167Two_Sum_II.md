@@ -31,6 +31,16 @@ Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
 
 Use dictionary
 
+
+**Approach 2:** 
+
+Two pointers, one to low, the other to high
+
+
+**Approach 3:** 
+
+Binary Search
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0167Two_Sum_II/0167Two_Sum_II1.py)
@@ -62,4 +72,23 @@ while low < high:
         high -= 1
         
 return []
+```
+
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0167Two_Sum_II/0167Two_Sum_II3.py)
+
+```python
+# binary search
+for index, num in enumerate(numbers):
+    new_target = target - num
+    i, j = index + 1, len(numbers)-1
+    # search the new value in numbers
+    while i <= j:
+        mid = (i + j)//2
+        if numbers[mid] == new_target:
+            return [index+1, mid+1]
+        elif numbers[mid] > new_target:
+            j = mid - 1
+        else:
+            i = mid + 1
 ```
