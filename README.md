@@ -81,7 +81,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0146 | [LRU Cache](https://leetcode.com/problems/lru-cache/)| Design | [Python](https://github.com/yanray/leetcode/blob/master/medium/0146LRU_Cache/0146LRU_Cache.md) | 
 | 0005 | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)| String, Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0005Longest_Palindromic_Substring/0005Longest_Palindromic_Substring.md) | 
 | 0005 | [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)| Breadth-fisrt Search | [Python](https://github.com/yanray/leetcode/blob/master/medium/0994Rotting_Oranges/0994Rotting_Oranges.md) | 
-| 0015 | [3Sum](https://leetcode.com/problems/3sum/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/medium/0994Rotting_Oranges/0994Rotting_Oranges.md) | 
+| 0015 | [3Sum](https://leetcode.com/problems/3sum/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum.md) | 
 
 <!-- ```diff
 - text in red
