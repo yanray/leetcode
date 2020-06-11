@@ -66,7 +66,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0122 | [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)| Array, Greedy | [Python](https://github.com/yanray/leetcode/blob/master/problems/0122Best_Time_to_Buy_and_Sell_Stock_II/0122Best_Time_to_Buy_and_Sell_Stock_II.md) | 
 | 0716 | [Max Stack](https://leetcode.com/problems/max-stack/)| Design | [Python](https://github.com/yanray/leetcode/blob/master/problems/0716Max_Stack/0716Max_Stack.md) | 
 | 0349 | [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)| Hash Table, Two Pointers, Binary Search, Sort | [Python](https://github.com/yanray/leetcode/blob/master/problems/0349Intersection_of_Two_Arrays/0349Intersection_of_Two_Arrays.md) | 
-| 0203 | [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)| Linked List | [Python](https://github.com/yanray/leetcode/blob/master/problems/0349Intersection_of_Two_Arrays/0349Intersection_of_Two_Arrays.md) | 
+| 0203 | [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)| Linked List | [Python](https://github.com/yanray/leetcode/blob/master/problems/0203Remove_Linked_List_Elements/0203Remove_Linked_List_Elements.md) | 
 
 
 #### Medium (Frequency + Random)
