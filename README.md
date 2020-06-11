@@ -64,6 +64,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0242 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/)| Hash Table, Sort | [Python](https://github.com/yanray/leetcode/blob/master/problems/0242Valid_Anagram/0242Valid_Anagram.md) | 
 | 0101 | [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)| Tree, Depth-first Search, Breadth-first Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0101Symmetric_Tree/0101Symmetric_Tree.md) | 
 | 0122 | [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)| Array, Greedy | [Python](https://github.com/yanray/leetcode/blob/master/problems/0122Best_Time_to_Buy_and_Sell_Stock_II/0122Best_Time_to_Buy_and_Sell_Stock_II.md) | 
+| 0716 | [Max Stack](https://leetcode.com/problems/max-stack/)| Design | [Python](https://github.com/yanray/leetcode/blob/master/problems/0716Max_Stack/0716Max_Stack.md) | 
 
 
 #### Medium (Frequency + Random)
