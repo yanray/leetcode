@@ -1,0 +1,39 @@
+## 3Sum
+
+### Problem Link
+
+https://leetcode.com/problems/3sum/
+
+### Problem Description 
+
+Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+
+**Note:**
+
+The solution set must not contain duplicate triplets.
+
+```
+Example 1: 
+
+
+A solution set is:
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]
+
+```
+
+
+### How to solve 
+
+**Approach 1:** 
+
+
+### Code (python)
+
+[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum.py)
+
+```python
+
+```
