@@ -28,10 +28,35 @@ Could you solve it with constant space complexity? (The output array does not co
 
 **Approach 1:** 
 
+Left and Right product lists
 
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0238Product_of_Array_Except_Self/0238Product_of_Array_Except_Self1.py)
+
+```python
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        
+        nums_len = len(nums)
+        from_left = [1]
+        from_right = [1]
+        product_nums = []
+        
+        for i in range(nums_len - 1):
+            from_left.append(from_left[-1] * nums[i])
+        
+        for i in range(nums_len - 1, 0, -1):
+            from_right.append(from_right[-1] * nums[i])
+            
+        for i in range(nums_len):
+            product_nums.append(from_left[i] * from_right[nums_len - 1 - i])
+            
+        return product_nums
+```
+
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0238Product_of_Array_Except_Self/0238Product_of_Array_Except_Self2.py)
 
 ```python
 
