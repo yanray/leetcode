@@ -35,6 +35,12 @@ The average of the student with id = 2 is 88.6. But with integer division their 
 
 **Approach 1:** 
 
+Use hashmap
+
+**Approach 2:** 
+
+Use heap
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five1.py)
@@ -83,3 +89,34 @@ class Solution:
         return output
 ```
 
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five2.py)
+
+```python
+class Solution:
+    def highFive(self, items: List[List[int]]) -> List[List[int]]:
+        # use collectioni for hashmap
+        import collections
+        # use heapq to get only top 5 values
+        import heapq
+
+        d = collections.defaultdict(list)
+        # print(d)
+
+        for idx, val in items:
+            # adding values for each id in hashmap
+            heapq.heappush(d[idx], val)
+            # print(idx, val, d)
+
+            if len(d[idx]) > 5:
+                # print("if")
+                # heappop pops the smallest value
+                # so we alway has the length 5 for each id
+                heapq.heappop(d[idx])
+                # print(d)
+
+        # print([[i, sum(d[i]) // 5] for i in sorted(d)])
+        ans = [[i, sum(d[i]) // 5] for i in sorted(d)]
+        return ans
+
+```
