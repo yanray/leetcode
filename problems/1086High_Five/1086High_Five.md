@@ -118,5 +118,11 @@ class Solution:
         # print([[i, sum(d[i]) // 5] for i in sorted(d)])
         ans = [[i, sum(d[i]) // 5] for i in sorted(d)]
         return ans
+```
+
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five3.py)
+
+```python
 
 ```
