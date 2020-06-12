@@ -41,6 +41,16 @@ Use hashmap
 
 Use heap
 
+
+**Approach 3:** 
+
+Use dictionary 
+
+
+**Approach 4:** 
+
+Sort, then append 
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five1.py)
@@ -130,4 +140,17 @@ class Solution():
         for student, score in items:
             bisect.insort(D[student], score) # insert in a list in increasing order.
         return [[student, sum(D[student][-5:])//5] for student in D]
+```
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five4.py)(85%)
+
+```python
+class Solution():
+    def highFive(self, items):
+        items.sort(key=lambda x: (x[0], -x[1]))
+        s = []
+        for i in range(len(items)):
+            if i == 0 or items[i-1][0] != items[i][0]:                 
+                s.append([items[i][0], sum(v for _, v in items[i:i+5])//5])
+        return s
 ```
