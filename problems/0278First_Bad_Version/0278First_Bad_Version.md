@@ -33,7 +33,7 @@ Then 4 is the first bad version.
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0238Product_of_Array_Except_Self/0238Product_of_Array_Except_Self1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0278First_Bad_Version/0278First_Bad_Version1.py)
 
 ```python
 
