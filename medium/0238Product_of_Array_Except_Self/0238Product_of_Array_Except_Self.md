@@ -32,7 +32,14 @@ Left and Right product lists
 
 **Approach 3:** 
 
-Left and Right product lists
+O(1) space
+
+**Approach 4:** 
+
+Left and Right product lists: One Pass, O(1) space
+
+https://leetcode.com/problems/product-of-array-except-self/discuss/681707/AC-optimized-Python-O(1)-Space-one-pass
+
 
 ### Code (python)
 
@@ -140,4 +147,26 @@ class Solution:
             R *= nums[i]
         
         return answer
+```
+
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/medium/0238Product_of_Array_Except_Self/0238Product_of_Array_Except_Self4.py)
+
+```python
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:     
+        n = len(nums)
+        l, r, s = 1, 1, [1]*n
+        for i in range(n):
+            s[i] *= l
+            l *= nums[i]
+            s[~i] *= r
+            r *= nums[~i]            
+        return s
+```
+
+[Approach 5](https://github.com/yanray/leetcode/blob/master/medium/0238Product_of_Array_Except_Self/0238Product_of_Array_Except_Self5.py)
+
+```python
+
 ```
