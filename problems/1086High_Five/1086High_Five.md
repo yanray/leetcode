@@ -90,7 +90,7 @@ class Solution:
 ```
 
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five2.py)(85%)
 
 ```python
 class Solution:
@@ -121,8 +121,13 @@ class Solution:
 ```
 
 
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five3.py)
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five3.py)(85%)
 
 ```python
-
+class Solution():
+    def highFive(self, items):
+        D = collections.defaultdict(list)
+        for student, score in items:
+            bisect.insort(D[student], score) # insert in a list in increasing order.
+        return [[student, sum(D[student][-5:])//5] for student in D]
 ```
