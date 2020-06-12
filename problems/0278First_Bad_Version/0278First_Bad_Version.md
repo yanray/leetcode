@@ -30,6 +30,11 @@ Then 4 is the first bad version.
 
 **Approach 1:** 
 
+二分法, 找到 i 为 false, i + 1 为True 即 return 
+
+**Approach 2:** 
+
+
 
 ### Code (python)
 
@@ -58,5 +63,11 @@ class Solution:
                 last_false = test_val
             
         return first_true
+```
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0278First_Bad_Version/0278First_Bad_Version2.py)
+
+```python
+
 ```
 
