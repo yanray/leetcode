@@ -36,6 +36,27 @@ Then 4 is the first bad version.
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0278First_Bad_Version/0278First_Bad_Version1.py)
 
 ```python
-
+class Solution:
+    def firstBadVersion(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        
+        last_false = 0
+        first_true = n
+        
+        left = 1 
+        right = n
+        while last_false + 1 != first_true:
+            test_val = (left + right) // 2
+            if isBadVersion(test_val):
+                right = test_val
+                first_true = test_val
+            else:
+                left = test_val
+                last_false = test_val
+            
+        return first_true
 ```
 
