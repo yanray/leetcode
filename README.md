@@ -70,7 +70,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0167 | [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)| Array, Two Pointers, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0167Two_Sum_II/0167Two_Sum_II.md) | 
 | 0278 | [First Bad Version](https://leetcode.com/problems/first-bad-version/)| Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0278First_Bad_Version/0278First_Bad_Version.md) | 
 | 1086 | [High Five](https://leetcode.com/problems/high-five/)| Array, Hash Table, Sort | [Python](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five.md) | 
-| 0339 | [Nested List Weight Sum](https://leetcode.com/problems/nested-list-weight-sum/)| Depth-first Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five.md) | 
+| 0339 | [Nested List Weight Sum](https://leetcode.com/problems/nested-list-weight-sum/)| Depth-first Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0339Nested_List_Weight_Sum/0339Nested_List_Weight_Sum.md) | 
 
 #### Medium (Frequency + Random)
 
