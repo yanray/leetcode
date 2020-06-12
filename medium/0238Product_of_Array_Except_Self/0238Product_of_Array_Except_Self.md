@@ -1,0 +1,212 @@
+## 3Sum
+
+### Problem Link
+
+https://leetcode.com/problems/3sum/
+
+### Problem Description 
+
+Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+
+**Note:**
+
+The solution set must not contain duplicate triplets.
+
+```
+Example 1: 
+
+
+A solution set is:
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]
+
+```
+
+
+### How to solve 
+
+**Approach 1:** 
+
+Similar to twoSumII 
+
+**Approach 2:** 
+
+Use collections.Counter()
+
+**Approach 3:** 
+
+for a + b + c == 0, at least one integer needs to be less than or equal (leq) to 0, and at least one integer needs to be greater than or equal (geq) to 0.
+
+We can have a set of all numbers leq 0, and another set geq 0. We iterate through these two sets in a nested loop, and check if c = 0 - a - b exists in a hashed map.
+
+Space complexity dominated by O(n!) to store the combination (nCr). Mapping and the two sets are of O(n)
+
+**Approach 4:** 
+
+https://leetcode.com/problems/3sum/discuss/514346/Python-~95-Solution-Commented-and-Explained
+
+**Approach 5:** 
+
+Use twoSum solution
+
+### Code (python)
+
+[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum1.py)
+
+```python
+nums.sort()
+i, s, n = 0, [], len(nums)
+while i < n-2 and nums[i] <= 0:
+    l, r = i+1, n-1
+    while l < r:
+        m = nums[i]+nums[l]+nums[r]
+        if m < 0: l += 1
+        elif m > 0: r -= 1
+        else:
+            s.append([nums[i], nums[l], nums[r]])
+            l = bisect.bisect_right(nums, nums[l], l, r)
+            r = bisect.bisect_left(nums, nums[r], l, r)-1
+    i = bisect.bisect_right(nums, nums[i], i)
+return s
+```
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum2.py)
+
+```python
+cnt = collections.Counter(nums)
+s, n, key = [], len(cnt), sorted(cnt)
+for i, k in enumerate(key):
+    if k < 0:
+        q, r = divmod(-k, 2)                      # case a(-), c(+), c(+)
+        if not r and cnt[q] > 1:
+            s.append([k, q, q])
+        l, r = i+1, n-1
+        while l < r:                              # case a(-), b, c(+)
+            m = key[i]+key[l]+key[r]
+            if m < 0: l += 1
+            elif m > 0: r -= 1
+            else: 
+                s.append([key[i], key[l], key[r]])
+                l += 1
+                r -= 1
+    elif k > 0:                                   # case a(-), a(-), c(+)
+        q, r = divmod(k, 2)
+        if not r and cnt[-q] > 1:
+            s.append([-q, -q, k])
+    elif cnt[k] > 2: s.append([k, k, k])          # case k=0, i.e. b, b, b
+return s
+```
+
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum3.py)
+
+```python
+result = set()
+mapping = {}
+geq0 = set()
+leq0 = set()
+for i in nums:
+    mapping[i] = 1 if i not in mapping.keys() else mapping[i] + 1
+    if i >= 0:
+        geq0.add(i)
+    if i <= 0:
+        leq0.add(i)
+
+for a in geq0:
+    for b in leq0:
+        c = - a - b
+        potential = [a, b, c]
+        if c in mapping.keys() and mapping[c] >= sum([x == c for x in potential]):
+            result.add(tuple(sorted(potential)))
+return result
+```
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum4.py)(97%)
+
+```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        # Hash maps (dict) to store neg/pos integer counts.
+        neg = {}
+        pos = {}
+        zeros = 0
+
+        # Hash set to store tuples of valid solutions.
+        # Automatically handles duplicate solutions if we add
+        # sorted tuples to it.
+        solutions = set()
+
+        # Initializing our counter. O(n).
+        for i in nums:
+            if i < 0:
+                neg.setdefault(i, 0)
+                neg[i] += 1
+            elif i > 0:
+                pos.setdefault(i, 0)
+                pos[i] += 1
+            else:
+                zeros += 1
+
+        # We iterate through all unique values of nums.
+        # Note: 'i' and 'j' are always opposite in parity. i.e. 'i'
+        # and 'j' will never both be positive or both be negative.
+        for i in {num for num in nums}:
+            # Seeking positive numbers to offset negative numbers.
+            if i < 0:
+                for j in pos:
+                    # Seek for third number, k = -(i + j) 
+                    k = -i - j
+                    if k in pos:
+                        # Invalid solution;
+                        if k == j and pos[j]-1 < 1:
+                            continue
+                        # Valid solution;
+                        else:
+                            solutions.add(tuple(sorted((i, j, k))))
+                    # If third number is '0' and we have zeros to use.
+                    elif k == 0 and zeros > 0:
+                        solutions.add(tuple(sorted((i, j, 0))))
+
+            # Logic below is nearly identical logic as above. Kept it verbose for readibility.
+
+            # Seeking negative numbers to offset postive numbers.
+            elif i > 0:
+                for j in neg:
+                    k = -i - j
+                    if k in neg:
+                        if k == j and neg[j]-1 < 1:
+                            continue
+                        else:
+                            solutions.add(tuple(sorted((i, j, k))))
+                    elif k == 0 and zeros > 0:
+                        solutions.add(tuple(sorted((i, j, 0))))
+
+            # If we encounter a zero, check to see we have 3 or more.
+            elif zeros >= 3:
+                solutions.add((0, 0, 0))
+
+        return [list(s) for s in solutions]
+```
+
+[Approach 5](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum5.py)
+
+```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+
+        nums.sort()
+        ans = set()
+        for i,v in enumerate(nums):
+            self.twoSum(nums[i+1:],-v,ans)
+        return ans
+    
+    def twoSum(self,nums,target,ans):
+        d = {}
+        for i,v in enumerate(nums):
+            if target-v in d:
+                ans.add((v,target-v,-target)) #3sum wants the numbers, while 2sum wanted the indices
+            d[v] = i
+
+```
