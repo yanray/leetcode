@@ -1,156 +1,43 @@
-## High Five
+## Nested List Weight Sum
 
 ### Problem Link
 
-https://leetcode.com/problems/high-five/
+https://leetcode.com/problems/nested-list-weight-sum/
 
 ### Problem Description 
 
-Given a list of scores of different students, return the average score of each student's top five scores in the order of each student's id.
+Given a nested list of integers, return the sum of all integers in the list weighted by their depth.
 
-Each entry items[i] has items[i][0] the student's id, and items[i][1] the student's score.  The average score is calculated using integer division.
+Each element is either an integer, or a list -- whose elements may also be integers or other lists.
 
 
 ```
 Example 1: 
 
-Input: [[1,91],[1,92],[2,93],[2,97],[1,60],[2,77],[1,65],[1,87],[1,100],[2,100],[2,76]]
-Output: [[1,87],[2,88]]
-Explanation: 
-The average of the student with id = 1 is 87.
-The average of the student with id = 2 is 88.6. But with integer division their average converts to 88.
+Input: [[1,1],2,[1,1]]
+Output: 10 
+Explanation: Four 1's at depth 2, one 2 at depth 1.
 
 ```
 
-**Note:**
+```
+Example 2: 
 
-1. 1 <= items.length <= 1000
-2. items[i].length == 2
-3. The IDs of the students is between 1 to 1000
-4. The score of the students is between 1 to 100
-5. For each student, there are at least 5 scores
+Input: [1,[4,[6]]]
+Output: 27 
+Explanation: One 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4*2 + 6*3 = 27.
 
+```
 
 ### How to solve 
 
 **Approach 1:** 
 
-Use hashmap
-
-**Approach 2:** 
-
-Use heap
-
-
-**Approach 3:** 
-
-Use dictionary 
-
-
-**Approach 4:** 
-
-Sort, then append 
 
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five1.py)
 
 ```python
-import numpy as np
 
-class Solution:
-    def highFive(self, items: List[List[int]]) -> List[List[int]]:
-        
-        high_five_dict = {}
-        for i in range(len(items)):
-            if items[i][0] in high_five_dict:
-                if items[i][1] > high_five_dict[items[i][0]][0]:                    
-                    bisect.insort(high_five_dict[items[i][0]], items[i][1])
-                    high_five_dict[items[i][0]].pop(0)
-            else:
-                high_five_dict[items[i][0]] = [0, 0, 0, 0, items[i][1]]
-            
-        output = []
-        for k, v in high_five_dict.items():
-            output.append([k, int(np.mean(v))])
-        
-        return output
-```
-
-```python
-import numpy as np
-
-class Solution:
-    def highFive(self, items: List[List[int]]) -> List[List[int]]:
-
-        high_five_dict = {}
-        for i in range(len(items)):
-            if items[i][0] in high_five_dict:
-                if items[i][1] > high_five_dict[items[i][0]][0]:
-                    high_five_dict[items[i][0]][0] = items[i][1]
-                    high_five_dict[items[i][0]].sort()
-            else:
-                high_five_dict[items[i][0]] = [0, 0, 0, 0, items[i][1]]
-            
-        output = []
-        for k, v in high_five_dict.items():
-            output.append([k, int(np.mean(v))])
-        
-        return output
-```
-
-
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five2.py)(85%)
-
-```python
-class Solution:
-    def highFive(self, items: List[List[int]]) -> List[List[int]]:
-        # use collectioni for hashmap
-        import collections
-        # use heapq to get only top 5 values
-        import heapq
-
-        d = collections.defaultdict(list)
-        # print(d)
-
-        for idx, val in items:
-            # adding values for each id in hashmap
-            heapq.heappush(d[idx], val)
-            # print(idx, val, d)
-
-            if len(d[idx]) > 5:
-                # print("if")
-                # heappop pops the smallest value
-                # so we alway has the length 5 for each id
-                heapq.heappop(d[idx])
-                # print(d)
-
-        # print([[i, sum(d[i]) // 5] for i in sorted(d)])
-        ans = [[i, sum(d[i]) // 5] for i in sorted(d)]
-        return ans
-```
-
-
-[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five3.py)(85%)
-
-```python
-class Solution():
-    def highFive(self, items):
-        D = collections.defaultdict(list)
-        for student, score in items:
-            bisect.insort(D[student], score) # insert in a list in increasing order.
-        return [[student, sum(D[student][-5:])//5] for student in D]
-```
-
-[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five4.py)(85%)
-
-```python
-class Solution():
-    def highFive(self, items):
-        items.sort(key=lambda x: (x[0], -x[1]))
-        s = []
-        for i in range(len(items)):
-            if i == 0 or items[i-1][0] != items[i][0]:                 
-                s.append([items[i][0], sum(v for _, v in items[i:i+5])//5])
-        return s
 ```
