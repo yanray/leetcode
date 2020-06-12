@@ -36,7 +36,7 @@ Explanation: One 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4*2 +
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0339Nested_List_Weight_Sum/0339Nested_List_Weight_Sum1.py)
 
 ```python
 
