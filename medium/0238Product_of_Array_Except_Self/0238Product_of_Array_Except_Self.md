@@ -31,7 +31,7 @@ Could you solve it with constant space complexity? (The output array does not co
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0238Product_of_Array_Except_Self/0238Product_of_Array_Except_Self1.py)
 
 ```python
 
