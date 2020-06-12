@@ -69,6 +69,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0203 | [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)| Linked List | [Python](https://github.com/yanray/leetcode/blob/master/problems/0203Remove_Linked_List_Elements/0203Remove_Linked_List_Elements.md) | 
 | 0167 | [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)| Array, Two Pointers, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0167Two_Sum_II/0167Two_Sum_II.md) | 
 | 0278 | [First Bad Version](https://leetcode.com/problems/first-bad-version/)| Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0278First_Bad_Version/0278First_Bad_Version.md) | 
+| 1086 | [High Five](https://leetcode.com/problems/high-five/)| Array, Hash Table, Sort | [Python](https://github.com/yanray/leetcode/blob/master/problems/0278First_Bad_Version/0278First_Bad_Version.md) | 
 
 #### Medium (Frequency + Random)
 
