@@ -40,6 +40,24 @@ The average of the student with id = 2 is 88.6. But with integer division their 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/1086High_Five/1086High_Five1.py)
 
 ```python
+import numpy as np
 
+class Solution:
+    def highFive(self, items: List[List[int]]) -> List[List[int]]:
+        
+        high_five_dict = {}
+        for i in range(len(items)):
+            if items[i][0] in high_five_dict:
+                if items[i][1] > high_five_dict[items[i][0]][0]:                    
+                    bisect.insort(high_five_dict[items[i][0]], items[i][1])
+                    high_five_dict[items[i][0]].pop(0)
+            else:
+                high_five_dict[items[i][0]] = [0, 0, 0, 0, items[i][1]]
+            
+        output = []
+        for k, v in high_five_dict.items():
+            output.append([k, int(np.mean(v))])
+        
+        return output
 ```
 
