@@ -164,9 +164,3 @@ class Solution:
             r *= nums[~i]            
         return s
 ```
-
-[Approach 5](https://github.com/yanray/leetcode/blob/master/medium/0238Product_of_Array_Except_Self/0238Product_of_Array_Except_Self5.py)
-
-```python
-
-```
