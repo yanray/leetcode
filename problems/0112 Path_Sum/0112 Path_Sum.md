@@ -36,7 +36,7 @@ return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0112%20PathSum/0112%20PathSum1.py)
+[Approach 1]
 
 ```python
 
