@@ -47,10 +47,16 @@ Explanation: There is one 0-diff pair in the array, (1, 1).
 
 **Approach 1:** 
 
+用hashtable, 类似Two Sum, Two SumII
+
+**Approach 2:** 
+
+
+
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0339Nested_List_Weight_Sum/0339Nested_List_Weight_Sum1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0532Kdiff_Pairs_in_an_Array/0532Kdiff_Pairs_in_an_Array1.py)
 
 ```python
 class Solution:
@@ -117,4 +123,12 @@ class Solution:
         # print(nums)
         # print(hashtable)
         return output
+```
+
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0532Kdiff_Pairs_in_an_Array/0532Kdiff_Pairs_in_an_Array2.py)
+
+```python
+
+
 ```
