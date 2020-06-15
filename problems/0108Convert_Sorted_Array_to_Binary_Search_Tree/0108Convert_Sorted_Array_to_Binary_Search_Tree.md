@@ -37,13 +37,13 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 
 * Implement helper function helper(left, right), which constructs BST from nums elements between indexes left and right:
 
-- If left > right, then there is no elements available for that subtree. Return None.
+    - If left > right, then there is no elements available for that subtree. Return None.
 
-- Pick left middle element: p = (left + right) // 2.
+    - Pick left middle element: p = (left + right) // 2.
 
-- Initiate the root: root = TreeNode(nums[p]).
+    - Initiate the root: root = TreeNode(nums[p]).
 
-- Compute recursively left and right subtrees: root.left = helper(left, p - 1), root.right = helper(p + 1, right).
+    - Compute recursively left and right subtrees: root.left = helper(left, p - 1), root.right = helper(p + 1, right).
 
 * Return helper(0, len(nums) - 1).
 
