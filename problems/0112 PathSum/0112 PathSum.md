@@ -32,64 +32,7 @@ return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 
 **Approach 1:** 
 
-总是选择middle作为root, 如果list长度为1, return这个node, 如果为空, return None, 左子数和右子数只需要递归传入相应的子list即可
 
-**Approach 2:** 
-
-Always Choose Left Middle Node as a Root:
-
-* Implement helper function helper(left, right), which constructs BST from nums elements between indexes left and right:
-
-    - If left > right, then there is no elements available for that subtree. Return None.
-
-    - Pick left middle element: p = (left + right) // 2.
-
-    - Initiate the root: root = TreeNode(nums[p]).
-
-    - Compute recursively left and right subtrees: root.left = helper(left, p - 1), root.right = helper(p + 1, right).
-
-* Return helper(0, len(nums) - 1).
-
-**Approach 3:** 
-
-Always Choose Right Middle Node as a Root:
-
-* Implement helper function helper(left, right), which constructs BST from nums elements between indexes left and right:
-
-    - If left > right, then there is no elements available for that subtree. Return None.
-
-    - Pick right middle element:
-
-        - p = (left + right) // 2.
-
-        - If left + right is odd, add 1 to p-index.
-
-    - Initiate the root: root = TreeNode(nums[p]).
-
-    - Compute recursively left and right subtrees: root.left = helper(left, p - 1), root.right = helper(p + 1, right).
-
-* Return helper(0, len(nums) - 1).
-
-
-**Approach 3:**
-
-Choose Random Middle Node as a Root:
-
-* Implement helper function helper(left, right), which constructs BST from nums elements between indexes left and right:
-
-    - If left > right, then there is no elements available for that subtree. Return None.
-
-    - Pick random middle element:
-
-        - p = (left + right) // 2.
-
-        - If left + right is odd, add randomly 0 or 1 to p-index.
-
-    - Initiate the root: root = TreeNode(nums[p]).
-
-    - Compute recursively left and right subtrees: root.left = helper(left, p - 1), root.right = helper(p + 1, right).
-
-* Return helper(0, len(nums) - 1).
 
 ### Code (python)
 
