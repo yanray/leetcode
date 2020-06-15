@@ -40,7 +40,7 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0532Kdiff_Pairs_in_an_Array/0532Kdiff_Pairs_in_an_Array1.py)
+[Approach 1]()
 
 ```python
 
