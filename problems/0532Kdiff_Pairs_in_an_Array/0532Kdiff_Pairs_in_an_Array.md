@@ -51,6 +51,11 @@ Explanation: There is one 0-diff pair in the array, (1, 1).
 
 **Approach 2:** 
 
+Use two Pointers 
+
+**Approach 3:** 
+
+Use set()
 
 
 
