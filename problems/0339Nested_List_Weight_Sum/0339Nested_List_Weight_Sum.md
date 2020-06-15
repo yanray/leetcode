@@ -36,8 +36,22 @@ Explanation: One 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4*2 +
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0339Nested_List_Weight_Sum/0339Nested_List_Weight_Sum1.py)
+[Approach 1]()
 
 ```python
+class Solution:
+    def depthSum(self, nestedList: List[NestedInteger]) -> int:
+        
+        def DFS(nestedList, layer) -> int:
+            sum_val = 0
+            for nest in nestedList:
+                if nest.isInteger():
+                    sum_val += layer * nest.getInteger()
+                else:
+                    sum_val += DFS(nest.getList(), layer + 1)
+            return sum_val
+        
 
+        layer = 1
+        return DFS(nestedList, layer)
 ```
