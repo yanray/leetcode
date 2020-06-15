@@ -1,33 +1,47 @@
-## Nested List Weight Sum
+## K-diff Pairs in an Array
 
 ### Problem Link
 
-https://leetcode.com/problems/nested-list-weight-sum/
+https://leetcode.com/problems/k-diff-pairs-in-an-array/
 
 ### Problem Description 
 
-Given a nested list of integers, return the sum of all integers in the list weighted by their depth.
-
-Each element is either an integer, or a list -- whose elements may also be integers or other lists.
+Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
 
 
 ```
 Example 1: 
 
-Input: [[1,1],2,[1,1]]
-Output: 10 
-Explanation: Four 1's at depth 2, one 2 at depth 1.
+Input: [3, 1, 4, 1, 5], k = 2
+Output: 2
+Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5).
+Although we have two 1s in the input, we should only return the number of unique pairs.
 
 ```
 
 ```
 Example 2: 
 
-Input: [1,[4,[6]]]
-Output: 27 
-Explanation: One 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4*2 + 6*3 = 27.
+Input:[1, 2, 3, 4, 5], k = 1
+Output: 4
+Explanation: There are four 1-diff pairs in the array, (1, 2), (2, 3), (3, 4) and (4, 5).
 
 ```
+
+```
+Example 3: 
+
+Input: [1, 3, 1, 5, 4], k = 0
+Output: 1
+Explanation: There is one 0-diff pair in the array, (1, 1).
+
+```
+
+**Note:**
+
+1. The pairs (i, j) and (j, i) count as the same pair.
+2. The length of the array won't exceed 10,000.
+3. All the integers in the given input belong to the range: [-1e7, 1e7].
 
 ### How to solve 
 
