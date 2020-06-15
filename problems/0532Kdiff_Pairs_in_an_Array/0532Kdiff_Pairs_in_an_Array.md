@@ -53,5 +53,33 @@ Explanation: There is one 0-diff pair in the array, (1, 1).
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0339Nested_List_Weight_Sum/0339Nested_List_Weight_Sum1.py)
 
 ```python
-
+class Solution:
+    def findPairs(self, nums: List[int], k: int) -> int:
+        if not nums or k < 0:
+            return 0
+        
+        output = 0
+        if k == 0:
+            for v in collections.Counter(nums).values():
+                if v >= 2:
+                    output += 1
+            return output
+        
+        nums.sort()
+        
+        hash_dict = {}
+        for i in range(len(nums) - 1):
+            if nums[i] == nums[i + 1]:
+                continue
+            if nums[i] in hash_dict:
+                output += 1
+            if nums[i] + k <= nums[-1]:
+                hash_dict[nums[i] + k] = i
+        if nums[-1] in hash_dict:
+                output += 1
+        
+                
+        # print(nums)
+        # print(hash_dict)
+        return output
 ```
