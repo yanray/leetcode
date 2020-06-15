@@ -31,11 +31,21 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 
 **Approach 1:** 
 
-用hashtable, 类似Two Sum, Two SumII
+总是选择middle作为root, 如果list长度为1, return这个node, 如果为空, return None, 左子数和右子数只需要递归传入相应的子list即可
 
 **Approach 2:** 
 
+* Implement helper function helper(left, right), which constructs BST from nums elements between indexes left and right:
 
+- If left > right, then there is no elements available for that subtree. Return None.
+
+- Pick left middle element: p = (left + right) // 2.
+
+- Initiate the root: root = TreeNode(nums[p]).
+
+- Compute recursively left and right subtrees: root.left = helper(left, p - 1), root.right = helper(p + 1, right).
+
+* Return helper(0, len(nums) - 1).
 
 
 ### Code (python)
@@ -43,5 +53,21 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 [Approach 1]
 
 ```python
-
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        
+        def helper(nums):
+            if not nums:
+                return None
+            if len(nums) == 1:
+                return TreeNode(nums[0])
+            
+            
+            middle = len(nums) // 2  
+            node = TreeNode(nums[middle])
+            node.left = helper(nums[0 : middle])
+            node.right = helper(nums[middle + 1 :])
+            return node
+        
+        return helper(nums)
 ```
