@@ -129,6 +129,36 @@ class Solution:
 [Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0532Kdiff_Pairs_in_an_Array/0532Kdiff_Pairs_in_an_Array2.py)
 
 ```python
+class Solution:
+    def findPairs(self, nums: List[int], k: int) -> int: 
+        
+        if not nums or k < 0:
+            return 0
+        
+        nums.sort()
 
+        N = len(nums)
+
+        i = pairs = 0
+        j = 1
+
+        while j < N:
+            if j < N - 1 and nums[j] == nums[j + 1]:
+                j += 1
+
+            elif nums[j] == nums[i] + k:
+                pairs += 1
+                i += 1
+                j += 1
+
+            elif nums[j] > nums[i] + k:
+                i += 1
+
+            elif nums[j] < nums[i] + k:
+                j += 1
+
+            j = max(j, i + 1)
+
+        return pairs
 
 ```
