@@ -87,6 +87,7 @@ class Solution:
 ```python
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
+        
         if not nums or k < 0:
             return 0
         
@@ -99,19 +100,21 @@ class Solution:
         
         nums.sort()
         
-        hash_dict = {}
+        hashtable = []
         for i in range(len(nums) - 1):
             if nums[i] == nums[i + 1]:
                 continue
-            if nums[i] in hash_dict:
+            if nums[i] in hashtable:
                 output += 1
             if nums[i] + k <= nums[-1]:
-                hash_dict[nums[i] + k] = i
-        if nums[-1] in hash_dict:
+                hashtable.append(nums[i] + k)
+            while hashtable and nums[i] >= hashtable[0]:
+                hashtable.pop(0)
+        if nums[-1] in hashtable:
                 output += 1
         
                 
         # print(nums)
-        # print(hash_dict)
+        # print(hashtable)
         return output
 ```
