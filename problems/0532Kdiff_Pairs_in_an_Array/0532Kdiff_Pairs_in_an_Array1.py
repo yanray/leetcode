@@ -6,33 +6,46 @@ date: 	 06/12/2020
 """
 
 from typing import List
-import numpy as np
+import collections
 
 class Solution:
-    def highFive(self, items: List[List[int]]) -> List[List[int]]:
-
-        high_five_dict = {}
-        for i in range(len(items)):
-            if items[i][0] in high_five_dict:
-                if items[i][1] > high_five_dict[items[i][0]][0]:
-                    high_five_dict[items[i][0]][0] = items[i][1]
-                    high_five_dict[items[i][0]].sort()
-            else:
-                high_five_dict[items[i][0]] = [0, 0, 0, 0, items[i][1]]
-            
-        output = []
-        for k, v in high_five_dict.items():
-            output.append([k, int(np.mean(v))])
+    def findPairs(self, nums: List[int], k: int) -> int:
+        if not nums or k < 0:
+            return 0
         
+        output = 0
+        if k == 0:
+            for v in collections.Counter(nums).values():
+                if v >= 2:
+                    output += 1
+            return output
+        
+        nums.sort()
+        
+        hash_dict = {}
+        for i in range(len(nums) - 1):
+            if nums[i] == nums[i + 1]:
+                continue
+            if nums[i] in hash_dict:
+                output += 1
+            if nums[i] + k <= nums[-1]:
+                hash_dict[nums[i] + k] = i
+        if nums[-1] in hash_dict:
+                output += 1
+        
+                
+        # print(nums)
+        # print(hash_dict)
         return output
 
 if __name__ == '__main__':
 
-	a = Solution()
+    a = Solution()
+    nums = [3, 1, 4, 1, 5]
+    k = 2
 
-	nums = [[1,91],[1,92],[2,93],[2,97],[1,60],[2,77],[1,65],[1,87],[1,100],[2,100],[2,76]]
-
-	print("Input: ", nums)
-	print("Output: ", a.highFive(nums))
+    print("Input: ", nums)
+    print("k: ", k)
+    print("Output: ", a.findPairs(nums, k))
 
 
