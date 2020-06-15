@@ -72,7 +72,7 @@ class Solution:
         return helper(nums)
 ```
 
-[Approach 1]
+[Approach 2]
 
 ```python
 class Solution:
@@ -91,4 +91,10 @@ class Solution:
             return root
         
         return helper(0, len(nums) - 1)
+```
+
+[Approach 3]
+
+```python
+
 ```
