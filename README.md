@@ -14,6 +14,8 @@ Prime Count: https://blog.csdn.net/Snow_Me/article/details/52588819
 
 Binary Tree: 
 
+![binary tree](https://github.com/yanray/leetcode/blob/master/pictures/binary_tree_traversal.png)
+
 https://www.geeksforgeeks.org/bfs-vs-dfs-binary-tree/
 
 https://www.tutorialspoint.com/data_structures_algorithms/hash_data_structure.htm
