@@ -35,6 +35,8 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 
 **Approach 2:** 
 
+Always Choose Left Middle Node as a Root:
+
 * Implement helper function helper(left, right), which constructs BST from nums elements between indexes left and right:
 
     - If left > right, then there is no elements available for that subtree. Return None.
@@ -47,6 +49,46 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 
 * Return helper(0, len(nums) - 1).
 
+**Approach 3:** 
+
+Always Choose Right Middle Node as a Root:
+
+* Implement helper function helper(left, right), which constructs BST from nums elements between indexes left and right:
+
+    - If left > right, then there is no elements available for that subtree. Return None.
+
+    - Pick right middle element:
+
+        - p = (left + right) // 2.
+
+        - If left + right is odd, add 1 to p-index.
+
+    - Initiate the root: root = TreeNode(nums[p]).
+
+    - Compute recursively left and right subtrees: root.left = helper(left, p - 1), root.right = helper(p + 1, right).
+
+* Return helper(0, len(nums) - 1).
+
+
+**Approach 3:**
+
+Choose Random Middle Node as a Root:
+
+* Implement helper function helper(left, right), which constructs BST from nums elements between indexes left and right:
+
+    - If left > right, then there is no elements available for that subtree. Return None.
+
+    - Pick random middle element:
+
+        - p = (left + right) // 2.
+
+        - If left + right is odd, add randomly 0 or 1 to p-index.
+
+    - Initiate the root: root = TreeNode(nums[p]).
+
+    - Compute recursively left and right subtrees: root.left = helper(left, p - 1), root.right = helper(p + 1, right).
+
+* Return helper(0, len(nums) - 1).
 
 ### Code (python)
 
@@ -82,7 +124,7 @@ class Solution:
                 return None
 
             # always choose left middle node as a root
-            p = (left + right) // 2
+            p = left + (left - right) // 2
 
             # inorder traversal: left -> node -> right
             root = TreeNode(nums[p])
@@ -96,5 +138,46 @@ class Solution:
 [Approach 3]
 
 ```python
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:        
+        def helper(left, right):
+            if left > right:
+                return None
+            
+            # always choose right middle node as a root
+            p = (left + right) // 2 
+            if (left + right) % 2:
+                p += 1 
 
+            # inorder traversal: left -> node -> right
+            root = TreeNode(nums[p])
+            root.left = helper(left, p - 1)
+            root.right = helper(p + 1, right)
+            return root
+        
+        return helper(0, len(nums) - 1)
+```
+
+[Approach 3]
+
+```python
+from random import randint
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:        
+        def helper(left, right):
+            if left > right:
+                return None
+            
+            # choose random middle node as a root
+            p = (left + right) // 2 
+            if (left + right) % 2:
+                p += randint(0, 1) 
+
+            # inorder traversal: left -> node -> right
+            root = TreeNode(nums[p])
+            root.left = helper(left, p - 1)
+            root.right = helper(p + 1, right)
+            return root
+        
+        return helper(0, len(nums) - 1)
 ```
