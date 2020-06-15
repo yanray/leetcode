@@ -1,8 +1,8 @@
-## K-diff Pairs in an Array
+## Convert Sorted Array to Binary Search Tree
 
 ### Problem Link
 
-https://leetcode.com/problems/k-diff-pairs-in-an-array/
+https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
 
 ### Problem Description 
 
