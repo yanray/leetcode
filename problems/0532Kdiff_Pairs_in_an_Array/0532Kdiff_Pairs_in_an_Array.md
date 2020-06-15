@@ -160,5 +160,22 @@ class Solution:
             j = max(j, i + 1)
 
         return pairs
+```
 
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0532Kdiff_Pairs_in_an_Array/0532Kdiff_Pairs_in_an_Array3.py)
+
+```python
+class Solution(object):
+    def findPairs(self, nums, k):
+        if k<0:
+            return 0
+        saw = set()
+        diff = set()
+        for i in nums:
+            if i-k in saw:
+                diff.add(i-k)
+            if i+k in saw:
+                diff.add(i)
+            saw.add(i)
+        return len(diff)
 ```
