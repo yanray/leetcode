@@ -36,11 +36,43 @@ Return
 
 **Approach 1:** 
 
+DFS with deque()
+
+**Approach 2:** 
+
+Recursion
 
 
 ### Code (python)
 
 [Approach 1]
+
+```python
+class Solution:
+    def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
+        
+        if not root:
+            return []
+        
+        q = deque()
+        q.append((root, 0, []))
+        
+        path_list = []
+        while q:
+            node, val, path = q.popleft()
+            
+            if not node.left and not node.right and val + node.val == sum:
+                path_list.append(path + [node.val])
+
+            if node.right:
+                q.appendleft((node.right, val + node.val, path + [node.val]))
+            if node.left:
+                q.appendleft((node.left, val + node.val, path + [node.val]))
+                
+        return path_list
+```
+
+[Approach 2]
 
 ```python
 
