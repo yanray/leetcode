@@ -72,6 +72,24 @@ class Solution:
                 return nums[i]
 ```
 
+```python
+class Solution:
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
+        new_dict = {}
+        for key in nums:
+            if key not in dict:
+                new_dict[key] = 1
+            else:
+                new_dict[key] += 1
+        #check for the maximum value and return the key associated with it
+        return max(new_dict, key = dict.get)
+```
+
 [Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0169Majority_Element/0169Majority_Element3.py)
 
 ```python
