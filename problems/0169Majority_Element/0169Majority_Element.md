@@ -34,8 +34,14 @@ Output: 2
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0344Reverse_String/0344Reverse_String1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0169Majority_Element/0169Majority_Element1.py)
 
 ```python
-
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        
+        hash_dict = collections.Counter(nums)
+        for k, v in hash_dict.items():
+            if v >= len(nums) // 2 + 1:
+                return k
 ```
