@@ -36,8 +36,11 @@ Use collections.Counter
 **Approach 2:**
 
 Use dictionary to count numbers
+Hashing
 
-**Approach 3:**
+**Approach 3 - 4:**
+
+Look the code !
 
 
 
@@ -88,6 +91,18 @@ class Solution:
                 new_dict[key] += 1
         #check for the maximum value and return the key associated with it
         return max(new_dict, key = dict.get)
+```
+
+```python
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        a=len(nums)//2
+        o=defaultdict(int)
+        for i in nums:
+            o[i]+=1
+        for key,value in o.items():
+            if value>a:
+                return key
 ```
 
 [Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0169Majority_Element/0169Majority_Element3.py)
