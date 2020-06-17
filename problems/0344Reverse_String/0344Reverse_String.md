@@ -83,6 +83,12 @@ class Solution:
         s.reverse()
 ```
 
+```python
+class Solution:
+    def reverseString(self, s):
+        s[:] = s[::-1]
+```
+
 [Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0344Reverse_String/0344Reverse_String4.py)
 
 ```python
