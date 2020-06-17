@@ -16,6 +16,18 @@ Click the link: https://leetcode.com/problems/intersection-of-two-linked-lists/
 
 **Approach 2:**
 
+Traverse list A and store the address / reference to each node in a hash set. Then check every node bi in list B: if bi appears in the hash set, then bi is the intersection node.
+
+* Complexity Analysis
+
+    - Time complexity : O(m+n)O(m+n).
+
+    - Space complexity : O(m)O(m) or O(n)O(n).
+
+**Approach 3:**
+
+
+
 ### Code (python)
 
 [Approach 1]
