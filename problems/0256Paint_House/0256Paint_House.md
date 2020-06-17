@@ -26,12 +26,32 @@ Explanation: Paint house 0 into blue, paint house 1 into green, paint house 2 in
 
 **Approach 1:**
 
+Dynamic Programming
+
+**Approach 1:**
 
 
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0256Paint_House/0256Paint_House1.py)
+
+```python
+class Solution:
+    def minCost(self, costs: List[List[int]]) -> int:
+        
+        if not costs:
+            return 0
+        
+        for i in range(1, len(costs)):
+            costs[i][0] += min(costs[i - 1][1], costs[i - 1][2])
+            costs[i][1] += min(costs[i - 1][0], costs[i - 1][2])
+            costs[i][2] += min(costs[i - 1][0], costs[i - 1][1])
+        
+        return min(costs[-1])
+```
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
 
 ```python
 class Solution:
