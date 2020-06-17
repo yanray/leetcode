@@ -182,5 +182,16 @@ class Solution:
 [Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0256Paint_House/0256Paint_House4.py)
 
 ```python
-
+class Solution:
+    # O(1) space, shorter version, can be applied 
+    # for more than 3 colors
+    def minCost(self, costs):
+        if not costs:
+            return 0
+        dp = costs[0]
+        for i in range(1, len(costs)):
+            pre = dp[:] # here should take care
+            for j in xrange(len(costs[0])):
+                dp[j] = costs[i][j] + min(pre[:j]+pre[j+1:])
+        return min(dp)
 ```
