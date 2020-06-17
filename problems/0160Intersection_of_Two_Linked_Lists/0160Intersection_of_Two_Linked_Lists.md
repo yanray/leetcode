@@ -100,5 +100,29 @@ class Solution:
 [Approach 3]
 
 ```python
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        if headA == None or headB == None:
+            return None
+        arr_1, arr_2 = [], []
+        while headA:
+            arr_1.append(headA)
+            headA = headA.next
+        while headB:
+            arr_2.append(headB)
+            headB = headB.next
+        b = len(arr_2) - 1 
+        if arr_1[len(arr_1)-1] != arr_2[b]:
+            return None
+        for i in range(len(arr_1)-1,-1,-1):
+            if arr_1[i] != arr_2[b]:
+                return(arr_1[i + 1])
+            b -= 1
+        return arr_1[0]
+```
+
+[Approach 3]
+
+```python
 
 ```
