@@ -80,6 +80,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0437 | [Path Sum III](https://leetcode.com/problems/path-sum-iii/)| Tree | [Python](https://github.com/yanray/leetcode/blob/master/problems/0437Path_Sum_III/0437Path_Sum_III.md) | 
 | 0256 | [Paint House](https://leetcode.com/problems/paint-house/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/problems/0256Paint_House/0256Paint_House.md) | 
 | 0344 | [Reverse String](https://leetcode.com/problems/reverse-string/)| Two Pointers, Stirng | [Python](https://github.com/yanray/leetcode/blob/master/problems/0344Reverse_String/0344Reverse_String.md) | 
+| 0169 | [Majority Element](https://leetcode.com/problems/majority-element/)| Array, Divide and Conquer, Bit Manipulation | [Python](https://github.com/yanray/leetcode/blob/master/problems/0344Reverse_String/0344Reverse_String.md) | 
 
 
 
