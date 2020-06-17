@@ -37,6 +37,10 @@ Traverse list A and store the address / reference to each node in a hash set. Th
 
 * If two lists have intersection, then their last nodes must be the same one. So when pApA/pBpB reaches the end of a list, record the last element of A/B respectively. If the two last elements are not the same one, then the two lists have no intersections.
 
+**Approach 5:**
+
+A trick to this problem
+
 ### Code (python)
 
 [Approach 1]
@@ -148,4 +152,30 @@ class Solution:
             pb = (pb.next if pb.next is not None else headA)
         
         return None
+```
+
+[Approach 5]
+
+```python
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        #Negate all vals of listA and stop at first -ve val encountered in listB
+        if not headA or not headB:
+            return None
+        key=headA
+        while headA:
+            headA.val= -1*headA.val
+            headA=headA.next
+        while headB and headB.val>=0:
+            headB=headB.next
+        #Again original vals are restored as the testbench checks for
+        #any modification in the list
+        while key:
+            key.val=-1*key.val
+            key=key.next
+        return headB
 ```
