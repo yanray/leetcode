@@ -16,7 +16,7 @@ Click the link: https://leetcode.com/problems/intersection-of-two-linked-lists/
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0160Intersection_of_Two_Linked_Lists/0160Intersection_of_Two_Linked_Lists1.py)
+[Approach 1]
 
 ```python
 
