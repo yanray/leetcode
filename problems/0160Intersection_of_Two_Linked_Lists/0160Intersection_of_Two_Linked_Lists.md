@@ -41,6 +41,12 @@ Traverse list A and store the address / reference to each node in a hash set. Th
 
 A trick to this problem
 
+**Approach 6:**
+
+Use set()
+
+
+
 ### Code (python)
 
 [Approach 1]
@@ -154,6 +160,17 @@ class Solution:
         return None
 ```
 
+```python
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        #a+c+b=b+c+a
+        l1,l2=headA,headB
+        while l1!=l2:
+            l1 = l1.next if l1 else headB
+            l2 = l2.next if l2 else headA
+        return l1
+```
+
 [Approach 5]
 
 ```python
@@ -178,4 +195,57 @@ class Solution(object):
             key.val=-1*key.val
             key=key.next
         return headB
+```
+
+[Approach 6]
+
+```python
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+
+        temp1 = headA
+        temp2 = headB
+        
+        A_set = set()
+        B_set = set()
+        
+        while temp1 and temp2:
+            A_set.add(temp1)
+            B_set.add(temp2)
+            
+            if temp1 in B_set:
+
+                return temp1
+            elif temp2 in A_set:
+
+                return temp2
+            
+            temp1 = temp1.next
+            temp2 = temp2.next  
+        
+        if temp1:
+            while temp1:
+                if temp1 in B_set:
+                    return temp1
+            
+                temp1 = temp1.next  
+        
+        if temp2:
+            while temp2:
+                if temp2 in A_set:
+                    return temp2
+
+                temp2 = temp2.next
+        
+        return None 
+```
+
+```python
+class Solution:
+    def getIntersectionNode(self, A: ListNode, B: ListNode) -> ListNode:
+        S = set()
+        while A != None: A, _ = A.next, S.add(A) 
+        while B != None:
+            if B in S: return B
+            B = B.next
 ```
