@@ -40,11 +40,45 @@ Return 3. The paths that sum to 8 are:
 
 **Approach 1:** 
 
+**Approach 2:** 
+
 
 
 ### Code (python)
 
 [Approach 1]
+
+```python
+class Solution:
+    def pathSum(self, root: TreeNode, sum: int) -> int:
+
+        if not root:
+            return 0
+        
+        q = deque()
+        q.append((root, []))
+        
+        counter = 0
+        while q:
+            node, path = q.popleft()
+
+            for i in range(len(path)):
+                if path[i] + node.val == sum:
+                    counter += 1
+                path[i] += node.val
+            if node.val == sum:
+                counter += 1
+
+            if node.right:
+                q.appendleft((node.right, path + [node.val]))
+            if node.left:
+                q.appendleft((node.left, path + [node.val]))
+                
+        return counter
+```
+
+[Approach 2]
+
 ```python
 
 ```
