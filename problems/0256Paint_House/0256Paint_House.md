@@ -37,6 +37,13 @@ Brute force with a Recursive Tree
 
 Memoization
 
+**Approach 4:**
+
+DP to apply more colors. 
+
+**One Line Solution:**
+
+https://leetcode.com/problems/paint-house/discuss/68209/1%2B-lines-Ruby-Python
 
 ### Code (python)
 
