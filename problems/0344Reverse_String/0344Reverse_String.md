@@ -37,6 +37,15 @@ Output: ["h","a","n","n","a","H"]
 
 **Approach 2:**
 
+Two Pointers 
+
+**Approach 3:**
+
+function
+
+**Approach 4:**
+
+
 
 
 
@@ -66,3 +75,16 @@ class Solution:
             left, right = left + 1, right - 1
 ```
 
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0344Reverse_String/0344Reverse_String3.py)
+
+```python
+class Solution:
+    def reverseString(self, s):
+        s.reverse()
+```
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0344Reverse_String/0344Reverse_String4.py)
+
+```python
+
+```
