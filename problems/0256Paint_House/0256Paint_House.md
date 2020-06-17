@@ -51,19 +51,29 @@ class Solution:
         return min(costs[-1])
 ```
 
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0256Paint_House/0256Paint_House2.py)
 
 ```python
 class Solution:
-    def minCost(self, costs: List[List[int]]) -> int:
-        
-        if not costs:
+    def minCost(self, costs):
+        """
+        :type costs: List[List[int]]
+        :rtype: int
+        """
+
+        def paint_cost(n, color):
+            total_cost = costs[n][color]
+            if n == len(costs) - 1:
+                pass
+            elif color == 0: # Red
+                total_cost += min(paint_cost(n + 1, 1), paint_cost(n + 1, 2))
+            elif color == 1: # Green
+                total_cost += min(paint_cost(n + 1, 0), paint_cost(n + 1, 2))
+            else: # Blue
+                total_cost += min(paint_cost(n + 1, 0), paint_cost(n + 1, 1))
+            return total_cost
+
+        if costs == []:
             return 0
-        
-        for i in range(1, len(costs)):
-            costs[i][0] += min(costs[i - 1][1], costs[i - 1][2])
-            costs[i][1] += min(costs[i - 1][0], costs[i - 1][2])
-            costs[i][2] += min(costs[i - 1][0], costs[i - 1][1])
-        
-        return min(costs[-1])
+        return min(paint_cost(0, 0), paint_cost(0, 1), paint_cost(0, 2))
 ```
