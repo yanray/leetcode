@@ -33,6 +33,11 @@ Output: ["h","a","n","n","a","H"]
 
 **Approach 1:**
 
+前后互换value
+
+**Approach 2:**
+
+
 
 
 ### Code (python)
@@ -40,5 +45,12 @@ Output: ["h","a","n","n","a","H"]
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0256Paint_House/0256Paint_House1.py)
 
 ```python
-
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        """
+        Do not return anything, modify s in-place instead.
+        """
+        
+        for i in range(len(s) // 2):
+            s[i], s[~i] = s[~i], s[i]
 ```
