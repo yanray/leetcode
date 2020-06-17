@@ -1,59 +1,49 @@
-## TwoSum
+## Paint House
 
 ### Problem Link
 https://leetcode.com/problems/two-sum/
 
 ### Problem Description 
 
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+There are a row of n houses, each house can be painted with one of the three colors: red, blue or green. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color.
 
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
+The cost of painting each house with a certain color is represented by a n x 3 cost matrix. For example, costs[0][0] is the cost of painting house 0 with color red; costs[1][2] is the cost of painting house 1 with color green, and so on... Find the minimum cost to paint all houses.
+
+**Note:**
+All costs are positive integers.
 
 ```
-Example:
+Example 1:
 
-Given nums = [2, 7, 11, 15], target = 9,
-
-Because nums[0] + nums[1] = 2 + 7 = 9,
-return [0, 1].
+Input: [[17,2,17],[16,16,5],[14,3,19]]
+Output: 10
+Explanation: Paint house 0 into blue, paint house 1 into green, paint house 2 into blue. 
+             Minimum cost: 2 + 5 + 3 = 10.
 
 ```
 
 ### How to solve 
-根据target的值求差，寻找差值是否在array里
+
+**Approach 1:**
+
+
 
 
 ### Code (python)
 
-[My Submission](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum1.py)
-
-```python
-for i in range(len(nums)):
-    diff = target - nums[i]
-    if diff in nums:
-        if i != nums.index(diff):
-            return [i, nums.index(diff)]
-```
-
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum2.py)
 
 ```python
-h = {}
-for i, num in enumerate(nums):
-    n = target - num
-    if n not in h:
-        h[num] = i
-    else:
-        return [h[n], i]
-```
-
-[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0001TwoSum/0001TwoSum3.py)
-
-```python
-hashtable = {}
-for i in range(len(nums)):
-    if nums[i] not in hashtable:
-        hashtable[target-(nums[i])] = i
-    else:
-        return [hashtable[nums[i]], i]
+class Solution:
+    def minCost(self, costs: List[List[int]]) -> int:
+        
+        if not costs:
+            return 0
+        
+        for i in range(1, len(costs)):
+            costs[i][0] += min(costs[i - 1][1], costs[i - 1][2])
+            costs[i][1] += min(costs[i - 1][0], costs[i - 1][2])
+            costs[i][2] += min(costs[i - 1][0], costs[i - 1][1])
+        
+        return min(costs[-1])
 ```
