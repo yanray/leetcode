@@ -37,6 +37,10 @@ Use collections.Counter
 
 Use dictionary to count numbers
 
+**Approach 3:**
+
+
+
 ### Code (python)
 
 [Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0169Majority_Element/0169Majority_Element1.py)
