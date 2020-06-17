@@ -42,7 +42,7 @@ Output: ["h","a","n","n","a","H"]
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0256Paint_House/0256Paint_House1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0344Reverse_String/0344Reverse_String1.py)
 
 ```python
 class Solution:
@@ -54,3 +54,10 @@ class Solution:
         for i in range(len(s) // 2):
             s[i], s[~i] = s[~i], s[i]
 ```
+
+[Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0344Reverse_String/0344Reverse_String2.py)
+
+```python
+
+```
+
