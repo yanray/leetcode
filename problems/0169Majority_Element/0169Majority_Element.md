@@ -75,6 +75,7 @@ class Solution:
 [Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0169Majority_Element/0169Majority_Element3.py)
 
 ```python
+class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         ## RC ##
         ## LOGIC ##
@@ -111,4 +112,14 @@ class Solution:
             count += (1 if num == candidate else -1)
             #print(count, candidate)
         return candidate
+```
+
+
+[Approach 4](https://github.com/yanray/leetcode/blob/master/problems/0169Majority_Element/0169Majority_Element4.py)
+
+```python
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        nums.sort()
+        return nums[int(len(nums)/2)]
 ```
