@@ -67,3 +67,9 @@ class Solution:
             if hash_dict[nums[i]] >= len(nums) // 2 + 1:
                 return nums[i]
 ```
+
+[Approach 3](https://github.com/yanray/leetcode/blob/master/problems/0169Majority_Element/0169Majority_Element3.py)
+
+```python
+
+```
