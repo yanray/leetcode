@@ -9,32 +9,17 @@ date: 	 06/17/2020
 from typing import List
 
 class Solution:
+    # O(1) space, shorter version, can be applied 
+    # for more than 3 colors
     def minCost(self, costs):
-        """
-        :type costs: List[List[int]]
-        :rtype: int
-        """
-
-        def paint_cost(n, color):
-            if (n, color) in self.memo:
-                return self.memo[(n, color)]
-            total_cost = costs[n][color]
-            if n == len(costs) - 1:
-                pass
-            elif color == 0:
-                total_cost += min(paint_cost(n + 1, 1), paint_cost(n + 1, 2))
-            elif color == 1:
-                total_cost += min(paint_cost(n + 1, 0), paint_cost(n + 1, 2))
-            else:
-                total_cost += min(paint_cost(n + 1, 0), paint_cost(n + 1, 1))
-            self.memo[(n, color)] = total_cost
-            return total_cost
-
-        if costs == []:
+        if not costs:
             return 0
-
-        self.memo = {}
-        return min(paint_cost(0, 0), paint_cost(0, 1), paint_cost(0, 2))
+        dp = costs[0]
+        for i in range(1, len(costs)):
+            pre = dp[:] # here should take care
+            for j in range(len(costs[0])):
+                dp[j] = costs[i][j] + min(pre[:j]+pre[j+1:])
+        return min(dp)
 
 
 if __name__ == '__main__':
