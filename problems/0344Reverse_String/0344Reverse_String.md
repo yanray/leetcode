@@ -58,6 +58,11 @@ class Solution:
 [Approach 2](https://github.com/yanray/leetcode/blob/master/problems/0344Reverse_String/0344Reverse_String2.py)
 
 ```python
-
+class Solution:
+    def reverseString(self, s):
+        left, right = 0, len(s) - 1
+        while left < right:
+            s[left], s[right] = s[right], s[left]
+            left, right = left + 1, right - 1
 ```
 
