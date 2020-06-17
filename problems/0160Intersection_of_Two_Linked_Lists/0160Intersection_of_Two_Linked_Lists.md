@@ -12,6 +12,7 @@ Click the link: https://leetcode.com/problems/intersection-of-two-linked-lists/
 
 **Approach 1:**
 
+判断长度, 解决长度不等的问题, 判断node是否相等
 
 ### Code (python)
 
