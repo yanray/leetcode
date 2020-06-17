@@ -67,7 +67,21 @@ class Solution:
 [Approach 2]
 
 ```python
-
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        dictA={}
+        # step 1: travel headA, and storaged each node in a dict
+        while headA:
+            dictA[headA] = 0
+            headA = headA.next
+        # step 2: travel headB, check each node if in dict 
+        while headB:
+            # if checked, return the headB node = intersctionNode
+            if headB in dictA:
+                return headB
+            headB = headB.next
+        #No checked, no found intersctionNode
+        return None
 ```
 
 
