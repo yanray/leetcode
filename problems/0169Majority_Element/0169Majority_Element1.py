@@ -7,19 +7,23 @@ date: 	 06/17/2020
 """
 
 from typing import List
+import collections
 
 class Solution:
-    def reverseString(self, s):
-        s.reverse()
+    def majorityElement(self, nums: List[int]) -> int:
+        
+        hash_dict = collections.Counter(nums)
+        for k, v in hash_dict.items():
+            if v >= len(nums) // 2 + 1:
+                return k
 
 
 if __name__ == '__main__':
     a = Solution()
 
-    s = ["h","e","l","l","o"]
-    print("input: ", s)
-    a.reverseString(s)
-    print("reversed s: ", s)
+    nums = [3,2,3]
+    print("input: ", nums)
+    print("output: ", a.majorityElement(nums))
 
 
 
