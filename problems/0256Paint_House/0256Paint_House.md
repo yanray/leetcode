@@ -191,7 +191,7 @@ class Solution:
         dp = costs[0]
         for i in range(1, len(costs)):
             pre = dp[:] # here should take care
-            for j in xrange(len(costs[0])):
+            for j in range(len(costs[0])):
                 dp[j] = costs[i][j] + min(pre[:j]+pre[j+1:])
         return min(dp)
 ```
