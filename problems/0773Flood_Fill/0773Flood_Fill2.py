@@ -7,31 +7,21 @@ date:    06/17/2020
 
 from typing import List
 
-class Solution:
-    def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
-        
-        def helper(image, i, j, original_color, new_color):
-            
-            nr = len(image)
-            nc = len(image[0])
-            
-            if i < 0 or i >= nr or j < 0 or j >= nc or image[i][j] != original_color:
-                return 
-            
-            image[i][j] = new_color
-            helper(image, i - 1, j, original_color, new_color)
-            helper(image, i + 1, j, original_color, new_color)
-            helper(image, i, j - 1, original_color, new_color)
-            helper(image, i, j + 1, original_color, new_color)
+class Solution(object):
+    def floodFill(self, image, sr, sc, newColor):
+        R, C = len(image), len(image[0])
+        color = image[sr][sc]
+        if color == newColor: return image
+        def dfs(r, c):
+            if image[r][c] == color:
+                image[r][c] = newColor
+                if r >= 1: dfs(r-1, c)
+                if r+1 < R: dfs(r+1, c)
+                if c >= 1: dfs(r, c-1)
+                if c+1 < C: dfs(r, c+1)
 
-        if image[sr][sc] == newColor:
-            return image
-    
-        new_image = image.copy()
-        # new_image = image
-        helper(new_image, sr, sc, image[sr][sc], newColor)
-        
-        return new_image
+        dfs(sr, sc)
+        return image
 
 
 if __name__ == '__main__':
