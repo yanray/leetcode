@@ -1,4 +1,4 @@
-## Merge Intervals
+## Island Perimeter
 
 ### Problem Link
 
@@ -6,37 +6,30 @@ https://leetcode.com/problems/merge-intervals/
 
 ### Problem Description 
 
-Given a collection of intervals, merge all overlapping intervals.
+You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water.
+
+Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells).
+
+The island doesn't have "lakes" (water inside that isn't connected to the water around the island). One cell is a square with side length 1. The grid is rectangular, width and height don't exceed 100. Determine the perimeter of the island.
+
 
 ```
 Example 1:
 
-Input: [[1,4],[4,5]]
-Output: [[1,5]]
-Explanation: Intervals [1,4] and [4,5] are considered overlapping.
+Input:
+[[0,1,0,0],
+ [1,1,1,0],
+ [0,1,0,0],
+ [1,1,0,0]]
+
+Output: 16
 
 ```
 
-```
-Example 2:
-
-Input: [[1,3],[2,6],[8,10],[15,18]]
-Output: [[1,6],[8,10],[15,18]]
-Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].
-
-```
-
-**Note:** input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.
 
 ### How to solve 
 
 **Approach 1:**
-
-先排序, 再消边
-
-**Approach 2:**
-
-Sorting
 
 
 ### Code (python)
@@ -44,47 +37,5 @@ Sorting
 [Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0056Merge_Intervals/0056Merge_Intervals1.py)
 
 ```python
-class Solution:
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        
-        if not intervals:
-            return intervals
-        
-        intervals = sorted(intervals, key = lambda x : x[0])
-        output = []
-        left, right = intervals[0][0], intervals[0][1]
-        for i in range(1, len(intervals)):
-            if right >= intervals[i][1]:
-                continue
-            if right >= intervals[i][0]:
-                right = intervals[i][1]
-            else:
-                output.append([left, right])
-                left, right = intervals[i][0], intervals[i][1]
-        output.append([left, right])
-            
-        return output
-```
 
-
-[Approach 2](https://github.com/yanray/leetcode/blob/master/medium/0056Merge_Intervals/0056Merge_Intervals2.py)
-
-```python
-class Solution:
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-
-        intervals.sort(key=lambda x: x[0])
-
-        merged = []
-        for interval in intervals:
-            # if the list of merged intervals is empty or if the current
-            # interval does not overlap with the previous, simply append it.
-            if not merged or merged[-1][1] < interval[0]:
-                merged.append(interval)
-            else:
-            # otherwise, there is overlap, so we merge the current and previous
-            # intervals.
-                merged[-1][1] = max(merged[-1][1], interval[1])
-
-        return merged
 ```
