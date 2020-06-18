@@ -100,6 +100,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0005 | [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)| Breadth-fisrt Search | [Python](https://github.com/yanray/leetcode/blob/master/medium/0994Rotting_Oranges/0994Rotting_Oranges.md) | 
 | 0015 | [3Sum](https://leetcode.com/problems/3sum/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum.md) | 
 | 0238 | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/medium/0238Product_of_Array_Except_Self/0238Product_of_Array_Except_Self.md) | 
+| 0056 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/medium/0238Product_of_Array_Except_Self/0238Product_of_Array_Except_Self.md) | 
 
 <!-- ```diff
 - text in red
