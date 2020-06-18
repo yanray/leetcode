@@ -34,7 +34,7 @@ Output: 16
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/medium/0056Merge_Intervals/0056Merge_Intervals1.py)
+[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0463Island_Perimeter/0463Island_Perimeter1.py)
 
 ```python
 
