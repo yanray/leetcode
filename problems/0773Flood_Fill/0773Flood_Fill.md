@@ -37,8 +37,9 @@ to the starting pixel.
 
 ### How to solve 
 
-**Approach 1:**
+**Approach 1 - 2:**
 
+DFS
 
 
 ### Code (python)
