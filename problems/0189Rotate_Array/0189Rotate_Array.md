@@ -28,7 +28,7 @@ rotate 3 steps to the right: [5,6,7,1,2,3,4]
 ```
 
 ```
-Example 1:
+Example 2:
 
 Input: nums = [-1,-100,3,99], k = 2
 Output: [3,99,-1,-100]
