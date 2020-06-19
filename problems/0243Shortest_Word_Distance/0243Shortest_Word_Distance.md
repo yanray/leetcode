@@ -26,9 +26,31 @@ You may assume that word1 does not equal to word2, and word1 and word2 are both 
 
 ### Code (python)
 
-[Approach 1] ()
+[Approach 1] (87%-99%)
+
+```python
+class Solution:
+    def shortestDistance(self, words: List[str], word1: str, word2: str) -> int:
+        
+        index1 = -1
+        index2 = -1
+        shortest = len(words)
+        for i in range(len(words)):
+            if word1 == words[i]:
+                index1 = i
+            elif word2 == words[i]:
+                index2 = i
+                
+            if index1 != -1 and index2 != -1:
+                shortest = min(shortest, abs(index1 - index2))
+                # if shortest == 1:
+                    # return shortest
+                
+        return shortest
+```
+
+[Approach 2] (87%-99%)
 
 ```python
 
 ```
-
