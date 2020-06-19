@@ -34,7 +34,33 @@ Output: 16
 
 ### Code (python)
 
-[Approach 1](https://github.com/yanray/leetcode/blob/master/problems/0463Island_Perimeter/0463Island_Perimeter1.py)
+[Approach 1]
+
+```python
+class Solution:
+    def islandPerimeter(self, grid: List[List[int]]) -> int:
+          
+        nr = len(grid)
+        nc = len(grid[0])
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+                    
+        perimeter_count = copy.deepcopy(grid)
+        for i in range(nr):
+            for j in range(nc):
+                if grid[i][j] == 1:
+                    for d in directions:
+                        r, c = i + d[0], j + d[1]
+                        if r >= 0 and r < nr and c >= 0 and c < nc and grid[r][c] == 1:
+                            perimeter_count[r][c] += 1
+                            
+        perimeter = 0              
+        for i in range(nr):
+            for j in range(nc):
+                if perimeter_count[i][j] != 0:
+                    perimeter += 5 - perimeter_count[i][j]
+```
+
+[Approach 2]
 
 ```python
 
