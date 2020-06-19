@@ -1,28 +1,29 @@
-## Island Perimeter
+## Range Sum of BST
 
 ### Problem Link
 
-https://leetcode.com/problems/merge-intervals/
+https://leetcode.com/problems/range-sum-of-bst/
 
 ### Problem Description 
 
-You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water.
+Given the root node of a binary search tree, return the sum of values of all nodes with value between L and R (inclusive).
 
-Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells).
-
-The island doesn't have "lakes" (water inside that isn't connected to the water around the island). One cell is a square with side length 1. The grid is rectangular, width and height don't exceed 100. Determine the perimeter of the island.
+The binary search tree is guaranteed to have unique values.
 
 
 ```
 Example 1:
 
-Input:
-[[0,1,0,0],
- [1,1,1,0],
- [0,1,0,0],
- [1,1,0,0]]
+Input: root = [10,5,15,3,7,null,18], L = 7, R = 15
+Output: 32
 
-Output: 16
+```
+
+```
+Example 2:
+
+Input: root = [10,5,15,3,7,13,18,1,null,6], L = 6, R = 10
+Output: 23
 
 ```
 
