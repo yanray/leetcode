@@ -35,8 +35,118 @@ queue.empty(); // returns false
 
 ### Code (python)
 
-[Approach 1] (97%)
+[Approach 1] (90%)
 
 ```python
+class MyQueue(object):
 
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.instack = []
+        self.outstack = []
+
+    def push(self, x):
+        """
+        Push element x to the back of queue.
+        :type x: int
+        :rtype: None
+        """
+        self.instack.append(x)
+
+    def pop(self):
+        """
+        Removes the element from in front of queue and returns that element.
+        :rtype: int
+        """
+        if len(self.outstack) == 0:
+            while self.instack:
+                self.outstack.append(self.instack.pop())
+        return self.outstack.pop()
+
+    def peek(self):
+        """
+        Get the front element.
+        :rtype: int
+        """
+        if len(self.outstack) == 0:
+            while self.instack:
+                self.outstack.append(self.instack.pop())
+        return self.outstack[-1]
+    def empty(self):
+        """
+        Returns whether the queue is empty.
+        :rtype: bool
+        """
+        return len(self.instack) == 0 and len(self.outstack) == 0
+
+
+# Your MyQueue object will be instantiated and called as such:
+# obj = MyQueue()
+# obj.push(x)
+# param_2 = obj.pop()
+# param_3 = obj.peek()
+# param_4 = obj.empty() 
+```
+
+[Approach 2] (75%)
+
+```python
+class MyQueue:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.stack_f = []
+        self.stack_s = []
+        
+    def shift(self):
+        """
+		Shift all the elements of stack_f to stack_s
+		"""
+        while self.stack_f:
+            self.stack_s.append(self.stack_f.pop())
+
+    def push(self, x: int) -> None:
+        """
+        Push element x to the back of queue.
+        """
+        self.stack_f.append(x)
+
+    def pop(self) -> int:
+        """
+        Removes the element from in front of queue and returns that element.
+        """
+        if len(self.stack_s) != 0:
+            return self.stack_s.pop()
+        self.shift()
+        return self.stack_s.pop()
+
+    def peek(self) -> int:
+        """
+        Get the front element.
+        """
+        if len(self.stack_s) == 0:
+            self.shift()
+        return self.stack_s[-1]
+        
+
+    def empty(self) -> bool:
+        """
+        Returns whether the queue is empty.
+        """
+        if len(self.stack_f)+len(self.stack_s) == 0:
+            return True
+        return False
+        
+
+
+# Your MyQueue object will be instantiated and called as such:
+# obj = MyQueue()
+# obj.push(x)
+# param_2 = obj.pop()
+# param_3 = obj.peek()
+# param_4 = obj.empty()
 ```
