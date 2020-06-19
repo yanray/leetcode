@@ -79,7 +79,7 @@ class Solution(object):
         return self.ans
 ```
 
-[Approach 2] (75%)
+[Approach 3] (75%)
 
 ```python
 class Solution(object):
