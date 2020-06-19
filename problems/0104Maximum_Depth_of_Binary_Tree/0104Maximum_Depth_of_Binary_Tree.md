@@ -1,81 +1,37 @@
-## Kth Largest Element in a Stream
+## Maximum Depth of Binary Tree
 
 ### Problem Link
 
-https://leetcode.com/problems/kth-largest-element-in-a-stream/
+https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
 ### Problem Description 
 
-Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.
+Given a binary tree, find its maximum depth.
+
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+**Note:** A leaf is a node with no children.
 
 ```
 Example 1:
 
-Assume that words = ["practice", "makes", "perfect", "coding", "makes"].
+Given binary tree [3,9,20,null,null,15,7],
 
-Input: word1 = “coding”, word2 = “practice”
-Output: 3
+    3
+   / \
+  9  20
+    /  \
+   15   7
 
-Input: word1 = "makes", word2 = "coding"
-Output: 1
+return its depth = 3.
 
 ```
-
-**Note:**
-You may assume that word1 does not equal to word2, and word1 and word2 are both in the list.
 
 ### Code (python)
 
-[Approach 1] (87%-99%)
+[Approach 1] ()
 
 ```python
-class Solution:
-    def shortestDistance(self, words: List[str], word1: str, word2: str) -> int:
-        
-        index1 = -1
-        index2 = -1
-        shortest = len(words)
-        for i in range(len(words)):
-            if word1 == words[i]:
-                index1 = i
-            elif word2 == words[i]:
-                index2 = i
-                
-            if index1 != -1 and index2 != -1:
-                shortest = min(shortest, abs(index1 - index2))
-                # if shortest == 1:
-                    # return shortest
-                
-        return shortest
+
 ```
 
-[Approach 2] (98%)
-
-```python
-class Solution:
-    def shortestDistance(self, words: List[str], word1: str, word2: str) -> int:
-        
-        min_dist = len(words)
-        curr_word, idx = None, 0
-        for i, w in enumerate(words):
-            if w not in (word1, word2): continue
-            if curr_word and w != curr_word:
-                min_dist = min(min_dist, i - idx)
-            curr_word, idx = w, i
-        return min_dist
-```
-
-[Approach 3] ()
-
-```python
-class Solution:
-    def shortestDistance(self, words: List[str], word1: str, word2: str) -> int:
-        d, idx, c = inf, -inf, word1
-        for i, w in enumerate(words):
-            if w in [word1, word2]:
-                if w != c:
-                    d, idx, c = min(d, i-idx), i, w
-                else:
-                    idx = i            
-        return d
-```
