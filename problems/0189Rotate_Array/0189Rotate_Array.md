@@ -120,3 +120,18 @@ class Solution:
         self.reverse(nums, 0, k - 1)
         self.reverse(nums, k, n - 1)
 ```
+
+[Approach 5] (95%)
+
+```python
+from collections import deque as dq
+class Solution:
+    @staticmethod
+    def rotate(nums, k):
+        deque = dq(nums)
+        deque.rotate(k)
+        nums[:] = list(deque)
+```
+
+https://leetcode.com/problems/rotate-array/discuss/663615/AC-simply-readable-Python-3-solutions-O(1)-space
+
