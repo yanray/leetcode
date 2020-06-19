@@ -60,7 +60,7 @@ class Solution:
         return sum_BST
 ```
 
-[Approach 2] (85%)
+[Approach 2] (85%) (fast)
 
 ```python
 class Solution(object):
