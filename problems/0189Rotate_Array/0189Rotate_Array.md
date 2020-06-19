@@ -1,55 +1,54 @@
-## Maximum Depth of Binary Tree
+## Rotate Array
 
 ### Problem Link
 
-https://leetcode.com/problems/maximum-depth-of-binary-tree/
+https://leetcode.com/problems/rotate-array/
 
 ### Problem Description 
 
-Given a binary tree, find its maximum depth.
+Given an array, rotate the array to the right by k steps, where k is non-negative.
 
-The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+**Follow up:**
+
+* Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
+* Could you do it in-place with O(1) extra space?
 
 **Note:** A leaf is a node with no children.
 
 ```
 Example 1:
 
-Given binary tree [3,9,20,null,null,15,7],
-
-    3
-   / \
-  9  20
-    /  \
-   15   7
-
-return its depth = 3.
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
 
 ```
+
+```
+Example 1:
+
+Input: nums = [-1,-100,3,99], k = 2
+Output: [3,99,-1,-100]
+Explanation: 
+rotate 1 steps to the right: [99,-1,-100,3]
+rotate 2 steps to the right: [3,99,-1,-100]
+
+```
+
+**Constraints:**
+
+* 1 <= nums.length <= 2 * 10^4
+* It's guaranteed that nums[i] fits in a 32 bit-signed integer.
+* k >= 0
 
 ### Code (python)
 
 [Approach 1] (78%)
 
 ```python
-class Solution:
-    def maxDepth(self, root: TreeNode) -> int:
-        
-        def DFS(root, depth):
-            
-            self.max_depth = max(self.max_depth, depth)
-            if root.left:
-                DFS(root.left, depth + 1)
-            if root.right:
-                DFS(root.right, depth + 1)
-                
-            
-        if not root:
-            return 0
-            
-        self.max_depth = 0
-        DFS(root, 1)
-        
-        return self.max_depth
+
 ```
 
