@@ -49,7 +49,7 @@ class Solution:
         return shortest
 ```
 
-[Approach 2] ()
+[Approach 2] (98%)
 
 ```python
 class Solution:
@@ -63,4 +63,19 @@ class Solution:
                 min_dist = min(min_dist, i - idx)
             curr_word, idx = w, i
         return min_dist
+```
+
+[Approach 3] (%)
+
+```python
+class Solution:
+    def shortestDistance(self, words: List[str], word1: str, word2: str) -> int:
+        d, idx, c = inf, -inf, word1
+        for i, w in enumerate(words):
+            if w in [word1, word2]:
+                if w != c:
+                    d, idx, c = min(d, i-idx), i, w
+                else:
+                    idx = i            
+        return d
 ```
