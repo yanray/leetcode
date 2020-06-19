@@ -21,9 +21,12 @@ Output: 1
 
 ```
 
+**Note:**
+You may assume that word1 does not equal to word2, and word1 and word2 are both in the list.
+
 ### Code (python)
 
-[Approach 4] ()
+[Approach 1] ()
 
 ```python
 
