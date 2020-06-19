@@ -86,7 +86,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0463 | [Island Perimeter](https://leetcode.com/problems/island-perimeter/)| Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0463Island_Perimeter/0463Island_Perimeter.md) | 
 | 0938 | [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/)| Tree, Recursion | [Python](https://github.com/yanray/leetcode/blob/master/problems/0938Range_Sum_of_BST/0938Range_Sum_of_BST.md) | 
 | 0232 | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)| Stack, Design | [Python](https://github.com/yanray/leetcode/blob/master/problems/0938Range_Sum_of_BST/0938Range_Sum_of_BST.md) | 
-
+| 0232 | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)| Stack, Design | [Python](https://github.com/yanray/leetcode/blob/master/problems/0938Range_Sum_of_BST/0938Range_Sum_of_BST.md) | 
 
 
 #### Medium (Frequency + Random)
