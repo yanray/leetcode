@@ -30,8 +30,47 @@ Output: 4
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (>90%)
 
 ```python
+class Solution:
+    def closestValue(self, root: TreeNode, target: float) -> int:
+        
+        if not root:
+            return None
+        
+        q = deque()
+        q.append(root)
+        closest = abs(root.val - target)
+        closest_val = root.val
+        
+        while q:
+            node = q.popleft()
+            
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+                
+            if abs(node.val - target) < closest:
+                closest = abs(node.val - target)
+                closest_val = node.val
+                
+                # if closest < 0.5:
+                #     return closest_val
+                
+        return closest_val
+```
 
+[Approach 2] (>90%)
+
+Recursive Inorder + Linear search, O(N) time
+
+```python
+class Solution:
+    def closestValue(self, root: TreeNode, target: float) -> int:
+        def inorder(r: TreeNode):
+            return inorder(r.left) + [r.val] + inorder(r.right) if r else []
+        
+        return min(inorder(root), key = lambda x: abs(target - x))
 ```
