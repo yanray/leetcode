@@ -65,7 +65,7 @@ class Solution:
         return min_dist
 ```
 
-[Approach 3] (%)
+[Approach 3] ()
 
 ```python
 class Solution:
