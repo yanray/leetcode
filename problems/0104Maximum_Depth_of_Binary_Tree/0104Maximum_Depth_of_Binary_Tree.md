@@ -73,9 +73,66 @@ class Solution:
         return helper(root)
 ```
 
-[Approach 2] (%)
+[Approach 2] (77% - 90%)
 
 ```python
+from collections import deque
+class Solution:
+    def maxDepth(self, root: TreeNode) -> int:
+        queue=deque()
+        queue.append(root)
+        if(root is None): return 0
+        count,n2=1,1
+        while queue:
+            for _ in range(n2):
+                current=queue.popleft()
+                if(current.left): queue.append(current.left)
+                if(current.right): queue.append(current.right)
+            n2=len(queue)
+            if(n2!=0): count+=1
+        return count
+```
 
+[Approach 3] (77%)
+
+```python
+class Solution:
+    def maxDepth(self, root: TreeNode) -> int:
+        
+        def dfs(node):
+            if not node:
+                return 0
+            
+            left = dfs(node.left)
+            right = dfs(node.right)
+            
+            return 1 + max(left,right)
+        
+        return dfs(root)
+```
+
+[Approach 4] (92%)
+
+```python
+class Solution:
+    def maxDepth(self, root: TreeNode) -> int:
+    
+        if not root:
+            return 0
+
+        stack = [(root, 1)]
+
+        re = 0
+        while stack:
+            node, level = stack.pop()
+
+            if not node.left and not node.right:
+                re = max(level, re)
+
+            if node.left:
+                stack.append((node.left, level + 1))
+            if node.right:
+                stack.append((node.right, level + 1))
+        return re
 ```
 
