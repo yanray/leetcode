@@ -32,14 +32,30 @@ Output: 23
 The number of nodes in the tree is at most 10000.
 The final answer is guaranteed to be less than 2^31.
 
-### How to solve 
-
-**Approach 1:**
-
 ### Code (python)
 
-[Approach 1]
+[Approach 1] (50%)
 
 ```python
-
+class Solution:
+    def rangeSumBST(self, root: TreeNode, L: int, R: int) -> int:
+        
+        if not root:
+            return 0
+        
+        q = [root]
+        sum_BST = 0
+        
+        while q:
+            node = q.pop()
+            
+            if node.val >= L and node.val <= R:
+                sum_BST += node.val
+                
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+                
+        return sum_BST
 ```
