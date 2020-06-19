@@ -33,7 +33,11 @@ Output: 16
 
 **Approach 2:**
 
-Simple Counting
+Simple Counting (数边)
+
+**Approach 3:**
+
+Better Counting (left and up)
 
 
 ### Code (python)
@@ -64,7 +68,7 @@ class Solution:
                     perimeter += 5 - perimeter_count[i][j]
 ```
 
-[Approach 2]
+[Approach 2] (88.62%)
 
 ```python
 class Solution:
@@ -98,4 +102,44 @@ class Solution:
                     result += 4-(up+left+right+down)
                 
         return result
+```
+
+
+[Approach 3] (95.62%)
+
+```python
+class Solution:
+    def islandPerimeter(self, grid: List[List[int]]) -> int:
+        rows = len(grid)
+        cols = len(grid[0])
+        
+        result = 0
+        
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == 1:
+                    result += 4
+                    
+                    if r > 0 and grid[r-1][c] == 1:
+                        result -= 2
+                        
+                    if c > 0 and grid[r][c-1] == 1:
+                        result -= 2
+        
+        return result
+```
+
+```python
+class Solution:
+    def islandPerimeter(self, grid: List[List[int]]) -> int:
+        res = 0
+        for row in range(len(grid)):
+            for column in range(len(grid[0])):
+                    if grid[row][column]:
+                        res+=4
+                        if row and grid[row-1][column]:
+                            res-=2                        
+                        if column and grid[row][column-1]:
+                            res-=2
+        return res
 ```
