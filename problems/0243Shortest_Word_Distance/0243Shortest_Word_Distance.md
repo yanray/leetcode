@@ -49,7 +49,7 @@ class Solution:
         return shortest
 ```
 
-[Approach 2] (87%-99%)
+[Approach 2] ()
 
 ```python
 
