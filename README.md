@@ -88,6 +88,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0232 | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)| Stack, Design | [Python](https://github.com/yanray/leetcode/blob/master/problems/0232Implement_Queue_using_Stacks/0232Implement_Queue_using_Stacks.md) | 
 | 0703 | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)| Heap | [Python](https://github.com/yanray/leetcode/blob/master/problems/0703Kth_Largest_Element_in_a_Stream/0703Kth_Largest_Element_in_a_Stream.md) | 
 | 0243 | [Shortest Word Distance](https://leetcode.com/problems/shortest-word-distance/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0243Shortest_Word_Distance/0243Shortest_Word_Distance.md) | 
+| 0104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)| Tree, Depth-first Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0104Maximum_Depth_of_Binary_Tree/0104Maximum_Depth_of_Binary_Tree.md) | 
 
 
 
