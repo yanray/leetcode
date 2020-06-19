@@ -89,6 +89,36 @@ class Solution:
         return closest
 ```
 
+[Approach 4] (90%)
+
+Recursive Inorder + Linear search, O(N) time
+
+```python
+class Solution(object):
+    def closestValue(self, root, target):
+        """
+        :type root: TreeNode
+        :type target: float
+        :rtype: int
+        """
+        self.min_diff = float('inf')
+        self.res = None
+        self.dfs(root, target)
+        return self.res.val
+    
+    def dfs(self, node, target):
+        if node:
+            if abs(node.val - target) < self.min_diff:
+                self.min_diff = abs(node.val - target)
+                self.res = node
+            if node.val > target:
+                self.dfs(node.left, target)
+            elif node.val < target:
+                self.dfs(node.right, target)
+            else:
+                self.res = node
+```
+
 
 https://leetcode.com/problems/closest-binary-search-tree-value/solution/
 
