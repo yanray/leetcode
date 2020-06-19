@@ -31,14 +31,65 @@ You may assume that nums' length ≥ k-1 and k ≥ 1.
 
 ### Code (python)
 
-[Approach 1] ()
+https://leetcode.com/problems/kth-largest-element-in-a-stream/discuss/639723/AC-simply-readable-Python-heap-bisect
+
+[Approach 1] (99%)
 
 ```python
+class KthLargest:
 
+    def __init__(self, k: int, nums: List[int]):
+        
+        self.k = k
+        self.arr = nums
+        
+        heapify( self.arr) 
+        
+        # Keep popping smaller elemnts till size = k
+        while len( self.arr ) > self.k:
+            heappop( self.arr )
+
+    def add(self, val: int) -> int:
+        
+        heap_top = 0
+        
+        # Always keep heap size = k
+        # Top element = kth largest element
+        if len( self.arr ) < self.k:
+            heappush( self.arr, val)
+        else:
+            heappushpop( self.arr, val)
+        
+        return self.arr[heap_top]
 ```
 
-[Approach 2] ()
+[Approach 2] (95%)
 
 ```python
+class KthLargest:
+    def __init__(self, k: int, nums: List[int]):
+        self.heap = nums
+        self.k = k
+        heapq.heapify(self.heap)
+        while len(self.heap) > k:
+            heapq.heappop(self.heap)
+        
+    def add(self, val: int) -> int:
+        if len(self.heap) < self.k: heapq.heappush(self.heap, val)            
+        else: heapq.heappushpop(self.heap, val)
+        return self.heap[0]
+```
 
+[Approach 3] (80%)
+
+```python
+class KthLargest:
+    def __init__(self, k: int, nums: List[int]):        
+        self.k = k
+        self.heap = heapq.nlargest(self.k, nums)[::-1]
+        
+    def add(self, val: int) -> int:
+        if len(self.heap) < self.k: heapq.heappush(self.heap, val)            
+        else: heapq.heappushpop(self.heap, val)
+        return self.heap[0]
 ```
