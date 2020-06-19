@@ -52,5 +52,15 @@ class Solution:
 [Approach 2] ()
 
 ```python
-
+class Solution:
+    def shortestDistance(self, words: List[str], word1: str, word2: str) -> int:
+        
+        min_dist = len(words)
+        curr_word, idx = None, 0
+        for i, w in enumerate(words):
+            if w not in (word1, word2): continue
+            if curr_word and w != curr_word:
+                min_dist = min(min_dist, i - idx)
+            curr_word, idx = w, i
+        return min_dist
 ```
