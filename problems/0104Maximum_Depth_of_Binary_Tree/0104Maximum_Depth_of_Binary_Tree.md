@@ -29,9 +29,27 @@ return its depth = 3.
 
 ### Code (python)
 
-[Approach 1] ()
+[Approach 1] (78%)
 
 ```python
-
+class Solution:
+    def maxDepth(self, root: TreeNode) -> int:
+        
+        def DFS(root, depth):
+            
+            self.max_depth = max(self.max_depth, depth)
+            if root.left:
+                DFS(root.left, depth + 1)
+            if root.right:
+                DFS(root.right, depth + 1)
+                
+            
+        if not root:
+            return 0
+            
+        self.max_depth = 0
+        DFS(root, 1)
+        
+        return self.max_depth
 ```
 
