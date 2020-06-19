@@ -6,94 +6,37 @@ https://leetcode.com/problems/range-sum-of-bst/
 
 ### Problem Description 
 
-Given the root node of a binary search tree, return the sum of values of all nodes with value between L and R (inclusive).
+Implement the following operations of a queue using stacks.
 
-The binary search tree is guaranteed to have unique values.
+* push(x) -- Push element x to the back of queue.
+* pop() -- Removes the element from in front of queue.
+* peek() -- Get the front element.
+* empty() -- Return whether the queue is empty.
 
 
 ```
 Example 1:
 
-Input: root = [10,5,15,3,7,null,18], L = 7, R = 15
-Output: 32
+MyQueue queue = new MyQueue();
 
-```
-
-```
-Example 2:
-
-Input: root = [10,5,15,3,7,13,18,1,null,6], L = 6, R = 10
-Output: 23
+queue.push(1);
+queue.push(2);  
+queue.peek();  // returns 1
+queue.pop();   // returns 1
+queue.empty(); // returns false
 
 ```
 
 **Note:**
 
-The number of nodes in the tree is at most 10000.
-The final answer is guaranteed to be less than 2^31.
+* You must use only standard operations of a stack -- which means only push to top, peek/pop from top, size, and is empty operations are valid.
+* Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.
+* You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).
 
 ### Code (python)
 
-[Approach 1] (50%)
+[Approach 1] (97%)
 
 ```python
-class Solution:
-    def rangeSumBST(self, root: TreeNode, L: int, R: int) -> int:
-        
-        if not root:
-            return 0
-        
-        q = [root]
-        sum_BST = 0
-        
-        while q:
-            node = q.pop()
-            
-            if node.val >= L and node.val <= R:
-                sum_BST += node.val
-                
-            if node.left:
-                q.append(node.left)
-            if node.right:
-                q.append(node.right)
-                
-        return sum_BST
-```
 
-[Approach 2] (85%) (fast)
-
-```python
-class Solution(object):
-    def rangeSumBST(self, root, L, R):
-        def dfs(node):
-            if node:
-                if L <= node.val <= R:
-                    self.ans += node.val
-                if L < node.val:
-                    dfs(node.left)
-                if node.val < R:
-                    dfs(node.right)
-
-        self.ans = 0
-        dfs(root)
-        return self.ans
-```
-
-[Approach 2] (75%)
-
-```python
-class Solution(object):
-    def rangeSumBST(self, root, L, R):
-        ans = 0
-        stack = [root]
-        while stack:
-            node = stack.pop()
-            if node:
-                if L <= node.val <= R:
-                    ans += node.val
-                if L < node.val:
-                    stack.append(node.left)
-                if node.val < R:
-                    stack.append(node.right)
-        return ans
 ```
