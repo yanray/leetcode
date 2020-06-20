@@ -1,86 +1,50 @@
-## Minimum Remove to Make Valid Parentheses
+## K Closest Points to Origin
 
 ### Problem Link
 
-https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
+https://leetcode.com/problems/k-closest-points-to-origin/
 
 ### Problem Description 
 
-Given a string s of '(' , ')' and lowercase English characters. 
+We have a list of points on the plane.  Find the K closest points to the origin (0, 0).
 
-Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.
+(Here, the distance between two points on a plane is the Euclidean distance.)
 
-Formally, a parentheses string is valid if and only if:
+You may return the answer in any order.  The answer is guaranteed to be unique (except for the order that it is in.)
 
-* It is the empty string, contains only lowercase characters, or
-* It can be written as AB (A concatenated with B), where A and B are valid strings, or
-* It can be written as (A), where A is a valid string.
 
 ```
 Example 1:
 
-Input: s = "lee(t(c)o)de)"
-Output: "lee(t(c)o)de"
-Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
+Input: points = [[1,3],[-2,2]], K = 1
+Output: [[-2,2]]
+Explanation: 
+The distance between (1, 3) and the origin is sqrt(10).
+The distance between (-2, 2) and the origin is sqrt(8).
+Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
+We only want the closest K = 1 points from the origin, so the answer is just [[-2,2]].
 
 ```
 
 ```
 Example 2:
 
-Input: s = "a)b(c)d"
-Output: "ab(c)d"
+Input: points = [[3,3],[5,-1],[-2,4]], K = 2
+Output: [[3,3],[-2,4]]
+(The answer [[-2,4],[3,3]] would also be accepted.)
 
 ```
 
-```
-Example 3:
+Note:
 
-Input: s = "))(("
-Output: ""
-Explanation: An empty string is also valid.
-
-```
-
-```
-Example 4:
-
-Input: s = "(a(b(c)d)"
-Output: "a(b(c)d)"
-
-```
-
-**Constraints:**
-
-* 1 <= s.length <= 10^5
-* s[i] is one of  '(' , ')' and lowercase English letters.
+* 1 <= K <= points.length <= 10000
+* -10000 < points[i][0] < 10000
+* -10000 < points[i][1] < 10000
 
 ### Code (python)
 
-[Approach 1] (65%)
+[Approach 1] (%)
 
 ```python
-class Solution:
-    def minRemoveToMakeValid(self, s: str) -> str:
-        
-        list_s = list(s)
-        l_index = []
-        r_index = []
-        delete_index = []
-        
-        for i in range(len(list_s)):
-            if list_s[i] == "(":
-                l_index.append(i)
-                
-            if list_s[i] == ")":
-                if len(l_index) == 0:
-                    delete_index.append(i)
-                else:
-                    l_index.pop(-1)
-                    
-        delete_index += l_index
-        for index in delete_index:
-            list_s[index] = ""
-                
-        return "".join(list_s)
+
 ```
