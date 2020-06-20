@@ -1,8 +1,8 @@
-## Range Sum of BST
+## Implement Queue using Stacks
 
 ### Problem Link
 
-https://leetcode.com/problems/range-sum-of-bst/
+https://leetcode.com/problems/implement-queue-using-stacks/
 
 ### Problem Description 
 
