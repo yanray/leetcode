@@ -111,6 +111,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0015 | [3Sum](https://leetcode.com/problems/3sum/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/medium/0015_3Sum/0015_3Sum.md) | 
 | 0238 | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/medium/0238Product_of_Array_Except_Self/0238Product_of_Array_Except_Self.md) | 
 | 0056 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/medium/0056Merge_Intervals/0056Merge_Intervals.md) | 
+| 1249 | [Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)| String, Stack | [Python](https://github.com/yanray/leetcode/blob/master/medium/0056Merge_Intervals/0056Merge_Intervals.md) | 
 
 <!-- ```diff
 - text in red
