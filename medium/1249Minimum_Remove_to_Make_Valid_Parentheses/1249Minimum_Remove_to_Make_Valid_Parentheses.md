@@ -2,7 +2,7 @@
 
 ### Problem Link
 
-https://leetcode.com/problems/rectangle-overlap/
+https://github.com/yanray/leetcode/blob/master/medium/1249Minimum_Remove_to_Make_Valid_Parentheses/1249Minimum_Remove_to_Make_Valid_Parentheses.md
 
 ### Problem Description 
 
