@@ -89,7 +89,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0703 | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)| Heap | [Python](https://github.com/yanray/leetcode/blob/master/problems/0703Kth_Largest_Element_in_a_Stream/0703Kth_Largest_Element_in_a_Stream.md) | 
 | 0243 | [Shortest Word Distance](https://leetcode.com/problems/shortest-word-distance/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0243Shortest_Word_Distance/0243Shortest_Word_Distance.md) | 
 | 0104 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)| Tree, Depth-first Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0104Maximum_Depth_of_Binary_Tree/0104Maximum_Depth_of_Binary_Tree.md) | 
-| 0189 | [Rotate Array](https://leetcode.com/problems/rotate-array/)| Array | [Python](hsttps://github.com/yanray/leetcode/blob/master/problems/0189Rotate_Array/0189Rotate_Array.md) | 
+| 0189 | [Rotate Array](https://leetcode.com/problems/rotate-array/)| Array | [Python]()| 
 | 0270 | [Closest Binary Search Tree Value](https://leetcode.com/problems/closest-binary-search-tree-value/)| Binary Search, Tree | [Python](https://github.com/yanray/leetcode/blob/master/problems/0270Closest_Binary_Search_Tree_Value/0270Closest_Binary_Search_Tree_Value.md) | 
 | 0836 | [Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0836Rectangle_Overlap/0836Rectangle_Overlap.md) | 
 
