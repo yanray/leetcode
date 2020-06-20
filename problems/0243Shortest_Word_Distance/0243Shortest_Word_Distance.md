@@ -1,8 +1,8 @@
-## Kth Largest Element in a Stream
+## Shortest Word Distance
 
 ### Problem Link
 
-https://leetcode.com/problems/kth-largest-element-in-a-stream/
+https://leetcode.com/problems/shortest-word-distance/
 
 ### Problem Description 
 
