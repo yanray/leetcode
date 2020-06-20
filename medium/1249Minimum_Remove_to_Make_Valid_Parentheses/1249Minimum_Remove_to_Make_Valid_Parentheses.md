@@ -84,3 +84,9 @@ class Solution:
                 
         return "".join(list_s)
 ```
+
+[Approach 1] (%)
+
+```python
+
+```
