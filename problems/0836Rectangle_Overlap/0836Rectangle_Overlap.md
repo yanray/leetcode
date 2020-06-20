@@ -67,3 +67,13 @@ class Solution(object):
         return (intersect(rec1[0], rec1[2], rec2[0], rec2[2]) and # width > 0
                 intersect(rec1[1], rec1[3], rec2[1], rec2[3]))    # height > 0
 ```
+
+```python
+class Solution:
+    def isRectangleOverlap(self, rec1: List[int], rec2: List[int]) -> bool:
+        width = min(rec1[2], rec2[2]) - max(rec1[0],
+                                            rec2[0])  # min_right - max_left
+        height = min(rec1[3], rec2[3]) - max(rec1[1],
+                                             rec2[1])  # min_high - max_low
+        return width > 0 and height > 0
+```
