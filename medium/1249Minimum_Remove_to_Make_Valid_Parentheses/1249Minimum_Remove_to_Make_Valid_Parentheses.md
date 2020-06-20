@@ -1,79 +1,86 @@
-## Rectangle Overlap
+## Minimum Remove to Make Valid Parentheses
 
 ### Problem Link
 
-https://github.com/yanray/leetcode/blob/master/medium/1249Minimum_Remove_to_Make_Valid_Parentheses/1249Minimum_Remove_to_Make_Valid_Parentheses.md
+https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
 
 ### Problem Description 
 
-A rectangle is represented as a list [x1, y1, x2, y2], where (x1, y1) are the coordinates of its bottom-left corner, and (x2, y2) are the coordinates of its top-right corner.
+Given a string s of '(' , ')' and lowercase English characters. 
 
-Two rectangles overlap if the area of their intersection is positive.  To be clear, two rectangles that only touch at the corner or edges do not overlap.
+Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.
 
-Given two (axis-aligned) rectangles, return whether they overlap.
+Formally, a parentheses string is valid if and only if:
+
+* It is the empty string, contains only lowercase characters, or
+* It can be written as AB (A concatenated with B), where A and B are valid strings, or
+* It can be written as (A), where A is a valid string.
 
 ```
 Example 1:
 
-Input: rec1 = [0,0,2,2], rec2 = [1,1,3,3]
-Output: true
+Input: s = "lee(t(c)o)de)"
+Output: "lee(t(c)o)de"
+Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
 
 ```
 
 ```
 Example 2:
 
-Input: rec1 = [0,0,1,1], rec2 = [1,0,2,1]
-Output: false
+Input: s = "a)b(c)d"
+Output: "ab(c)d"
 
 ```
 
-**Notes:**
+```
+Example 3:
 
-Both rectangles rec1 and rec2 are lists of 4 integers.
-All coordinates in rectangles will be between -10^9 and 10^9.
+Input: s = "))(("
+Output: ""
+Explanation: An empty string is also valid.
+
+```
+
+```
+Example 4:
+
+Input: s = "(a(b(c)d)"
+Output: "a(b(c)d)"
+
+```
+
+**Constraints:**
+
+* 1 <= s.length <= 10^5
+* s[i] is one of  '(' , ')' and lowercase English letters.
 
 ### Code (python)
 
-[Approach 1] (98%)
-
-```python
-        if rec2[0] >= rec1[2]:
-            return False
-        if rec2[1] >= rec1[3]:
-            return False
-        if rec2[2] <= rec1[0]:
-            return False
-        if rec2[3] <= rec1[1]:
-            return False
-        
-        return True
-```
-
-```python
-        if rec2[0] >= rec1[2] or rec2[1] >= rec1[3] or rec2[2] <= rec1[0] or rec2[3] <= rec1[1]:
-            return False
-        else:
-            return True
-```
-
-[Approach 2] (99%)
-
-```python
-class Solution(object):
-    def isRectangleOverlap(self, rec1, rec2):
-        def intersect(p_left, p_right, q_left, q_right):
-            return min(p_right, q_right) > max(p_left, q_left)
-        return (intersect(rec1[0], rec1[2], rec2[0], rec2[2]) and # width > 0
-                intersect(rec1[1], rec1[3], rec2[1], rec2[3]))    # height > 0
-```
+[Approach 1] (65%)
 
 ```python
 class Solution:
-    def isRectangleOverlap(self, rec1: List[int], rec2: List[int]) -> bool:
-        width = min(rec1[2], rec2[2]) - max(rec1[0],
-                                            rec2[0])  # min_right - max_left
-        height = min(rec1[3], rec2[3]) - max(rec1[1],
-                                             rec2[1])  # min_high - max_low
-        return width > 0 and height > 0
+    def minRemoveToMakeValid(self, s: str) -> str:
+        
+        list_s = list(s)
+        l_index = []
+        r_index = []
+        delete_index = []
+        
+        for i in range(len(list_s)):
+            if list_s[i] == "(":
+                l_index.append(i)
+                
+            if list_s[i] == ")":
+                if len(l_index) == 0:
+                    delete_index.append(i)
+                else:
+                    l_index.pop(-1)
+                    
+        delete_index += l_index
+        for index in delete_index:
+            list_s[index] = ""
+                
+        return "".join(list_s)
 ```
