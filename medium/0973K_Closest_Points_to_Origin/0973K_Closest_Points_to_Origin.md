@@ -43,7 +43,47 @@ Note:
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (50 - 60%)
+
+```python
+class Solution:
+    def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
+        
+        heap = []
+        
+        for i in range(len(points)):
+            dis = sqrt(points[i][0] * points[i][0] + points[i][1] * points[i][1])
+            heapq.heappush(heap, [dis, points[i]])
+            
+        K_closest = []
+        for i in range(K):
+            K_closest.append(heapq.heappop(heap)[1])
+            
+        return K_closest
+```
+
+(60 - 65%)
+
+```python
+class Solution:
+    def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
+        
+        heap = []
+        len_points = len(points)
+        
+        for i in range(len_points - K):
+            dis = sqrt(points[i][0] * points[i][0] + points[i][1] * points[i][1])
+            heapq.heappush(heap, [dis, points[i]])
+            
+        K_closest = []
+        for i in range(K):
+            dis = sqrt(points[len_points - K + i][0] * points[len_points - K + i][0] + points[len_points - K + i][1] * points[len_points - K + i][1])
+            K_closest.append(heapq.heappushpop(heap, [dis, points[len_points - K + i]])[1])
+            
+        return K_closest
+```
+
+[Approach 2] ()
 
 ```python
 
