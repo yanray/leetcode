@@ -85,7 +85,7 @@ class Solution:
         return "".join(list_s)
 ```
 
-[Approach 2] (65%)
+[Approach 2] (50 - 65%)
 
 ```python
 class Solution:
@@ -109,3 +109,102 @@ class Solution:
         return "".join(string_builder)
 
 ```
+
+[Approach 3] (50 - 65%)
+
+```python
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+
+        def delete_invalid_closing(string, open_symbol, close_symbol):
+            sb = []
+            balance = 0
+            for c in string:
+                if c == open_symbol:
+                    balance += 1
+                if c == close_symbol:
+                    if balance == 0:
+                        continue
+                    balance -= 1
+                sb.append(c)
+            return "".join(sb)
+
+        # Note that s[::-1] gets the reverse of s.
+        s = delete_invalid_closing(s, "(", ")")
+        print(s)
+        
+        s = delete_invalid_closing(s[::-1], ")", "(")
+        print(s)
+        return s[::-1]
+```
+
+[Approach 4] (50 - 65%)
+
+```python
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+
+        # Parse 1: Remove all invalid ")"
+        first_parse_chars = []
+        balance = 0
+        open_seen = 0
+        for c in s:
+            if c == "(":
+                balance += 1
+                open_seen += 1
+            if c == ")":
+                if balance == 0:
+                    continue
+                balance -= 1
+            first_parse_chars.append(c)
+
+        # Parse 2: Remove the rightmost "("
+        result = []
+        open_to_keep = open_seen - balance
+        for c in first_parse_chars:
+            if c == "(":
+                open_to_keep -= 1
+                if open_to_keep < 0:
+                    continue
+            result.append(c)
+
+        return "".join(result)
+```
+
+Optimization of approach 4
+
+```python
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+
+        # Parse 1: Remove all invalid ")"
+        first_parse_chars = []
+        balance = 0
+        open_seen = 0
+        close_seen = 0
+        for c in s:
+            if c == "(":
+                balance += 1
+                open_seen += 1
+            if c == ")":
+                close_seen += 1
+                if balance == 0:
+                    close_seen -= 1
+                    continue
+                balance -= 1
+            first_parse_chars.append(c)
+
+        # Parse 2: Remove the rightmost "("
+        
+        open_to_keep = open_seen - close_seen
+        for i in range(len(first_parse_chars) - 1, -1, -1):
+            if first_parse_chars[i] == "(":
+                open_to_keep -= 1
+                if open_to_keep < 0:
+                    break
+                first_parse_chars.pop(i)
+                    
+        return "".join(first_parse_chars)
+```
+
+
