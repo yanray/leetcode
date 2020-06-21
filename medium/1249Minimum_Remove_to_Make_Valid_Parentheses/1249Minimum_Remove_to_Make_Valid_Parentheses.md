@@ -84,6 +84,8 @@ class Solution:
         return "".join(list_s)
 ```
 
+(95%)
+
 ```python
 def minRemoveToMakeValid(self, s: str) -> str:
     s = list(s)
@@ -99,6 +101,34 @@ def minRemoveToMakeValid(self, s: str) -> str:
     while stack:
         s[stack.pop()] = ''
     return ''.join(s)
+```
+
+(85%)
+```python
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+        stack=[]
+        i,n=0,len(s)
+        
+        while i<n:
+            if s[i]=="(":
+                stack.append(i)
+            if s[i]==")":
+                if not stack:
+                    s=s[:i]+s[i+1:]
+                    n-=1
+                    continue
+                else:
+                    stack.pop()       
+            i+=1
+            
+            
+        if stack:
+            while stack:
+                idx=stack.pop()
+                s=s[:idx]+s[idx+1:]
+                
+        return s
 ```
 
 [Approach 2] (50 - 65%)
@@ -289,8 +319,30 @@ class Solution:
         return ''.join(res)
 ```
 
-[Approach 4] (80% around)
+[Approach 5] (99% around)
 
 ```python
-
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+        
+        open = 0
+        s = list(s)
+        
+        for i, c in enumerate(s):
+            if c == '(': 
+                open += 1
+            elif c == ')':
+                if not open: 
+                    s[i] = ""
+                else: 
+                    open -= 1
+        
+        for i in range(len(s)-1, -1, -1):
+            if not open: 
+                break
+            if s[i] == '(': 
+                s[i] = ""
+                open -= 1
+        
+        return "".join(s)
 ```
