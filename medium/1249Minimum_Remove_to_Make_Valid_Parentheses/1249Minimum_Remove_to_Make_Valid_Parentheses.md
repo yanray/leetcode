@@ -84,6 +84,23 @@ class Solution:
         return "".join(list_s)
 ```
 
+```python
+def minRemoveToMakeValid(self, s: str) -> str:
+    s = list(s)
+    stack = []
+    for i, char in enumerate(s):
+        if char == '(':
+            stack.append(i)
+        elif char == ')':
+            if stack:
+                stack.pop()
+            else:
+                s[i] = ''
+    while stack:
+        s[stack.pop()] = ''
+    return ''.join(s)
+```
+
 [Approach 2] (50 - 65%)
 
 ```python
