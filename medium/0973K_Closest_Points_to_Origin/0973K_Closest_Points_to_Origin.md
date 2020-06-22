@@ -83,8 +83,13 @@ class Solution:
         return K_closest
 ```
 
-[Approach 2] ()
+Sort
+
+[Approach 2] (88% - 95%, NlogN)
 
 ```python
-
+class Solution(object):
+    def kClosest(self, points, K):
+        points.sort(key = lambda P: P[0]**2 + P[1]**2)
+        return points[:K]
 ```
