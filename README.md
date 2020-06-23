@@ -113,6 +113,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0056 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/medium/0056Merge_Intervals/0056Merge_Intervals.md) | 
 | 1249 | [Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)| String, Stack | [Python](https://github.com/yanray/leetcode/blob/master/medium/1249Minimum_Remove_to_Make_Valid_Parentheses/1249Minimum_Remove_to_Make_Valid_Parentheses.md) | 
 | 0973 | [K Closest Points to Origin](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)| Divide and Conquer, Heap, Sort | [Python](https://github.com/yanray/leetcode/blob/master/medium/0973K_Closest_Points_to_Origin/0973K_Closest_Points_to_Origin.md) | 
+| 0031 | [Next Permutation](https://leetcode.com/problems/next-permutation/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/medium/0973K_Closest_Points_to_Origin/0973K_Closest_Points_to_Origin.md) | 
 
 <!-- ```diff
 - text in red
