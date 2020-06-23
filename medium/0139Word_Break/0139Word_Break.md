@@ -42,7 +42,7 @@ Output: false
 
 ### Code (python)
 
-[Approach 1] (55% - 76%)
+[Approach 1] (%)
 
 ```python
 
