@@ -62,3 +62,33 @@ class Solution(object):
         heapq.heapify(heap)
         return [heapq.heappop(heap)[1] for _ in range(k)]
 ```
+
+[Approach 3] (55%)
+```python
+class Solution:
+    def topKFrequent(self, words: List[str], k: int) -> List[str]:
+        words.sort()
+        d=collections.Counter(words)
+        ans=[]
+        d=d.most_common()
+        for each in d :
+            if k :
+                ans.append(each[0])
+                k-=1
+            else :
+                break
+        return ans
+```
+
+[Approach 4x] (55%)
+```python
+from heapq import nsmallest
+from collections import Counter
+
+class Solution:
+    def topKFrequent(self, words: List[str], k: int) -> List[str]:
+        freq = Counter(words)
+        return nsmallest(k, freq.keys(), key=lambda x: (-freq[x], x))
+```
+
+
