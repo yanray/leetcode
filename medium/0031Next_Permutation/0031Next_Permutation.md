@@ -87,3 +87,35 @@ class Solution:
         nums[k], nums[l] = nums[l], nums[k]
         nums[k+1:]=reversed(nums[k+1:])
 ```
+
+```python
+class Solution:
+    
+    def max_from_right(self, nums):
+        j = len(nums) - 1
+        while j > 0:
+            if nums[j - 1] < nums[j]:
+                return j
+            j -= 1
+        return 0
+    
+    def swap_candidate(self, nums, x):
+        j = len(nums) - 1
+        while j>=0 and nums[j] <= x:
+            j -= 1
+        return j
+    
+    
+    def nextPermutation(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        peek = self.max_from_right(nums)
+        if peek == 0:
+            return nums.sort()
+        
+        i, x = peek - 1, nums[peek-1]
+        j = self.swap_candidate(nums, x)
+        nums[i], nums[j] = nums[j], nums[i]
+        nums[peek:] = reversed(nums[peek:])
+```
