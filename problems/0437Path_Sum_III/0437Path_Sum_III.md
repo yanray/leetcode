@@ -106,7 +106,7 @@ class Solution:
 ```
 
 
-[Approach 2] (91%)
+[Approach 3] (91%)
 
 ```python
 from collections import Counter
