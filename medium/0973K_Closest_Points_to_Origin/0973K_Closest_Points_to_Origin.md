@@ -93,3 +93,14 @@ class Solution(object):
         points.sort(key = lambda P: P[0]**2 + P[1]**2)
         return points[:K]
 ```
+
+heap
+
+[Approach 3] (67%)
+
+```python
+class Solution:
+    def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
+        return nsmallest(K, points, lambda x: x[0] ** 2 + x[1] ** 2)
+```
+
