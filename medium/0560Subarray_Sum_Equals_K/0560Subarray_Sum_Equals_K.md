@@ -33,16 +33,16 @@ class Solution:
         
         hash_table = collections.defaultdict(int)
         
-        val = 0
+        total = 0
         count_sub = 0
         for i in range(len(nums)):
-            val += nums[i]
+            total += nums[i]
             
-            if val == k:
+            if total == k:
                 count_sub += 1
-            if (val - k) in hash_table:
-                count_sub += hash_table[val - k]
-            hash_table[val] += 1
+            if (total - k) in hash_table:
+                count_sub += hash_table[total - k]
+            hash_table[total] += 1
             
         return count_sub
 ```
@@ -60,4 +60,27 @@ class Solution:
             seen_sums[acc] += 1
         
         return count
+```
+
+[Approach 3] (30% - 40%)
+
+```python
+class Solution(object):
+    def subarraySum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        count = 0
+        sums = 0
+        d = dict()
+        d[0] = 1
+        
+        for i in range(len(nums)):
+            sums += nums[i]
+            count += d.get(sums-k,0)
+            d[sums] = d.get(sums,0) + 1
+        
+        return(count)
 ```
