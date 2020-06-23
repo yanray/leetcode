@@ -80,7 +80,7 @@ class Solution:
         return ans
 ```
 
-[Approach 4x] (55%)
+[Approach 4] (55%)
 ```python
 from heapq import nsmallest
 from collections import Counter
