@@ -1,4 +1,4 @@
-## Subarray Sum Equals K
+## Top K Frequent Words
 
 ### Problem Link
 
@@ -6,81 +6,43 @@ https://leetcode.com/problems/subarray-sum-equals-k/
 
 ### Problem Description 
 
-Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
+Given a non-empty list of words, return the k most frequent elements.
+
+Your answer should be sorted by frequency from highest to lowest. If two words have the same frequency, then the word with the lower alphabetical order comes first.
 
 ```
 Example 1:
 
-Input:nums = [1,1,1], k = 2
-Output: 2
+Input: ["i", "love", "leetcode", "i", "love", "coding"], k = 2
+Output: ["i", "love"]
+Explanation: "i" and "love" are the two most frequent words.
+    Note that "i" comes before "love" due to a lower alphabetical order.
 
 ```
 
-**Constraints:**
+```
+Example 2:
 
-* The length of the array is in range [1, 20,000].
-* The range of numbers in the array is [-1000, 1000] and the range of the integer k is [-1e7, 1e7].
+Input: ["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], k = 4
+Output: ["the", "is", "sunny", "day"]
+Explanation: "the", "is", "sunny" and "day" are the four most frequent words,
+    with the number of occurrence being 4, 3, 2 and 1 respectively.
+
+```
+
+**Note:**
+
+* You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
+* Input words contain only lowercase letters.
+
+**Follow up:**
+
+* Try to solve it in O(n log k) time and O(n) extra space.
 
 ### Code (python)
 
-[5 approaches](https://leetcode.com/problems/subarray-sum-equals-k/discuss/503178/Python5-Approaches-easy-to-understand-with-detailed-explanations)
-
-[Approach 1] (35% - 66%)
+[Approach 1] (%)
 
 ```python
-class Solution:
-    def subarraySum(self, nums: List[int], k: int) -> int:
-        
-        hash_table = collections.defaultdict(int)
-        
-        total = 0
-        count_sub = 0
-        for i in range(len(nums)):
-            total += nums[i]
-            
-            if total == k:
-                count_sub += 1
-            if (total - k) in hash_table:
-                count_sub += hash_table[total - k]
-            hash_table[total] += 1
-            
-        return count_sub
-```
 
-[Approach 2] (30%)
-
-```python
-class Solution:
-    def subarraySum(self, nums: List[int], k: int) -> int:
-        count = 0
-        seen_sums = defaultdict(int)
-        
-        for acc in accumulate(nums, initial=0):
-            count += seen_sums[acc - k]
-            seen_sums[acc] += 1
-        
-        return count
-```
-
-[Approach 3] (30% - 40%)
-
-```python
-class Solution(object):
-    def subarraySum(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: int
-        """
-        count = 0
-        sums = 0
-        d = dict()
-        d[0] = 1
-        
-        for i in range(len(nums)):
-            sums += nums[i]
-            count += d.get(sums-k,0)
-            d[sums] = d.get(sums,0) + 1
-        
-        return(count)
 ```
