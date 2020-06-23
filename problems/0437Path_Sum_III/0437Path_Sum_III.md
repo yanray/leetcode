@@ -40,13 +40,11 @@ Return 3. The paths that sum to 8 are:
 
 **Approach 1:** 
 
-**Approach 2:** 
-
 
 
 ### Code (python)
 
-[Approach 1]
+[Approach 1] (45%)
 
 ```python
 class Solution:
@@ -77,8 +75,60 @@ class Solution:
         return counter
 ```
 
-[Approach 2]
+[Approach 2] (95%)
 
 ```python
+class Solution:
+    def pathSum(self, root: TreeNode, sum: int) -> int:
+        ## RC ##
+        ## APPROACH : RECURSION ##
+        
+		## TIME COMPLEXITY : O(N) ##
+		## SPACE COMPLEXITY : O(N) ##
 
+        def helper(node, val, lookup):
+            
+            if(not node): return
+            val += node.val
+            if(val == sum): self.ans += 1
+            if((val-sum) in lookup and lookup[val - sum] > 0):
+                self.ans += lookup[val - sum]                     # watchout, lookup[val-sum]
+            lookup[val] += 1
+            if(node.left): 
+                helper(node.left, val, lookup)
+            if(node.right): 
+                helper(node.right , val, lookup)
+            lookup[val] -= 1                                    # if we first move to left side and come back to right side, left side subarray sums shouldn't be there in right side, so backtracking lookup.
+            
+        self.ans = 0
+        helper(root, 0, collections.defaultdict(int) )
+        return self.ans
+```
+
+
+[Approach 2] (91%)
+
+```python
+from collections import Counter
+
+class Solution:
+    def pathSum(self, root: TreeNode, sum: int) -> int:
+        def pathSumSearch(node: TreeNode, cumsum: int) -> int:
+            if not node:
+                return 0
+            
+            # add up paths up to <node> and add current cumsum to <prefixes>
+            cumsum += node.val
+            paths_to_node = prefixes[cumsum - sum]
+            prefixes[cumsum] += 1
+            
+            # going down the tree
+            paths_to_children = pathSumSearch(node.left, cumsum) + pathSumSearch(node.right, cumsum)
+            
+            # going up the tree (remove current cumsum from <prefixes> so non-children won't use it)
+            prefixes[cumsum] -= 1
+            return paths_to_node + paths_to_children
+        
+        prefixes = Counter({0: 1})
+        return pathSumSearch(root, 0)
 ```
