@@ -25,7 +25,7 @@ Example 1:
 
 ### Code (python)
 
-[Approach 1] (98%)
+[Approach 1] (92% - 98%)
 
 ```python
 class Solution:
