@@ -83,6 +83,31 @@ class Solution:
         return K_closest
 ```
 
+(70%)
+
+```python
+class Solution:
+    def get_tuple(self, x, y):
+        val = -(x*x + y*y)
+        point = (x,y)
+        return (val, point)
+    
+    def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
+        res = []        
+        heap = []
+        for i in range(K):
+            heapq.heappush(heap, self.get_tuple(points[i][0], points[i][1]))
+        
+        for i in range(K, len(points)):
+            tup = self.get_tuple(points[i][0], points[i][1])
+            heapq.heappushpop(heap, tup)
+        
+        for item in heap:
+            res.append(item[1])
+        
+        return res
+```
+
 Sort
 
 [Approach 2] (88% - 95%, NlogN)
@@ -104,3 +129,97 @@ class Solution:
         return nsmallest(K, points, lambda x: x[0] ** 2 + x[1] ** 2)
 ```
 
+
+(No heap, No sort)
+
+[Approach 4] (5%)
+
+```python
+class Solution(object):
+    def sortArray(self, left, right):
+        l_idx, r_idx = 0, 0
+        to_return_points = []
+        while l_idx < len(left) and r_idx < len(right):
+            l_dist = left[l_idx][0]**2 + left[l_idx][1]**2
+            r_dist = right[r_idx][0]**2 + right[r_idx][1]**2           
+            if l_dist < r_dist:
+                to_return_points.append(left[l_idx])
+                l_idx+=1
+            else:
+                to_return_points.append(right[r_idx])
+                r_idx+=1  
+                
+        if l_idx==len(left):
+            while r_idx < len(right): 
+                to_return_points.append(right[r_idx])
+                r_idx+=1       
+        else:
+            while l_idx < len(left):             
+                to_return_points.append(left[l_idx])
+                l_idx+=1                         
+            
+        return to_return_points
+    
+    def sortkClosest(self, points):
+        if len(points)==1:
+            return points
+        mid = len(points)//2
+        left= self.sortkClosest(points[:mid])
+        right = self.sortkClosest(points[mid:])
+        return self.sortArray(left, right)
+        
+    def kClosest(self, points, K):
+        """
+        :type points: List[List[int]]
+        :type K: int
+        :rtype: List[List[int]]
+        """
+        if len(points)==1:
+             return points[0]
+        points = self.sortkClosest(points)
+        return points[:K]     
+```
+
+(5%)
+
+```python
+class Solution(object):
+    def kClosest(self, points, K):
+        dist = lambda i: points[i][0]**2 + points[i][1]**2
+
+        def sort(i, j, K):
+            # Partially sorts A[i:j+1] so the first K elements are
+            # the smallest K elements.
+            if i >= j: return
+
+            # Put random element as A[i] - this is the pivot
+            k = random.randint(i, j)
+            points[i], points[k] = points[k], points[i]
+
+            mid = partition(i, j)
+            if K < mid - i + 1:
+                sort(i, mid - 1, K)
+            elif K > mid - i + 1:
+                sort(mid + 1, j, K - (mid - i + 1))
+
+        def partition(i, j):
+            # Partition by pivot A[i], returning an index mid
+            # such that A[i] <= A[mid] <= A[j] for i < mid < j.
+            oi = i
+            pivot = dist(i)
+            i += 1
+
+            while True:
+                while i < j and dist(i) < pivot:
+                    i += 1
+                while i <= j and dist(j) >= pivot:
+                    j -= 1
+                if i >= j: break
+                points[i], points[j] = points[j], points[i]
+
+            points[oi], points[j] = points[j], points[oi]
+            return j
+
+        sort(0, len(points) - 1, K)
+        return points[:K]
+```
