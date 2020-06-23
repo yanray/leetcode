@@ -41,8 +41,14 @@ Explanation: "the", "is", "sunny" and "day" are the four most frequent words,
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (55% - 76%)
 
 ```python
-
+class Solution:
+    def topKFrequent(self, words: List[str], k: int) -> List[str]:
+        
+        words_w_times = collections.Counter(words)
+        words_in_order = sorted(words_w_times.items(), key = lambda x:(-x[1], x[0]))
+        
+        return [words_in_order[i][0] for i in range(k)]
 ```
