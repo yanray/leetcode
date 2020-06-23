@@ -115,6 +115,7 @@ Regex: https://www.runoob.com/python/python-reg-expressions.html
 | 0973 | [K Closest Points to Origin](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)| Divide and Conquer, Heap, Sort | [Python](https://github.com/yanray/leetcode/blob/master/medium/0973K_Closest_Points_to_Origin/0973K_Closest_Points_to_Origin.md) | 
 | 0031 | [Next Permutation](https://leetcode.com/problems/next-permutation/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/medium/0031Next_Permutation/0031Next_Permutation.md) | 
 | 0022 | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)| String, Backtracking | [Python](https://github.com/yanray/leetcode/blob/master/medium/0031Next_Permutation/0031Next_Permutation.md) | 
+| 0560 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)| Array, Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/medium/0031Next_Permutation/0031Next_Permutation.md) | 
 
 <!-- ```diff
 - text in red
