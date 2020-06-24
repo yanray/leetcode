@@ -198,8 +198,46 @@ class Solution:
         return search(0, rotate_index)
 ```
 
-[Approach 4] (%)
+https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/591611/Easy-Understand-or-Beat-90-or-SOLUTION-for-BOTH-33.-and-81.-or-BinarySearch-or-Time%3A-O(nlogn)
+
+
+
+[Approach 4](https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/525379/Very-Simple-and-Clever-Python-Solution-O(lg-N)-beating-88) (46%)
 
 ```python
-
+class Solution:
+    def __init__(self):
+        self._lesser = None
+        self._limit = None
+    
+    
+    def _get_value(self, x):
+        if self._lesser:
+            return -math.inf if x >= self._limit else x
+        else:
+            return math.inf if x< self._limit else x
+    
+    def search(self, nums: List[int], target: int) -> int:
+        n = len(nums)
+        if n == 0:
+            return -1
+       
+        self._limit = nums[0]  
+        self._lesser = True if target < nums[0] else False
+        
+        lo = 0
+        hi = n - 1
+        
+        while lo <= hi:
+            
+            mid = lo + (hi - lo) // 2
+            
+            if target > self._get_value(nums[mid]):
+                lo = mid + 1
+            elif target < self._get_value(nums[mid]):
+                hi = mid - 1
+            else:
+                return mid
+        return -1       
+             
 ```
