@@ -121,8 +121,8 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0022 | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)| String, Backtracking | [Python](https://github.com/yanray/leetcode/blob/master/medium/0031Next_Permutation/0031Next_Permutation.md) | 
 | 0560 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)| Array, Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/medium/0560Subarray_Sum_Equals_K/0560Subarray_Sum_Equals_K.md) | 
 | 0692 | [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)| Hash Table, Heap, Trie | [Python](https://github.com/yanray/leetcode/blob/master/medium/0692Top_K_Frequent_Words/0692Top_K_Frequent_Words.md) | 
-| 0033 | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)| Array, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/medium/0139Word_Break/0139Word_Break.md) | 
-| 0081 | [Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array/)| Array, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/medium/0139Word_Break/0139Word_Break.md) | 
+| 0033 | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)| Array, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/medium/0033Search_in_Rotated_Sorted_Array/0033Search_in_Rotated_Sorted_Array.md) | 
+| 0081 | [Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array/)| Array, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/medium/0081Search_in_Rotated_Sorted_Array_II/0081Search_in_Rotated_Sorted_Array_II.md) | 
 
 
 | 0139 | [Word Break](https://leetcode.com/problems/word-break/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0139Word_Break/0139Word_Break.md) | 
