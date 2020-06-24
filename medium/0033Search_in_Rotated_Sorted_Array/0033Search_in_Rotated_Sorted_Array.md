@@ -1,42 +1,34 @@
-## Word Break
+## Search in Rotated Sorted Array
 
 ### Problem Link
 
-https://leetcode.com/problems/word-break/
+https://leetcode.com/problems/search-in-rotated-sorted-array/
 
 ### Problem Description 
 
-Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
+Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 
-**Note:**
+(i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).
 
-* The same word in the dictionary may be reused multiple times in the segmentation.
-* You may assume the dictionary does not contain duplicate words.
+You are given a target value to search. If found in the array return its index, otherwise return -1.
+
+You may assume no duplicate exists in the array.
+
+Your algorithm's runtime complexity must be in the order of O(log n).
 
 ```
 Example 1:
 
-Input: s = "leetcode", wordDict = ["leet", "code"]
-Output: true
-Explanation: Return true because "leetcode" can be segmented as "leet code".
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
 
 ```
 
 ```
 Example 2:
 
-Input: s = "applepenapple", wordDict = ["apple", "pen"]
-Output: true
-Explanation: Return true because "applepenapple" can be segmented as "apple pen apple".
-             Note that you are allowed to reuse a dictionary word.
-
-```
-
-```
-Example 3:
-
-Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
-Output: false
+Input: nums = [4,5,6,7,0,1,2], target = 3
+Output: -1
 
 ```
 
