@@ -42,9 +42,81 @@ Output: false
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (72%)
 
 ```python
-
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        
+        left, right = 0, len(nums) - 1
+        while left <= right:
+            if nums[left] == target:
+                return left
+            if nums[right] == target:
+                return right
+            
+            mid = left + (right - left) // 2
+            if nums[mid] == target:
+                return mid
+            
+            if nums[left] > nums[mid]:
+                if nums[mid] > target:
+                    left += 1
+                    right = mid - 1
+                else:
+                    if nums[left] < target:
+                        left += 1
+                        right = mid - 1
+                    else:
+                        left = mid + 1
+                        right -= 1
+            else:
+                if nums[left] > target:
+                    left = mid + 1
+                    right -= 1
+                else:
+                    if nums[mid] < target:
+                        left = mid + 1
+                        right -= 1
+                    else:
+                        left += 1
+                        right = mid - 1
+                    
+        return -1
+            
 ```
 
+[Improved of apporach 1] (90%)
+
+```python
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        
+        left, right = 0, len(nums) - 1
+        while left <= right:
+            if nums[left] == target:
+                return left
+            if nums[right] == target:
+                return right
+            
+            mid = left + (right - left) // 2
+            if nums[mid] == target:
+                return mid
+            
+            if nums[left] > nums[mid]:
+                if nums[mid] > target or nums[left] < target:
+                    left += 1
+                    right = mid - 1
+                else:
+                    left = mid + 1
+                    right -= 1
+            else:
+                if nums[left] > target or nums[mid] < target:
+                    left = mid + 1
+                    right -= 1
+                else:
+                    left += 1
+                    right = mid - 1
+                    
+        return -1
+```
