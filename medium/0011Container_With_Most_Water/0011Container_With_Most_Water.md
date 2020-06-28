@@ -1,43 +1,50 @@
-## Search in Rotated Sorted Array II
+## Container With Most Water
 
 ### Problem Link
 
-https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+https://leetcode.com/problems/container-with-most-water/
 
 ### Problem Description 
 
-Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
+Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
 
-(i.e., [0,0,1,2,2,5,6] might become [2,5,6,0,0,1,2]).
-
-You are given a target value to search. If found in the array return true, otherwise return false.
+**Note:** You may not slant the container and n is at least 2.
 
 ```
 Example 1:
 
-Input: nums = [2,5,6,0,0,1,2], target = 0
-Output: true
+Input: [1,8,6,2,5,4,8,3,7]
+Output: 49
 
 ```
-
-```
-Example 2:
-
-Input: nums = [2,5,6,0,0,1,2], target = 3
-Output: false
-
-```
-
-**Follow up:**
-
-* This is a follow up problem to Search in Rotated Sorted Array, where nums may contain duplicates.
-* Would this affect the run-time complexity? How and why?
 
 ### Code (python)
 
 [Approach 1] (%)
 
 ```python
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        
+        left, right = 0, len(height) - 1
+        
+        curr_left = height[left]
+        curr_right = height[right]
+        max_area = (right - left) * min(curr_left, curr_right)
+        
+        while left < right:
+            if curr_left < curr_right:
+                left += 1
+                while left < right and curr_left >= height[left]:
+                    left += 1
+                curr_left = height[left]
+            else:
+                right -= 1
+                while left < right and curr_right >= height[right]:
+                    right -= 1
+                curr_right = height[right]
+                
+            max_area = max(max_area, (right - left) * min(curr_left, curr_right))
 
-
+        return max_area
 ```
