@@ -67,9 +67,4 @@ class Solution:
 
 https://leetcode.com/problems/search-in-rotated-sorted-array-ii/discuss/386846/Two-Solutions-in-Python-3-(beats-~98)
 
-
-[Approach 1] (95%)
-
-```python
-
-```
+https://leetcode.com/problems/search-in-rotated-sorted-array-ii/discuss/28303/Share-my-recursive-and-iterative-Python-solution-with-detailed-explanation-O(n)-worst-case
