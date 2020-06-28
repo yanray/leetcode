@@ -20,7 +20,7 @@ Output: 49
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (95%)
 
 ```python
 class Solution:
@@ -47,4 +47,20 @@ class Solution:
             max_area = max(max_area, (right - left) * min(curr_left, curr_right))
 
         return max_area
+```
+
+[Approach 2] (95%)
+
+```python
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        # two pointers: l,r
+        l, r, maxArea = 0, len(height) - 1, -1
+        while l != r:
+            maxArea = max(maxArea, (r - l) * min(height[l], height[r]))
+            if height[l] < height[r]:
+                l += 1
+            else:
+                r -= 1
+        return maxArea
 ```
