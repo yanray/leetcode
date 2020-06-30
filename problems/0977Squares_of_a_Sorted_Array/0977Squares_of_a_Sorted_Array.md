@@ -75,8 +75,30 @@ class Solution:
         return sorted(squares_A)
 ```
 
-[Approach 3] (%)
+[Approach 3] (45% - 55%)
 
 ```python
-
+class Solution:
+    def sortedSquares(self, A: List[int]) -> List[int]:
+        
+        if not A:
+            return []
+        if len(A) == 1:
+            return [A[0] ** 2]
+        
+        squares_A = deque()
+        left, right = 0, len(A) - 1
+        s_lf, s_rt = A[left] ** 2, A[right] ** 2
+        while left < right:
+            if s_lf >= s_rt:
+                squares_A.appendleft(s_lf)
+                left += 1
+                s_lf = A[left] ** 2
+            else:
+                squares_A.appendleft(s_rt)
+                right -= 1
+                s_rt = A[right] ** 2
+        squares_A.appendleft(s_lf)
+                
+        return squares_A
 ```
