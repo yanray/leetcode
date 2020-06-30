@@ -1,44 +1,49 @@
-## Word Break
+## Fibonacci Number
 
 ### Problem Link
 
-https://leetcode.com/problems/word-break/
+https://leetcode.com/problems/fibonacci-number/
 
 ### Problem Description 
 
-Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
+The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. 
 
-**Note:**
-
-* The same word in the dictionary may be reused multiple times in the segmentation.
-* You may assume the dictionary does not contain duplicate words.
+That is,
+```
+    F(0) = 0,   F(1) = 1
+    F(N) = F(N - 1) + F(N - 2), for N > 1.
+```
+Given N, calculate F(N).
 
 ```
 Example 1:
 
-Input: s = "leetcode", wordDict = ["leet", "code"]
-Output: true
-Explanation: Return true because "leetcode" can be segmented as "leet code".
+Input: 2
+Output: 1
+Explanation: F(2) = F(1) + F(0) = 1 + 0 = 1.
 
 ```
 
 ```
 Example 2:
 
-Input: s = "applepenapple", wordDict = ["apple", "pen"]
-Output: true
-Explanation: Return true because "applepenapple" can be segmented as "apple pen apple".
-             Note that you are allowed to reuse a dictionary word.
+Input: 3
+Output: 2
+Explanation: F(3) = F(2) + F(1) = 1 + 1 = 2.
 
 ```
+
 
 ```
 Example 3:
 
-Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
-Output: false
+Input: 4
+Output: 3
+Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 
 ```
+
+
 
 ### Code (python)
 
