@@ -34,7 +34,7 @@ Output: [4,9,9,49,121]
 
 ### Code (python)
 
-[Approach 1] (5%)
+[Approach 1] (5% - 15%)
 
 ```python
 class Solution:
