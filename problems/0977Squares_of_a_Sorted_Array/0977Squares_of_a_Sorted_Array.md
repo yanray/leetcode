@@ -62,20 +62,38 @@ class Solution:
         return squares_A[::-1]
 ```
 
-[Approach 2] (75%)
+(%) O(N)
 
 ```python
-class Solution:
-    def sortedSquares(self, A: List[int]) -> List[int]:
-    
-        squares_A = []
-        for i in range(len(A)):
-            squares_A.append(A[i] ** 2)
-            
-        return sorted(squares_A)
+class Solution(object):
+    def sortedSquares(self, A):
+        N = len(A)
+        # i, j: negative, positive parts
+        j = 0
+        while j < N and A[j] < 0:
+            j += 1
+        i = j - 1
+
+        ans = []
+        while 0 <= i and j < N:
+            if A[i]**2 < A[j]**2:
+                ans.append(A[i]**2)
+                i -= 1
+            else:
+                ans.append(A[j]**2)
+                j += 1
+
+        while i >= 0:
+            ans.append(A[i]**2)
+            i -= 1
+        while j < N:
+            ans.append(A[j]**2)
+            j += 1
+
+        return ans
 ```
 
-[Approach 3] (45% - 55%)
+(45% - 55%)
 
 ```python
 class Solution:
@@ -101,4 +119,27 @@ class Solution:
         squares_A.appendleft(s_lf)
                 
         return squares_A
+```
+
+(sort)
+[Approach 2] 
+
+(75%)
+```python
+class Solution:
+    def sortedSquares(self, A: List[int]) -> List[int]:
+    
+        squares_A = []
+        for i in range(len(A)):
+            squares_A.append(A[i] ** 2)
+            
+        return sorted(squares_A)
+```
+
+(30% - 99%) O(NlogN)
+
+```python
+class Solution(object):
+    def sortedSquares(self, A):
+        return sorted(x*x for x in A)
 ```
