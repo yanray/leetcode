@@ -37,5 +37,46 @@ Output: [4,9,9,49,121]
 [Approach 1] (5%)
 
 ```python
+class Solution:
+    def sortedSquares(self, A: List[int]) -> List[int]:
+        
+        if not A:
+            return []
+        if len(A) == 1:
+            return [A[0] ** 2]
+        
+        squares_A = []
+        left, right = 0, len(A) - 1
+        s_lf, s_rt = A[left] ** 2, A[right] ** 2
+        while left < right:
+            if s_lf >= s_rt:
+                squares_A.append(s_lf)
+                left += 1
+                s_lf = A[left] ** 2
+            else:
+                squares_A.append(s_rt)
+                right -= 1
+                s_rt = A[right] ** 2
+        squares_A.append(s_lf)
+                
+        return squares_A[::-1]
+```
+
+[Approach 2] (75%)
+
+```python
+class Solution:
+    def sortedSquares(self, A: List[int]) -> List[int]:
+    
+        squares_A = []
+        for i in range(len(A)):
+            squares_A.append(A[i] ** 2)
+            
+        return sorted(squares_A)
+```
+
+[Approach 3] (%)
+
+```python
 
 ```
