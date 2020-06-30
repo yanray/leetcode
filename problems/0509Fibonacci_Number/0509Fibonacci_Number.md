@@ -47,7 +47,21 @@ Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (5%)
+
+```python
+class Solution:
+    def fib(self, N: int) -> int:
+        
+        if N == 0:
+            return 0
+        elif N == 1:
+            return 1
+        else:
+            return self.fib(N - 1) + self.fib(N - 2)
+```
+
+[Approach 2: Bottom-Up Approach using Memoization] (5%)
 
 ```python
 
