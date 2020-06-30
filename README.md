@@ -97,7 +97,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0270 | [Closest Binary Search Tree Value](https://leetcode.com/problems/closest-binary-search-tree-value/)| Binary Search, Tree | [Python](https://github.com/yanray/leetcode/blob/master/problems/0270Closest_Binary_Search_Tree_Value/0270Closest_Binary_Search_Tree_Value.md) | 
 | 0836 | [Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0836Rectangle_Overlap/0836Rectangle_Overlap.md) | 
 | 0509 | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0509Fibonacci_Number/0509Fibonacci_Number.md) | 
-| 0977 | [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0977Squares_of_a_Sorted_Array/0977Squares_of_a_Sorted_Array.md) | 
+| 0977 | [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0977Squares_of_a_Sorted_Array/0977Squares_of_a_Sorted_Array.md) | 
 
 
 
