@@ -1,8 +1,8 @@
-## Isomorphic Strings
+## Linked List Cycle
 
 ### Problem Link
 
-https://leetcode.com/problems/isomorphic-strings/
+https://leetcode.com/problems/linked-list-cycle/
 
 ### Problem Description 
 
@@ -45,8 +45,25 @@ Can you solve it using O(1) (i.e. constant) memory?
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (90%)
 
 ```python
-
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        
+        if not head or not head.next:
+            return False
+        
+        slow = head
+        fast = head.next
+        
+        while slow:
+            if slow == fast:
+                return True
+            if not fast or not fast.next:
+                return False
+            slow = slow.next
+            fast = fast.next.next
+            
+        return False
 ```
