@@ -31,7 +31,7 @@ Output:
 
 ### Code (python)
 
-[Approach 1] (52%)
+[Approach 1] (%)
 
 ```python
 
