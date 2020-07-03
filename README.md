@@ -111,6 +111,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0026 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0026Remove_Duplicates_from_Sorted_Array/0026Remove_Duplicates_from_Sorted_Array.md) | 
 | 0226 | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)| Tree | [Python](https://github.com/yanray/leetcode/blob/master/problems/0226Invert_Binary_Tree/0226Invert_Binary_Tree.md) | 
 | 0796 | [Rotate String](https://leetcode.com/problems/rotate-string/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0796Rotate_String/0796Rotate_String.md) | 
+| 0628 | [Maximum Product of Three Numbers](https://leetcode.com/problems/maximum-product-of-three-numbers/)| Array, Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0628Maximum_Product_of_Three_Numbers/0628Maximum_Product_of_Three_Numbers.md) | 
 
 
 
