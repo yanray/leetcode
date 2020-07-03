@@ -104,6 +104,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0118 | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0118Pascal's_Triangle/0118Pascal's_Triangle.md) | 
 | 0844 | [Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)| Two Pointers, Stack | [Python](https://github.com/yanray/leetcode/blob/master/problems/0844Backspace_String_Compare/0844Backspace_String_Compare.md) | 
 | 0028 | [Implement strStr()](https://leetcode.com/problems/implement-strstr/)| Two Pointers, String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0028Implement_strStr()/0028Implement_strStr().md) | 
+| 0168 | [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0028Implement_strStr()/0028Implement_strStr().md) | 
 
 
 
