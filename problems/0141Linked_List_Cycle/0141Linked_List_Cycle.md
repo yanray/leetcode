@@ -6,45 +6,46 @@ https://leetcode.com/problems/isomorphic-strings/
 
 ### Problem Description 
 
-Given two strings s and t, determine if they are isomorphic.
+Given a linked list, determine if it has a cycle in it.
 
-Two strings are isomorphic if the characters in s can be replaced to get t.
-
-All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
+To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
 
 ```
 Example 1:
 
-Input: s = "egg", t = "add"
+Input: head = [3,2,0,-4], pos = 1
 Output: true
+Explanation: There is a cycle in the linked list, where tail connects to the second node.
 
 ```
 
 ```
 Example 2:
 
-Input: s = "foo", t = "bar"
-Output: false
+Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, where tail connects to the first node.
 
 ```
 
 ```
 Example 3:
 
-Input: s = "paper", t = "title"
-Output: true
+Input: head = [1], pos = -1
+Output: false
+Explanation: There is no cycle in the linked list.
 
 ```
 
-**Note:**
+**Follow up:**
 
-You may assume both s and t have the same length.
+Can you solve it using O(1) (i.e. constant) memory?
 
 
 
 ### Code (python)
 
-[Approach 1] (5% - 15%)
+[Approach 1] (%)
 
 ```python
 
