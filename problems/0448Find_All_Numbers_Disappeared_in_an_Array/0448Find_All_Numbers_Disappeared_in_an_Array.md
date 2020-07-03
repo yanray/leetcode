@@ -1,78 +1,57 @@
-## Middle of the Linked List
+## Find All Numbers Disappeared in an Array
 
 ### Problem Link
 
-https://leetcode.com/problems/middle-of-the-linked-list/
+https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
 
 ### Problem Description 
 
-Given a non-empty, singly linked list with head node head, return a middle node of linked list.
+Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
 
-If there are two middle nodes, return the second middle node.
+Find all the elements of [1, n] inclusive that do not appear in this array.
+
+Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
 
 ```
 Example 1:
 
-Input: [1,2,3,4,5]
-Output: Node 3 from this list (Serialization: [3,4,5])
-The returned node has value 3.  (The judge's serialization of this node is [3,4,5]).
-Note that we returned a ListNode object ans, such that:
-ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, and ans.next.next.next = NULL.
+Input:
+[4,3,2,7,8,2,3,1]
+
+Output:
+[5,6]
 
 ```
-
-```
-Example 2:
-
-Input: [1,2,3,4,5,6]
-Output: Node 4 from this list (Serialization: [4,5,6])
-Since the list has two middle nodes with values 3 and 4, we return the second one.
-
-```
-
-**Note:**
-
-The number of nodes in the given list will be between 1 and 100.
 
 ### Code (python)
 
-[Approach 1] (75%)
+[Approach 1] (65%)
 
 ```python
 class Solution:
-    def middleNode(self, head: ListNode) -> ListNode:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         
-        node_list = []
-        while head:
-            node_list.append(head)
-            head = head.next
-            
-        return node_list[len(node_list) // 2]
+        nums.sort()
+        result = []
+        curr_val = 1
+        for i in range(len(nums)):
+            if curr_val == nums[i]:
+                curr_val += 1
+                continue
+            elif curr_val < nums[i]:
+                result.append(curr_val)
+                curr_val += 1
+                while curr_val < nums[i]:
+                    result.append(curr_val)
+                    curr_val += 1
+                curr_val += 1
+                
+        while curr_val <= len(nums):
+            result.append(curr_val)
+            curr_val += 1
+    
+        return result
 ```
 
-[Approach 2: Fast and Slow Pointer] (75%)
 
-```python
-class Solution:
-    def middleNode(self, head: ListNode) -> ListNode:
-        
-        slow = fast = head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-        return slow
-```
 
-```python
-class Solution:
-    def middleNode(self, head):
-        
-        def recur(slow, fast): #Recursion helper function. Called by `middleNode()` later.
-            if not fast or not fast.next: #Detect if fast pointer is at the end of the linked list.
-                return slow #If fast is at the end, slow pointer must be at the middle - see below.
-            slow = slow.next #Will always be behind fast by a factor of two.
-            fast = fast.next.next #Traverses twice as quickly as slow.
-            return recur(slow, fast) #Make recursive call, no need to increment slow and fast here, done above already.
-        
-        return recur(head, head) #Both pointers start at the head of the linked list.
-```
