@@ -1,26 +1,25 @@
-## Remove Duplicates from Sorted List
+## Pascal's Triangle
 
 ### Problem Link
 
-https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+https://leetcode.com/problems/pascals-triangle/
 
 ### Problem Description 
 
-Given a sorted linked list, delete all duplicates such that each element appear only once.
+Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.
 
 ```
 Example 1:
 
-Input: 1->1->2
-Output: 1->2
-
-```
-
-```
-Example 2:
-
-Input: 1->1->2->3->3
-Output: 1->2->3
+Input: 5
+Output:
+[
+     [1],
+    [1,1],
+   [1,2,1],
+  [1,3,3,1],
+ [1,4,6,4,1]
+]
 
 ```
 
@@ -31,53 +30,14 @@ Output: 1->2->3
 
 ```python
 class Solution:
-    def deleteDuplicates(self, head: ListNode) -> ListNode:
+    def generate(self, numRows: int) -> List[List[int]]:
         
-        if not head:
-            return head
-        
-        seen = set()
-        prev = head
-        dummy = head.next
-        seen.add(prev.val)
-        while dummy:
-            if dummy.val in seen:
-                dummy = dummy.next
-                prev.next = dummy
-            else:
-                seen.add(dummy.val)
-                dummy = dummy.next
-                prev = prev.next
-            
-        return head
+        triangle_list = []
+        for i in range(1, numRows + 1):
+            row_list = [1] * i
+            for j in range(1, i - 1):
+                row_list[j] = triangle_list[i - 2][j - 1] + triangle_list[i - 2][j]
+            triangle_list.append(row_list)
+
+        return triangle_list
 ```
-
-[Approach 2] (>>66%)
-
-```python
-class Solution:
-    def deleteDuplicates(self, head: ListNode) -> ListNode:
-        if head == None : return head
-        prev = temp = head
-        while(temp.next != None):
-            if temp.val != temp.next.val : prev.next = temp.next ; prev = temp.next
-            temp = temp.next
-        prev.next = None
-        return head
-```
-
-```python
-class Solution:
-    def deleteDuplicates(self, head: ListNode) -> ListNode:
-        st=head
-        while head:
-            while(head.next and head.val==head.next.val):
-                head.next=head.next.next
-            head=head.next
-        
-        
-        return(st)
-```
-
-https://leetcode.com/problems/remove-duplicates-from-sorted-list/discuss/502590/RECURSIVE-SOLUTION-greater-for-concept-building
-
