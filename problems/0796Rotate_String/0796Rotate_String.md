@@ -49,7 +49,9 @@ class Solution:
         return False
 ```
 
-[Approach 1] (73%)
+https://www.cnblogs.com/wade-luffy/p/7716358.html
+
+[Approach 2] (%)
 
 ```python
 
