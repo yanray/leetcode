@@ -106,6 +106,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0028 | [Implement strStr()](https://leetcode.com/problems/implement-strstr/)| Two Pointers, String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0028Implement_strStr()/0028Implement_strStr().md) | 
 | 0168 | [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0168Excel_Sheet_Column_Title/0168Excel_Sheet_Column_Title.md) | 
 | 0876 | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)| Linked List | [Python](https://github.com/yanray/leetcode/blob/master/problems/0876Middle_of_the_Linked_List/0876Middle_of_the_Linked_List.md) | 
+| 0448 | [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0876Middle_of_the_Linked_List/0876Middle_of_the_Linked_List.md) | 
 
 
 
