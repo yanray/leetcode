@@ -41,3 +41,7 @@ class Solution:
 
         return triangle_list
 ```
+
+Solution
+
+https://leetcode.com/problems/pascals-triangle/discuss/?currentPage=1&orderBy=hot&query=&tag=python3
