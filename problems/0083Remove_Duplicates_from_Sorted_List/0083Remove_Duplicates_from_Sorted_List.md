@@ -27,8 +27,27 @@ Output: 1->2->3
 
 ### Code (python)
 
-[Approach 1] (90%)
+[Approach 1] (98%)
 
 ```python
-
+class Solution:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        
+        if not head:
+            return head
+        
+        seen = set()
+        prev = head
+        dummy = head.next
+        seen.add(prev.val)
+        while dummy:
+            if dummy.val in seen:
+                dummy = dummy.next
+                prev.next = dummy
+            else:
+                seen.add(dummy.val)
+                dummy = dummy.next
+                prev = prev.next
+            
+        return head
 ```
