@@ -50,8 +50,29 @@ class Solution:
         return node_list[len(node_list) // 2]
 ```
 
-[Approach 2] (%)
+[Approach 2: Fast and Slow Pointer] (75%)
 
 ```python
+class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+```
 
+```python
+class Solution:
+    def middleNode(self, head):
+        
+        def recur(slow, fast): #Recursion helper function. Called by `middleNode()` later.
+            if not fast or not fast.next: #Detect if fast pointer is at the end of the linked list.
+                return slow #If fast is at the end, slow pointer must be at the middle - see below.
+            slow = slow.next #Will always be behind fast by a factor of two.
+            fast = fast.next.next #Traverses twice as quickly as slow.
+            return recur(slow, fast) #Make recursive call, no need to increment slow and fast here, done above already.
+        
+        return recur(head, head) #Both pointers start at the head of the linked list.
 ```
