@@ -1,50 +1,58 @@
-## Reverse Words in a String III
+## Remove Duplicates from Sorted Array
 
 ### Problem Link
 
-https://leetcode.com/problems/reverse-words-in-a-string-iii/
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 
 ### Problem Description 
 
-Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
+
+Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
 
 ```
 Example 1:
 
-Input: "Let's take LeetCode contest"
-Output: "s'teL ekat edoCteeL tsetnoc"
+Given nums = [1,1,2],
+
+Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.
+
+It doesn't matter what you leave beyond the returned length.
 
 ```
 
-**Note:** In the string, each word is separated by single space and there will not be any extra space in the string.
+```
+Example 2:
+
+Given nums = [0,0,1,1,1,2,2,3,3,4],
+
+Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.
+
+It doesn't matter what values are set beyond the returned length.
+
+```
+
+**Clarification:**
+
+Confused why the returned value is an integer but your answer is an array?
+
+Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.
+
+Internally you can think of this:
+```
+// nums is passed in by reference. (i.e., without making a copy)
+int len = removeDuplicates(nums);
+
+// any modification to nums in your function would be known by the caller.
+// using the length returned by your function, it prints the first len elements.
+for (int i = 0; i < len; i++) {
+    print(nums[i]);
+}
+```
 
 ### Code (python)
 
 [Approach 1] (98%)
-
-```python
-class Solution:
-    def reverseWords(self, s: str) -> str:
-        
-        reversed_s = ""
-        words = s.split(" ")
-        for word in words:
-            reversed_s += word[::-1] + " "
-
-        return reversed_s[:len(reversed_s) - 1]
-```
-
-```python
-return " ".join([i[::-1] for i in s.split()])
-```
-
-```python
-class Solution:
-    def reverseWords(self, s: str) -> str:
-        return ' '.join(map(lambda x:x[::-1], s.split(' ')))
-```
-
-[Approach 2] (98%)
 
 ```python
 
