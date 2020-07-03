@@ -98,6 +98,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0836 | [Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0836Rectangle_Overlap/0836Rectangle_Overlap.md) | 
 | 0509 | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0509Fibonacci_Number/0509Fibonacci_Number.md) | 
 | 0977 | [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0977Squares_of_a_Sorted_Array/0977Squares_of_a_Sorted_Array.md) | 
+| 0205 | [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/)| Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0977Squares_of_a_Sorted_Array/0977Squares_of_a_Sorted_Array.md) | 
 
 
 
