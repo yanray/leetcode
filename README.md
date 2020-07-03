@@ -99,6 +99,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0509 | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0509Fibonacci_Number/0509Fibonacci_Number.md) | 
 | 0977 | [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0977Squares_of_a_Sorted_Array/0977Squares_of_a_Sorted_Array.md) | 
 | 0205 | [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/)| Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0205Isomorphic_Strings/0205Isomorphic_Strings.md) | 
+| 0141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)| Linked List, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0205Isomorphic_Strings/0205Isomorphic_Strings.md) | 
 
 
 
