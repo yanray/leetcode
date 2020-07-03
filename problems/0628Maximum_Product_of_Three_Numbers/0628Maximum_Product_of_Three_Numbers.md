@@ -1,29 +1,33 @@
-## Rotate String
+## Maximum Product of Three Numbers
 
 ### Problem Link
 
-https://leetcode.com/problems/rotate-string/
+https://leetcode.com/problems/maximum-product-of-three-numbers/
 
 ### Problem Description 
 
-We are given two strings, A and B.
-
-A shift on A consists of taking string A and moving the leftmost character to the rightmost position. For example, if A = 'abcde', then it will be 'bcdea' after one shift on A. Return True if and only if A can become B after some number of shifts on A.
+Given an integer array, find three numbers whose product is maximum and output the maximum product.
 
 ```
 Example 1:
-Input: A = 'abcde', B = 'cdeab'
-Output: true
 
+Input: [1,2,3]
+Output: 6
+
+```
+
+```
 Example 2:
-Input: A = 'abcde', B = 'abced'
-Output: false
+
+Input: [1,2,3,4]
+Output: 24
 
 ```
 
 **Note:**
 
-* A and B will have length at most 100.
+* The length of the given array will be in range [3,104] and all elements are in the range [-1000, 1000].
+* Multiplication of any three numbers in the input won't exceed the range of 32-bit signed integer.
 
 ### Code (python)
 
