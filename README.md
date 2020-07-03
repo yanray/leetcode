@@ -101,7 +101,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0205 | [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/)| Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0205Isomorphic_Strings/0205Isomorphic_Strings.md) | 
 | 0141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)| Linked List, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0141Linked_List_Cycle/0141Linked_List_Cycle.md) | 
 | 0083 | [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)| Linked List | [Python](https://github.com/yanray/leetcode/blob/master/problems/0083Remove_Duplicates_from_Sorted_List/0083Remove_Duplicates_from_Sorted_List.md) | 
-| 0118 | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0083Remove_Duplicates_from_Sorted_List/0083Remove_Duplicates_from_Sorted_List.md) | 
+| 0118 | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0118Pascal's_Triangle/0118Pascal's_Triangle.md) | 
 
 
 
