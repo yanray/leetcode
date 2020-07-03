@@ -108,6 +108,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0876 | [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)| Linked List | [Python](https://github.com/yanray/leetcode/blob/master/problems/0876Middle_of_the_Linked_List/0876Middle_of_the_Linked_List.md) | 
 | 0448 | [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0448Find_All_Numbers_Disappeared_in_an_Array/0448Find_All_Numbers_Disappeared_in_an_Array.md) | 
 | 0557 | [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0557Reverse_Words_in_a_String_III/0557Reverse_Words_in_a_String_III.md) | 
+| 0026 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0557Reverse_Words_in_a_String_III/0557Reverse_Words_in_a_String_III.md) | 
 
 
 
