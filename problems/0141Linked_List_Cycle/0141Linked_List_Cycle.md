@@ -67,3 +67,53 @@ class Solution:
             
         return False
 ```
+
+```python
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        
+        slow=head
+        fast=head
+
+        while fast!=None and fast.next!=None:
+
+            slow=slow.next
+            fast=fast.next.next
+
+            if(slow==fast):
+                return True
+
+        return False
+```
+
+[Approach 2] (75%)
+
+```python
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        l={}
+        while head:
+            if(head in l):
+                return True
+            else:
+                l[head]=True
+            head=head.next
+        return False
+```
+
+[Approach 3] (60%)
+
+```python
+class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        seen = set()
+        node = head
+        while True:
+            if node is None:
+                return False
+            l = len(seen)
+            seen.add(node)
+            if len(seen) == l:
+                return True
+            node = node.next
+```
