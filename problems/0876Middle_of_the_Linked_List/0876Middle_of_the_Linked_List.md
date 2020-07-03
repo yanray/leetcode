@@ -49,3 +49,9 @@ class Solution:
             
         return node_list[len(node_list) // 2]
 ```
+
+[Approach 2] (%)
+
+```python
+
+```
