@@ -51,3 +51,33 @@ class Solution:
             
         return head
 ```
+
+[Approach 2] (>>66%)
+
+```python
+class Solution:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        if head == None : return head
+        prev = temp = head
+        while(temp.next != None):
+            if temp.val != temp.next.val : prev.next = temp.next ; prev = temp.next
+            temp = temp.next
+        prev.next = None
+        return head
+```
+
+```python
+class Solution:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        st=head
+        while head:
+            while(head.next and head.val==head.next.val):
+                head.next=head.next.next
+            head=head.next
+        
+        
+        return(st)
+```
+
+https://leetcode.com/problems/remove-duplicates-from-sorted-list/discuss/502590/RECURSIVE-SOLUTION-greater-for-concept-building
+
