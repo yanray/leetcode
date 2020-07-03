@@ -1,104 +1,51 @@
-## Excel Sheet Column Title
+## Middle of the Linked List
 
 ### Problem Link
 
-https://leetcode.com/problems/excel-sheet-column-title/
+https://leetcode.com/problems/middle-of-the-linked-list/
 
 ### Problem Description 
 
-Given a positive integer, return its corresponding column title as appear in an Excel sheet.
+Given a non-empty, singly linked list with head node head, return a middle node of linked list.
 
-For example:
-```
-    1 -> A
-    2 -> B
-    3 -> C
-    ...
-    26 -> Z
-    27 -> AA
-    28 -> AB 
-    ...
-```
+If there are two middle nodes, return the second middle node.
 
 ```
 Example 1:
 
-Input: 1
-Output: "A"
+Input: [1,2,3,4,5]
+Output: Node 3 from this list (Serialization: [3,4,5])
+The returned node has value 3.  (The judge's serialization of this node is [3,4,5]).
+Note that we returned a ListNode object ans, such that:
+ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, and ans.next.next.next = NULL.
 
 ```
 
 ```
 Example 2:
 
-Input: 28
-Output: "AB"
+Input: [1,2,3,4,5,6]
+Output: Node 4 from this list (Serialization: [4,5,6])
+Since the list has two middle nodes with values 3 and 4, we return the second one.
 
 ```
 
-```
-Example 3:
+**Note:**
 
-Input: 701
-Output: "ZY"
-
-```
-
-```
-Example 4:
-
-Input: S = "a#c", T = "b"
-Output: false
-Explanation: S becomes "c" while T becomes "b".
-
-```
+The number of nodes in the given list will be between 1 and 100.
 
 ### Code (python)
 
-[Approach 1] (91%)
+[Approach 1] (75%)
 
 ```python
 class Solution:
-    def convertToTitle(self, n: int) -> str:
+    def middleNode(self, head: ListNode) -> ListNode:
         
-        title = ""
-        while n > 26:
-            n, mod = n // 26, n % 26
-            if mod != 0:
-                title = chr(mod + 64) + title
-            else:
-                n -= 1
-                title = "Z" + title
-
-        title = chr(n + 64) + title
-        
-        return title
-```
-
-[Approach 2] (74%)
-
-```python
-class Solution:
-    def convertToTitle(self, n: int) -> str:
-        alphabet='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        alen = len(alphabet)
-        base = ''
-
-        while n > 0 :
-            n -= 1
-            n, j = divmod(n, alen)
-            base += alphabet[j] # + base
-
-        return base[::-1]
-```
-
-```python
-class Solution:
-    def convertToTitle(self, n: int) -> str:
-        column = ''
-        while n:
-            n -= 1
-            column += chr(n % 26 + 65)
-            n //= 26
-        return column[::-1]
+        node_list = []
+        while head:
+            node_list.append(head)
+            head = head.next
+            
+        return node_list[len(node_list) // 2]
 ```
