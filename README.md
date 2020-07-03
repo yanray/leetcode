@@ -109,7 +109,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0448 | [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0448Find_All_Numbers_Disappeared_in_an_Array/0448Find_All_Numbers_Disappeared_in_an_Array.md) | 
 | 0557 | [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0557Reverse_Words_in_a_String_III/0557Reverse_Words_in_a_String_III.md) | 
 | 0026 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/problems/0026Remove_Duplicates_from_Sorted_Array/0026Remove_Duplicates_from_Sorted_Array.md) | 
-| 0226 | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)| Tree | [Python](https://github.com/yanray/leetcode/blob/master/problems/0026Remove_Duplicates_from_Sorted_Array/0026Remove_Duplicates_from_Sorted_Array.md) | 
+| 0226 | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)| Tree | [Python](https://github.com/yanray/leetcode/blob/master/problems/0226Invert_Binary_Tree/0226Invert_Binary_Tree.md) | 
 
 
 
