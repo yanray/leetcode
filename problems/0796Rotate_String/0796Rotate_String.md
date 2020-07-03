@@ -27,7 +27,29 @@ Output: false
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (73%)
+
+```python
+class Solution:
+    def rotateString(self, A: str, B: str) -> bool:
+        
+        if not A and not B:
+            return True
+        elif not A or not B:
+            return False
+        
+        def check_str_equal(s1, s2):
+            return s1 == s2
+        
+        for i in range(len(B)):
+            if B[i] == A[0]:
+                if check_str_equal(B[i : ] + B[: i], A):
+                    return True
+                
+        return False
+```
+
+[Approach 1] (73%)
 
 ```python
 
