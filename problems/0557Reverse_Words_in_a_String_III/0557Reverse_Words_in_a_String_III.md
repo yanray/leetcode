@@ -34,6 +34,16 @@ class Solution:
         return reversed_s[:len(reversed_s) - 1]
 ```
 
+```python
+return " ".join([i[::-1] for i in s.split()])
+```
+
+```python
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        return ' '.join(map(lambda x:x[::-1], s.split(' ')))
+```
+
 [Approach 2] (98%)
 
 ```python
