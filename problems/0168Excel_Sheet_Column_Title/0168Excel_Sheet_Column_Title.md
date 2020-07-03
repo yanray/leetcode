@@ -55,8 +55,50 @@ Explanation: S becomes "c" while T becomes "b".
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (91%)
 
 ```python
+class Solution:
+    def convertToTitle(self, n: int) -> str:
+        
+        title = ""
+        while n > 26:
+            n, mod = n // 26, n % 26
+            if mod != 0:
+                title = chr(mod + 64) + title
+            else:
+                n -= 1
+                title = "Z" + title
 
+        title = chr(n + 64) + title
+        
+        return title
+```
+
+[Approach 2] (74%)
+
+```python
+class Solution:
+    def convertToTitle(self, n: int) -> str:
+        alphabet='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        alen = len(alphabet)
+        base = ''
+
+        while n > 0 :
+            n -= 1
+            n, j = divmod(n, alen)
+            base += alphabet[j] # + base
+
+        return base[::-1]
+```
+
+```python
+class Solution:
+    def convertToTitle(self, n: int) -> str:
+        column = ''
+        while n:
+            n -= 1
+            column += chr(n % 26 + 65)
+            n //= 26
+        return column[::-1]
 ```
