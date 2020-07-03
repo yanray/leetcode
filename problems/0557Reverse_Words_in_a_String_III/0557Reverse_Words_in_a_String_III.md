@@ -20,7 +20,21 @@ Output: "s'teL ekat edoCteeL tsetnoc"
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (98%)
+
+```python
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        
+        reversed_s = ""
+        words = s.split(" ")
+        for word in words:
+            reversed_s += word[::-1] + " "
+
+        return reversed_s[:len(reversed_s) - 1]
+```
+
+[Approach 2] (98%)
 
 ```python
 
