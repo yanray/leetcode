@@ -52,8 +52,21 @@ for (int i = 0; i < len; i++) {
 
 ### Code (python)
 
-[Approach 1] (98%)
+[Approach 1] (52%)
 
 ```python
-
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        
+        if not nums:
+            return 0
+        
+        change_index = 1
+        curr_val = nums[0]
+        for i in range(1, len(nums)):
+            if curr_val != nums[i]:
+                nums[change_index] = curr_val = nums[i]
+                change_index += 1        
+        
+        return change_index
 ```
