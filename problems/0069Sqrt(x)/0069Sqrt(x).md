@@ -32,8 +32,40 @@ Explanation: The square root of 8 is 2.82842..., and since
 
 ### Code (python)
 
-[Approach 1] (%) ()
+[Approach 1] (82%) (log(N))
 
 ```python
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        
+        if x == 0:
+            return 0
+        elif x <= 3:
+            return 1
 
+        left, right = 2, x // 2        
+        while left <= right:
+            mid = left + (right - left) // 2
+            if mid ** 2 < x:
+                left = mid + 1
+            elif mid ** 2 > x:
+                right = mid - 1
+            else:
+                return mid
+        
+        return right
+```
+
+[Approach 1: Math equation] (98%)
+
+```python
+from math import e, log
+class Solution:
+    def mySqrt(self, x):
+        if x < 2:
+            return x
+        
+        left = int(e**(0.5 * log(x)))
+        right = left + 1
+        return left if right * right > x else right
 ```
