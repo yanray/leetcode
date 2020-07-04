@@ -31,7 +31,27 @@ Output:
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (20%)
+
+```python
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        
+        if needle == "":
+            return 0
+        
+        def check_equal(s1, s2):
+            return s1 == s2
+        
+        for i in range(len(haystack)):
+            if haystack[i] == needle[0]:
+                if check_equal(haystack[i : i + len(needle)], needle):
+                    return i
+                
+        return -1
+```
+
+[Approach 2] (%)
 
 ```python
 
