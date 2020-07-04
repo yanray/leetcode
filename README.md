@@ -112,6 +112,8 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0226 | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)| Tree | [Python](https://github.com/yanray/leetcode/blob/master/problems/0226Invert_Binary_Tree/0226Invert_Binary_Tree.md) | 
 | 0796 | [Rotate String](https://leetcode.com/problems/rotate-string/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0796Rotate_String/0796Rotate_String.md) | 
 | 0628 | [Maximum Product of Three Numbers](https://leetcode.com/problems/maximum-product-of-three-numbers/)| Array, Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0628Maximum_Product_of_Three_Numbers/0628Maximum_Product_of_Three_Numbers.md) | 
+| 1010 | [Pairs of Songs With Total Durations Divisible by 60](https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/1010Pairs_of_Songs_With_Total_Durations_Divisible_by_60/1010Pairs_of_Songs_With_Total_Durations_Divisible_by_60.md) | 
+| 0069 | [Sqrt(x)](https://leetcode.com/problems/sqrtx/)| Math, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0069Sqrt(x)/0069Sqrt(x).md) | 
 
 
 
