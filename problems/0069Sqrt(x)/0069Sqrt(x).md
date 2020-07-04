@@ -56,7 +56,7 @@ class Solution:
         return right
 ```
 
-[Approach 1: Math equation] (98%)
+[Approach 2: Math equation] (98%)
 
 ```python
 from math import e, log
@@ -68,4 +68,23 @@ class Solution:
         left = int(e**(0.5 * log(x)))
         right = left + 1
         return left if right * right > x else right
+```
+
+https://leetcode.com/problems/sqrtx/discuss/559480/Python-implementation-of-the-algorithm-developed-for-EDSAC
+
+https://leetcode.com/problems/sqrtx/discuss/427538/python3-One-Liner%3A-return-int(x-**-(12))
+
+https://leetcode.com/problems/sqrtx/discuss/329955/Python-simple-differnt-solutions
+
+[Approach 3: Newton method] (65%)
+
+```python
+class Solution:
+    # Newton method
+    def mySqrt(self, x: int) -> int:
+        r = x
+        while r*r > x:      
+            r = (r*r+x)//(2*r)
+             
+        return r
 ```
