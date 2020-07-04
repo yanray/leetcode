@@ -93,7 +93,7 @@ class Solution:
 ```
 
 
-[Approach 2: Two Pointers] (85%) (only for python)
+[Approach 2: Two Pointers] (%) (only for python)
 
 ```python
 class Solution(object):
@@ -182,4 +182,20 @@ class Solution:
 			j = j - 1
 
 		return True					# This means both the strings are equivalent.
+```
+
+
+[Approach 3: Regex] (%)
+
+```python
+import re
+
+class Solution:
+    def backspaceCompare(self, S: str, T: str) -> bool:
+        strings = [S, T]
+        for i in range(len(strings)):
+            while re.search(r'[a-z]#', strings[i]):
+                strings[i] = re.sub(r'[a-z]#', '', strings[i])
+            strings[i] = re.sub(r'^#+', '', strings[i])
+        return strings[0] == strings[1]
 ```
