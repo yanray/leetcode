@@ -35,8 +35,32 @@ For the purpose of this problem, we will return 0 when needle is an empty string
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1: Using defaultdict] (15%)
 
 ```python
+class Solution:
+    def numPairsDivisibleBy60(self, time: List[int]) -> int:
+        
+        count = 0
+        hash_dict = collections.defaultdict(int)
+        for i in range(len(time)):
+            if time[i] % 60 in hash_dict:
+                count += hash_dict[time[i] % 60]
+            hash_dict[(60 - time[i]) % 60] += 1
+                    
+        return count 
+```
 
+[Approach 2] (87%)
+
+```python
+class Solution:
+    def numPairsDivisibleBy60(self, time: List[int]) -> int:
+        m, d = 0, collections.Counter([t%60 for t in time])
+        for k in d:
+            if k == 0 or k == 30:
+                m += d[k]*(d[k]-1)//2
+            elif k < 30 and 60-k in d:
+                m += d[k]*d[60-k]
+        return m
 ```
