@@ -144,7 +144,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0011 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)| Array, Two Pointers | [Python](https://github.com/yanray/leetcode/blob/master/medium/0011Container_With_Most_Water/0011Container_With_Most_Water.md) | 
 | 0139 | [Word Break](https://leetcode.com/problems/word-break/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0139Word_Break/0139Word_Break.md) | 
 | 0322 | [Coin Change](https://leetcode.com/problems/coin-change/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0322Coin_Change/0322Coin_Change.md) | 
-| 0253 | [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0253Meeting_Rooms_II/0253Meeting_Rooms_II.md) | 
+| 0253 | [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)| Heap, Greedy, Sort | [Python](https://github.com/yanray/leetcode/blob/master/medium/0253Meeting_Rooms_II/0253Meeting_Rooms_II.md) | 
 
 
 <!-- ```diff
