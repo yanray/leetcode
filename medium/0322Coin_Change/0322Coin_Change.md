@@ -30,7 +30,7 @@ You may assume that you have an infinite number of each kind of coin.
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1: DP] (85%)
 
 ```python
 class Solution:
@@ -42,4 +42,32 @@ class Solution:
             for x in range(coin, amount + 1):
                 dp[x] = min(dp[x], dp[x - coin] + 1)
         return dp[amount] if dp[amount] != float('inf') else -1 
+```
+
+https://leetcode.com/problems/coin-change/discuss/481775/RZ-Summary-of-different-solutions-in-Python
+
+[Approach 2: BFS] (85%)
+
+```python
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        if not coins or amount <= 0:
+            return 0
+        
+        coins = set(coins)
+        level = [amount]
+        visited = set([amount])
+        count = 0
+        while level:
+            count += 1
+            temp = []
+            for a in level:
+                if a in coins:
+                    return count
+                for c in coins:
+                    if a - c > 0 and (a - c) not in visited:
+                        temp.append(a - c)
+                        visited.add(a - c)
+            level = temp
+        return -1
 ```
