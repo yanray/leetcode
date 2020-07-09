@@ -148,7 +148,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0054 | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/medium/0054Spiral_Matrix/0054Spiral_Matrix.md) | 
 | 0981 | [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)| Hash Table, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/medium/0981Time_Based_Key_Value_Store/0981Time_Based_Key_Value_Store.md) | 
 | 0380 | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)| Array, Hash Table, Design | [Python](https://github.com/yanray/leetcode/blob/master/medium/0380Insert_Delete_GetRandom_O(1)/0380Insert_Delete_GetRandom_O(1).md) | 
-| 0049 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/)| Hash Table, String | [Python](https://github.com/yanray/leetcode/blob/master/medium/0380Insert_Delete_GetRandom_O(1)/0380Insert_Delete_GetRandom_O(1).md) | 
+| 0049 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/)| Hash Table, String | [Python](https://github.com/yanray/leetcode/blob/master/medium/0049Group_Anagrams/0049Group_Anagrams.md) | 
 
 
 <!-- ```diff
