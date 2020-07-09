@@ -128,3 +128,15 @@ class Solution(object):
             c1 += 1; c2 -= 1
         return ans
 ```
+
+https://leetcode.com/problems/spiral-matrix/discuss/720401/Python3-straightforward-solution-Spiral-Matrix
+
+https://leetcode.com/problems/spiral-matrix/discuss/685000/Python-Simple-solution-peeling-off-layers
+
+https://leetcode.com/problems/spiral-matrix/discuss/629683/Very-Simple-Solution-Beats-99.83
+
+https://leetcode.com/problems/spiral-matrix/discuss/496148/Python3-easy-to-understand-solution-with-comments
+
+https://leetcode.com/problems/spiral-matrix/discuss/440442/Easy-to-remember-Python3
+
+https://leetcode.com/problems/spiral-matrix/discuss/435612/Python3-Try-Except
