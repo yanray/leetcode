@@ -1,142 +1,60 @@
-## Spiral Matrix
+## Time Based Key-Value Store
 
 ### Problem Link
 
-https://leetcode.com/problems/spiral-matrix/
+https://leetcode.com/problems/time-based-key-value-store/
 
 ### Problem Description 
 
-Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+Create a timebased key-value store class TimeMap, that supports two operations.
+
+1. set(string key, string value, int timestamp)
+
+* Stores the key and value, along with the given timestamp.
+
+2. get(string key, int timestamp)
+
+* Returns a value such that set(key, value, timestamp_prev) was called previously, with timestamp_prev <= timestamp.
+* If there are multiple such values, it returns the one with the largest timestamp_prev.
+* If there are no values, it returns the empty string ("").
 
 ```
 Example 1:
 
-Input:
-[
- [ 1, 2, 3 ],
- [ 4, 5, 6 ],
- [ 7, 8, 9 ]
-]
-Output: [1,2,3,6,9,8,7,4,5]
+Input: inputs = ["TimeMap","set","get","get","set","get","get"], inputs = [[],["foo","bar",1],["foo",1],["foo",3],["foo","bar2",4],["foo",4],["foo",5]]
+Output: [null,null,"bar","bar",null,"bar2","bar2"]
+Explanation:   
+TimeMap kv;   
+kv.set("foo", "bar", 1); // store the key "foo" and value "bar" along with timestamp = 1   
+kv.get("foo", 1);  // output "bar"   
+kv.get("foo", 3); // output "bar" since there is no value corresponding to foo at timestamp 3 and timestamp 2, then the only value is at timestamp 1 ie "bar"   
+kv.set("foo", "bar2", 4);   
+kv.get("foo", 4); // output "bar2"   
+kv.get("foo", 5); //output "bar2"   
+
 
 ```
 
 ```
 Example 2:
 
-Input:
-[
-  [1, 2, 3, 4],
-  [5, 6, 7, 8],
-  [9,10,11,12]
-]
-Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+Input: inputs = ["TimeMap","set","set","get","get","get","get","get"], inputs = [[],["love","high",10],["love","low",20],["love",5],["love",10],["love",15],["love",20],["love",25]]
+Output: [null,null,null,"","high","high","low","low"]
 
 ```
+
+**Note:**
+
+1. All key/value strings are lowercase.
+2. All key/value strings have length in the range [1, 100]
+3. The timestamps for all TimeMap.set operations are strictly increasing.
+4. 1 <= timestamp <= 10^7
+5. TimeMap.set and TimeMap.get functions will be called a total of 120000 times (combined) per test case.
 
 ### Code (python)
 
 [Approach 1] (90%)
 
 ```python
-class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        
-        if not matrix:
-            return matrix
-        
-        spiral = []
-        spiral = spiral + matrix[0]
-        row = 1
-        row_limit, col_limit = [1, len(matrix) - 1], [0, len(matrix[0]) - 1]
-        direct = "Down"
-        count = 1
-        while len(spiral) < len(matrix) * len(matrix[0]):
-            if direct == "Down":
-                while row < row_limit[1]:
-                    spiral.append(matrix[row][col_limit[1]])
-                    row += 1
-                row -= 1
-                spiral = spiral + matrix[row_limit[1]][col_limit[0] : col_limit[1] + 1][::-1]
-                row_limit[1] -= 1
-                col_limit[1] -= 1
 
-                direct = "Up"
-                
-            elif direct == "Up":
-                while row > row_limit[0]:
-                    spiral.append(matrix[row][col_limit[0]])
-                    row -= 1
-                row += 1
-                spiral = spiral + matrix[row_limit[0]][col_limit[0] : col_limit[1] + 1]
-                row_limit[0] += 1
-                col_limit[0] += 1
-                
-                direct = "Down"
-        
-        return spiral
 ```
-
-[Approach 2] (80%)
-
-```python
-class Solution(object):
-    def spiralOrder(self, matrix):
-        if not matrix: return []
-        R, C = len(matrix), len(matrix[0])
-        seen = [[False] * C for _ in matrix]
-        ans = []
-        dr = [0, 1, 0, -1]
-        dc = [1, 0, -1, 0]
-        r = c = di = 0
-        for _ in range(R * C):
-            ans.append(matrix[r][c])
-            seen[r][c] = True
-            cr, cc = r + dr[di], c + dc[di]
-            if 0 <= cr < R and 0 <= cc < C and not seen[cr][cc]:
-                r, c = cr, cc
-            else:
-                di = (di + 1) % 4
-                r, c = r + dr[di], c + dc[di]
-        return ans
-```
-
-[Approach 3: Layer-by-Layer]
-
-```python
-class Solution(object):
-    def spiralOrder(self, matrix):
-        def spiral_coords(r1, c1, r2, c2):
-            for c in range(c1, c2 + 1):
-                yield r1, c
-            for r in range(r1 + 1, r2 + 1):
-                yield r, c2
-            if r1 < r2 and c1 < c2:
-                for c in range(c2 - 1, c1, -1):
-                    yield r2, c
-                for r in range(r2, r1, -1):
-                    yield r, c1
-
-        if not matrix: return []
-        ans = []
-        r1, r2 = 0, len(matrix) - 1
-        c1, c2 = 0, len(matrix[0]) - 1
-        while r1 <= r2 and c1 <= c2:
-            for r, c in spiral_coords(r1, c1, r2, c2):
-                ans.append(matrix[r][c])
-            r1 += 1; r2 -= 1
-            c1 += 1; c2 -= 1
-        return ans
-```
-
-https://leetcode.com/problems/spiral-matrix/discuss/720401/Python3-straightforward-solution-Spiral-Matrix
-
-https://leetcode.com/problems/spiral-matrix/discuss/685000/Python-Simple-solution-peeling-off-layers
-
-https://leetcode.com/problems/spiral-matrix/discuss/629683/Very-Simple-Solution-Beats-99.83
-
-https://leetcode.com/problems/spiral-matrix/discuss/496148/Python3-easy-to-understand-solution-with-comments
-
-https://leetcode.com/problems/spiral-matrix/discuss/440442/Easy-to-remember-Python3
-
-https://leetcode.com/problems/spiral-matrix/discuss/435612/Python3-Try-Except
