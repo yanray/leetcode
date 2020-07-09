@@ -146,7 +146,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0322 | [Coin Change](https://leetcode.com/problems/coin-change/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0322Coin_Change/0322Coin_Change.md) | 
 | 0253 | [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)| Heap, Greedy, Sort | [Python](https://github.com/yanray/leetcode/blob/master/medium/0253Meeting_Rooms_II/0253Meeting_Rooms_II.md) | 
 | 0054 | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/medium/0054Spiral_Matrix/0054Spiral_Matrix.md) | 
-| 0981 | [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)| Hash Table, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/medium/0054Spiral_Matrix/0054Spiral_Matrix.md) | 
+| 0981 | [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)| Hash Table, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/medium/0981Time_Based_Key_Value_Store/0981Time_Based_Key_Value_Store.md) | 
 
 
 <!-- ```diff
