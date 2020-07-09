@@ -53,7 +53,94 @@ Output: [null,null,null,"","high","high","low","low"]
 
 ### Code (python)
 
-[Approach 1] (90%)
+[Approach 1] (50%)
+
+```python
+class TimeMap:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.hash_dict = {}
+        
+
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        if key in self.hash_dict:
+            temp = self.hash_dict[key]
+            index = bisect.bisect_right(temp[1], timestamp)
+            temp[0].insert(index, value)
+            temp[1].insert(index, timestamp)
+        else:
+            self.hash_dict[key] = [[value], [timestamp]]
+        
+
+    def get(self, key: str, timestamp: int) -> str:
+        if key in self.hash_dict:
+            temp = self.hash_dict[key]
+            if timestamp < temp[1][0]:
+                return ""
+            else:
+                index = bisect.bisect_right(temp[1], timestamp)
+                return temp[0][index - 1]
+        else:
+            return ""
+```
+
+[Approach 2] (76%) (O(1) and log(N))
+
+```python
+class TimeMap(object):
+    def __init__(self):
+        self.M = collections.defaultdict(list)
+
+    def set(self, key, value, timestamp):
+        self.M[key].append((timestamp, value))
+
+    def get(self, key, timestamp):
+        A = self.M.get(key, None)
+        if A is None: return ""
+        i = bisect.bisect(A, (timestamp, chr(127)))
+        return A[i-1][1] if i else ""
+```
+
+```python
+class TimeMap(object):
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.d = collections.defaultdict(list)
+        
+
+    def set(self, key, value, timestamp):
+        """
+        :type key: str
+        :type value: str
+        :type timestamp: int
+        :rtype: None
+        """
+        self.d[key].append((value, timestamp))
+        
+
+    def get(self, key, timestamp):
+        """
+        :type key: str
+        :type timestamp: int
+        :rtype: str
+        """
+        if key not in self.d:
+            return ""
+        
+        arr = self.d[key]; i = len(arr)-1
+        while i >= 0 and arr[i][1] > timestamp:
+            i -= 1
+        return arr[i][0] if i >= 0 else ""
+
+```
+
+[Approach 3] (%)
 
 ```python
 
