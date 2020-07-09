@@ -149,6 +149,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0981 | [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)| Hash Table, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/medium/0981Time_Based_Key_Value_Store/0981Time_Based_Key_Value_Store.md) | 
 | 0380 | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)| Array, Hash Table, Design | [Python](https://github.com/yanray/leetcode/blob/master/medium/0380Insert_Delete_GetRandom_O(1)/0380Insert_Delete_GetRandom_O(1).md) | 
 | 0049 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/)| Hash Table, String | [Python](https://github.com/yanray/leetcode/blob/master/medium/0049Group_Anagrams/0049Group_Anagrams.md) | 
+| 0017 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)| String, Backtrakcing | [Python](https://github.com/yanray/leetcode/blob/master/medium/0049Group_Anagrams/0049Group_Anagrams.md) | 
 
 
 <!-- ```diff
