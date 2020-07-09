@@ -88,7 +88,7 @@ class Solution:
         return len(free_rooms)
 ```
 
-[Approach 2: Priority Queues] (%) (Nlog(N))
+[Approach 3: Priority Queues] (%) (Nlog(N))
 ```python
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
@@ -123,4 +123,28 @@ class Solution:
             start_pointer += 1   
 
         return used_rooms
+```
+
+[Approach 3] (60%) (Good Solution)
+```python
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        
+        if not intervals:
+            return 0
+        if len(intervals)==1:
+            return 1
+
+
+        final = []
+        for i in intervals:
+            final.append((i[0], 1))
+            final.append((i[1], -1))
+        final.sort()
+        m = 1
+        current = 1
+        for i in range(1,len(final)):
+            current+= final[i][1]
+            m = max(m, current)
+        return m
 ```
