@@ -108,6 +108,31 @@ class TimeMap(object):
 class TimeMap(object):
 
     def __init__(self):
+        self.map = collections.defaultdict(list)
+        
+
+    def set(self, key, value, timestamp):
+        self.map[key].append((timestamp, value))
+        
+
+    def get(self, key, timestamp):
+        values = self.map[key]
+        if not values: return ''
+        left, right = 0, len(values) - 1
+        while left < right:
+            mid = (left + right + 1) / 2
+            pre_time, value = values[mid]
+            if pre_time > timestamp:
+                right = mid - 1
+            else:
+                left = mid
+        return values[left][1] if values[left][0] <= timestamp else ''
+```
+
+```python
+class TimeMap(object):
+
+    def __init__(self):
         """
         Initialize your data structure here.
         """
@@ -140,8 +165,35 @@ class TimeMap(object):
 
 ```
 
-[Approach 3] (%)
+https://leetcode.com/problems/time-based-key-value-store/discuss/537385/Python-solution-Using-Hash-%2B-LinkedList.-Another-way-to-solve-the-problem.
+
+[Approach 3] (60%+)
 
 ```python
+class TimeMap:
 
+    def __init__(self):
+        # dictionary: key -> max-heap ordered by timestamp
+        self.dict = {}
+        
+
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        if key in self.dict:
+            heap = self.dict[key]
+        else:
+            heap = []
+            self.dict[key] = heap
+        
+        # negate timestamp to emulate max-heap
+        heappush(heap, (-timestamp, value))
+        
+
+    def get(self, key: str, timestamp: int) -> str:
+        if key in self.dict:
+            heap = self.dict[key]
+            # search through heap until we find the first element with a valid timestamp
+            for val in heap:
+                if -val[0] <= timestamp:
+                    return val[1]
+        return ""
 ```
