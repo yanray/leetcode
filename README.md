@@ -154,6 +154,9 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0046 | [Permutations](https://leetcode.com/problems/permutations/)| Backtracking | [Python](https://github.com/yanray/leetcode/blob/master/medium/0046Permutations/0046Permutations.md) | 
 
 
+
+
+| 0046 | [Permutations](https://leetcode.com/problems/permutations/)| Backtracking | [Python](https://github.com/yanray/leetcode/blob/master/medium/0046Permutations/0046Permutations.md) |
 <!-- ```diff
 - text in red
 + text in green
