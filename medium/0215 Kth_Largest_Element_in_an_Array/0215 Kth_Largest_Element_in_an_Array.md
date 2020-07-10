@@ -1,106 +1,114 @@
-## Letter Combinations of a Phone Number
+## Kth Largest Element in an Array
 
 ### Problem Link
 
-https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+https://leetcode.com/problems/kth-largest-element-in-an-array/
 
 ### Problem Description 
 
-Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
-
-A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
-
-hash_dict = {"2" : ["a", "b", "c"],
-            "3" : ["d", "e", "f"], 
-            "4" : ["g", "h", "i"], 
-            "5" : ["j", "k", "l"], 
-            "6" : ["m", "n", "o"], 
-            "7" : ["p", "q", "r", "s"], 
-            "8" : ["t", "u", "v"], 
-            "9" : ["w", "x", "y", "z"]}
+Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
 ```
 Example 1:
 
-Input: "23"
-Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+Input: [3,2,1,5,6,4] and k = 2
+Output: 5
+
+```
+
+```
+Example 2:
+
+Input: [3,2,3,1,2,4,5,5,6] and k = 4
+Output: 4
 
 ```
 
 **Note:**
 
-Although the above answer is in lexicographical order, your answer could be in any order you want.
+You may assume k is always valid, 1 ≤ k ≤ array's length.
 
 ### Code (python)
 
-[Approach 1] (94%)
+[Approach 1] (87%) 
 
 ```python
 class Solution:
-    def letterCombinations(self, digits: str) -> List[str]:
-        
-        if not digits:
-            return []
-        
-        hash_dict = {"2" : ["a", "b", "c"],
-                     "3" : ["d", "e", "f"], 
-                     "4" : ["g", "h", "i"], 
-                     "5" : ["j", "k", "l"], 
-                     "6" : ["m", "n", "o"], 
-                     "7" : ["p", "q", "r", "s"], 
-                     "8" : ["t", "u", "v"], 
-                     "9" : ["w", "x", "y", "z"]}
-        
-        result = hash_dict[digits[-1]]
-        for i in range(len(digits) - 2, -1, -1):
-            temp = []
-            mapping = hash_dict[digits[i]]
-            for j in range(len(mapping)):
-                for k in range(len(result)):
-                    temp.append(mapping[j] + result[k])
-                    
-            result = temp
-        
-        
-        return result
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+
+        nums.sort(reverse = True)
+        return nums[k - 1]
 ```
 
-[Approach 2: Backtracking] (80%) 
+[Approach 2] (80%) O(Nlogk)
 
 ```python
 class Solution:
-    def letterCombinations(self, digits):
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        
+        # heapq.heapify(nums)
+        return heapq.nlargest(k, nums)[-1]
+```
+
+Finally the overall algorithm is quite straightforward :
+
+* Choose a random pivot.
+
+* Use a partition algorithm to place the pivot into its perfect position pos in the sorted array, move smaller elements to the left of pivot, and larger or equal ones - to the right.
+
+* Compare pos and N - k to choose the side of array to proceed recursively.
+
+[Approach 3: Quickselect] (%) O(N)
+
+```python
+class Solution:
+    def findKthLargest(self, nums, k):
         """
-        :type digits: str
-        :rtype: List[str]
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
         """
-        phone = {'2': ['a', 'b', 'c'],
-                 '3': ['d', 'e', 'f'],
-                 '4': ['g', 'h', 'i'],
-                 '5': ['j', 'k', 'l'],
-                 '6': ['m', 'n', 'o'],
-                 '7': ['p', 'q', 'r', 's'],
-                 '8': ['t', 'u', 'v'],
-                 '9': ['w', 'x', 'y', 'z']}
-                
-        def backtrack(combination, next_digits):
-            # if there is no more digits to check
-            if len(next_digits) == 0:
-                # the combination is done
-                output.append(combination)
-            # if there are still digits to check
+        def partition(left, right, pivot_index):
+            pivot = nums[pivot_index]
+            # 1. move pivot to end
+            nums[pivot_index], nums[right] = nums[right], nums[pivot_index]  
+            
+            # 2. move all smaller elements to the left
+            store_index = left
+            for i in range(left, right):
+                if nums[i] < pivot:
+                    nums[store_index], nums[i] = nums[i], nums[store_index]
+                    store_index += 1
+
+            # 3. move pivot to its final place
+            nums[right], nums[store_index] = nums[store_index], nums[right]  
+            
+            return store_index
+        
+        def select(left, right, k_smallest):
+            """
+            Returns the k-th smallest element of list within left..right
+            """
+            if left == right:       # If the list contains only one element,
+                return nums[left]   # return that element
+            
+            # select a random pivot_index between 
+            pivot_index = random.randint(left, right)     
+                            
+            # find the pivot position in a sorted list   
+            pivot_index = partition(left, right, pivot_index)
+            
+            # the pivot is in its final sorted position
+            if k_smallest == pivot_index:
+                 return nums[k_smallest]
+            # go left
+            elif k_smallest < pivot_index:
+                return select(left, pivot_index - 1, k_smallest)
+            # go right
             else:
-                # iterate over all letters which map 
-                # the next available digit
-                for letter in phone[next_digits[0]]:
-                    # append the current letter to the combination
-                    # and proceed to the next digits
-                    backtrack(combination + letter, next_digits[1:])
-                    
-        output = []
-        if digits:
-            backtrack("", digits)
-        return output
+                return select(pivot_index + 1, right, k_smallest)
+
+        # kth largest is (n - k)th smallest 
+        return select(0, len(nums) - 1, len(nums) - k)
 ```
 
-https://leetcode.com/problems/letter-combinations-of-a-phone-number/discuss/671244/Python-The-itertools-way-of-doing-it
