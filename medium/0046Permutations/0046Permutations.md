@@ -127,3 +127,7 @@ def permute(self, nums: List[int]) -> List[List[int]]:
 	backtrace(nums, [])
 	return result
 ```
+
+https://leetcode.com/problems/permutations/discuss/711899/Faster-than-99.5-short-python3-code-with-pop()-and-insert.
+
+https://leetcode.com/problems/permutations/discuss/?currentPage=1&orderBy=hot&query=&tag=python
