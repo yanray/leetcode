@@ -112,3 +112,54 @@ class Solution:
         return select(0, len(nums) - 1, len(nums) - k)
 ```
 
+```python
+from random import uniform
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        # transform into the k smallest
+        k = len(nums)-k
+        # solve kth smallest in O(n)
+        def quick_select(nums, k):
+            # get a random pivot
+            pivot = int(uniform(0, len(nums)))
+            # smaller than pivot -> left, bigger -> right
+            left, right = [], []
+            for i, e in enumerate(nums):
+                if e <= nums[pivot] and i != pivot: left.append(e)
+                if e > nums[pivot]: right.append(e)
+            # match with k, we are done
+            if k == len(left): return nums[pivot]
+            # keep exploring
+            if k < len(left):
+                return quick_select(left, k)
+            else:
+                return quick_select(right, k-len(left)-1)
+        return quick_select(nums, k)
+```
+
+```python
+import random
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        p = self.getPivot(nums)
+        
+        if p+1 == k: return nums[p]
+        elif p+1 > k: return self.findKthLargest(nums[:p], k)
+        else: return self.findKthLargest(nums[p+1:],k-1-p)
+        
+    def getPivot(self, nums):
+        lo,hi = 0, len(nums)-1
+        if lo>=hi: return lo
+        self.swap(nums, random.randrange(lo,hi,1), hi)
+        i = lo
+        for j in range(lo, hi):
+            if nums[j]>nums[hi]:
+                self.swap(nums, i , j)
+                i+=1
+        self.swap(nums,i,hi)
+        return i
+        
+    def swap(self, nums, i ,j):
+        nums[i], nums[j] = nums[j], nums[i]
+        return nums
+```
