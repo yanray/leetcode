@@ -62,3 +62,68 @@ class Solution:
         return result
 ```
 
+[Approach 2: Backtracking] (32%)
+
+```python
+class Solution:
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        def backtrack(first = 0):
+            # if all integers are used up
+            if first == n:  
+                output.append(nums[:])
+            for i in range(first, n):
+                # place i-th integer first 
+                # in the current permutation
+                nums[first], nums[i] = nums[i], nums[first]
+                # use next integers to complete the permutations
+                backtrack(first + 1)
+                # backtrack
+                nums[first], nums[i] = nums[i], nums[first]
+        
+        n = len(nums)
+        output = []
+        backtrack()
+        return output
+```
+
+```python
+class Solution:
+    def permute(self, arr):
+        output = []
+        result = []
+        self.permuteHelper(arr, output, result)
+        return result
+
+    def permuteHelper(self, arr, output, result):
+        if not arr:
+        # print(output)
+            result.append(output[:])
+        else:
+            for i in range(len(arr)):
+                item = arr.pop(i)
+                # print(arr)
+                output.append(item)
+                self.permuteHelper(arr, output, result)
+                output.pop()
+                arr.insert(i, item)
+```
+
+```python
+def permute(self, nums: List[int]) -> List[List[int]]:
+	result = []
+	def backtrace(nums, path):
+		if len(path)==len(nums):
+			result.append(path[:])
+			return
+		for num in nums:
+			if num not in path:
+				path.append(num)
+				backtrace(nums, path)
+				path.pop()
+	backtrace(nums, [])
+	return result
+```
