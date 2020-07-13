@@ -41,7 +41,32 @@ Explanation:
 
 ### Code (python)
 
-[Approach 1] (%) 
+[Approach 1] (80%) 
+
+```python
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        
+        hash_dict = {}
+        
+        for i in range(len(nums2)):
+            hash_dict[nums2[i]] = i
+            
+        for i in range(len(nums1)):
+            index = hash_dict[nums1[i]] + 1
+            
+            while index < len(nums2) and nums1[i] > nums2[index]:
+                index += 1
+                
+            if index == len(nums2):
+                nums1[i] = -1
+            else:
+                nums1[i] = nums2[index]
+                
+        return nums1
+```
+
+[Approach 2] %) 
 
 ```python
 
