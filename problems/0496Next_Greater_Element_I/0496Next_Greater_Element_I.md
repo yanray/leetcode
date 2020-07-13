@@ -66,8 +66,17 @@ class Solution:
         return nums1
 ```
 
-[Approach 2] %) 
+[Approach 2] (%)  (O(m + n))
 
 ```python
-
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        
+        next_greater = {}
+        stack = []
+        for n in nums2:
+            while stack and stack[-1]<n:
+                next_greater[stack.pop()] = n
+            stack.append(n)
+        return [next_greater.get(n, -1) for n in nums1]
 ```
