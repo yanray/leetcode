@@ -1,102 +1,48 @@
-## Excel Sheet Column Number
+## Next Greater Element I
 
 ### Problem Link
 
-https://leetcode.com/problems/excel-sheet-column-number/
+https://leetcode.com/problems/next-greater-element-i/
 
 ### Problem Description 
 
-Given a column title as appear in an Excel sheet, return its corresponding column number.
+You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1's elements in the corresponding places of nums2.
 
-For example:
-```
-    A -> 1
-    B -> 2
-    C -> 3
-    ...
-    Z -> 26
-    AA -> 27
-    AB -> 28 
-    ...
-```
+The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.
 
 ```
 Example 1:
 
-Input: "A"
-Output: 1
+Input: nums1 = [4,1,2], nums2 = [1,3,4,2].
+Output: [-1,3,-1]
+Explanation:
+    For number 4 in the first array, you cannot find the next greater number for it in the second array, so output -1.
+    For number 1 in the first array, the next greater number for it in the second array is 3.
+    For number 2 in the first array, there is no next greater number for it in the second array, so output -1.
 
 ```
 
 ```
 Example 2:
 
-Input: "AB"
-Output: 28
+Input: nums1 = [2,4], nums2 = [1,2,3,4].
+Output: [3,-1]
+Explanation:
+    For number 2 in the first array, the next greater number for it in the second array is 3.
+    For number 4 in the first array, there is no next greater number for it in the second array, so output -1.
 
 ```
 
-```
-Example 3:
+**Note:**
 
-Input: "ZY"
-Output: 701
-
-```
- 
-**Constraints:**
-
-1. 1 <= s.length <= 7
-2. s consists only of uppercase English letters.
-3. s is between "A" and "FXSHRXW".
+1. All elements in nums1 and nums2 are unique.
+2. The length of both nums1 and nums2 would not exceed 1000.
 
 
 ### Code (python)
 
-[Approach 1] (23%) 
+[Approach 1] (%) 
 
 ```python
-class Solution:
-    def titleToNumber(self, s: str) -> int:
-        
-        sum_val = 0
-        carry = len(s) - 1
-        base = 64
-        for i in range(len(s)):
-            sum_val += (ord(s[i]) - base) * (26 ** carry)
-            carry -= 1
-            
-        return sum_val
+
 ```
-
-[Approach 2: Right to Left] O(N)
-
-```python
-class Solution:
-    def titleToNumber(self, s: str) -> int:
-        result = 0
-        
-        # Decimal 65 in ASCII corresponds to char 'A'
-        alpha_map = {chr(i + 65): i + 1 for i in range(26)}
-
-        n = len(s)
-        for i in range(n):
-            cur_char = s[n - 1 - i]
-            result += (alpha_map[cur_char] * (26 ** i))
-        return result
-```
-
-[Approach 3: Left to Right] (90%)  O(N)
-
-```python
-class Solution:
-    def titleToNumber(self, s: str) -> int:
-        result = 0
-        n = len(s)
-        for i in range(n):
-            result = result * 26
-            result += (ord(s[i]) - ord('A') + 1)
-        return result
-```
-
-https://leetcode.com/problems/excel-sheet-column-number/discuss/675168/AC-simply-readable-Python-2-solutions
