@@ -89,5 +89,14 @@ class Solution:
 [Approach 3: Left to Right] (90%)  O(N)
 
 ```python
-
+class Solution:
+    def titleToNumber(self, s: str) -> int:
+        result = 0
+        n = len(s)
+        for i in range(n):
+            result = result * 26
+            result += (ord(s[i]) - ord('A') + 1)
+        return result
 ```
+
+https://leetcode.com/problems/excel-sheet-column-number/discuss/675168/AC-simply-readable-Python-2-solutions
