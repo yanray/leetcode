@@ -44,15 +44,6 @@ Output: "ZY"
 
 ```
 
-```
-Example 4:
-
-Input: S = "a#c", T = "b"
-Output: false
-Explanation: S becomes "c" while T becomes "b".
-
-```
-
 ### Code (python)
 
 [Approach 1] (91%)
