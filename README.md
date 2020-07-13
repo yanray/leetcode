@@ -115,7 +115,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 1010 | [Pairs of Songs With Total Durations Divisible by 60](https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/1010Pairs_of_Songs_With_Total_Durations_Divisible_by_60/1010Pairs_of_Songs_With_Total_Durations_Divisible_by_60.md) | 
 | 0069 | [Sqrt(x)](https://leetcode.com/problems/sqrtx/)| Math, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0069Sqrt(x)/0069Sqrt(x).md) | 
 | 0453 | [Minimum Moves to Equal Array Elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0453Minimum_Moves_to_Equal_Array_Elements/0453Minimum_Moves_to_Equal_Array_Elements.md) | 
-| 1071 | [Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/0453Minimum_Moves_to_Equal_Array_Elements/0453Minimum_Moves_to_Equal_Array_Elements.md) | 
+| 1071 | [Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/1071Greatest_Common_Divisor_of_Strings/1071Greatest_Common_Divisor_of_Strings.md) | 
 
 
 
