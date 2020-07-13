@@ -1,50 +1,70 @@
-## Greatest Common Divisor of Strings
+## Excel Sheet Column Number
 
 ### Problem Link
 
-https://leetcode.com/problems/greatest-common-divisor-of-strings/
+https://leetcode.com/problems/excel-sheet-column-number/
 
 ### Problem Description 
 
-For strings S and T, we say "T divides S" if and only if S = T + ... + T  (T concatenated with itself 1 or more times)
+Given a column title as appear in an Excel sheet, return its corresponding column number.
 
-Return the largest string X such that X divides str1 and X divides str2.
+For example:
+```
+    A -> 1
+    B -> 2
+    C -> 3
+    ...
+    Z -> 26
+    AA -> 27
+    AB -> 28 
+    ...
+```
 
 ```
 Example 1:
 
-Input: str1 = "ABCABC", str2 = "ABC"
-Output: "ABC"
+Input: "A"
+Output: 1
 
 ```
 
 ```
 Example 2:
 
-Input: str1 = "ABABAB", str2 = "ABAB"
-Output: "AB"
+Input: "AB"
+Output: 28
 
 ```
 
 ```
 Example 3:
 
-Input: str1 = "LEET", str2 = "CODE"
-Output: ""
+Input: "ZY"
+Output: 701
 
 ```
  
-**Note:**
+**Constraints:**
 
-1. 1 <= str1.length <= 1000
-2. 1 <= str2.length <= 1000
-3. str1[i] and str2[i] are English uppercase letters.
+1. 1 <= s.length <= 7
+2. s consists only of uppercase English letters.
+3. s is between "A" and "FXSHRXW".
 
 
 ### Code (python)
 
-[Approach 1] (%) 
+[Approach 1] (23%) 
 
 ```python
-
+class Solution:
+    def titleToNumber(self, s: str) -> int:
+        
+        sum_val = 0
+        carry = len(s) - 1
+        base = 64
+        for i in range(len(s)):
+            sum_val += (ord(s[i]) - base) * (26 ** carry)
+            carry -= 1
+            
+        return sum_val
 ```
