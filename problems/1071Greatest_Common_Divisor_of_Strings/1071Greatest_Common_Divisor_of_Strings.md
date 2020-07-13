@@ -55,7 +55,8 @@ class Solution:
             return str1
         else:
             gcd_val = math.gcd(len(str1), len(str2))
-            return self.gcdOfStrings(str1[:gcd_val], str2[:gcd_val])
+            # return self.gcdOfStrings(str1[:gcd_val], str2[:gcd_val])
+            return str1[:gcd_val]
 ```
 
 [Approach 2] (%) 
