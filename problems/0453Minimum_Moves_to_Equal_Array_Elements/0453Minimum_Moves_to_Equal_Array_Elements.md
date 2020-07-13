@@ -78,24 +78,6 @@ class Solution:
         return moves
 ```
 
-
-[Approach 4: Using DP] (25%)  O(nlog(n))
-
-```python
-class Solution:
-    def minMoves(self, nums: List[int]) -> int:
-        
-        nums.sort()
-        
-        moves = 0
-        for i in range(1, len(nums)):
-            diff = moves + nums[i] - nums[i - 1]
-            nums[i] += moves
-            moves += diff
-            
-        return moves
-```
-
 [Approach 5: Using Math] (25%)  O(N)
 
 ```python
