@@ -45,3 +45,9 @@ class Solution:
             
         return moves
 ```
+
+[Approach 3 Using Sorting]
+
+```python
+
+```
