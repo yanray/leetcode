@@ -1,49 +1,47 @@
-## Copy List with Random Pointer
+## Minimum Moves to Equal Array Elements
 
 ### Problem Link
 
-https://leetcode.com/problems/copy-list-with-random-pointer/
+https://leetcode.com/problems/minimum-moves-to-equal-array-elements/
 
 ### Problem Description 
 
-A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.
+Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
 
-Return a deep copy of the list.
+```
+Example 1:
 
-The Linked List is represented in the input/output as a list of n nodes. Each node is represented as a pair of [val, random_index] where:
+Input:
+[1,2,3]
 
-val: an integer representing Node.val
-random_index: the index of the node (range from 0 to n-1) where random pointer points to, or null if it does not point to any node.
+Output:
+3
 
+Explanation:
+Only three moves are needed (remember each move increments two elements):
+
+[1,2,3]  =>  [2,3,3]  =>  [3,4,3]  =>  [4,4,4]
+
+```
 
 ### Code (python)
 
-[Approach 1] (93%) 
+[Approach 1] (34%) 
 
 ```python
 class Solution:
-    def copyRandomList(self, head: 'Node') -> 'Node':
+    def minMoves(self, nums: List[int]) -> int:
         
-        hash_dict = {}
-        dummy = new_head = None
-        temp = head
-        while temp:
-            if new_head:
-                new_head.next = Node(temp.val)
-                new_head = new_head.next
-            else:
-                dummy = new_head = Node(temp.val)
-            hash_dict[temp] = new_head
-            temp = temp.next
-
-        temp = head
-        new_head = dummy
-        while temp:
-            rand_node = temp.random
-            if rand_node:
-                new_head.random = hash_dict[rand_node]
-            new_head = new_head.next
-            temp = temp.next
+        if len(nums) <= 1:
+            return 0
+        
+        nums.sort()
+        
+        moves = 0
+        count = 1
+        for i in range(len(nums) - 1, 0, -1):
+            moves += count * (nums[i] - nums[i - 1])
+            count += 1
             
-        return dummy
+        return moves
 ```
