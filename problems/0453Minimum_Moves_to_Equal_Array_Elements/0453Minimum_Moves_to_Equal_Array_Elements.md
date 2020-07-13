@@ -46,8 +46,67 @@ class Solution:
         return moves
 ```
 
-[Approach 3 Using Sorting]
+[Approach 3: Using Sorting] (41%)  O(nlog(n))
 
 ```python
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        
+        nums.sort()
+        
+        moves = 0
+        for i in range(len(nums) - 1, 0, -1):
+            moves += nums[i] - nums[0]
+            
+        return moves
+```
 
+[Approach 4: Using DP] (25%)  O(nlog(n))
+
+```python
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        
+        nums.sort()
+        
+        moves = 0
+        for i in range(1, len(nums)):
+            diff = moves + nums[i] - nums[i - 1]
+            nums[i] += moves
+            moves += diff
+            
+        return moves
+```
+
+
+[Approach 4: Using DP] (25%)  O(nlog(n))
+
+```python
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        
+        nums.sort()
+        
+        moves = 0
+        for i in range(1, len(nums)):
+            diff = moves + nums[i] - nums[i - 1]
+            nums[i] += moves
+            moves += diff
+            
+        return moves
+```
+
+[Approach 5: Using Math] (25%)  O(N)
+
+```python
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        
+        min_val = min(nums)
+        
+        moves = 0
+        for i in range(len(nums)):
+            moves += nums[i] - min_val
+            
+        return moves
 ```
