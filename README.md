@@ -116,7 +116,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0069 | [Sqrt(x)](https://leetcode.com/problems/sqrtx/)| Math, Binary Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0069Sqrt(x)/0069Sqrt(x).md) | 
 | 0453 | [Minimum Moves to Equal Array Elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0453Minimum_Moves_to_Equal_Array_Elements/0453Minimum_Moves_to_Equal_Array_Elements.md) | 
 | 1071 | [Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/1071Greatest_Common_Divisor_of_Strings/1071Greatest_Common_Divisor_of_Strings.md) | 
-| 0171 | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/1071Greatest_Common_Divisor_of_Strings/1071Greatest_Common_Divisor_of_Strings.md) | 
+| 0171 | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0171Excel_Sheet_Column_Number/0171Excel_Sheet_Column_Number.md) | 
 
 
 
