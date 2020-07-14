@@ -119,6 +119,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0171 | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0171Excel_Sheet_Column_Number/0171Excel_Sheet_Column_Number.md) | 
 | 0496 | [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/)| Stack | [Python](https://github.com/yanray/leetcode/blob/master/problems/0496Next_Greater_Element_I/0496Next_Greater_Element_I.md) | 
 | 1029 | [Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)| Greedy | [Python](https://github.com/yanray/leetcode/blob/master/problems/1029Two_City_Scheduling/1029Two_City_Scheduling.md) | 
+| 0346 | [Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/)| Design Queue | [Python](https://github.com/yanray/leetcode/blob/master/problems/1029Two_City_Scheduling/1029Two_City_Scheduling.md) | 
 
 
 
