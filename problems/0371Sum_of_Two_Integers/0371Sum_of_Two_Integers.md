@@ -120,3 +120,5 @@ class Solution:
             b = carry
         return (a & mask) if b > 0 else a
 ```
+
+https://leetcode.com/problems/sum-of-two-integers/discuss/84410/Python-Solution
