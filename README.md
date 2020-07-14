@@ -30,8 +30,8 @@ https://www.cnblogs.com/beile/p/11276532.html
 
 #### Easy (By Frequency)
 
-| # | Title | Tag | Solution1 | 
-|---| ----- | --- | --------- | 
+| # | Title | Tag | Solution1 | Solution2 |
+|---| ----- | --- | --------- | --------- |
 | 0001 | [Two Sum](https://leetcode.com/problems/two-sum/) | Array, Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0001Two_Sum/0001Two_Sum.md) | 
 | 0020 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | String, Stack | [Python](https://github.com/yanray/leetcode/blob/master/problems/0020Valid_Parentheses/0020Valid_Parentheses.md) | 
 | 0021 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)| Linked List | [Python](https://github.com/yanray/leetcode/blob/master/problems/0021Merge_Two_Sorted%20_Lists/0021Merge_Two_Sorted%20_Lists.md) | 
@@ -119,7 +119,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0171 | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0171Excel_Sheet_Column_Number/0171Excel_Sheet_Column_Number.md) | 
 | 0496 | [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/)| Stack | [Python](https://github.com/yanray/leetcode/blob/master/problems/0496Next_Greater_Element_I/0496Next_Greater_Element_I.md) | 
 | 1029 | [Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)| Greedy | [Python](https://github.com/yanray/leetcode/blob/master/problems/1029Two_City_Scheduling/1029Two_City_Scheduling.md) | 
-| 0346 | [Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/)| Design Queue | [Python](https://github.com/yanray/leetcode/blob/master/problems/1029Two_City_Scheduling/1029Two_City_Scheduling.md) | 
+| 0346 | [Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/)| Design Queue | [Python](https://github.com/yanray/leetcode/blob/master/problems/1029Two_City_Scheduling/1029Two_City_Scheduling.md) | [C++](https://github.com/yanray/leetcode/blob/master/problems/1029Two_City_Scheduling/1029Two_City_Scheduling.md) | 
 
 
 
