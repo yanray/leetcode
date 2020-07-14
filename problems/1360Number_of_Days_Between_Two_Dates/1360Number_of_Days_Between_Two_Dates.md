@@ -1,4 +1,4 @@
-## Sum of Two Integers
+## Number of Days Between Two Dates
 
 ### Problem Link
 
@@ -6,23 +6,29 @@ https://leetcode.com/problems/binary-tree-paths/
 
 ### Problem Description 
 
-Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+Write a program to count the number of days between two dates.
+
+The two dates are given as strings, their format is YYYY-MM-DD as shown in the examples.
 
 ```
 Example 1:
 
-Input: a = 1, b = 2
-Output: 3
+Input: date1 = "2019-06-29", date2 = "2019-06-30"
+Output: 1
 
 ```
 
 ```
 Example 2:
 
-Input: a = -2, b = 3
-Output: 1
+Input: date1 = "2020-01-15", date2 = "2019-12-31"
+Output: 15
 
 ```
+
+**Constraints:**
+
+The given dates are valid dates between the years 1971 and 2100.
 
 ### Code (python)
 
@@ -30,95 +36,80 @@ Output: 1
 
 ```python
 class Solution:
-    def getSum(self, a: int, b: int) -> int:
-        
-        x, y = abs(a), abs(b)
-        if x < y:
-            return self.getSum(b, a)
-        
-        sign = 1 if a > 0 else -1
+    def daysBetweenDates(self, date1: str, date2: str) -> int:
+        monthdays1 = [31, 28, 31, 30, 31, 30,  
+                        31, 31, 30, 31, 30, 31 ]
+        monthdays2= [31, 29, 31, 30, 31, 30,  
+                        31, 31, 30, 31, 30, 31 ]
+        dat1=date1.split('-')
+        dat2=date2.split('-')
+        year1,month1,day1=dat1[:]
+        year2,month2,day2=dat2[:]
+        def count(year,month,day):
+            n=0
+            for i in range(1970,year):
+                if leap(i):
+                    n+=366
+                else:
+                    n+=365
+            n+=day
+            if leap(year):
+                for i in range(0,month-1):
+                    n+=monthdays2[i]
+            else:
+                for i in range(0,month-1):
+                    n+=monthdays1[i]       
+            return n
+        def leap(year):
+            if (year%4)==0:
+                if (year%100==0):
+                    if (year%400==0):
+                        return True
+                    else:
+                        return False
+                else:
+                    return True
+            else:
+                return False
+        y1=count(int(year1),int(month1),int(day1))
+        y2=count(int(year2),int(month2),int(day2))
+        return abs(y2-y1)
+```
 
-        if a * b >= 0:
-            
-            while y:
-                answer = x ^ y
-                carry = (x & y) << 1
-                x, y = answer, carry    
-        else:
-            while y:
-                answer = x ^ y
-                borrow = ((~x) & y) << 1
-                x, y = answer, borrow
-            
-        return x * sign
+[Approach 2: Using datetime] (99%)
+
+```python
+from datetime import date
+
+class Solution:
+    def daysBetweenDates(self, date1: str, date2: str) -> int:
+        date1 = list(map(int, date1.split('-')))
+        date2 = list(map(int, date2.split('-')))
+        
+        one = date(date1[0], date1[1], date1[2])
+        two =  date(date2[0], date2[1], date2[2])
+        delta = one - two
+        
+        return(abs(delta.days))
 ```
 
 ```python
+from datetime import date
 class Solution:
-    def getSum(self, a: int, b: int) -> int:
-        x, y = abs(a), abs(b)
-        # ensure x >= y
-        if x < y:
-            return self.getSum(b, a)  
-        sign = 1 if a > 0 else -1
-        
-        if a * b >= 0:
-            # sum of two positive integers
-            while y:
-                x, y = x ^ y, (x & y) << 1
-        else:
-            # difference of two positive integers
-            while y:
-                x, y = x ^ y, ((~x) & y) << 1
-        
-        return x * sign
+    def daysBetweenDates(self, date1: str, date2: str) -> int:
+        get_date = lambda x: date(*map(int,x.split('-')))
+        return abs((get_date(date1)-get_date(date2)).days)
 ```
-
-[Approach 2] (76%)
 
 ```python
-class Solution:
-    def getSum(self, a: int, b: int) -> int:
-        def myadd(c, d):
-            while d != 0:
-                c, d = c^d, (c&d)<<1
-            return c
-        if a < 0 and myadd(~a, 1) <= b or b < 0 and myadd(~b, 1) <= a:
-            return ~myadd(myadd(~a, ~b), 1)
-        return myadd(a, b)
+class Solution(object):
+    def daysBetweenDates(self, date1, date2):
+        """
+        :type date1: str
+        :type date2: str
+        :rtype: int
+        """
+        y1, m1, d1 = map(int, date1.split('-'))
+        y2, m2, d2 = map(int, date2.split('-'))
+        return abs(int((datetime.datetime(y1,m1,d1)- datetime.datetime(y2,m2,d2)).days))
 ```
-
-[Approach 3] (%)
-
-```python
-class Solution:
-    def getSum(self, a: int, b: int) -> int:
-        ## RC ##
-        ## APPROACH : BITWISE OPERATIONS ##
-        ## LOGIC ##
-        #   1. For any two numbers, if their binary representations are completely opposite, then XOR operation will directly produce sum of numbers ( in this case carry is 0 )
-        #   2. what if the numbers binary representation is not completely opposite, XOR will only have part of the sum and remaining will be carry, which can be produced by and operation followed by left shift operation.
-        #   3. For Example 18, 13 => 10010, 01101 => XOR => 11101 => 31 (ans found), and operation => carry => 0
-        #   4. For Example 7, 5
-        #   1 1 1                   1 1 1
-        #   1 0 1                   1 0 1
-        #   -----                   -----
-        #   0 1 0   => XOR => 2     1 0 1  => carry => after left shift => 1 0 1 0
-        #   2                                                              10
-        # now we have to find sum of 2, 10 i.e a is replace with XOR result and b is replaced wth carry result
-        # similarly repeating this process till carry is 0
-        #   steps will be 7|5 => 2|10 => 8|4  => 12|0
-        
-		## TIME COMPLEXITY : O(1) ##
-		## SPACE COMPLEXITY : O(1) ##
-        
-        # 32 bit mask in hexadecimal
-        mask = 0xffffffff # (python default int size is not 32bit, it is very large number, so to prevent overflow and stop running into infinite loop, we use 32bit mask to limit int size to 32bit )
-        while(b & mask > 0):
-            carry = (a & b) << 1
-            a = a ^ b
-            b = carry
-        return (a & mask) if b > 0 else a
-```
-
-https://leetcode.com/problems/sum-of-two-integers/discuss/84410/Python-Solution
