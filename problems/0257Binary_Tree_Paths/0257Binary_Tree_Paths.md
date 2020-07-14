@@ -80,3 +80,15 @@ class Solution:
         construct_paths(root, '')
         return paths
 ```
+
+[Approach 3] (%)
+
+```python
+class Solution:
+    def binaryTreePaths(self, root: TreeNode) -> List[str]:
+        if not root:
+            return []
+        return [f'{root.val}->{path}' 
+                for path in self.binaryTreePaths(root.left) + self.binaryTreePaths(root.right)] \
+                or [f'{root.val}']
+```
