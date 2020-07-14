@@ -118,6 +118,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 1071 | [Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings/)| String | [Python](https://github.com/yanray/leetcode/blob/master/problems/1071Greatest_Common_Divisor_of_Strings/1071Greatest_Common_Divisor_of_Strings.md) | 
 | 0171 | [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/)| Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0171Excel_Sheet_Column_Number/0171Excel_Sheet_Column_Number.md) | 
 | 0496 | [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/)| Stack | [Python](https://github.com/yanray/leetcode/blob/master/problems/0496Next_Greater_Element_I/0496Next_Greater_Element_I.md) | 
+| 1029 | [Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)| Greedy | [Python](https://github.com/yanray/leetcode/blob/master/problems/0496Next_Greater_Element_I/0496Next_Greater_Element_I.md) | 
 
 
 
