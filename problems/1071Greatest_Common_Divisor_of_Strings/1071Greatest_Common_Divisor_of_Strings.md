@@ -74,3 +74,7 @@ class Solution:
                 return self.gcdOfStrings(str1, str2[:i]+str2[i+len(str1):])
             return '' 
 ```
+
+https://leetcode.com/problems/greatest-common-divisor-of-strings/discuss/426882/python-understandable-from-numerical-gcd
+
+https://leetcode.com/problems/greatest-common-divisor-of-strings/discuss/384620/Python-Solution-or-Euclid's-algorithm-or-10-lines-or-Time-Complexity-greater-95-or-Space-Complexity-greater-100
