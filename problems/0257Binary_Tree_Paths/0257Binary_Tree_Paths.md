@@ -81,7 +81,7 @@ class Solution:
         return paths
 ```
 
-[Approach 3] (%)
+[Approach 3] (%)  O(N)
 
 ```python
 class Solution:
