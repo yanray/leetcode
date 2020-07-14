@@ -71,3 +71,41 @@ class Solution:
             total += costs[i][0] + costs[i + n][1]
         return total
 ```
+
+```python
+class Solution(object):
+    def twoCitySchedCost(self, costs):
+        """
+        :type costs: List[List[int]]
+        :rtype: int
+        """
+        def f(x):
+            return x[0] - x[1]
+        
+        costs.sort(key = f)
+        total = 0
+        n = len(costs) // 2
+        for i in range(n):
+            total += costs[i][0] + costs[i + n][1]
+        return total
+```
+
+```python
+class Solution(object):
+    def twoCitySchedCost(self, costs):
+        """
+        :type costs: List[List[int]]
+        :rtype: int
+        """
+        class Compare:
+            def __init__(self, x):
+                self.x = x
+            def __cmp__(self, y):
+                return self.x[0] - self.x[1] - (y.x[0] - y.x[1])
+        costs.sort(key = Compare)
+        total = 0
+        n = len(costs) // 2
+        for i in range(n):
+            total += costs[i][0] + costs[i + n][1]
+        return total
+```
