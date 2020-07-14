@@ -35,8 +35,39 @@ The total minimum cost is 10 + 30 + 50 + 20 = 110 to have half the people interv
 
 ### Code (python)
 
-[Approach 1] (80%) 
+[Approach 1] (67%) 
 
 ```python
+class Solution:
+    def twoCitySchedCost(self, costs: List[List[int]]) -> int:
+        
+        diff_map = []
+        for i in range(len(costs)):
+            diff_map.append((costs[i][0] - costs[i][1], i))    
+        diff_map.sort(key = lambda x:x[0])
+        
+        total_cost = 0
+        for i in range(len(costs) // 2):
+            total_cost += costs[diff_map[i][1]][0]
+        for i in range(len(costs) // 2, len(costs)):
+            total_cost += costs[diff_map[i][1]][1]
+            
+        return total_cost
+```
 
+```python
+class Solution:
+    def twoCitySchedCost(self, costs: List[List[int]]) -> int:
+        # Sort by a gain which company has 
+        # by sending a person to city A and not to city B
+        costs.sort(key = lambda x : x[0] - x[1])
+        
+        total = 0
+        n = len(costs) // 2
+        # To optimize the company expenses,
+        # send the first n persons to the city A
+        # and the others to the city B
+        for i in range(n):
+            total += costs[i][0] + costs[i + n][1]
+        return total
 ```
