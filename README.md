@@ -121,6 +121,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 1029 | [Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)| Greedy | [Python](https://github.com/yanray/leetcode/blob/master/problems/1029Two_City_Scheduling/1029Two_City_Scheduling.md) | 
 | 0346 | [Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/)| Design, Queue | [Python](https://github.com/yanray/leetcode/blob/master/problems/1029Two_City_Scheduling/1029Two_City_Scheduling.md) | [C++](https://github.com/yanray/leetcode/blob/master/problems/0346Moving_Average_from_Data_Stream/0346Moving_Average_from_Data_Stream_C%2B%2B.md) | 
 | 0257 | [Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/)| Tree, Depth-first Search | [Python](https://github.com/yanray/leetcode/blob/master/problems/0257Binary_Tree_Paths/0257Binary_Tree_Paths.md) | [C++](https://github.com/yanray/leetcode/tree/master/problems/0257Binary_Tree_Paths) | 
+| 0371 | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)| Bit Manipulation | [Python](https://github.com/yanray/leetcode/blob/master/problems/0257Binary_Tree_Paths/0257Binary_Tree_Paths.md) | [C++](https://github.com/yanray/leetcode/tree/master/problems/0257Binary_Tree_Paths) | 
 
 
 
