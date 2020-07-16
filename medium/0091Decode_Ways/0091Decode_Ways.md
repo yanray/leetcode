@@ -89,6 +89,8 @@ class Solution:
 		return dp[3]
 ```
 
+https://leetcode.com/problems/decode-ways/discuss/441486/Simple-clear-Python-limit-space-DP-solution
+
 [Approach 2: Recursive Approach with Memoization]   (O(N))
 
 ```python
@@ -125,3 +127,8 @@ class Solution:
             return 0
         return self.recursive_with_memo(0, s)
 ```
+
+
+https://leetcode.com/problems/decode-ways/discuss/570071/Python3-easy-and-faster-than-57.84
+
+https://leetcode.com/problems/decode-ways/discuss/375152/Python-with-fibonacci-function-O(1)-memory-fast
