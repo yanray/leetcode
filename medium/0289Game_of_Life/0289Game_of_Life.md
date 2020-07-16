@@ -210,6 +210,36 @@ class Solution:
                 board[i][j] >>= 1
 ```
 
+```python
+class Solution:
+    def gameOfLife(self, m):
+        mx,my=len(m),len(m[0])
+        stat = [[0 for i in range(my)] for j in range(mx)]
+        
+        #count the cell amount
+        for x in range(mx):
+            for y in range(my):
+                res = 0
+                for i in (x-1,x,x+1):
+                    for j in (y-1,y,y+1):
+                        if (i==x and j==y) or not (0<=i<mx and 0<=j<my):
+                            pass
+                        else:
+                            res += m[i][j]
+
+                stat[x][y]=res
+        
+        #change
+        for i in range(mx):
+            for j in range(my):
+                if m[i][j]:
+                    if not 1<stat[i][j]<4:
+                        m[i][j]=0
+                else:
+                    if stat[i][j]==3:
+                        m[i][j]=1
+```
+
 [Follow up 2 : Infinite Board]
 
 ```python
