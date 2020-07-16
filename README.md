@@ -164,7 +164,8 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0091 | [Decode Ways](https://leetcode.com/problems/decode-ways/)| String, Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0091Decode_Ways/0091Decode_Ways.md) | 
 | 0289 | [Game of Life](https://leetcode.com/problems/game-of-life/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/medium/0289Game_of_Life/0289Game_of_Life.md) | 
 | 0763 | [Partition Labels](https://leetcode.com/problems/partition-labels/)| Two Pointers, Greedy | [Python](https://github.com/yanray/leetcode/blob/master/medium/0763Partition_Labels/0763Partition_Labels.md) | 
-| 0199 | [Binary Tree Right Side View](hhttps://leetcode.com/problems/binary-tree-right-side-view/)| Tree, DFS, BFS | [Python](https://github.com/yanray/leetcode/blob/master/medium/0199Binary_Tree_Right_Side_View/0199Binary_Tree_Right_Side_View.md) | 
+| 0199 | [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)| Tree, DFS, BFS | [Python](https://github.com/yanray/leetcode/blob/master/medium/0199Binary_Tree_Right_Side_View/0199Binary_Tree_Right_Side_View.md) | 
+| 0221 | [Maximal Square](https://leetcode.com/problems/maximal-square/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0199Binary_Tree_Right_Side_View/0199Binary_Tree_Right_Side_View.md) | 
 
 
 
