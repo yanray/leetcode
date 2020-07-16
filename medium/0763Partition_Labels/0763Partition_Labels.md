@@ -27,8 +27,56 @@ A partition like "ababcbacadefegde", "hijhklij" is incorrect, because it splits 
 
 ### Code (python)
 
-[Approach 1] (%) 
+[Approach 1] (60%) 
 
 ```python
+class Solution:
+    def partitionLabels(self, S: str) -> List[int]:
+        
+        if not S:
+            return []
+        
+        hash_dict = {}
+        for i in range(len(S)):
+            hash_dict[S[i]] = i
+            
+        
+        def helper(S, index):
+            
+            length = hash_dict[S[index]]
 
+            while index < length:
+                length = max(length, hash_dict[S[index]])
+                index += 1
+        
+            return [S[index + 1:], index + 1]
+        
+        result = []
+        temp = S
+        index = 0
+        pre_index = 0
+        
+        while temp != "":
+            temp, index = helper(S, index)
+            result.append(index - pre_index)
+            pre_index = index
+        
+        return result
+```
+
+[Approach 2: Greedy] (60%) 
+
+```python
+class Solution(object):
+    def partitionLabels(self, S):
+        last = {c: i for i, c in enumerate(S)}
+        j = anchor = 0
+        ans = []
+        for i, c in enumerate(S):
+            j = max(j, last[c])
+            if i == j:
+                ans.append(i - anchor + 1)
+                anchor = i + 1
+            
+        return ans
 ```
