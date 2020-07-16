@@ -71,6 +71,24 @@ class Solution(object):
         return dp[len(s)]
 ```
 
+```python
+class Solution:
+	def numDecodings(self, S: str) -> int:
+		if not S or S[0] == "0":
+			return 0
+		dp = [S[0],1,0,1] #"[pre_str, single_end_nums, combine_end_nums, total_nums ]"
+    
+		for s in S[1:]:
+			temp = [s,0,0,0]
+			temp[1] = dp[3] if 1 <= int(s) <= 9 else 0
+			temp[2] = dp[1] if 1 <= int(dp[0]+s) <= 26 else 0
+			temp[3] = temp[1] + temp[2]
+			if temp[3] == 0:
+				return 0
+			dp = temp[:]
+		return dp[3]
+```
+
 [Approach 2: Recursive Approach with Memoization]   (O(N))
 
 ```python
