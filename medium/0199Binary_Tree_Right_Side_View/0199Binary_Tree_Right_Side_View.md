@@ -1,107 +1,179 @@
-## Partition Labels
+## Binary Tree Right Side View
 
 ### Problem Link
 
-https://leetcode.com/problems/partition-labels/
+https://leetcode.com/problems/binary-tree-right-side-view/
 
 ### Problem Description 
 
-A string S of lowercase English letters is given. We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.
+Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
 
 ```
 Example 1:
 
-Input: S = "ababcbacadefegdehijhklij"
-Output: [9,7,8]
+Input: [1,2,3,null,5,null,4]
+Output: [1, 3, 4]
 Explanation:
-The partition is "ababcbaca", "defegde", "hijhklij".
-This is a partition so that each letter appears in at most one part.
-A partition like "ababcbacadefegde", "hijhklij" is incorrect, because it splits S into less parts.
+
+   1            <---
+ /   \
+2     3         <---
+ \     \
+  5     4       <---
 
 ```
 
-**Note:**
-
-1. S will have length in range [1, 500].
-2. S will consist of lowercase English letters ('a' to 'z') only.
 
 ### Code (python)
 
-[Approach 1] (60%) 
+[Approach 1] (50%) 
 
 ```python
 class Solution:
-    def partitionLabels(self, S: str) -> List[int]:
+    def rightSideView(self, root: TreeNode) -> List[int]:
         
-        if not S:
+        if not root:
+            return root
+        
+        q = deque()
+        q.append([root, 1])
+        
+        result = []
+        pre_val = root.val
+        pre_layer = 1
+        
+        while q:
+            node, curr_layer = q.popleft()
+            
+            if pre_layer != curr_layer:
+                pre_layer = curr_layer
+                result.append(pre_val)
+            pre_val = node.val
+            
+            if node.left:
+                q.append([node.left, curr_layer + 1])
+            if node.right:
+                q.append([node.right, curr_layer + 1])
+        result.append(pre_val)        
+        
+        return result
+```
+
+[Approach 2: BFS: Two Queues]
+
+```python
+class Solution:
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        if root is None:
             return []
         
-        hash_dict = {}
-        for i in range(len(S)):
-            hash_dict[S[i]] = i
-            
+        next_level = deque([root,])
+        rightside = []
         
-        def helper(S, index):
-            
-            length = hash_dict[S[index]]
+        while next_level:
+            # prepare for the next level
+            curr_level = next_level
+            next_level = deque()
 
-            while index < length:
-                length = max(length, hash_dict[S[index]])
-                index += 1
+            while curr_level:
+                node = curr_level.popleft()
+                    
+                # add child nodes of the current level
+                # in the queue for the next level
+                if node.left:
+                    next_level.append(node.left)
+                if node.right:
+                    next_level.append(node.right)
+            
+            # The current level is finished.
+            # Its last element is the rightmost one.
+            rightside.append(node.val)
         
-            return [S[index + 1:], index + 1]
-        
-        result = []
-        temp = S
-        index = 0
-        pre_index = 0
-        
-        while temp != "":
-            temp, index = helper(S, index)
-            result.append(index - pre_index)
-            pre_index = index
-        
-        return result
+        return rightside
 ```
 
-[Approach 2: Greedy] (60%) 
 
-```python
-class Solution(object):
-    def partitionLabels(self, S):
-        last = {c: i for i, c in enumerate(S)}
-        j = anchor = 0
-        ans = []
-        for i, c in enumerate(S):
-            j = max(j, last[c])
-            if i == j:
-                ans.append(i - anchor + 1)
-                anchor = i + 1
-            
-        return ans
-```
-
-[Approach 3] (97%)
+[Approach 3: BFS: One Queue + Sentinel]
 
 ```python
 class Solution:
-    def partitionLabels(self, S: str) -> List[int]:
-        result = []
-        partition_chars = []
-        right_indexes = {}
-        i = 0 #string char count
-        j = 1 #partition char count
-        for x in S:
-            if x not in partition_chars:
-                partition_chars.append(x)
-                right_indexes[x] = S.rindex(x)
-            if i == right_indexes[x]:
-                partition_chars.remove(x)
-                if len(partition_chars) == 0:
-                    result.append(j)
-                    j = 0                 
-            j += 1
-            i += 1
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        if root is None:
+            return []
+        
+        queue = deque([root, None,])
+        rightside = []
+        
+        curr = root
+        while queue:
+            prev, curr = curr, queue.popleft()
+
+            while curr:
+                # add child nodes in the queue
+                if curr.left:
+                    queue.append(curr.left)
+                if curr.right:
+                    queue.append(curr.right)
                     
-        return result
+                prev, curr = curr, queue.popleft()
+            
+            # the current level is finished
+            # and prev is its rightmost element      
+            rightside.append(prev.val)
+            # add a sentinel to mark the end 
+            # of the next level
+            if queue:
+                queue.append(None)
+        
+        return rightside
+```
+
+[Approach 4: BFS: One Queue + Level Size Measurements]
+
+```python
+class Solution:
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        if root is None:
+            return []
+        
+        queue = deque([root,])
+        rightside = []
+        
+        while queue:
+            level_length = len(queue)
+
+            for i in range(level_length):
+                node = queue.popleft()
+                # if it's the rightmost element
+                if i == level_length - 1:
+                    rightside.append(node.val)
+                    
+                # add child nodes in the queue 
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        
+        return rightside
+```
+
+[Approach 5: Recursive DFS] (78%)
+
+```python
+class Solution:
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        if root is None:
+            return []
+        
+        rightside = []
+        
+        def helper(node: TreeNode, level: int) -> None:
+            if level == len(rightside):
+                rightside.append(node.val)
+            for child in [node.right, node.left]:
+                if child:
+                    helper(child, level + 1)
+                
+        helper(root, 0)
+        return rightside
 ```
