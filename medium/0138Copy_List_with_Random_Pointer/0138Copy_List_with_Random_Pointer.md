@@ -184,3 +184,16 @@ class Solution(object):
             ptr_new_list = ptr_new_list.next
         return head_old
 ```
+
+[Approach 5: Iterative with O(1)O(1) Space]
+
+```python
+import copy 
+class Solution:
+    def copyRandomList(self, head: 'Node') -> 'Node':
+        return copy.deepcopy(head)
+```
+
+https://leetcode.com/problems/copy-list-with-random-pointer/discuss/533013/Python-3-Dic-O(n)
+
+https://leetcode.com/problems/copy-list-with-random-pointer/discuss/507687/Python-Solution
