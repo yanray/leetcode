@@ -80,3 +80,28 @@ class Solution(object):
             
         return ans
 ```
+
+[Approach 3] (97%)
+
+```python
+class Solution:
+    def partitionLabels(self, S: str) -> List[int]:
+        result = []
+        partition_chars = []
+        right_indexes = {}
+        i = 0 #string char count
+        j = 1 #partition char count
+        for x in S:
+            if x not in partition_chars:
+                partition_chars.append(x)
+                right_indexes[x] = S.rindex(x)
+            if i == right_indexes[x]:
+                partition_chars.remove(x)
+                if len(partition_chars) == 0:
+                    result.append(j)
+                    j = 0                 
+            j += 1
+            i += 1
+                    
+        return result
+```
