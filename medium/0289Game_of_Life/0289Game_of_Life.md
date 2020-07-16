@@ -185,6 +185,31 @@ class Solution:
                     board[row][col] = 0
 ```
 
+```python
+class Solution:
+    def gameOfLife(self, board: List[List[int]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        m = len(board)
+        n = len(board[0])
+                
+        def liveNeighbors(i, j):
+            nonlocal m, n
+            return sum(board[x][y] & 1 for x in range(i-1, i+2) for y in range(j-1, j+2)
+                       if not (x == i and y == j) and x >= 0 and y >= 0 and x < m and y < n)
+        
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                lives = liveNeighbors(i, j)
+				if board[i][j] & 1 == 1 and lives == 2 or lives == 3:
+                    board[i][j] |= 2
+                    
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                board[i][j] >>= 1
+```
+
 [Follow up 2 : Infinite Board]
 
 ```python
