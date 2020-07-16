@@ -29,5 +29,33 @@ Output: 4
 [Approach 1] (%) 
 
 ```python
-
+class Solution:
+    def maximalSquare(self, matrix: List[List[str]]) -> int:
+        
+        if not matrix:
+            return 0
+        
+        nr = len(matrix)
+        nc = len(matrix[0])
+        
+        if nr < 2:
+            for i in range(nc):
+                if matrix[0][i] == "1":
+                    return 1
+            return 0
+        elif nc < 2:
+            for i in range(nr):
+                if matrix[i][0] == "1":
+                    return 1
+            return 0
+        
+        max_area = max(int(matrix[0][0]), int(matrix[0][1]), int(matrix[1][0]))
+        for i in range(1, nr):
+            for j in range(1, nc):
+                if matrix[i][j] == "1":
+                    val = min(int(matrix[i - 1][j - 1]), int(matrix[i - 1][j]), int(matrix[i][j - 1])) + 1
+                    max_area = max(max_area, val)
+                    matrix[i][j] = str(val)
+        
+        return max_area ** 2
 ```
