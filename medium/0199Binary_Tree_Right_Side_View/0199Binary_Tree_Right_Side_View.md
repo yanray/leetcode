@@ -128,6 +128,28 @@ class Solution:
         return rightside
 ```
 
+```python
+class Solution:
+    def rightSideView(self, root):
+        if not root:
+            return []
+        
+        results, q = [root.val], [root]
+        
+        while q:
+            next_level = []
+            for node in q:
+                if node.left:
+                    next_level.append(node.left)
+                if node.right:
+                    next_level.append(node.right)
+            if next_level:
+                results.append(next_level[-1].val)
+            q = next_level
+        
+        return results
+```
+
 [Approach 4: BFS: One Queue + Level Size Measurements]
 
 ```python
@@ -176,4 +198,23 @@ class Solution:
                 
         helper(root, 0)
         return rightside
+```
+
+[Approach 6] 
+
+```python
+class Solution:
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        def levelOrder(root , level):
+            if not root:
+                return
+            if level > len(queue) - 1:
+                queue.append([])
+            queue[level].append(root.val)
+            levelOrder(root.left , level + 1)
+            levelOrder(root.right , level + 1)
+        queue = []
+        levelOrder(root , 0)
+        result = [node[-1] for node in queue]
+        return result
 ```
