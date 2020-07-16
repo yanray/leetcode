@@ -162,6 +162,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0046 | [Permutations](https://leetcode.com/problems/permutations/)| Backtracking | [Python](https://github.com/yanray/leetcode/blob/master/medium/0046Permutations/0046Permutations.md) | 
 | 0138 | [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)| Hash Table, Linked List | [Python](https://github.com/yanray/leetcode/blob/master/medium/0138Copy_List_with_Random_Pointer/0138Copy_List_with_Random_Pointer.md) | 
 | 0091 | [Decode Ways](https://leetcode.com/problems/decode-ways/)| String, Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0091Decode_Ways/0091Decode_Ways.md) | 
+| 0289 | [Game of Life](https://leetcode.com/problems/game-of-life/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/medium/0091Decode_Ways/0091Decode_Ways.md) | 
 
 
 
