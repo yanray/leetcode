@@ -91,6 +91,31 @@ class Solution:
         return 0
 ```
 
+```python
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if endWord not in set(wordList):
+            return 0
+        L = len(wordList[0])
+        dic = collections.defaultdict(list)
+        queue = collections.deque([(beginWord, 1)])
+        for word in wordList: # O(N x Word.length)
+            for i in range(L):
+                possible = word[0:i] + '.' + word[i+1:]
+                dic[possible].append(word)
+        wordList = set(wordList)
+        while queue: #  O(Word.length x N)
+            cur, length = queue.popleft()
+            for i in range(L): 
+                possible = cur[0:i] + '.' + cur[i+1:]
+                for next_word in dic[possible]:
+                    if next_word == endWord:
+                        return length + 1
+                    elif next_word in wordList:
+                        queue.append((next_word, length+1))
+                        wordList.remove(next_word)
+```
+
 [Approach 2] (85%)  O(M^2×N)
 
 ```python
