@@ -167,6 +167,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0199 | [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)| Tree, DFS, BFS | [Python](https://github.com/yanray/leetcode/blob/master/medium/0199Binary_Tree_Right_Side_View/0199Binary_Tree_Right_Side_View.md) | 
 | 0221 | [Maximal Square](https://leetcode.com/problems/maximal-square/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0221Maximal_Square/0221Maximal_Square.md) | 
 | 0127 | [Word Ladder](https://leetcode.com/problems/word-ladder/)| BFS | [Python](https://github.com/yanray/leetcode/blob/master/medium/0127Word_Ladder/0127Word_Ladder.md) | 
+| 0079 | [Word Search](https://leetcode.com/problems/word-ladder/)| BFS | [Python](https://github.com/yanray/leetcode/blob/master/medium/0127Word_Ladder/0127Word_Ladder.md) | 
 
 
 
