@@ -1,94 +1,109 @@
-## Decode String
+## Find Duplicate File in System
 
 ### Problem Link
 
-https://leetcode.com/problems/decode-string/
+https://leetcode.com/problems/find-duplicate-file-in-system/
 
 ### Problem Description 
 
-Given an encoded string, return its decoded string.
+directory, you need to find out all the groups of duplicate files in the file system in terms of their paths.
 
-The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
+A group of duplicate files consists of at least two files that have exactly the same content.
 
-You may assume that the input string is always valid; No extra white spaces, square brackets are well-formed, etc.
+A single directory info string in the input list has the following format:
 
-Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there won't be input like 3a or 2[4].
+"root/d1/d2/.../dm f1.txt(f1_content) f2.txt(f2_content) ... fn.txt(fn_content)"
+
+It means there are n files (f1.txt, f2.txt ... fn.txt with content f1_content, f2_content ... fn_content, respectively) in directory root/d1/d2/.../dm. Note that n >= 1 and m >= 0. If m = 0, it means the directory is just the root directory.
+
+The output is a list of group of duplicate file paths. For each group, it contains all the file paths of the files that have the same content. A file path is a string that has the following format:
+
+"directory_path/file_name.txt"
 
 ```
 Example 1:
 
-Input: s = "3[a]2[bc]"
-Output: "aaabcbc"
+Input:
+["root/a 1.txt(abcd) 2.txt(efgh)", "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)", "root 4.txt(efgh)"]
+Output:  
+[["root/a/2.txt","root/c/d/4.txt","root/4.txt"],["root/a/1.txt","root/c/3.txt"]]
 
 ```
 
-```
-Example 2:
+**Note:**
 
-Input: s = "3[a2[c]]"
-Output: "accaccacc"
+1. No order is required for the final output.
+2. You may assume the directory name, file name and file content only has letters and digits, and the length of file content is in the range of [1,50].
+3. The number of files given is in the range of [1,20000].
+4. You may assume no files or directories share the same name in the same directory.
+5. You may assume each given directory info represents a unique directory. Directory path and file info are separated by a single blank space.
+ 
 
-```
+**Follow-up beyond contest:**
 
-```
-Example 3:
-
-Input: s = "2[abc]3[cd]ef"
-Output: "abcabccdcdcdef"
-
-```
-
-```
-Example 4:
-
-Input: s = "abc3[cd]xyz"
-Output: "abccdcdcdxyz"
-
-```
+1. Imagine you are given a real file system, how will you search files? DFS or BFS?
+2. If the file content is very large (GB level), how will you modify your solution?
+3. If you can only read the file by 1kb each time, how will you modify your solution?
+4. What is the time complexity of your modified solution? What is the most time-consuming part and memory consuming part of it? How to optimize?
+5. How to make sure the duplicated files you find are not false positive?
 
 
 ### Code (python)
 
-[Approach 1] (94%) 
+[Approach 1] (98.5%) 
 
 ```python
 class Solution:
-    def decodeString(self, s: str) -> str:
-            
+    def findDuplicate(self, paths: List[str]) -> List[List[str]]:
         
-        stack = []
-        curr_str = ""
-        i = 0
-        while i < len(s):
-            if s[i].isdigit():
-                if curr_str != "":
-                    stack.append(curr_str)
-                    curr_str = ""
+        hash_dict = collections.defaultdict(list)
+        
+        for path in paths:
+            s = path.split(" ")
+            curr_path = s[0]
+            for j in range(1, len(s)):
+                file_name, file_content = s[j].split("(")
+                hash_dict[file_content].append(curr_path + "/" + file_name)
+            
+        result = []
+        for val in hash_dict.values():
+            if len(val) > 1:
+                result.append(val)
                 
-                temp = s[i]
-                i += 1
-                while s[i].isdigit():
-                    temp += s[i]
-                    i += 1
-                stack.append(temp)
-                i -= 1
-                
-            elif s[i] == "[":
-                i += 1
-                continue
-            elif s[i] == "]":
-                while stack[-1].isalpha():
-                    curr_str = stack.pop() + curr_str
-                stack.append(int(stack.pop()) * curr_str)
-                curr_str = ""
-            else:
-                curr_str += s[i]
-                
-            i += 1
+        return result
+
+# class Solution:
+#     def findDuplicate(self, paths: List[str]) -> List[List[str]]:
+        
+#         hash_dict = collections.defaultdict(list)
+        
+#         for path in paths:
+#             curr_path = ""
+#             j = 0
+#             while j < len(path):
+#                 if path[j] == " ":
+#                     file_name = ""
+#                     j += 1
+#                     while path[j] != "(":
+#                         file_name += path[j]
+#                         j += 1
                     
-        return "".join(stack) + curr_str
+#                     file_content = ""
+#                     j += 1
+#                     while path[j] != ")":
+#                         file_content += path[j]
+#                         j += 1
+                    
+#                     hash_dict[file_content].append(curr_path + "/" + file_name)
+#                 else:
+#                     curr_path += path[j]
+                    
+#                 j += 1
+            
+#         result = []
+#         for val in hash_dict.values():
+#             if len(val) > 1:
+#                 result.append(val)
+                
+#         return result
 ```
-
-https://leetcode.com/problems/decode-string/discuss/699980/Python-Simple-solution-using-2-stacks
-
-https://leetcode.com/problems/decode-string/discuss/?currentPage=1&orderBy=hot&query=&tag=python
