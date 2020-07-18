@@ -107,3 +107,50 @@ class Solution:
                 
 #         return result
 ```
+
+```python
+class Solution:
+    def findDuplicate(self, paths: List[str]) -> List[List[str]]:
+        duplicates = collections.defaultdict(list)
+        for path in paths:
+            temp = path.split()
+            dir = temp[0]
+            for file in temp[1:]:
+                idx = file.index('(')
+                content = file[idx + 1:-1]
+                duplicates[content].append(dir + '/' + file[:idx])
+        res = []
+        for val in duplicates.values():
+            if len(val) > 1:
+                res.append(val)
+        return res
+```
+
+[Approach 2: A Python solution using re]
+
+```python
+class Solution:
+    def findDuplicate(self, paths: List[str]) -> List[List[str]]:
+        regex = re.compile(
+            r"""
+                ([0-9a-zA-Z.]+)     # The filename
+                \(
+                ([0-9a-zA-Z]+)      # The contents
+                \)
+            """,
+            re.VERBOSE
+        )
+        table = collections.defaultdict(set)
+        for path in paths:
+            words = path.split(' ')
+            directory, files = words[0], words[1:]
+            for file in files:
+                match = regex.match(file)
+                name, contents = match.group(1, 2)
+                table[contents].add(f"{directory}/{name}")
+        return [
+            list(filepaths)
+            for (contents, filepaths) in table.items()
+            if len(filepaths) > 1
+        ]
+```
