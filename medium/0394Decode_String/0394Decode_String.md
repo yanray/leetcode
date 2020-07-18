@@ -49,7 +49,7 @@ Output: "abccdcdcdxyz"
 
 ### Code (python)
 
-[Approach 1] (%) 
+[Approach 1] (94%) 
 
 ```python
 class Solution:
@@ -88,3 +88,7 @@ class Solution:
                     
         return "".join(stack) + curr_str
 ```
+
+https://leetcode.com/problems/decode-string/discuss/699980/Python-Simple-solution-using-2-stacks
+
+https://leetcode.com/problems/decode-string/discuss/?currentPage=1&orderBy=hot&query=&tag=python
