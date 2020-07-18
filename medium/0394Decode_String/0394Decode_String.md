@@ -1,49 +1,51 @@
-## Design Hit Counter
+## Decode String
 
 ### Problem Link
 
-https://leetcode.com/problems/design-hit-counter/
+https://leetcode.com/problems/decode-string/
 
 ### Problem Description 
 
-Design a hit counter which counts the number of hits received in the past 5 minutes.
+Given an encoded string, return its decoded string.
 
-Each function accepts a timestamp parameter (in seconds granularity) and you may assume that calls are being made to the system in chronological order (ie, the timestamp is monotonically increasing). You may assume that the earliest timestamp starts at 1.
+The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
 
-It is possible that several hits arrive roughly at the same time.
+You may assume that the input string is always valid; No extra white spaces, square brackets are well-formed, etc.
+
+Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there won't be input like 3a or 2[4].
 
 ```
 Example 1:
 
-HitCounter counter = new HitCounter();
-
-// hit at timestamp 1.
-counter.hit(1);
-
-// hit at timestamp 2.
-counter.hit(2);
-
-// hit at timestamp 3.
-counter.hit(3);
-
-// get hits at timestamp 4, should return 3.
-counter.getHits(4);
-
-// hit at timestamp 300.
-counter.hit(300);
-
-// get hits at timestamp 300, should return 4.
-counter.getHits(300);
-
-// get hits at timestamp 301, should return 3.
-counter.getHits(301); 
-
+Input: s = "3[a]2[bc]"
+Output: "aaabcbc"
 
 ```
 
-**Follow up:**
+```
+Example 2:
 
-What if the number of hits per second could be very large? Does your design scale?
+Input: s = "3[a2[c]]"
+Output: "accaccacc"
+
+```
+
+```
+Example 3:
+
+Input: s = "2[abc]3[cd]ef"
+Output: "abcabccdcdcdef"
+
+```
+
+```
+Example 4:
+
+Input: s = "abc3[cd]xyz"
+Output: "abccdcdcdxyz"
+
+```
+
 
 ### Code (python)
 
