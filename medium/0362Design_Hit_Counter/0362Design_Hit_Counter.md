@@ -1,38 +1,49 @@
-## Word Search
+## Design Hit Counter
 
 ### Problem Link
 
-https://leetcode.com/problems/word-search/
+https://leetcode.com/problems/design-hit-counter/discuss/734736/Python-List-%2B-Dictionary-%2B-Binary-Search-93-memory
 
 ### Problem Description 
 
-Given a 2D board and a word, find if the word exists in the grid.
+Design a hit counter which counts the number of hits received in the past 5 minutes.
 
-The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+Each function accepts a timestamp parameter (in seconds granularity) and you may assume that calls are being made to the system in chronological order (ie, the timestamp is monotonically increasing). You may assume that the earliest timestamp starts at 1.
+
+It is possible that several hits arrive roughly at the same time.
 
 ```
 Example 1:
 
-board =
-[
-  ['A','B','C','E'],
-  ['S','F','C','S'],
-  ['A','D','E','E']
-]
+HitCounter counter = new HitCounter();
 
-Given word = "ABCCED", return true.
-Given word = "SEE", return true.
-Given word = "ABCB", return false.
+// hit at timestamp 1.
+counter.hit(1);
+
+// hit at timestamp 2.
+counter.hit(2);
+
+// hit at timestamp 3.
+counter.hit(3);
+
+// get hits at timestamp 4, should return 3.
+counter.getHits(4);
+
+// hit at timestamp 300.
+counter.hit(300);
+
+// get hits at timestamp 300, should return 4.
+counter.getHits(300);
+
+// get hits at timestamp 301, should return 3.
+counter.getHits(301); 
 
 
 ```
 
-**Constraints:**
+**Follow up:**
 
-* board and word consists only of lowercase and uppercase English letters.
-* 1 <= board.length <= 200
-* 1 <= board[i].length <= 200
-* 1 <= word.length <= 10^3
+What if the number of hits per second could be very large? Does your design scale?
 
 ### Code (python)
 
