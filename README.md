@@ -171,6 +171,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0362 | [Design Hit Counter](https://leetcode.com/problems/design-hit-counter/)| Design | [Python](https://github.com/yanray/leetcode/blob/master/medium/0362Design_Hit_Counter/0362Design_Hit_Counter.md) | 
 | 0394 | [Decode String](https://leetcode.com/problems/decode-string/)| Stack, DFS | [Python](https://github.com/yanray/leetcode/blob/master/medium/0362Design_Hit_Counter/0362Design_Hit_Counter.md) | 
 | 0609 | [Find Duplicate File in System](https://leetcode.com/problems/find-duplicate-file-in-system/)| Hash Table, String | [Python](https://github.com/yanray/leetcode/blob/master/medium/0609Find_Duplicate_File_in_System/0609Find_Duplicate_File_in_System.md) | 
+| 0207 | [Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/)| String | [Python](https://github.com/yanray/leetcode/blob/master/medium/0609Find_Duplicate_File_in_System/0609Find_Duplicate_File_in_System.md) | 
 
 
 
