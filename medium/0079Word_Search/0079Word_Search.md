@@ -66,8 +66,6 @@ class Solution:
         return found
 ```
 
-https://leetcode.com/problems/word-search/discuss/628875/Python-Backtracking-solution-no-extra-space-used
-
 [Approach 2] 
 
 ```python
@@ -111,3 +109,10 @@ class Solution:
 						return True
 		return False
 ```
+
+
+https://leetcode.com/problems/word-search/discuss/535635/Python-DFS-Solution-with-Trie
+
+https://leetcode.com/problems/word-search/discuss/628875/Python-Backtracking-solution-no-extra-space-used
+
+https://leetcode.com/problems/word-search/discuss/443636/Python-DFS-solution
