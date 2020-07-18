@@ -136,3 +136,40 @@ class HitCounter:
 # obj.hit(timestamp)
 # param_2 = obj.getHits(timestamp)
 ```
+
+[Approach 3]
+
+```python
+import heapq
+class HitCounter:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.rec = []
+        #heapq.heapify(self.rec)
+
+    def hit(self, timestamp: int) -> None:
+        """
+        Record a hit.
+        @param timestamp - The current timestamp (in seconds granularity).
+        """
+        heapq.heappush(self.rec, timestamp)
+     
+
+    def getHits(self, timestamp: int) -> int:
+        """
+        Return the number of hits in the past 5 minutes.
+        @param timestamp - The current timestamp (in seconds granularity).
+        """
+        check = max(0, timestamp - 300)
+        while self.rec and check >= self.rec[0]:
+            heapq.heappop(self.rec)
+        
+        return len(self.rec)
+```
+
+
+https://leetcode.com/problems/design-hit-counter/discuss/524564/Python-Solution
+
