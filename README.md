@@ -168,6 +168,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0221 | [Maximal Square](https://leetcode.com/problems/maximal-square/)| Dynamic Programming | [Python](https://github.com/yanray/leetcode/blob/master/medium/0221Maximal_Square/0221Maximal_Square.md) | 
 | 0127 | [Word Ladder](https://leetcode.com/problems/word-ladder/)| BFS | [Python](https://github.com/yanray/leetcode/blob/master/medium/0127Word_Ladder/0127Word_Ladder.md) | 
 | 0079 | [Word Search](https://leetcode.com/problems/word-search/)| Array, Backtracking | [Python](https://github.com/yanray/leetcode/blob/master/medium/0127Word_Ladder/0127Word_Ladder.md) | 
+| 0362 | [Design Hit Counter](https://leetcode.com/problems/design-hit-counter/)| Design | [Python](https://github.com/yanray/leetcode/blob/master/medium/0127Word_Ladder/0127Word_Ladder.md) | 
 
 
 
