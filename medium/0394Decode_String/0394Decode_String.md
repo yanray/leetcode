@@ -52,126 +52,39 @@ Output: "abccdcdcdxyz"
 [Approach 1] (%) 
 
 ```python
-class HitCounter:
-
-    def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.queue = []
-        
-
-    def hit(self, timestamp: int) -> None:
-        """
-        Record a hit.
-        @param timestamp - The current timestamp (in seconds granularity).
-        """
-        self.queue.append(timestamp)
-
-    def getHits(self, timestamp: int) -> int:
-        """
-        Return the number of hits in the past 5 minutes.
-        @param timestamp - The current timestamp (in seconds granularity).
-        """
-        lower_bound = timestamp - 300
-        if lower_bound > 0:
-            while self.queue:
-                t = self.queue[0]
-                if t > lower_bound:
-                    break
-                else:
-                    self.queue.pop(0)
+class Solution:
+    def decodeString(self, s: str) -> str:
             
-        return len(self.queue)
-
-
-# Your HitCounter object will be instantiated and called as such:
-# obj = HitCounter()
-# obj.hit(timestamp)
-# param_2 = obj.getHits(timestamp)
-```
-
-https://leetcode.com/problems/design-hit-counter/discuss/734736/Python-List-%2B-Dictionary-%2B-Binary-Search-93-memory
-
-https://leetcode.com/problems/design-hit-counter/discuss/572999/Easy-Solution-design-using-dict-hit-is-O(1)-and-getHits()-is-O(s)
-
-
-[Approach 2]
-
-```python
-import bisect
-class HitCounter:
-
-    def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.time = [0]
-        self.hits = {0 : 0}
-
-    def hit(self, timestamp: int) -> None:
-        """
-        Record a hit.
-        @param timestamp - The current timestamp (in seconds granularity).
-        """
-        if timestamp == self.time[-1]:
-            self.hits[timestamp] += 1
-        else:
-            self.hits[timestamp] = self.hits[self.time[-1]] + 1
-            self.time.append(timestamp)
-
-    def getHits(self, timestamp: int) -> int:
-        """
-        Return the number of hits in the past 5 minutes.
-        @param timestamp - The current timestamp (in seconds granularity).
-        """
-        pre, cur = timestamp - 300, timestamp
-        i = bisect.bisect_right(self.time, pre)
-        j = bisect.bisect_right(self.time, cur)
-        res = 0 if j == 0 else self.hits[self.time[j - 1]]
-        res -= 0 if i == 0 else self.hits[self.time[i - 1]]
-        return res
-
-
-# Your HitCounter object will be instantiated and called as such:
-# obj = HitCounter()
-# obj.hit(timestamp)
-# param_2 = obj.getHits(timestamp)
-```
-
-[Approach 3]
-
-```python
-import heapq
-class HitCounter:
-
-    def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.rec = []
-        #heapq.heapify(self.rec)
-
-    def hit(self, timestamp: int) -> None:
-        """
-        Record a hit.
-        @param timestamp - The current timestamp (in seconds granularity).
-        """
-        heapq.heappush(self.rec, timestamp)
-     
-
-    def getHits(self, timestamp: int) -> int:
-        """
-        Return the number of hits in the past 5 minutes.
-        @param timestamp - The current timestamp (in seconds granularity).
-        """
-        check = max(0, timestamp - 300)
-        while self.rec and check >= self.rec[0]:
-            heapq.heappop(self.rec)
         
-        return len(self.rec)
+        stack = []
+        curr_str = ""
+        i = 0
+        while i < len(s):
+            if s[i].isdigit():
+                if curr_str != "":
+                    stack.append(curr_str)
+                    curr_str = ""
+                
+                temp = s[i]
+                i += 1
+                while s[i].isdigit():
+                    temp += s[i]
+                    i += 1
+                stack.append(temp)
+                i -= 1
+                
+            elif s[i] == "[":
+                i += 1
+                continue
+            elif s[i] == "]":
+                while stack[-1].isalpha():
+                    curr_str = stack.pop() + curr_str
+                stack.append(int(stack.pop()) * curr_str)
+                curr_str = ""
+            else:
+                curr_str += s[i]
+                
+            i += 1
+                    
+        return "".join(stack) + curr_str
 ```
-
-
-https://leetcode.com/problems/design-hit-counter/discuss/524564/Python-Solution
-
