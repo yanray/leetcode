@@ -169,6 +169,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0127 | [Word Ladder](https://leetcode.com/problems/word-ladder/)| BFS | [Python](https://github.com/yanray/leetcode/blob/master/medium/0127Word_Ladder/0127Word_Ladder.md) | 
 | 0079 | [Word Search](https://leetcode.com/problems/word-search/)| Array, Backtracking | [Python](https://github.com/yanray/leetcode/blob/master/medium/0127Word_Ladder/0127Word_Ladder.md) | 
 | 0362 | [Design Hit Counter](https://leetcode.com/problems/design-hit-counter/)| Design | [Python](https://github.com/yanray/leetcode/blob/master/medium/0362Design_Hit_Counter/0362Design_Hit_Counter.md) | 
+| 0394 | [Decode String](https://leetcode.com/problems/decode-string/)| Stack, DFS | [Python](https://github.com/yanray/leetcode/blob/master/medium/0362Design_Hit_Counter/0362Design_Hit_Counter.md) | 
 
 
 
