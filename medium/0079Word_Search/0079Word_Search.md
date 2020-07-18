@@ -36,7 +36,7 @@ Given word = "ABCB", return false.
 
 ### Code (python)
 
-[Approach 1] (%) 
+[Approach 1] (75%) 
 
 ```python
 class Solution:
@@ -64,4 +64,50 @@ class Solution:
         board[i][j] = temp
     
         return found
+```
+
+https://leetcode.com/problems/word-search/discuss/628875/Python-Backtracking-solution-no-extra-space-used
+
+[Approach 2] 
+
+```python
+class Solution:
+	def exist(self, board, word):
+		"""
+		:type board: List[List[str]]
+		:type word: str
+		:rtype: bool
+		"""
+		letters = len(word)
+		# check for longer word than board
+		if letters > rows * cols:
+			return False
+
+		neighbors = [(0,1),(1,0),(0,-1),(-1,0)]
+
+		# helper functiont to perform dfs
+		def dfs(board, word, x, y, streak, count):
+			if count == letters:
+				return True
+			for (x1,y1) in neighbors:
+				x2, y2 = x + x1, y + y1
+				if 0 <= x2 < rows and 0 <= y2 < cols and (x2, y2) not in streak:
+					if board[x2][y2] == word[count]:
+						streak.add((x2, y2))
+						check = dfs(board, word, x2, y2, streak, count + 1)
+						if check:
+							return True
+						else:
+							streak.remove((x2, y2))
+			return False
+
+		# call dfs on all cells in board or until we get a hit
+		for i in range(rows):
+			for j in range(cols):
+				if board[i][j] == word[0]:
+					streak = {(i, j)}
+					check = dfs(board, word, i, j, streak, 1)
+					if check:
+						return True
+		return False
 ```
