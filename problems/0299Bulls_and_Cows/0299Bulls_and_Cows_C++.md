@@ -105,3 +105,21 @@ public:
     }
 };
 ```
+
+[Approach 3]
+
+```c++
+class Solution {
+public:
+    string getHint(string secret, string guess) {
+        std::vector<int> sc(10);
+        int bulls = 0, cows = 0;
+        for (char c: secret) sc[c - '0']++;
+        for (char c: guess) sc[c - '0']--;
+        cows = secret.size() - std::accumulate(sc.begin(), sc.end(), 0, [](int a, int b){return a + std::max(b, 0);});
+        for (int i = 0; i < secret.size(); i++) bulls += secret[i] == guess[i];
+        return to_string(bulls) + 'A' + to_string(cows - bulls) + 'B';
+    }
+};
+
+```
