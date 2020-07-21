@@ -70,3 +70,61 @@ public:
     }
 };
 ```
+
+[Approach 3] (31%)
+
+```c++
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        
+          unordered_map<int, int>umap;
+          for (int i = 0; i < nums.size(); i++)
+          {
+              umap[nums[i]] = i;
+          }
+
+          for (int i = 0; i < nums.size(); i++)
+          {
+              if (umap.find(nums[i]) != umap.end())
+                  umap.erase(nums[i]);
+              else
+                  return true;
+          }
+          return false;
+    }
+};
+
+```
+
+[Approach 4: Three very simple yet efficient solutions in C++]
+
+```c++
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> nums_set;
+        for(int i = 0; i < nums.size(); ++i) if(!nums_set.insert(nums[i]).second) return true;
+        return false;
+    }
+};
+```
+
+```c++
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        return nums.size() > unordered_set<int>(nums.begin(), nums.end()).size();
+    }
+};
+```
+
+```c++
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        return distance(unique(nums.begin(), nums.end()), nums.end());
+    }
+};
+```
