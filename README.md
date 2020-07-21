@@ -124,7 +124,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0371 | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)| Bit Manipulation | [Python](https://github.com/yanray/leetcode/blob/master/problems/0371Sum_of_Two_Integers/0371Sum_of_Two_Integers.md) | [C++](https://github.com/yanray/leetcode/blob/master/problems/0371Sum_of_Two_Integers/0371Sum_of_Two_Integers_C%2B%2B.md) | 
 | 1360 | [Number of Days Between Two Dates](hhttps://leetcode.com/problems/number-of-days-between-two-dates/)| | [Python](https://github.com/yanray/leetcode/blob/master/problems/1360Number_of_Days_Between_Two_Dates/1360Number_of_Days_Between_Two_Dates.md) | [C++](https://github.com/yanray/leetcode/blob/master/problems/1360Number_of_Days_Between_Two_Dates/1360Number_of_Days_Between_Two_Dates_C%2B%2B.md) | 
 | 0299 | [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)| | [Python](https://github.com/yanray/leetcode/blob/master/problems/0299Bulls_and_Cows/0299Bulls_and_Cows.md) | [C++](https://github.com/yanray/leetcode/blob/master/problems/0299Bulls_and_Cows/0299Bulls_and_Cows_C%2B%2B.md) | 
-| 0217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)| | [Python](https://github.com/yanray/leetcode/blob/master/problems/0299Bulls_and_Cows/0299Bulls_and_Cows.md) | [C++](https://github.com/yanray/leetcode/blob/master/problems/0299Bulls_and_Cows/0299Bulls_and_Cows_C%2B%2B.md) | 
+| 0217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)| | [Python](https://github.com/yanray/leetcode/blob/master/problems/0217Contains_Duplicate/0217Contains_Duplicate.md) | [C++](https://github.com/yanray/leetcode/blob/master/problems/0217Contains_Duplicate/0217Contains_Duplicate_C%2B%2B.md) | 
 
 
 
