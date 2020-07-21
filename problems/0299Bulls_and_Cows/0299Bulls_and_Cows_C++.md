@@ -65,3 +65,43 @@ public:
 };
 
 ```
+
+[Approach 2] (55%)
+
+```c++
+class Solution {
+public:
+    string getHint(string secret, string guess) {
+        int bullCnt{}, cowCnt{};
+        for (int i{}; i < secret.size(); ++i)
+        {
+		// Only if the characters are the same and in the same position
+		// can we state we've found a bull.
+            if (secret[i] == guess[i])
+            {
+                bullCnt++;
+                secret[i] = '*';
+                guess[i] = '*';
+            }
+        }
+
+        for (int i{}; i < guess.size(); ++i)
+        {
+			// Only asses positions that are not already starred.
+			// Save the location of positions that we find in the string secret.
+            if (int location = secret.find(guess[i]); guess[i] != '*' && location != string::npos)
+            {
+			// We found a letter from guess in secret. This means we have a cow.
+			// Mark the given character in both strings as used.
+                cowCnt++;
+                secret[location] = '*';
+                guess[i] = '*';
+            }
+        }
+        
+        string res = to_string(bullCnt) + 'A' + to_string(cowCnt) + 'B';
+        return res;
+        
+    }
+};
+```
