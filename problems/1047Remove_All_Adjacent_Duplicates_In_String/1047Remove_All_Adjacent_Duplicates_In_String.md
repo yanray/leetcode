@@ -1,58 +1,36 @@
-## Contains Duplicate
+## Remove All Adjacent Duplicates In String
 
 ### Problem Link
 
-https://leetcode.com/problems/contains-duplicate/
+https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
 
 ### Problem Description 
 
-Given an array of integers, find if the array contains any duplicates.
+Given a string S of lowercase letters, a duplicate removal consists of choosing two adjacent and equal letters, and removing them.
 
-Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+We repeatedly make duplicate removals on S until we no longer can.
+
+Return the final string after all such duplicate removals have been made.  It is guaranteed the answer is unique.
 
 ```
 Example 1:
 
-Input: [1,2,3,1]
-Output: true
+Input: "abbaca"
+Output: "ca"
+Explanation: 
+For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".
 
 ```
 
-```
-Example 2:
+**Note:**
 
-Input: [1,2,3,4]
-Output: false
-
-```
-
-```
-Example 3:
-
-Input: [1,1,1,3,3,4,3,2,4,2]
-Output: true
-
-```
+1. 1 <= S.length <= 20000
+2. S consists only of English lowercase letters.
 
 ### Code (python)
 
-[Approach 1] (70%) 
+[Approach 1] (%) 
 
 ```python
-class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        return len(nums) > len(set(nums))
-```
 
-[Approach 2] (70%)
-
-```python
-class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        s = set()
-        for n in nums:
-            if n in s:
-                return True
-            s.add(n)
-        return False
 ```
