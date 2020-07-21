@@ -38,8 +38,30 @@ Explanation: The 1st 1 in friend's guess is a bull, the 2nd or 3rd 1 is a cow.
 
 ### Code (python)
 
-[Approach 1] (90%) 
+[Approach 1] (55%) 
 
 ```c++
+class Solution {
+public:
+    string getHint(string secret, string guess) {
+        
+        unordered_map<char, int> hash_map;
+        int bulls = 0, cows = 0;
+        
+        for(int i = 0; i < secret.size(); i++){
+            if(guess[i] == secret[i]) bulls++;
+            else hash_map[secret[i]]++;
+        }
+        
+        for(int i = 0; i < guess.size(); i++){
+            if(hash_map[guess[i]] > 0 && guess[i] != secret[i]){
+                cows++;
+                hash_map[guess[i]]--;
+            }
+        }
+        
+        return to_string(bulls) + "A" + to_string(cows) + "B";
+    }
+};
 
 ```
