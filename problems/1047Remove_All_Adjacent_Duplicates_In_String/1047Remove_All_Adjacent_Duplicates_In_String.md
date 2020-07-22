@@ -29,8 +29,33 @@ For example, in "abbaca" we could remove "bb" since the letters are adjacent and
 
 ### Code (python)
 
-[Approach 1] (%) 
+[Approach 1] (24%) 
 
 ```python
-
+class Solution:
+    def removeDuplicates(self, S: str) -> str:
+        
+        if len(S) <= 1:
+            return S
+        
+        ss = list(map(str, S))
+        
+        i = 0
+        j = 1
+        
+        while j < len(ss):
+            
+            if ss[i] == ss[j]:
+                ss.pop(j)
+                ss.pop(i)
+                i -= 1
+                j -= 1
+                if i < 0:
+                    i = 0
+                    j = 1
+            else:
+                i += 1
+                j += 1
+            
+        return "".join(ss)
 ```
