@@ -54,7 +54,7 @@ public:
     string removeDuplicates(string S) {
         string sRes = "";
         for (const auto& c : S) {
-            cout << c;
+            // cout << "c:" << c << endl;
             if (!sRes.empty() && sRes.back() == c)
                 sRes.pop_back();
             else
