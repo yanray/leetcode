@@ -60,6 +60,8 @@ class Solution:
         return "".join(ss)
 ```
 
+(41%)
+
 ```python
 class Solution:
     def removeDuplicates(self, s: str) -> str:
