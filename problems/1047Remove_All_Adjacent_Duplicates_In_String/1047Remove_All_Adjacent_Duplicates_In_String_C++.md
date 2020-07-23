@@ -145,3 +145,24 @@ public:
     }
 };
 ```
+
+[Approach 4: Use cnt] (94%)
+
+```c++
+class Solution {
+public:
+    string removeDuplicates(string S) {
+
+        int cnt = 0;
+        
+        for(auto& ch : S){
+            if(cnt == 0 || ch != S[cnt - 1]) S[cnt++] = ch;
+            else cnt --;
+        }
+        S.resize(cnt);
+        
+        return S;
+        
+    }
+};
+```
