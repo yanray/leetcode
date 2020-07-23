@@ -90,3 +90,58 @@ public:
     }
 };
 ```
+
+```c++
+class Solution {
+public:
+    string removeDuplicates(string S) {
+        stack<char> ch;
+        string add = "";
+        
+        for(auto c : S){
+            if(!ch.empty()){
+                if(ch.top() == c) ch.pop();
+                else ch.push(c);
+            }
+            else ch.push(c);
+        }
+        
+        while(!ch.empty()){
+            add += ch.top();
+            ch.pop();
+        }
+        
+        reverse(add);
+        return add;
+    }
+    
+    void reverse(string& add){
+        string addTo = "";
+        
+        for(int i = add.length() - 1; i >= 0; i--){
+            addTo += add[i];
+        }
+        
+        add = addTo;
+    }
+};
+```
+
+
+[Approach 3: Regular Expression] (fast)
+
+```c++
+class Solution {
+public:
+    regex r = regex("(.)\\1");
+    
+    string removeDuplicates(string s) {
+        string oldS, newS = s;
+        while (oldS != newS) {
+            oldS = newS;
+            newS = regex_replace(oldS, r, "");
+        }
+        return newS;
+    }
+};
+```
