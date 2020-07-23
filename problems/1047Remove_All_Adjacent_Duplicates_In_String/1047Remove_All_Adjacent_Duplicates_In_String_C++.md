@@ -31,7 +31,7 @@ For example, in "abbaca" we could remove "bb" since the letters are adjacent and
 
 [Approach 1] (94%) 
 
-```python
+```c++
 class Solution {
 public:
     string removeDuplicates(string S) {
@@ -44,6 +44,23 @@ public:
         }
         
         return s1;
+    }
+};
+```
+
+```c++
+class Solution {
+public:
+    string removeDuplicates(string S) {
+        string sRes = "";
+        for (const auto& c : S) {
+            cout << c;
+            if (!sRes.empty() && sRes.back() == c)
+                sRes.pop_back();
+            else
+                sRes.push_back(c);
+        }
+        return sRes;
     }
 };
 ```
