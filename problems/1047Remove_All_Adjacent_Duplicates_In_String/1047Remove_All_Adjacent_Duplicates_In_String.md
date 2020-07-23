@@ -90,14 +90,31 @@ class Solution:
         return S
 ```
 
-[Approach 3: Stack] (72%)
+[Approach 3: Stack] (72%) (fast)
 
 ```python
 class Solution:
     def removeDuplicates(self, S: str) -> str:
         stack = []
         for ch in S:
-            if not stack or stack[-1] != ch: stack.append(ch)  
-            else: stack.pop()
+            if not stack or stack[-1] != ch: 
+                stack.append(ch)  
+            else: 
+                stack.pop()
         return "".join(stack)
+```
+
+```python
+class Solution:
+    def removeDuplicates(self, S: str) -> str:
+        if not S:
+            return S
+        res = [S[0]]
+        for curr in S[1:]:            
+            if res and curr == res[-1]:
+                res.pop()
+            else:
+                res.append(curr)
+        res = ''.join(res)                
+        return res
 ```
