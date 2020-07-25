@@ -1,87 +1,89 @@
-## Find Pivot Index
+## Find Winner on a Tic Tac Toe Game
 
 ### Problem Link
 
-https://leetcode.com/problems/find-pivot-index/
+https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/
 
 ### Problem Description 
 
-Given an array of integers nums, write a method that returns the "pivot" index of this array.
+Tic-tac-toe is played by two players A and B on a 3 x 3 grid.
 
-We define the pivot index as the index where the sum of all the numbers to the left of the index is equal to the sum of all the numbers to the right of the index.
+Here are the rules of Tic-Tac-Toe:
 
-If no such index exists, we should return -1. If there are multiple pivot indexes, you should return the left-most pivot index.
+* Players take turns placing characters into empty squares (" ").
+* The first player A always places "X" characters, while the second player B always places "O" characters.
+* "X" and "O" characters are always placed into empty squares, never on filled ones.
+* The game ends when there are 3 of the same (non-empty) character filling any row, column, or diagonal.
+* The game also ends if all squares are non-empty.
+* No more moves can be played if the game is over.
+
+Given an array moves where each element is another array of size 2 corresponding to the row and column of the grid where they mark their respective character in the order in which A and B play.
+
+Return the winner of the game if it exists (A or B), in case the game ends in a draw return "Draw", if there are still movements to play return "Pending".
+
+You can assume that moves is valid (It follows the rules of Tic-Tac-Toe), the grid is initially empty and A will play first.
 
 ```
 Example 1:
 
-Input: nums = [1,7,3,6,5,6]
-Output: 3
-Explanation:
-The sum of the numbers to the left of index 3 (nums[3] = 6) is equal to the sum of numbers to the right of index 3.
-Also, 3 is the first index where this occurs.
+Input: moves = [[0,0],[2,0],[1,1],[2,1],[2,2]]
+Output: "A"
+Explanation: "A" wins, he always plays first.
+"X  "    "X  "    "X  "    "X  "    "X  "
+"   " -> "   " -> " X " -> " X " -> " X "
+"   "    "O  "    "O  "    "OO "    "OOX"
 
 ```
 
 ```
 Example 2:
 
-Input: nums = [1,2,3]
-Output: -1
-Explanation:
-There is no index that satisfies the conditions in the problem statement.
+Input: moves = [[0,0],[1,1],[0,1],[0,2],[1,0],[2,0]]
+Output: "B"
+Explanation: "B" wins.
+"X  "    "X  "    "XX "    "XXO"    "XXO"    "XXO"
+"   " -> " O " -> " O " -> " O " -> "XO " -> "XO " 
+"   "    "   "    "   "    "   "    "   "    "O  "
 
 ```
+
+```
+Example 3:
+
+Input: moves = [[0,0],[1,1],[2,0],[1,0],[1,2],[2,1],[0,1],[0,2],[2,2]]
+Output: "Draw"
+Explanation: The game ends in a draw since there are no moves to make.
+"XXO"
+"OOX"
+"XOX"
+
+```
+
+```
+Example 4:
+
+Input: moves = [[0,0],[1,1]]
+Output: "Pending"
+Explanation: The game has not finished yet.
+"X  "
+" O "
+"   "
+
+```
+
+**Constraints:**
+
+* 1 <= moves.length <= 9
+* moves[i].length == 2
+* 0 <= moves[i][j] <= 2
+* There are no repeated elements on moves.
+* moves follow the rules of tic tac toe.
 
 
 ### Code (python)
 
-[Approach 1] (77%) 
+[Approach 1] (%) 
 
 ```python
-class Solution:
-    def pivotIndex(self, nums: List[int]) -> int:
-        
-        total = sum(nums)
-        
-        left_sum = 0
-        index = 0
-        while index < len(nums):
-            total -= nums[index]
-            
-            if left_sum == total:
-                return index
-                
-            left_sum += nums[index]
-            index += 1
-        
-        return -1
-```
 
-[Approach 2] (99%) 
-
-```python
-class Solution(object):
-    def pivotIndex(self, nums):
-        S = sum(nums)
-        leftsum = 0
-        for i, x in enumerate(nums):
-            if leftsum == (S - leftsum - x):
-                return i
-            leftsum += x
-        return -1
-
-```
-
-```python
-class Solution(object):
-    def pivotIndex(self, nums: List[int]) -> int:
-        if len(nums) > 2:            
-            total = sum(nums)
-            left_sum = 0
-            for i, item in enumerate(nums):
-                if left_sum * 2 == total - item:
-                    return i
-                left_sum += item
-        return -1
 ```
