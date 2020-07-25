@@ -58,7 +58,7 @@ class Solution:
         return -1
 ```
 
-[Approach 1] (99%) 
+[Approach 2] (99%) 
 
 ```python
 class Solution(object):
