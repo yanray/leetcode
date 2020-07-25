@@ -36,7 +36,9 @@ There is no index that satisfies the conditions in the problem statement.
 
 ### Code (python)
 
-[Approach 1] (32%) 
+[Approach 1] 
+
+(32%) 
 
 ```c++
 class Solution {
@@ -61,6 +63,8 @@ public:
 };
 ```
 
+(51%)
+
 ```c++
 class Solution {
 public:
@@ -83,6 +87,40 @@ public:
         }
         
         return -1;
+    }
+};
+```
+
+[Approach 2] (77%)
+
+```c++
+class Solution {
+public:
+    int pivotIndex(vector<int>& num) {
+        int n = num.size();
+        int sumTotal = 0;
+        int sumLeft = 0;
+        if (n == 0)
+        {
+            return -1;
+        }
+		/* Sum all the elements in the array */
+        for (int i = 0; i < n; i++)
+        {
+            sumTotal += num[i];
+        }
+        
+        /* The logic is that once we get the sum on the right == sum on the left we will have 
+            total sum - num[i] = 2*left sum*/
+        for (int i = 0; i < n; i++)
+        {
+            if (sumTotal - num[i]  == 2*sumLeft)
+            {
+                return i;
+            }
+            sumLeft += num[i];
+        }
+        return -1; 
     }
 };
 ```
