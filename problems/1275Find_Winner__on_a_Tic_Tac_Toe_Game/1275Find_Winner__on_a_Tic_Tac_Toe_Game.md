@@ -142,3 +142,9 @@ class Solution:
         else:
             return "Pending"
 ```
+
+[Approach 2]
+
+```python
+
+```
