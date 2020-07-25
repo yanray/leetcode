@@ -124,3 +124,27 @@ public:
     }
 };
 ```
+
+[Approach 3]
+
+```c++
+class Solution {
+public:
+    int pivotIndex(vector<int>& num) {
+        if(num.size()<2)
+            return num.size()-1;
+        int i,s=0,c=0;
+        for(i=0;i<num.size();i++)
+        {
+            s+=num[i];
+        }
+        for(i=0;i<num.size();i++)
+        {
+            if(c==(s-num[i]-c))
+                return i;
+            c+=num[i];
+        }
+        return -1;
+    }
+};
+```
