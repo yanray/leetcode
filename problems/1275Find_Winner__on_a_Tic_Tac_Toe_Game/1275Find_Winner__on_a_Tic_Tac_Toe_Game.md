@@ -82,8 +82,63 @@ Explanation: The game has not finished yet.
 
 ### Code (python)
 
-[Approach 1] (%) 
+[Approach 1] (58%) 
 
 ```python
-
+class Solution:
+    def tictactoe(self, moves: List[List[int]]) -> str:
+        
+        def check(grid, ch, i, j):
+            
+            WIN = True
+            
+            for q in range(0, 3):
+                if grid[i][q] != ch:
+                    WIN = False
+                    
+            if WIN:
+                return WIN
+            
+            WIN = True
+            for q in range(0, 3):
+                if grid[q][j] != ch:
+                    print(grid[q][j])
+                    WIN = False
+                    
+            return WIN
+        
+        
+        if len(moves) <= 4:
+            return "Pending"
+        
+        grid = [[0 for i in range(0, 3)] for i in range(0, 3)]
+        
+        TURN = True
+        for move in moves:
+            if TURN: # A turn
+                grid[move[0]][move[1]] = "X"
+                if check(grid, "X", move[0], move[1]):
+                    return "A"
+                
+                TURN = False
+                
+            else: # B turn
+                grid[move[0]][move[1]] = "O"
+                if check(grid, "O", move[0], move[1]):
+                    return "B"
+                
+                TURN = True
+                
+        print(grid)
+                
+        if (grid[0][0] == grid[1][1] and grid[1][1] == grid[2][2]) or (grid[0][2] == grid[1][1] and grid[1][1] == grid[2][0]):
+            if grid[1][1] == "X":
+                return "A"
+            elif grid[1][1] == "O":
+                return "B"
+        
+        if len(moves) == 9:
+            return "Draw"
+        else:
+            return "Pending"
 ```
