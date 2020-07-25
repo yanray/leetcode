@@ -57,3 +57,9 @@ class Solution:
         
         return -1
 ```
+
+[Approach 1] (77%) 
+
+```python
+
+```
