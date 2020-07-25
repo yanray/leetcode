@@ -1,120 +1,59 @@
-## Remove All Adjacent Duplicates In String
+## Find Pivot Index
 
 ### Problem Link
 
-https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
+https://leetcode.com/problems/find-pivot-index/
 
 ### Problem Description 
 
-Given a string S of lowercase letters, a duplicate removal consists of choosing two adjacent and equal letters, and removing them.
+Given an array of integers nums, write a method that returns the "pivot" index of this array.
 
-We repeatedly make duplicate removals on S until we no longer can.
+We define the pivot index as the index where the sum of all the numbers to the left of the index is equal to the sum of all the numbers to the right of the index.
 
-Return the final string after all such duplicate removals have been made.  It is guaranteed the answer is unique.
+If no such index exists, we should return -1. If there are multiple pivot indexes, you should return the left-most pivot index.
 
 ```
 Example 1:
 
-Input: "abbaca"
-Output: "ca"
-Explanation: 
-For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".
+Input: nums = [1,7,3,6,5,6]
+Output: 3
+Explanation:
+The sum of the numbers to the left of index 3 (nums[3] = 6) is equal to the sum of numbers to the right of index 3.
+Also, 3 is the first index where this occurs.
 
 ```
 
-**Note:**
+```
+Example 2:
 
-1. 1 <= S.length <= 20000
-2. S consists only of English lowercase letters.
+Input: nums = [1,2,3]
+Output: -1
+Explanation:
+There is no index that satisfies the conditions in the problem statement.
+
+```
+
 
 ### Code (python)
 
-[Approach 1] (24%) 
+[Approach 1] (77%) 
 
 ```python
 class Solution:
-    def removeDuplicates(self, S: str) -> str:
+    def pivotIndex(self, nums: List[int]) -> int:
         
-        if len(S) <= 1:
-            return S
+        total = sum(nums)
         
-        ss = list(map(str, S))
-        
-        i = 0
-        j = 1
-        
-        while j < len(ss):
+        left_sum = 0
+        index = 0
+        while index < len(nums):
+            total -= nums[index]
             
-            if ss[i] == ss[j]:
-                ss.pop(j)
-                ss.pop(i)
-                i -= 1
-                j -= 1
-                if i < 0:
-                    i = 0
-                    j = 1
-            else:
-                i += 1
-                j += 1
-            
-        return "".join(ss)
-```
-
-(41%)
-
-```python
-class Solution:
-    def removeDuplicates(self, s: str) -> str:
-        i=0
-        while i+1<len(s):
-            if s[i+1]==s[i]:
-                s=s[:i]+s[i+2:]
-                if i>=1:
-                    i-=1
-            else:
-                i+=1
-        return s
-```
-
-[Approach 2: Regular Expression] (81%)
-
-```python
-import re
-
-class Solution:
-    def removeDuplicates(self, S: str) -> str:
-        regex = re.compile(r'([a-z])\1')
+            if left_sum == total:
+                return index
+                
+            left_sum += nums[index]
+            index += 1
         
-        while regex.search(S):
-            S = regex.sub('', S)
-        return S
-```
-
-[Approach 3: Stack] (72%) (fast)
-
-```python
-class Solution:
-    def removeDuplicates(self, S: str) -> str:
-        stack = []
-        for ch in S:
-            if not stack or stack[-1] != ch: 
-                stack.append(ch)  
-            else: 
-                stack.pop()
-        return "".join(stack)
-```
-
-```python
-class Solution:
-    def removeDuplicates(self, S: str) -> str:
-        if not S:
-            return S
-        res = [S[0]]
-        for curr in S[1:]:            
-            if res and curr == res[-1]:
-                res.pop()
-            else:
-                res.append(curr)
-        res = ''.join(res)                
-        return res
+        return -1
 ```
