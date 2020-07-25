@@ -36,9 +36,53 @@ There is no index that satisfies the conditions in the problem statement.
 
 ### Code (python)
 
-[Approach 1] (77%) 
+[Approach 1] (32%) 
 
 ```c++
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        
+        long long total = accumulate(nums.begin(), nums.end(), 0);
+        
+        int index = 0;
+        int left_sum = 0;
+        while(index < nums.size()){
+            total -= nums[index];
+            
+            if(left_sum == total) return index;
+            
+            left_sum += nums[index];
+            index += 1;
+        }
+        
+        return -1;
+    }
+};
+```
 
-
+```c++
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        
+        int total = 0;
+        for(int i = 0; i < nums.size(); i++){
+            total += nums[i];
+        }
+        
+        int index = 0;
+        int left_sum = 0;
+        while(index < nums.size()){
+            total -= nums[index];
+            
+            if(left_sum == total) return index;
+            
+            left_sum += nums[index];
+            index += 1;
+        }
+        
+        return -1;
+    }
+};
 ```
