@@ -143,8 +143,26 @@ class Solution:
             return "Pending"
 ```
 
-[Approach 2]
+[Approach 2] (90%)
 
 ```python
-
+class Solution:
+    def tictactoe(self, moves: List[List[int]]) -> str:
+        board = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']]
+        for i in range(len(moves)):
+            if i%2 == 0:
+                player = 'A'
+            else:
+                player = 'B'
+            board[moves[i][0]][moves[i][1]] = player
+            transpose = [list(x) for x in zip(*board)]
+            for num in range(3):
+                if ''.join(board[num]) == player*3 \
+                or ''.join(transpose[num]) == player*3 \
+                or board[0][0]+board[1][1]+board[2][2] == player*3 \
+                or board[0][2]+board[1][1]+board[2][0] == player*3:
+                    return player
+            if '-' not in board[0] and '-' not in board[1] and '-' not in board[2]:
+                return 'Draw'
+        return 'Pending'
 ```
