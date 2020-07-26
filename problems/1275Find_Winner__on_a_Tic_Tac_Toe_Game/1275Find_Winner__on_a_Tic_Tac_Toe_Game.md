@@ -143,7 +143,7 @@ class Solution:
             return "Pending"
 ```
 
-[Approach 2] (90%)
+[Approach 2] (93%)
 
 ```python
 class Solution:
@@ -165,4 +165,23 @@ class Solution:
             if '-' not in board[0] and '-' not in board[1] and '-' not in board[2]:
                 return 'Draw'
         return 'Pending'
+```
+
+[Approach 3] (93%)
+
+```python
+class Solution:
+    def tictactoe(self, moves: List[List[int]]) -> str:
+        score = [[0]*8 for _ in range(2)]
+        
+        p = 0 #start with player A
+        for i, j in moves:
+            score[p][i] += 1
+            score[p][3+j] += 1
+            score[p][6] += (i == j)
+            score[p][7] += (i+j == 2)
+            if any(x == 3 for x in score[p]): return ["A", "B"][p]
+            p ^= 1 #switch player
+            
+        return "Pending" if len(moves) < 9 else "Draw"
 ```
