@@ -89,6 +89,24 @@ public:
 };
 ```
 
+```c++
+class Solution {
+public:
+	vector<int> intersect(vector<int>& num1, vector<int>& num2) {
+		vector<int> p;
+		unordered_map<int,int> obj;
+		for(const auto& num: num1){
+			obj[num]++;
+		}
+		 for(const auto& num: num2){
+			obj[num]--;
+			 if(obj[num]>=0) p.push_back(num);
+		}
+		return p;
+	}
+};
+```
+
 [Approach 2: Sort] (96%)
 
 ```c++
@@ -110,6 +128,30 @@ public:
             }
         }
         return vector(begin(nums1), begin(nums1) + k);
+    }
+};
+```
+
+```c++
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+
+        sort(nums1.begin(), nums1.end());
+        sort(nums2.begin(), nums2.end());
+        
+        int i = 0, j = 0;
+        vector<int> ans;
+        while(i < nums1.size() && j < nums2.size()){
+            if(nums1[i] < nums2[j]) i++;
+            else if(nums1[i] > nums2[j]) j++;
+            else{
+                ans.push_back(nums1[i]);
+                i++;
+                j++;
+            }
+        }
+        return ans;
     }
 };
 ```
