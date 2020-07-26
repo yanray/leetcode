@@ -1,106 +1,130 @@
-## Strobogrammatic Number
+## Intersection of Two Arrays II
 
 ### Problem Link
 
-https://leetcode.com/problems/strobogrammatic-number/
+https://leetcode.com/problems/intersection-of-two-arrays-ii/
 
 ### Problem Description 
 
-A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).
-
-Write a function to determine if a number is strobogrammatic. The number is represented as a string.
+Given two arrays, write a function to compute their intersection.
 
 ```
 Example 1:
 
-Input: num = "69"
-Output: true
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2,2]
 
 ```
 
 ```
 Example 2:
 
-Input: num = "88"
-Output: true
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [4,9]
 
 ```
 
-```
-Example 3:
+**Note:**
 
-Input: num = "962"
-Output: false
+* Each element in the result should appear as many times as it shows in both arrays.
+* The result can be in any order.
 
-```
+**Follow up:**
 
-```
-Example 4:
-
-Input: num = "1"
-Output: true
-
-```
+* What if the given array is already sorted? How would you optimize your algorithm?
+* What if nums1's size is small compared to nums2's size? Which algorithm is better?
+* What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
 
 
 ### Code (python)
 
-[Approach 1: map] (100%)
+[Approach 1: Hash Map] (96%)
 
 ```c++
 class Solution {
 public:
-    bool isStrobogrammatic(string num) {
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
         
-        std :: map<char, char> hash_map = {{'0', '0'}, 
-                                           {'1', '1'},
-                                           {'6', '9'},
-                                           {'8', '8'},
-                                           {'9', '6'}};
+        if(nums1.size() > nums2.size()) 
+            return intersect(nums2, nums1);
         
-        int n = num.size() - 1;
-        for(int i = 0; i < num.size() / 2 + 1; i++){
-            if(hash_map[num[i]] != num[n - i]) return false;
+        std::map<int, int> hash_map;
+        for(auto num : nums1){
+            hash_map[num]++;
         }
         
-        return true;
+        int k = 0;
+        for(auto num : nums2){
+            auto it = hash_map.find(num);
+            if(it != hash_map.end() && --it->second >= 0)
+                nums1[k++] = num;
+        }
         
+        return vector(nums1.begin(), nums1.begin() + k);
     }
 };
 ```
 
-[Approach 2: reverse] (100%)
+```c++
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        
+        if(nums1.size() > nums2.size()) 
+            return intersect(nums2, nums1);
+        
+        std::map<int, int> hash_map;
+        for(auto num : nums1){
+            hash_map[num]++;
+        }
+        
+        int k = 0;
+        for(auto num : nums2){
+            if(hash_map[num] != '\0' && --hash_map[num] >= 0)
+                nums1[k++] = num;
+        }
+        
+        return vector(nums1.begin(), nums1.begin() + k);
+    }
+};
+```
+
+[Approach 2: Sort] (96%)
 
 ```c++
 class Solution {
 public:
-    bool isStrobogrammatic(std::string n) 
-    {
-        const auto nOriginal = n;
-
-        std::reverse(n.begin(), n.end());
-
-        // do not touch 0, 1, 8
-        // touch 6 and 9
-
-        for(auto &el: n)
-        {
-            if(el == '9')
-            {
-                el = '6';
-            }
-            else if(el == '6')
-            {
-                el = '9';
-            }
-            else if(el != '0' && el != '8' && el != '1')
-            {
-                return false;
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        if (nums1.size() > nums2.size()) {
+            return intersect(nums2, nums1);
+        }
+        unordered_map<int, int> m;
+        for (auto n : nums1) {
+            ++m[n];
+        }
+        int k = 0;
+        for (auto n : nums2) {
+            auto it = m.find(n);
+            if (it != end(m) && --it->second >= 0) {
+                nums1[k++] = n;
             }
         }
-
-        return n == nOriginal;
-        
+        return vector(begin(nums1), begin(nums1) + k);
     }
 };
+```
+
+
+[Approach 3: Built-in Intersection] (96)
+
+```c++
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        sort(begin(nums1), end(nums1));
+        sort(begin(nums2), end(nums2));
+        nums1.erase(set_intersection(begin(nums1), end(nums1),
+            begin(nums2), end(nums2), begin(nums1)), end(nums1));
+        return nums1;
+    }
 ```
