@@ -40,7 +40,7 @@ Output: [1,3,3]
 
 ### Code (python)
 
-[Approach 1] (77%)
+[Approach 1] (82%)
 
 ```python
 class Solution:
@@ -52,4 +52,26 @@ class Solution:
                 result.append(nums[i + 1])
                 
         return result
+```
+
+[Approach 2] (93)
+
+
+```python
+class Solution(object):
+    def decompressRLElist(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        return [ _ for i in range(len(nums)/2) for _ in [nums[2*i+1]] * nums[2*i]]
+```
+
+```python
+def decompress_RLE_list(nums: List[int]) -> List[int]:
+    res = []
+    for i in range(0, len(nums), 2):
+        sub_lst = [nums[i+1] for j in range(nums[i])]
+        res = res+sub_lst
+    return res
 ```
