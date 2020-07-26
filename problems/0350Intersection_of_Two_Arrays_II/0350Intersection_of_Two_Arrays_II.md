@@ -1,46 +1,39 @@
-## Strobogrammatic Number
+## Intersection of Two Arrays II
 
 ### Problem Link
 
-https://leetcode.com/problems/strobogrammatic-number/
+https://leetcode.com/problems/intersection-of-two-arrays-ii/
 
 ### Problem Description 
 
-A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).
-
-Write a function to determine if a number is strobogrammatic. The number is represented as a string.
+Given two arrays, write a function to compute their intersection.
 
 ```
 Example 1:
 
-Input: num = "69"
-Output: true
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2,2]
 
 ```
 
 ```
 Example 2:
 
-Input: num = "88"
-Output: true
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [4,9]
 
 ```
 
-```
-Example 3:
+**Note:**
 
-Input: num = "962"
-Output: false
+* Each element in the result should appear as many times as it shows in both arrays.
+* The result can be in any order.
 
-```
+**Follow up:**
 
-```
-Example 4:
-
-Input: num = "1"
-Output: true
-
-```
+* What if the given array is already sorted? How would you optimize your algorithm?
+* What if nums1's size is small compared to nums2's size? Which algorithm is better?
+* What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
 
 
 ### Code (python)
@@ -48,26 +41,5 @@ Output: true
 [Approach 1] (93%)
 
 ```python
-class Solution:
-    def isStrobogrammatic(self, num: str) -> bool:
-        
-        hash_dict = {"0": "0", "1": "1", "6": "9", "8": "8", "9": "6"}
-        
-        for i in range(len(num) // 2 + 1):
-            if num[i] in hash_dict:
-                if hash_dict[num[i]] != num[~i]:
-                    return False
-            else:
-                return False
-            
-        return True
-```
 
-[Approach 2] (93%)
-
-```python
-class Solution:
-    def isStrobogrammatic(self, num: str) -> bool:
-        rotates = {"0": "0", "1": "1", "8": "8", "6": "9",  "9": "6"} 
-        return all(b in rotates and rotates[b] == a for a, b in zip(num, num[::-1]))
 ```
