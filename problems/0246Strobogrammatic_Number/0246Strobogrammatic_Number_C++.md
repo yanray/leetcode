@@ -1,144 +1,106 @@
-## Find Winner on a Tic Tac Toe Game
+## Strobogrammatic Number
 
 ### Problem Link
 
-https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/
+https://leetcode.com/problems/strobogrammatic-number/
 
 ### Problem Description 
 
-Tic-tac-toe is played by two players A and B on a 3 x 3 grid.
+A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).
 
-Here are the rules of Tic-Tac-Toe:
-
-* Players take turns placing characters into empty squares (" ").
-* The first player A always places "X" characters, while the second player B always places "O" characters.
-* "X" and "O" characters are always placed into empty squares, never on filled ones.
-* The game ends when there are 3 of the same (non-empty) character filling any row, column, or diagonal.
-* The game also ends if all squares are non-empty.
-* No more moves can be played if the game is over.
-
-Given an array moves where each element is another array of size 2 corresponding to the row and column of the grid where they mark their respective character in the order in which A and B play.
-
-Return the winner of the game if it exists (A or B), in case the game ends in a draw return "Draw", if there are still movements to play return "Pending".
-
-You can assume that moves is valid (It follows the rules of Tic-Tac-Toe), the grid is initially empty and A will play first.
+Write a function to determine if a number is strobogrammatic. The number is represented as a string.
 
 ```
 Example 1:
 
-Input: moves = [[0,0],[2,0],[1,1],[2,1],[2,2]]
-Output: "A"
-Explanation: "A" wins, he always plays first.
-"X  "    "X  "    "X  "    "X  "    "X  "
-"   " -> "   " -> " X " -> " X " -> " X "
-"   "    "O  "    "O  "    "OO "    "OOX"
+Input: num = "69"
+Output: true
 
 ```
 
 ```
 Example 2:
 
-Input: moves = [[0,0],[1,1],[0,1],[0,2],[1,0],[2,0]]
-Output: "B"
-Explanation: "B" wins.
-"X  "    "X  "    "XX "    "XXO"    "XXO"    "XXO"
-"   " -> " O " -> " O " -> " O " -> "XO " -> "XO " 
-"   "    "   "    "   "    "   "    "   "    "O  "
+Input: num = "88"
+Output: true
 
 ```
 
 ```
 Example 3:
 
-Input: moves = [[0,0],[1,1],[2,0],[1,0],[1,2],[2,1],[0,1],[0,2],[2,2]]
-Output: "Draw"
-Explanation: The game ends in a draw since there are no moves to make.
-"XXO"
-"OOX"
-"XOX"
+Input: num = "962"
+Output: false
 
 ```
 
 ```
 Example 4:
 
-Input: moves = [[0,0],[1,1]]
-Output: "Pending"
-Explanation: The game has not finished yet.
-"X  "
-" O "
-"   "
+Input: num = "1"
+Output: true
 
 ```
-
-**Constraints:**
-
-* 1 <= moves.length <= 9
-* moves[i].length == 2
-* 0 <= moves[i][j] <= 2
-* There are no repeated elements on moves.
-* moves follow the rules of tic tac toe.
 
 
 ### Code (python)
 
-[Approach 1] (75%) 
+[Approach 1: map] (100%)
 
 ```c++
 class Solution {
 public:
-    string tictactoe(vector<vector<int>>& moves) {
-            int *rows = new int[3]();
-            int *cols = new int[3]();
-
-            int diag = 0;
-            int antidiag = 0;
-            for(int i=0;i<moves.size();i++){
-                int x = moves[i][0];
-                int y = moves[i][1];
-                if(i%2==0){
-                    rows[x] +=1;
-                    cols[y] +=1;
-                    if(x == y) diag++;
-                    if(x == 2-y) antidiag++;
-                }else{
-                    rows[x] -=1;
-                    cols[y] -=1;
-                    if(x == y) diag--;
-                    if(x == 2-y) antidiag--;
-                }
-
-                if(rows[x] == 3 || cols[y]==3 || diag==3 || antidiag==3 ) return "A";
-                if(rows[x] == -3 || cols[y]==-3 || diag==-3 || antidiag==-3 ) return "B";
-
-            }
-            if(moves.size()<9) return "Pending";
-            return "Draw";
+    bool isStrobogrammatic(string num) {
+        
+        std :: map<char, char> hash_map = {{'0', '0'}, 
+                                           {'1', '1'},
+                                           {'6', '9'},
+                                           {'8', '8'},
+                                           {'9', '6'}};
+        
+        int n = num.size() - 1;
+        for(int i = 0; i < num.size() / 2 + 1; i++){
+            if(hash_map[num[i]] != num[n - i]) return false;
+        }
+        
+        return true;
+        
     }
 };
 ```
 
-[Approach 2: Bit Manipulation] (100%)
+[Approach 2: reverse] (100%)
 
 ```c++
 class Solution {
 public:
-    string tictactoe(vector<vector<int>>& moves) {
-        // int r1=292,r2=146,r3=73,c1=7,c2=56,c3=448,d1=273,d2=84,
-        int a=0,b=0,t=1;
-        vector<int> sol{292,146,73,7,56,448,273,84};
-        for(auto it:moves){
-            if(t++&1){
-                a+=(1<< (it[0]*3+it[1]));
-                for(auto is:sol) if((is&a)==is) return "A";
+    bool isStrobogrammatic(std::string n) 
+    {
+        const auto nOriginal = n;
+
+        std::reverse(n.begin(), n.end());
+
+        // do not touch 0, 1, 8
+        // touch 6 and 9
+
+        for(auto &el: n)
+        {
+            if(el == '9')
+            {
+                el = '6';
             }
-            else {
-                b+=(1<< (it[0]*3+it[1]));
-                for(int is:sol) if((is&b)==is) return "B";
+            else if(el == '6')
+            {
+                el = '9';
+            }
+            else if(el != '0' && el != '8' && el != '1')
+            {
+                return false;
             }
         }
-        if(moves.size()==9) return "Draw";
-        return  "Pending";
+
+        return n == nOriginal;
+        
     }
 };
 ```
