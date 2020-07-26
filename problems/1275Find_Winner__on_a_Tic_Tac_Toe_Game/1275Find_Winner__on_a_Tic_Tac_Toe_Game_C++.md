@@ -117,3 +117,28 @@ public:
     }
 };
 ```
+
+[Approach 2: Bit Manipulation] (100%)
+
+```c++
+class Solution {
+public:
+    string tictactoe(vector<vector<int>>& moves) {
+        // int r1=292,r2=146,r3=73,c1=7,c2=56,c3=448,d1=273,d2=84,
+        int a=0,b=0,t=1;
+        vector<int> sol{292,146,73,7,56,448,273,84};
+        for(auto it:moves){
+            if(t++&1){
+                a+=(1<< (it[0]*3+it[1]));
+                for(auto is:sol) if((is&a)==is) return "A";
+            }
+            else {
+                b+=(1<< (it[0]*3+it[1]));
+                for(int is:sol) if((is&b)==is) return "B";
+            }
+        }
+        if(moves.size()==9) return "Draw";
+        return  "Pending";
+    }
+};
+```
