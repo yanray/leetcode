@@ -127,6 +127,7 @@ https://www.cnblogs.com/beile/p/11276532.html
 | 0217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)| Array, Hash Table | [Python](https://github.com/yanray/leetcode/blob/master/problems/0217Contains_Duplicate/0217Contains_Duplicate.md) | [C++](https://github.com/yanray/leetcode/blob/master/problems/0217Contains_Duplicate/0217Contains_Duplicate_C%2B%2B.md) | 
 | 1047 | [Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)| Stack | [Python](https://github.com/yanray/leetcode/blob/master/problems/0217Contains_Duplicate/0217Contains_Duplicate.md) | [C++](https://github.com/yanray/leetcode/blob/master/problems/0217Contains_Duplicate/0217Contains_Duplicate_C%2B%2B.md) | 
 | 0724 | [Find Pivot Index](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)| Array | [Python](https://github.com/yanray/leetcode/blob/master/problems/0724Find_Pivot_Index/0724Find_Pivot_Index.md) | [C++](https://github.com/yanray/leetcode/blob/master/problems/0724Find_Pivot_Index/0724Find_Pivot_Index_C%2B%2B.md) | 
+| 0246 | [Strobogrammatic Number](https://leetcode.com/problems/strobogrammatic-number/)| Hash Table, Math | [Python](https://github.com/yanray/leetcode/blob/master/problems/0724Find_Pivot_Index/0724Find_Pivot_Index.md) | [C++](https://github.com/yanray/leetcode/blob/master/problems/0724Find_Pivot_Index/0724Find_Pivot_Index_C%2B%2B.md) | 
 
 
 
