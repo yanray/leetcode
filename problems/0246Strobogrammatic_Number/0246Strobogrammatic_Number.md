@@ -45,8 +45,29 @@ Output: true
 
 ### Code (python)
 
-[Approach 1] () 
+[Approach 1] (93%)
 
 ```python
+class Solution:
+    def isStrobogrammatic(self, num: str) -> bool:
+        
+        hash_dict = {"0": "0", "1": "1", "6": "9", "8": "8", "9": "6"}
+        
+        for i in range(len(num) // 2 + 1):
+            if num[i] in hash_dict:
+                if hash_dict[num[i]] != num[~i]:
+                    return False
+            else:
+                return False
+            
+        return True
+```
 
+[Approach 2] (93%)
+
+```python
+class Solution:
+    def isStrobogrammatic(self, num: str) -> bool:
+        rotates = {"0": "0", "1": "1", "8": "8", "6": "9",  "9": "6"} 
+        return all(b in rotates and rotates[b] == a for a, b in zip(num, num[::-1]))
 ```
