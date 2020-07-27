@@ -1,187 +1,61 @@
-## Intersection of Two Arrays II
+## Decompress Run-Length Encoded List
 
 ### Problem Link
 
-https://leetcode.com/problems/intersection-of-two-arrays-ii/
+https://leetcode.com/problems/decompress-run-length-encoded-list/
 
 ### Problem Description 
 
-Given two arrays, write a function to compute their intersection.
+We are given a list nums of integers representing a list compressed with run-length encoding.
+
+Consider each adjacent pair of elements [freq, val] = [nums[2*i], nums[2*i+1]] (with i >= 0).  For each such pair, there are freq elements with value val concatenated in a sublist. Concatenate all the sublists from left to right to generate the decompressed list.
+
+Return the decompressed list.
 
 ```
 Example 1:
 
-Input: nums1 = [1,2,2,1], nums2 = [2,2]
-Output: [2,2]
+Input: nums = [1,2,3,4]
+Output: [2,4,4,4]
+Explanation: The first pair [1,2] means we have freq = 1 and val = 2 so we generate the array [2].
+The second pair [3,4] means we have freq = 3 and val = 4 so we generate [4,4,4].
+At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 
 ```
 
 ```
 Example 2:
 
-Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
-Output: [4,9]
+Input: nums = [1,1,2,3]
+Output: [1,3,3]
 
 ```
 
-**Note:**
+**Constraints:**
 
-* Each element in the result should appear as many times as it shows in both arrays.
-* The result can be in any order.
-
-**Follow up:**
-
-* What if the given array is already sorted? How would you optimize your algorithm?
-* What if nums1's size is small compared to nums2's size? Which algorithm is better?
-* What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+* 2 <= nums.length <= 100
+* nums.length % 2 == 0
+* 1 <= nums[i] <= 100
 
 
 ### Code (python)
 
-[Approach 1: Hash Map] (96%)
+[Approach 1] (97%)
 
 ```c++
 class Solution {
 public:
-    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+    vector<int> decompressRLElist(vector<int>& nums) {
         
-        if(nums1.size() > nums2.size()) 
-            return intersect(nums2, nums1);
+        vector<int> result;
         
-        std::map<int, int> hash_map;
-        for(auto num : nums1){
-            hash_map[num]++;
-        }
-        
-        int k = 0;
-        for(auto num : nums2){
-            auto it = hash_map.find(num);
-            if(it != hash_map.end() && --it->second >= 0)
-                nums1[k++] = num;
-        }
-        
-        return vector(nums1.begin(), nums1.begin() + k);
-    }
-};
-```
-
-```c++
-class Solution {
-public:
-    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-        
-        if(nums1.size() > nums2.size()) 
-            return intersect(nums2, nums1);
-        
-        std::map<int, int> hash_map;
-        for(auto num : nums1){
-            hash_map[num]++;
-        }
-        
-        int k = 0;
-        for(auto num : nums2){
-            if(hash_map[num] != '\0' && --hash_map[num] >= 0)
-                nums1[k++] = num;
-        }
-        
-        return vector(nums1.begin(), nums1.begin() + k);
-    }
-};
-```
-
-```c++
-class Solution {
-public:
-	vector<int> intersect(vector<int>& num1, vector<int>& num2) {
-		vector<int> p;
-		unordered_map<int,int> obj;
-		for(const auto& num: num1){
-			obj[num]++;
-		}
-		 for(const auto& num: num2){
-			obj[num]--;
-			 if(obj[num]>=0) p.push_back(num);
-		}
-		return p;
-	}
-};
-```
-
-[Approach 2: Sort] (96%)
-
-```c++
-class Solution {
-public:
-    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-        if (nums1.size() > nums2.size()) {
-            return intersect(nums2, nums1);
-        }
-        unordered_map<int, int> m;
-        for (auto n : nums1) {
-            ++m[n];
-        }
-        int k = 0;
-        for (auto n : nums2) {
-            auto it = m.find(n);
-            if (it != end(m) && --it->second >= 0) {
-                nums1[k++] = n;
+        for(int i = 0; i < nums.size(); i += 2){
+            for(int j = 0; j < nums[i]; j++){
+                result.push_back(nums[i + 1]);
             }
         }
-        return vector(begin(nums1), begin(nums1) + k);
-    }
-};
-```
-
-```c++
-class Solution {
-public:
-    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-
-        sort(nums1.begin(), nums1.end());
-        sort(nums2.begin(), nums2.end());
         
-        int i = 0, j = 0;
-        vector<int> ans;
-        while(i < nums1.size() && j < nums2.size()){
-            if(nums1[i] < nums2[j]) i++;
-            else if(nums1[i] > nums2[j]) j++;
-            else{
-                ans.push_back(nums1[i]);
-                i++;
-                j++;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-
-[Approach 3: Built-in Intersection] (96)
-
-```c++
-class Solution {
-public:
-    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-        sort(begin(nums1), end(nums1));
-        sort(begin(nums2), end(nums2));
-        nums1.erase(set_intersection(begin(nums1), end(nums1),
-            begin(nums2), end(nums2), begin(nums1)), end(nums1));
-        return nums1;
-    }
-```
-
-```c++
-class Solution {
-public:
-    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-        sort(nums1.begin(), nums1.end());
-        sort(nums2.begin(), nums2.end());
-        vector<int> res(min(nums1.size(), nums2.size()));
-        auto it = set_intersection(nums1.begin(), nums1.end(),
-                                   nums2.begin(), nums2.end(), res.begin());
-        res.resize(it - res.begin());
-        return res;
+        return result;
     }
 };
 ```
