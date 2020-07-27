@@ -154,3 +154,37 @@ public:
     }
 };
 ```
+
+[Approach 3: to_string] (45%)
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    void convert(TreeNode* node, string& out) {
+        out.append(to_string(node->val));
+        out.append("#");
+        if (node->left) convert(node->left, out);
+        out.append("#");
+        if (node->right) convert(node->right, out);
+        out.append("#");
+    }
+public:
+    bool isSubtree(TreeNode* s, TreeNode* t) {
+        string out_s("#"), out_t("#");
+        convert(s, out_s);
+        convert(t, out_t);
+        
+        return out_s.find(out_t) != string::npos;
+    }
+};
+```
