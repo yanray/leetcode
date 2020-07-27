@@ -125,3 +125,29 @@ class Solution:
         if s.val == t.val and dfs(s, t): return True
         return self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
 ```
+
+[Approach 3: to_String] (97%)
+
+```python
+class Solution:
+    def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
+        string_s = self.traverse_tree(s)
+        string_t = self.traverse_tree(t)
+        if string_t in string_s:
+            return True
+        return False
+    
+    
+    def traverse_tree(self, s):
+        if s:
+            return f"#{s.val} {self.traverse_tree(s.left)} {self.traverse_tree(s.right)}"
+        return None
+```
+
+```python
+    def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
+        def traverse_tree(node):
+            if not node: return None
+            return f"#{node.val} {traverse_tree(node.left)} {traverse_tree(node.right)}"
+        return traverse_tree(t) in traverse_tree(s)
+```
