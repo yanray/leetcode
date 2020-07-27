@@ -61,3 +61,62 @@ class Solution:
         
         return count >= n
 ```
+
+[Approach 2: Single Scan, check neighbor]  (92%)
+
+```python
+class Solution(object):
+    def canPlaceFlowers(self, flowerbed, n):
+        L    = len(flowerbed)
+        last = False    # planted last turn
+        for i,x in enumerate(flowerbed):
+            can = False # can plant now
+            if not x and not last:
+                can = True
+                if i>0 and flowerbed[i-1]:
+                    can = False
+                if i<(L-1) and flowerbed[i+1]:
+                    can = False
+                if can:
+                    n -= 1
+                    if n<1:
+                        break
+            last = can
+        return n<1
+```
+
+[Approach 3: Three Solutions in Python 3 (beats ~100%)]
+
+```python
+class Solution:
+    def canPlaceFlowers(self, f: List[int], n: int) -> bool:
+        L, i, c, f = len(f)-2, -2, 0, f + [0]
+        while i < L:
+        	i += 2
+        	if f[i] == 1: continue
+        	if f[i+1] == 0: c += 1
+        	else: i += 1
+        return n <= c
+		
+		
+		
+		
+class Solution:
+    def canPlaceFlowers(self, f: List[int], n: int) -> bool:
+    	L, f, i, c = len(f), [0] + f + [0], 1, 0
+    	while i <= L:
+    		if f[i-1:i+2] == [0,0,0]: c, i = c + 1, i + 1
+    		i += 1
+    	return n <= c
+		
+		
+		
+		
+class Solution:
+    def canPlaceFlowers(self, f: List[int], n: int) -> bool:
+    	L, f, s, c = len(f), f + [0,1], 0, 1
+    	for i in range(L+2):
+    		if f[i] == 1: s, c = s + max(0,c-1)//2, 0
+    		else: c += 1
+    	return n <= s
+```
