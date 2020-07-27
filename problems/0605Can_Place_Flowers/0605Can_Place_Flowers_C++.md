@@ -79,3 +79,24 @@ public:
     }
 };
 ```
+
+```c++
+class Solution {
+public:
+    bool canPlaceFlowers(vector<int>& flowerbed, int n) {
+
+        for (int i = 0; i < flowerbed.size(); i++) {
+            if (flowerbed[i] == 0 &&
+                (i == 0 || flowerbed[i - 1] == 0) &&
+                (i == flowerbed.size() - 1 || flowerbed[i + 1] == 0)) {
+                n--;
+                if(n <= 0) return true;
+                flowerbed[i] = 1;
+            }
+        }
+        return n <= 0;
+    }
+};
+```
+
+https://leetcode.com/problems/can-place-flowers/discuss/390502/C%2B%2B-math-solution-with-explanation-beats-97Time-100Space
