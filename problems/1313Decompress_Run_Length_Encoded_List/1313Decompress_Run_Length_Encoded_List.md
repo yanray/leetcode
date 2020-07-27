@@ -54,7 +54,7 @@ class Solution:
         return result
 ```
 
-[Approach 2] (93)
+[Approach 2] (93%)
 
 
 ```python
@@ -68,6 +68,16 @@ class Solution(object):
 ```
 
 ```python
+class Solution(object):
+    def decompressRLElist(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        return (x for i in range(0, len(nums), 2) for x in [nums[i+1]]*nums[i])
+```
+
+```python
 def decompress_RLE_list(nums: List[int]) -> List[int]:
     res = []
     for i in range(0, len(nums), 2):
@@ -75,3 +85,4 @@ def decompress_RLE_list(nums: List[int]) -> List[int]:
         res = res+sub_lst
     return res
 ```
+
