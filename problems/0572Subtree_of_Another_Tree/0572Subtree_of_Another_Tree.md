@@ -1,88 +1,57 @@
-## Decompress Run-Length Encoded List
+## Subtree of Another Tree
 
 ### Problem Link
 
-https://leetcode.com/problems/decompress-run-length-encoded-list/
+https://leetcode.com/problems/subtree-of-another-tree/
 
 ### Problem Description 
 
-We are given a list nums of integers representing a list compressed with run-length encoding.
-
-Consider each adjacent pair of elements [freq, val] = [nums[2*i], nums[2*i+1]] (with i >= 0).  For each such pair, there are freq elements with value val concatenated in a sublist. Concatenate all the sublists from left to right to generate the decompressed list.
-
-Return the decompressed list.
+Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node's descendants. The tree s could also be considered as a subtree of itself.
 
 ```
 Example 1:
 
-Input: nums = [1,2,3,4]
-Output: [2,4,4,4]
-Explanation: The first pair [1,2] means we have freq = 1 and val = 2 so we generate the array [2].
-The second pair [3,4] means we have freq = 3 and val = 4 so we generate [4,4,4].
-At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
+Given tree s:
+     3
+    / \
+   4   5
+  / \
+ 1   2
+
+ Given tree t:
+    4 
+  / \
+ 1   2
+
+ Return true, because t has the same structure and node values with a subtree of s.
 
 ```
 
 ```
 Example 2:
 
-Input: nums = [1,1,2,3]
-Output: [1,3,3]
+Given tree s:
+     3
+    / \
+   4   5
+  / \
+ 1   2
+    /
+   0
+
+Given tree t:
+   4
+  / \
+ 1   2
+ Return false.
 
 ```
-
-**Constraints:**
-
-* 2 <= nums.length <= 100
-* nums.length % 2 == 0
-* 1 <= nums[i] <= 100
 
 
 ### Code (python)
 
-[Approach 1] (82%)
+[Approach 1] (%)
 
 ```python
-class Solution:
-    def decompressRLElist(self, nums: List[int]) -> List[int]:
-        
-        result = []
-        for i in range(0, len(nums), 2):
-            for j in range(nums[i]):
-                result.append(nums[i + 1])
-                
-        return result
+
 ```
-
-[Approach 2] (93%)
-
-
-```python
-class Solution(object):
-    def decompressRLElist(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
-        return [ _ for i in range(len(nums)/2) for _ in [nums[2*i+1]] * nums[2*i]]
-```
-
-```python
-class Solution(object):
-    def decompressRLElist(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
-        return (x for i in range(0, len(nums), 2) for x in [nums[i+1]]*nums[i])
-```
-
-```python
-def decompress_RLE_list(nums: List[int]) -> List[int]:
-    res = []
-    for i in range(0, len(nums), 2):
-        sub_lst = [nums[i+1] for j in range(nums[i])]
-        res = res+sub_lst
-    return res
-```
-
