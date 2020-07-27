@@ -1,190 +1,43 @@
-## Subtree of Another Tree
+## Can Place Flowers
 
 ### Problem Link
 
-https://leetcode.com/problems/subtree-of-another-tree/
+https://leetcode.com/problems/can-place-flowers/
 
 ### Problem Description 
 
-Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node's descendants. The tree s could also be considered as a subtree of itself.
+
+Suppose you have a long flowerbed in which some of the plots are planted and some are not. However, flowers cannot be planted in adjacent plots - they would compete for water and both would die.
+
+Given a flowerbed (represented as an array containing 0 and 1, where 0 means empty and 1 means not empty), and a number n, return if n new flowers can be planted in it without violating the no-adjacent-flowers rule.
 
 ```
 Example 1:
 
-Given tree s:
-     3
-    / \
-   4   5
-  / \
- 1   2
-
- Given tree t:
-    4 
-  / \
- 1   2
-
- Return true, because t has the same structure and node values with a subtree of s.
+Input: flowerbed = [1,0,0,0,1], n = 1
+Output: True
 
 ```
 
 ```
 Example 2:
 
-Given tree s:
-     3
-    / \
-   4   5
-  / \
- 1   2
-    /
-   0
-
-Given tree t:
-   4
-  / \
- 1   2
- Return false.
+Input: flowerbed = [1,0,0,0,1], n = 2
+Output: False
 
 ```
+
+**Note:**
+
+1. The input array won't violate no-adjacent-flowers rule.
+2. The input array size is in the range of [1, 20000].
+3. n is a non-negative integer which won't exceed the input array size.
 
 
 ### Code (python)
 
-[Approach 1] (99%)
+[Approach 1] (%)
 
 ```c++
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    bool isIdentical(TreeNode* root1, TreeNode* root2){
-        if(!root1 && !root2) return true;
-        if(!root1 || !root2) return false;
-        
-        return (root1->val == root2->val) && (isIdentical(root1->left, root2->left)) && (isIdentical(root1->right, root2->right));
-    }
-    
-    bool isSubtree(TreeNode* s, TreeNode* t) {
-        
-        if(!s) return false;
-        if((s->val == t->val) && isIdentical(s, t)) return true;
-        
-        return isSubtree(s->left, t) || isSubtree(s->right, t);
-    }
-};
-```
 
-```c++
-class Solution {
-public:
-    bool isSame(TreeNode* s, TreeNode* t) {
-        if (!s && !t)
-            return true;
-        if (!s || !t)
-            return false;
-        if (s->val != t->val)
-            return false;
-        return isSame(s->left, t->left) && isSame(s->right, t->right);
-    }
-    bool isSubtree(TreeNode* s, TreeNode* t) {
-        if (s == nullptr && t != nullptr)
-            return false;
-        if (isSame(s, t))
-            return true;
-        return isSubtree(s->left, t) || isSubtree(s->right, t);
-    }
-};
-```
-
-[Approach 2: BFS + DFS solution] (96%)
-
-```c++
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    // TC: O(N)
-    bool isIdentical(TreeNode* root1, TreeNode* root2) {
-        if(!root1 && !root2)
-            return true;
-        if(!root1 || !root2)
-            return false;
-        if(root1->val != root2->val)
-            return false;
-        return isIdentical(root1->left, root2->left) && 
-                isIdentical(root1->right, root2->right);
-    }
-    
-    bool isSubtree(TreeNode* s, TreeNode* t) {
-        // Find the root node of subtree t in s
-        // using BFS
-        queue<TreeNode*> q;
-        q.emplace(s);
-        
-        while(!q.empty()) {
-            auto curr = q.front();
-            q.pop();
-            // check if the tree t is a subtree
-            if(curr->val == t->val && isIdentical(curr, t))
-                return true;
-            if(curr->left)
-                q.emplace(curr->left);
-            if(curr->right)
-                q.emplace(curr->right);
-        }
-        return false;
-    }
-};
-```
-
-[Approach 3: to_string] (45%)
-
-```c++
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-    void convert(TreeNode* node, string& out) {
-        out.append(to_string(node->val));
-        out.append("#");
-        if (node->left) convert(node->left, out);
-        out.append("#");
-        if (node->right) convert(node->right, out);
-        out.append("#");
-    }
-public:
-    bool isSubtree(TreeNode* s, TreeNode* t) {
-        string out_s("#"), out_t("#");
-        convert(s, out_s);
-        convert(t, out_t);
-        
-        return out_s.find(out_t) != string::npos;
-    }
-};
 ```
