@@ -151,3 +151,14 @@ class Solution:
             return f"#{node.val} {traverse_tree(node.left)} {traverse_tree(node.right)}"
         return traverse_tree(t) in traverse_tree(s)
 ```
+
+```python
+class Solution:
+    def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
+        def dfs(root):
+            if root is None:
+                return 'null'
+            tmp = str(root.val) + ','+ dfs(root.left) + ','+  dfs(root.right)
+            return ','+tmp+','
+        return dfs(s).find(dfs(t)) >= 0
+```
