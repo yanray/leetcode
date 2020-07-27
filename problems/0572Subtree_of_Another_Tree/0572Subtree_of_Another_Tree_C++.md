@@ -1,88 +1,84 @@
-## Decompress Run-Length Encoded List
+## Subtree of Another Tree
 
 ### Problem Link
 
-https://leetcode.com/problems/decompress-run-length-encoded-list/
+https://leetcode.com/problems/subtree-of-another-tree/
 
 ### Problem Description 
 
-We are given a list nums of integers representing a list compressed with run-length encoding.
-
-Consider each adjacent pair of elements [freq, val] = [nums[2*i], nums[2*i+1]] (with i >= 0).  For each such pair, there are freq elements with value val concatenated in a sublist. Concatenate all the sublists from left to right to generate the decompressed list.
-
-Return the decompressed list.
+Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node's descendants. The tree s could also be considered as a subtree of itself.
 
 ```
 Example 1:
 
-Input: nums = [1,2,3,4]
-Output: [2,4,4,4]
-Explanation: The first pair [1,2] means we have freq = 1 and val = 2 so we generate the array [2].
-The second pair [3,4] means we have freq = 3 and val = 4 so we generate [4,4,4].
-At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
+Given tree s:
+     3
+    / \
+   4   5
+  / \
+ 1   2
+
+ Given tree t:
+    4 
+  / \
+ 1   2
+
+ Return true, because t has the same structure and node values with a subtree of s.
 
 ```
 
 ```
 Example 2:
 
-Input: nums = [1,1,2,3]
-Output: [1,3,3]
+Given tree s:
+     3
+    / \
+   4   5
+  / \
+ 1   2
+    /
+   0
+
+Given tree t:
+   4
+  / \
+ 1   2
+ Return false.
 
 ```
-
-**Constraints:**
-
-* 2 <= nums.length <= 100
-* nums.length % 2 == 0
-* 1 <= nums[i] <= 100
 
 
 ### Code (python)
 
-[Approach 1] (97%)
+[Approach 1] (99%)
 
 ```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution {
 public:
-    vector<int> decompressRLElist(vector<int>& nums) {
+    bool isIdentical(TreeNode* root1, TreeNode* root2){
+        if(!root1 && !root2) return true;
+        if(!root1 || !root2) return false;
         
-        vector<int> result;
-        
-        for(int i = 0; i < nums.size(); i += 2){
-            for(int j = 0; j < nums[i]; j++){
-                result.push_back(nums[i + 1]);
-            }
-        }
-        
-        return result;
+        return (root1->val == root2->val) && (isIdentical(root1->left, root2->left)) && (isIdentical(root1->right, root2->right));
     }
-};
-```
-
-```c++
-class Solution {
-public:
-    vector<int> decompressRLElist(vector<int>& nums) {
-        vector<int>result;
-        for(int i = 0; i < nums.size(); i = i+2){
-            result.insert(result.end(), nums[i], nums[i+1]);
-        }
-        return result;
-    }
-};
-```
-
-[Approach 2: 3 lines]
-
-```c++
-class Solution {
-public:
-    vector<int> decompressRLElist(vector<int>& n) 
-    {
-        vector<int> out;
-        for (int i(1); i<size(n); out.emplace_back(n[i]), i += --n[i-1] ? 0 : 2);
-        return out;
+    
+    bool isSubtree(TreeNode* s, TreeNode* t) {
+        
+        if(!s) return false;
+        if((s->val == t->val) && isIdentical(s, t)) return true;
+        
+        return isSubtree(s->left, t) || isSubtree(s->right, t);
     }
 };
 ```
