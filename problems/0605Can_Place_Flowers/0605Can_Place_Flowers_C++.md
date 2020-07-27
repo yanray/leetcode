@@ -36,8 +36,46 @@ Output: False
 
 ### Code (python)
 
-[Approach 1] (%)
+[Approach 1] (83%)
 
 ```c++
+class Solution {
+public:
+    bool canPlaceFlowers(vector<int>& flowerbed, int n) {
+        
+        int zero = 1;
+        for(int i = 0; i < flowerbed.size(); i++){
+            
+            if(flowerbed[i] == 0)
+                zero += 1;
+            else{
+                zero ? n -= (zero - 1) / 2 : 0;
+                zero = 0;
+            }
+        }
+        n -= zero / 2;
+        
+        return n <= 0;
+    }
+};
+```
 
+[Approach 2] (95%)
+
+```c++
+class Solution {
+public:
+    bool canPlaceFlowers(vector<int>& flowerbed, int n) {
+
+        for (int i = 0; i < flowerbed.size(); i++) {
+            if (flowerbed[i] == 0 &&
+                (i == 0 || flowerbed[i - 1] == 0) &&
+                (i == flowerbed.size() - 1 || flowerbed[i + 1] == 0)) {
+                n--;
+                flowerbed[i] = 1;
+            }
+        }
+        return n <= 0;
+    }
+};
 ```
