@@ -72,3 +72,17 @@ public:
     }
 };
 ```
+
+[Approach 2: 3 lines]
+
+```c++
+class Solution {
+public:
+    vector<int> decompressRLElist(vector<int>& n) 
+    {
+        vector<int> out;
+        for (int i(1); i<size(n); out.emplace_back(n[i]), i += --n[i-1] ? 0 : 2);
+        return out;
+    }
+};
+```
