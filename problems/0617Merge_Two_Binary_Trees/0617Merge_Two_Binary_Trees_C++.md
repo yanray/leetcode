@@ -63,3 +63,5 @@ public:
     }
 };
 ```
+
+https://leetcode.com/problems/merge-two-binary-trees/discuss/588123/~100.00-fast-in-run-time-and-memory-RecursiveIterativeBFSDFS
