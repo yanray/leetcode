@@ -1,70 +1,65 @@
-## Number of Days Between Two Dates
+## Merge Two Binary Trees
 
 ### Problem Link
 
-https://leetcode.com/problems/binary-tree-paths/
+https://leetcode.com/problems/merge-two-binary-trees/
 
 ### Problem Description 
 
-Write a program to count the number of days between two dates.
+Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
 
-The two dates are given as strings, their format is YYYY-MM-DD as shown in the examples.
+You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.
 
 ```
 Example 1:
 
-Input: date1 = "2019-06-29", date2 = "2019-06-30"
-Output: 1
+Input: 
+	Tree 1                     Tree 2                  
+          1                         2                             
+         / \                       / \                            
+        3   2                     1   3                        
+       /                           \   \                      
+      5                             4   7                  
+Output: 
+Merged tree:
+	     3
+	    / \
+	   4   5
+	  / \   \ 
+	 5   4   7
 
 ```
 
-```
-Example 2:
-
-Input: date1 = "2020-01-15", date2 = "2019-12-31"
-Output: 15
-
-```
-
-**Constraints:**
-
-The given dates are valid dates between the years 1971 and 2100.
+**Note:** The merging process must start from the root nodes of both trees.
 
 ### Code (python)
 
-[Approach 1: accumulate days from 1971] (100%) 
+[Approach 1] (80%) 
 
 ```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution {
 public:
-    int daysBetweenDates(string date1, string date2) {
-        return abs(daysPassedSince1971(date1) - daysPassedSince1971(date2));
+    TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
+        
+        if(t1 == nullptr) return t2;
+        if(t2 == nullptr) return t1;
+        
+        t1->val += t2->val;
+        t1->left = mergeTrees(t1->left, t2->left);
+        t1->right = mergeTrees(t1->right, t2->right);
+        
+        return t1;
     }
-    bool isLeapYear(int year){
-        return (year%400 == 0)||(year%100 != 0 && year%4 == 0);
-    }
-    int daysPassedSince1971(string date){
-        int year = stoi(date.substr(0,4));
-        int month = stoi(date.substr(5,2));
-        int day = stoi(date.substr(8,2));
-        
-        vector<int> months ({0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31});
-        
-        for(int i=1971;i<year;i++){
-            day += isLeapYear(i) ? 366 : 365;
-        }
-        
-        for(int i=1;i<month;i++){
-            if(i==2 && isLeapYear(year)){
-                day += 1;
-            }
-            day += months[i];
-        }
-        
-        return day;
-    }
-    
 };
 ```
-
-https://leetcode-cn.com/problems/number-of-days-between-two-dates/solution/ri-qi-zhi-jian-ge-ji-tian-by-leetcode-solution/
