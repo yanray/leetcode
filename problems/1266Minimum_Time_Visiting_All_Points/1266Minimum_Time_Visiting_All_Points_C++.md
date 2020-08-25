@@ -55,6 +55,7 @@ public:
             int dis_y = abs(points[i][1] - points[i - 1][1]);
             
             times += min(dis_x, dis_y) + abs(dis_x - dis_y);
+            // times += count+=max(abs(x),abs(y));
         }
         
         return times;
