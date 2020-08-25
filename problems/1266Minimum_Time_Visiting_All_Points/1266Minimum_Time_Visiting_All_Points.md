@@ -1,59 +1,49 @@
-## Merge Two Binary Trees
+## Minimum Time Visiting All Points
 
 ### Problem Link
 
-https://leetcode.com/problems/merge-two-binary-trees/
+https://leetcode.com/problems/minimum-time-visiting-all-points/
 
 ### Problem Description 
 
-Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
+On a plane there are n points with integer coordinates points[i] = [xi, yi]. Your task is to find the minimum time in seconds to visit all points.
 
-You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.
+You can move according to the next rules:
+
+* In one second always you can either move vertically, horizontally by one unit or diagonally (it means to move one unit vertically and one unit horizontally in one second).
+* You have to visit the points in the same order as they appear in the array.
 
 ```
 Example 1:
 
-Input: 
-	Tree 1                     Tree 2                  
-          1                         2                             
-         / \                       / \                            
-        3   2                     1   3                        
-       /                           \   \                      
-      5                             4   7                  
-Output: 
-Merged tree:
-	     3
-	    / \
-	   4   5
-	  / \   \ 
-	 5   4   7
+Input: points = [[1,1],[3,4],[-1,0]]
+Output: 7
+Explanation: One optimal path is [1,1] -> [2,2] -> [3,3] -> [3,4] -> [2,3] -> [1,2] -> [0,1] -> [-1,0]   
+Time from [1,1] to [3,4] = 3 seconds 
+Time from [3,4] to [-1,0] = 4 seconds
+Total time = 7 seconds
 
 ```
 
-**Note:** The merging process must start from the root nodes of both trees.
+```
+Example 2:
+
+Input: points = [[3,2],[-2,2]]
+Output: 5
+
+```
+
+**Constraints:**
+
+* points.length == n
+* 1 <= n <= 100
+* points[i].length == 2
+* -1000 <= points[i][0], points[i][1] <= 1000
 
 ### Code (python)
 
 [Approach 1] (80%) 
 
 ```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def mergeTrees(self, t1: TreeNode, t2: TreeNode) -> TreeNode:
-        
-        if not t1:
-            return t2
-        if not t2:
-            return t1
-        
-        root = TreeNode(t1.val + t2.val)
-        root.left = self.mergeTrees(t1.left, t2.left)
-        root.right = self.mergeTrees(t1.right, t2.right)
-        
-        return root
+
 ```
