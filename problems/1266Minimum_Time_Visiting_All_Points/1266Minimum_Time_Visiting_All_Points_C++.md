@@ -1,67 +1,63 @@
-## Merge Two Binary Trees
+## Minimum Time Visiting All Points
 
 ### Problem Link
 
-https://leetcode.com/problems/merge-two-binary-trees/
+https://leetcode.com/problems/minimum-time-visiting-all-points/
 
 ### Problem Description 
 
-Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
+On a plane there are n points with integer coordinates points[i] = [xi, yi]. Your task is to find the minimum time in seconds to visit all points.
 
-You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.
+You can move according to the next rules:
+
+* In one second always you can either move vertically, horizontally by one unit or diagonally (it means to move one unit vertically and one unit horizontally in one second).
+* You have to visit the points in the same order as they appear in the array.
 
 ```
 Example 1:
 
-Input: 
-	Tree 1                     Tree 2                  
-          1                         2                             
-         / \                       / \                            
-        3   2                     1   3                        
-       /                           \   \                      
-      5                             4   7                  
-Output: 
-Merged tree:
-	     3
-	    / \
-	   4   5
-	  / \   \ 
-	 5   4   7
+Input: points = [[1,1],[3,4],[-1,0]]
+Output: 7
+Explanation: One optimal path is [1,1] -> [2,2] -> [3,3] -> [3,4] -> [2,3] -> [1,2] -> [0,1] -> [-1,0]   
+Time from [1,1] to [3,4] = 3 seconds 
+Time from [3,4] to [-1,0] = 4 seconds
+Total time = 7 seconds
 
 ```
 
-**Note:** The merging process must start from the root nodes of both trees.
+```
+Example 2:
+
+Input: points = [[3,2],[-2,2]]
+Output: 5
+
+```
+
+**Constraints:**
+
+* points.length == n
+* 1 <= n <= 100
+* points[i].length == 2
+* -1000 <= points[i][0], points[i][1] <= 1000
 
 ### Code (python)
 
 [Approach 1] (80%) 
 
 ```c++
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
 class Solution {
 public:
-    TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
+    int minTimeToVisitAllPoints(vector<vector<int>>& points) {
         
-        if(t1 == nullptr) return t2;
-        if(t2 == nullptr) return t1;
+        int times = 0;
+        for(int i = 1; i < points.size(); i++){
+            int dis_x = abs(points[i][0] - points[i - 1][0]);
+            int dis_y = abs(points[i][1] - points[i - 1][1]);
+            
+            times += min(dis_x, dis_y) + abs(dis_x - dis_y);
+        }
         
-        t1->val += t2->val;
-        t1->left = mergeTrees(t1->left, t2->left);
-        t1->right = mergeTrees(t1->right, t2->right);
-        
-        return t1;
+        return times;
     }
 };
 ```
-
-https://leetcode.com/problems/merge-two-binary-trees/discuss/588123/~100.00-fast-in-run-time-and-memory-RecursiveIterativeBFSDFS
